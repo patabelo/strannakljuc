@@ -35,7 +35,6 @@ export function JsonLd() {
       email: SITE.email,
       telephone: SITE.phoneTel,
       jobTitle: "Izdelovalec spletnih strani",
-      knowsLanguage: ["sl", "de", "en"],
       address: {
         "@type": "PostalAddress",
         streetAddress: SITE.address.street,

@@ -11,7 +11,6 @@ export const SITE = {
     legalName: "Patrick Belcl s.p.",
     vatPayer: false,
     initials: "PB",
-    languages: ["slovenščina", "nemščina", "angleščina"],
   },
   address: {
     street: "Mota 51e",

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Languages, MapPin, User } from "lucide-react";
+import { MapPin, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/site";
@@ -24,16 +24,6 @@ export function About() {
           <p className="mt-1 text-sm text-muted-foreground">
             {SITE.person.legalName} · {SITE.name}
           </p>
-          <div className="mt-4 flex flex-wrap justify-center gap-2 lg:justify-start">
-            {SITE.person.languages.map((language) => (
-              <span
-                key={language}
-                className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium capitalize"
-              >
-                {language}
-              </span>
-            ))}
-          </div>
         </div>
 
         <div>
@@ -57,8 +47,7 @@ export function About() {
             </p>
             <p>
               Sem popoldanski s.p. iz Ljutomera. Ni klicnega centra in ni
-              posrednikov — pišete in kličete mene. Delam po celi Sloveniji,
-              pogovorimo se lahko v slovenščini, nemščini ali angleščini.
+              posrednikov — pišete in kličete mene. Delam po celi Sloveniji.
             </p>
           </div>
 
@@ -66,10 +55,6 @@ export function About() {
             <li className="flex items-center gap-2">
               <MapPin className="size-4 text-indigo-400" />
               Mota, 9240 Ljutomer · delo po vsej Sloveniji
-            </li>
-            <li className="flex items-center gap-2">
-              <Languages className="size-4 text-indigo-400" />
-              SL · DE · EN
             </li>
             <li className="flex items-center gap-2">
               <User className="size-4 text-indigo-400" />
