@@ -8,7 +8,8 @@ import { SectionHeading } from "@/components/site/services";
 const PLANS = [
   {
     name: "Osnovni",
-    price: "od 390 €",
+    price: "290 €",
+    originalPrice: "390 €",
     tagline: "Za samostojne podjetnike in mikro podjetja",
     features: [
       "1 landing stran (do 5 sekcij)",
@@ -21,7 +22,8 @@ const PLANS = [
   },
   {
     name: "Standard",
-    price: "od 690 €",
+    price: "490 €",
+    originalPrice: "690 €",
     tagline: "Najbolj priljubljena izbira za mala podjetja",
     features: [
       "Spletna stran do 5 podstrani",
@@ -35,7 +37,8 @@ const PLANS = [
   },
   {
     name: "Premium",
-    price: "od 1190 €",
+    price: "890 €",
+    originalPrice: "1190 €",
     tagline: "Za podjetja, ki želijo rasti dolgoročno",
     features: [
       "Spletna stran do 10 podstrani",
@@ -62,7 +65,15 @@ export function Pricing() {
           description="Vsak projekt je unikaten, zato so cene okvirne izhodišče za pogovor. Skupaj poiščemo paket, ki ustreza vašemu proračunu."
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="mx-auto mt-6 flex max-w-xl items-center justify-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 text-center text-sm text-indigo-300">
+          <span className="font-semibold">Uvodna cena</span>
+          <span className="hidden sm:inline">—</span>
+          <span className="hidden sm:inline">
+            znižano za prve stranke, dokler zbiram začetni portfelj
+          </span>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {PLANS.map((plan) => (
             <Card
               key={plan.name}
@@ -80,13 +91,18 @@ export function Pricing() {
               <CardHeader>
                 <h3 className="text-lg font-semibold">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground">{plan.tagline}</p>
-                <div className="mt-3 text-3xl font-semibold">{plan.price}</div>
+                <div className="mt-3 flex items-baseline gap-2">
+                  <span className="text-3xl font-semibold">{plan.price}</span>
+                  <span className="text-base text-muted-foreground line-through">
+                    {plan.originalPrice}
+                  </span>
+                </div>
               </CardHeader>
               <CardContent className="flex flex-1 flex-col">
                 <ul className="flex flex-1 flex-col gap-3">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2 text-sm">
-                      <Check className="mt-0.5 size-4 shrink-0 text-indigo-600" />
+                      <Check className="mt-0.5 size-4 shrink-0 text-indigo-400" />
                       <span>{feature}</span>
                     </li>
                   ))}

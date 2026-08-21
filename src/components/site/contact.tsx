@@ -31,20 +31,38 @@ export function Contact() {
                 info@strannakljuc.si
               </a>
               <a
-                href="tel:+38640123456"
+                href="tel:+38670914756"
                 className="flex items-center gap-3 text-white/90 transition-colors hover:text-white"
               >
                 <span className="flex size-9 items-center justify-center rounded-full bg-white/15">
                   <Phone className="size-4" />
                 </span>
-                +386 40 123 456
+                070 914 756
               </a>
-              <div className="flex items-center gap-3 text-white/90">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Mota+51e%2C+9240+Ljutomer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-white/90 transition-colors hover:text-white"
+              >
                 <span className="flex size-9 items-center justify-center rounded-full bg-white/15">
                   <MapPin className="size-4" />
                 </span>
-                Ljubljana, Slovenija · delo na daljavo po vsej Sloveniji
-              </div>
+                Mota 51e, 9240 Ljutomer · delo po vsej Sloveniji
+              </a>
+            </div>
+
+            <div className="mt-6 overflow-hidden rounded-2xl border border-white/15 shadow-lg">
+              <iframe
+                title="Zemljevid — Mota 51e, 9240 Ljutomer"
+                src="https://www.google.com/maps?q=Mota+51e,+9240+Ljutomer,+Slovenija&output=embed"
+                width="100%"
+                height="220"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block grayscale-[15%]"
+              />
             </div>
           </div>
 

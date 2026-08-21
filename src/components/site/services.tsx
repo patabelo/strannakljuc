@@ -108,7 +108,7 @@ export function SectionHeading({
           : "max-w-2xl text-left"
       }
     >
-      <span className="text-sm font-semibold uppercase tracking-wide text-indigo-600">
+      <span className="text-sm font-semibold uppercase tracking-wide text-indigo-400">
         {eyebrow}
       </span>
       <h2 className="mt-2 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">

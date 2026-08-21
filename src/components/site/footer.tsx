@@ -64,10 +64,11 @@ export function SiteFooter() {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+38640123456" className="hover:text-foreground">
-                    +386 40 123 456
+                  <a href="tel:+38670914756" className="hover:text-foreground">
+                    070 914 756
                   </a>
                 </li>
+                <li>Mota 51e, 9240 Ljutomer</li>
               </ul>
             </div>
           </div>

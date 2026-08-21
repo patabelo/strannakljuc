@@ -98,7 +98,7 @@ export function Hero() {
 function FeaturePill({ icon, text }: { icon: ReactNode; text: string }) {
   return (
     <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card/50 px-4 py-3 text-sm font-medium text-foreground">
-      <span className="text-indigo-600">{icon}</span>
+      <span className="text-indigo-400">{icon}</span>
       {text}
     </div>
   );
