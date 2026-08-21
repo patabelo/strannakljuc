@@ -44,6 +44,7 @@ export function Hero() {
           <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <Button
               size="lg"
+              nativeButton={false}
               className="h-12 gap-2 bg-gradient-to-r from-indigo-600 to-fuchsia-500 px-6 text-base text-white shadow-lg shadow-indigo-500/20 hover:opacity-90"
               render={<a href="#kontakt" />}
             >
@@ -53,6 +54,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
+              nativeButton={false}
               className="h-12 px-6 text-base"
               render={<a href="#referencie" />}
             >

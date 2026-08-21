@@ -49,9 +49,15 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button variant="ghost" size="sm" render={<a href="#kontakt">Kontakt</a>} />
+          <Button
+            variant="ghost"
+            size="sm"
+            nativeButton={false}
+            render={<a href="#kontakt">Kontakt</a>}
+          />
           <Button
             size="sm"
+            nativeButton={false}
             className="bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white hover:opacity-90"
             render={<a href="#kontakt">Naročite stran</a>}
           />
@@ -89,9 +95,11 @@ export function SiteHeader() {
             <div className="mt-2 flex flex-col gap-2 px-4">
               <Button
                 variant="outline"
+                nativeButton={false}
                 render={<a href="#kontakt" onClick={() => setOpen(false)}>Kontakt</a>}
               />
               <Button
+                nativeButton={false}
                 className="bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white hover:opacity-90"
                 render={
                   <a href="#kontakt" onClick={() => setOpen(false)}>

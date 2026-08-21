@@ -98,6 +98,7 @@ export function Pricing() {
                       : "mt-6 w-full"
                   }
                   variant={plan.highlighted ? "default" : "outline"}
+                  nativeButton={false}
                   render={<a href="#kontakt" />}
                 >
                   Izberi paket
