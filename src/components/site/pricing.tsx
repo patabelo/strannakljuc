@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Check, Info } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -145,7 +146,7 @@ export function Pricing() {
                   }
                   variant={plan.highlighted ? "default" : "outline"}
                   nativeButton={false}
-                  render={<a href="#kontakt" />}
+                  render={<Link href="/#kontakt" />}
                 >
                   Izberi paket
                 </Button>
@@ -197,7 +198,7 @@ export function Pricing() {
                     variant="outline"
                     className="mt-6 w-full"
                     nativeButton={false}
-                    render={<a href="#kontakt" />}
+                    render={<Link href="/#kontakt" />}
                   >
                     Izberi naročnino
                   </Button>

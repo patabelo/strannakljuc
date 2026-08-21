@@ -1,6 +1,7 @@
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { ContactForm } from "@/components/site/contact-form";
+import { ADDRESS_LINE, MAPS_EMBED_URL, MAPS_LINK_URL, SITE } from "@/lib/site";
 
 export function Contact() {
   return (
@@ -22,25 +23,25 @@ export function Contact() {
 
             <div className="mt-8 flex flex-col gap-3 text-sm">
               <a
-                href="mailto:patrick.belcl.web@gmail.com"
+                href={`mailto:${SITE.email}`}
                 className="flex items-center gap-3 text-white/90 transition-colors hover:text-white"
               >
                 <span className="flex size-9 items-center justify-center rounded-full bg-white/15">
                   <Mail className="size-4" />
                 </span>
-                patrick.belcl.web@gmail.com
+                {SITE.email}
               </a>
               <a
-                href="tel:+38670914756"
+                href={`tel:${SITE.phoneTel}`}
                 className="flex items-center gap-3 text-white/90 transition-colors hover:text-white"
               >
                 <span className="flex size-9 items-center justify-center rounded-full bg-white/15">
                   <Phone className="size-4" />
                 </span>
-                070 914 756
+                {SITE.phoneDisplay}
               </a>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Mota+51e%2C+9240+Ljutomer"
+                href={MAPS_LINK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-white/90 transition-colors hover:text-white"
@@ -48,14 +49,14 @@ export function Contact() {
                 <span className="flex size-9 items-center justify-center rounded-full bg-white/15">
                   <MapPin className="size-4" />
                 </span>
-                Mota 51e, 9240 Ljutomer · delo po vsej Sloveniji
+                {ADDRESS_LINE} · delo po vsej Sloveniji
               </a>
             </div>
 
             <div className="mt-6 overflow-hidden rounded-2xl border border-white/15 shadow-lg">
               <iframe
-                title="Zemljevid — Mota 51e, 9240 Ljutomer"
-                src="https://www.google.com/maps?q=Mota+51e,+9240+Ljutomer,+Slovenija&output=embed"
+                title={`Zemljevid — ${ADDRESS_LINE}`}
+                src={MAPS_EMBED_URL}
                 width="100%"
                 height="220"
                 style={{ border: 0 }}
@@ -66,55 +67,7 @@ export function Contact() {
             </div>
           </div>
 
-          <form className="flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-lg sm:p-8">
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="name" className="text-sm font-medium text-zinc-900">
-                Ime in priimek
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Janez Novak"
-                className="h-10 rounded-lg border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
-              />
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="email" className="text-sm font-medium text-zinc-900">
-                E-poštni naslov
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="janez@podjetje.si"
-                className="h-10 rounded-lg border border-zinc-200 bg-white px-3 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
-              />
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="message" className="text-sm font-medium text-zinc-900">
-                O vašem projektu
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                placeholder="Rad bi spletno stran za..."
-                className="resize-none rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
-              />
-            </div>
-            <Button
-              type="submit"
-              size="lg"
-              className="mt-1 gap-2 bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white hover:opacity-90"
-            >
-              Pošlji povpraševanje
-              <ArrowRight className="size-4" />
-            </Button>
-            <p className="text-center text-xs text-zinc-500">
-              Brez obveznosti — odgovorim v 24 urah.
-            </p>
-          </form>
+          <ContactForm />
         </div>
       </div>
     </section>

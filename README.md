@@ -1,28 +1,16 @@
-# Stran na ključ (strannakljuc.si) — Landing Page
+# Stran na ključ (strannakljuc.si)
 
-Predstavitvena (landing) spletna stran za samostojnega izdelovalca spletnih
-strani in landing strani. Zgrajena z [Next.js](https://nextjs.org),
-TypeScript, Tailwind CSS in [shadcn/ui](https://ui.shadcn.com).
+Predstavitvena spletna stran za izdelavo landing strani in spletnih strani.
+Zgrajena z [Next.js](https://nextjs.org), TypeScript, Tailwind CSS in
+[shadcn/ui](https://ui.shadcn.com).
 
-## Kaj vsebuje stran
+## Kaj vsebuje
 
-- **Hero sekcija** z jasno ponudbo, statistiko in klici k dejanju
-- **Storitve** — pregled ponudbe (landing strani, spletne strani, prenove, SEO, vzdrževanje)
-- **Kako deluje** — proces sodelovanja v 4 korakih
-- **Primeri dela** — vitrina primerov projektov
-- **Cenik** — trije paketi (Osnovni, Standard, Premium)
-- **Mnenja strank** — pričevanja
-- **Pogosta vprašanja** — raztegljiv seznam (accordion)
-- **Kontakt** — obrazec za povpraševanje in kontaktni podatki
-- Popolnoma odzivna zasnova (mobitel, tablica, namizje) z mobilnim meniem
-
-## Tehnologije
-
-- [Next.js 16](https://nextjs.org) (App Router, Turbopack)
-- [TypeScript](https://www.typescriptlang.org)
-- [Tailwind CSS v4](https://tailwindcss.com)
-- [shadcn/ui](https://ui.shadcn.com) (komponente na osnovi [Base UI](https://base-ui.com))
-- [lucide-react](https://lucide.dev) za ikone
+- Temna, mobilno prilagojena predstavitvena stran
+- Storitve, postopek, cenik (izdelava + mesečno/letno gostovanje)
+- Trije živi **primeri sloga**: kavarna, fizioterapija, frizerski salon
+- Kontakt z obrazcem, zemljevidom in politiko zasebnosti
+- SEO: metapodatki, Open Graph, `sitemap.xml`, `robots.txt`, JSON-LD
 
 ## Zagon lokalno
 
@@ -31,38 +19,22 @@ npm install
 npm run dev
 ```
 
-Stran bo na voljo na [http://localhost:4127](http://localhost:4127).
-
-Ostali ukazi:
+Stran teče na [http://localhost:4127](http://localhost:4127).
 
 ```bash
-npm run build   # produkcijski build
-npm run start   # zagon produkcijskega buila
-npm run lint    # ESLint preverjanje
+npm run build
+npm run start
+npm run lint
 ```
 
-## Struktura projekta
+## Struktura
 
 ```
-src/
-  app/
-    layout.tsx       # osnovni layout, metapodatki, pisave
-    page.tsx          # sestavlja vse sekcije strani
-    globals.css       # Tailwind + shadcn tokeni in tematika
-  components/
-    site/             # sekcije strani (Hero, Storitve, Cenik, ...)
-    ui/               # shadcn/ui gradniki (Button, Card, Sheet, ...)
-  lib/
-    utils.ts          # pomožne funkcije (npr. `cn`)
+src/app/(site)/          # glavna stran in politika zasebnosti (temna tema)
+src/app/primeri/         # živi primeri sloga
+src/components/site/     # sekcije glavne strani
+src/lib/site.ts          # ime, kontakt, naslov, FAQ, demos
 ```
 
-## Prilagajanje vsebine
-
-Vsa vsebina (besedila, cene, primeri projektov, pogosta vprašanja) je v
-komponentah znotraj `src/components/site/`. Vsako sekcijo lahko urejate
-neodvisno od drugih — vsaka je svoja datoteka s podatki na vrhu (npr.
-`SERVICES`, `PLANS`, `FAQS`), ki jih preprosto prilagodite svoji ponudbi.
-
-Barvna shema (indigo → fuksija gradient) je nastavljena preko Tailwind
-razredov neposredno v komponentah, osnovne barve vmesnika (ozadje,
-obroba, besedilo) pa preko CSS spremenljivk v `src/app/globals.css`.
+Kontakt, cene in primeri se urejajo v `src/lib/site.ts` ter
+`src/components/site/pricing.tsx`.

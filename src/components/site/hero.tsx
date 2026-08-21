@@ -1,12 +1,13 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { ArrowRight, Sparkles, Timer, Smartphone, Gauge } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
 const STATS = [
-  { value: "40+", label: "izdelanih strani" },
   { value: "5–7 dni", label: "do žive strani" },
-  { value: "98/100", label: "hitrost (Lighthouse)" },
+  { value: "Ljutomer", label: "delo po vsej Sloveniji" },
+  { value: "Uvodne cene", label: "za prve stranke" },
 ];
 
 export function Hero() {
@@ -46,7 +47,7 @@ export function Hero() {
               size="lg"
               nativeButton={false}
               className="h-12 gap-2 bg-gradient-to-r from-indigo-600 to-fuchsia-500 px-6 text-base text-white shadow-lg shadow-indigo-500/20 hover:opacity-90"
-              render={<a href="#kontakt" />}
+              render={<Link href="/#kontakt" />}
             >
               Naročite brezplačen posvet
               <ArrowRight className="size-4" />
@@ -56,7 +57,7 @@ export function Hero() {
               variant="outline"
               nativeButton={false}
               className="h-12 px-6 text-base"
-              render={<a href="#referencie" />}
+              render={<Link href="/#referencie" />}
             >
               Poglejte primere strani
             </Button>

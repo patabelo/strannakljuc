@@ -14,11 +14,11 @@ import {
 } from "@/components/ui/sheet";
 
 const NAV_LINKS = [
-  { href: "#storitve", label: "Storitve" },
-  { href: "#kako-deluje", label: "Kako deluje" },
-  { href: "#referencie", label: "Primeri" },
-  { href: "#cenik", label: "Cenik" },
-  { href: "#vprasanja", label: "Vprašanja" },
+  { href: "/#storitve", label: "Storitve" },
+  { href: "/#kako-deluje", label: "Kako deluje" },
+  { href: "/#referencie", label: "Primeri" },
+  { href: "/#cenik", label: "Cenik" },
+  { href: "/#vprasanja", label: "Vprašanja" },
 ];
 
 export function SiteHeader() {
@@ -27,7 +27,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="#" className="flex items-center gap-2 font-semibold tracking-tight">
+        <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
           <span className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-fuchsia-500 text-white shadow-sm">
             <Rocket className="size-4" />
           </span>
@@ -38,13 +38,13 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -53,13 +53,13 @@ export function SiteHeader() {
             variant="ghost"
             size="sm"
             nativeButton={false}
-            render={<a href="#kontakt">Kontakt</a>}
+            render={<Link href="/#kontakt">Kontakt</Link>}
           />
           <Button
             size="sm"
             nativeButton={false}
             className="bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white hover:opacity-90"
-            render={<a href="#kontakt">Naročite stran</a>}
+            render={<Link href="/#kontakt">Naročite stran</Link>}
           />
         </div>
 
@@ -82,29 +82,29 @@ export function SiteHeader() {
             </SheetHeader>
             <nav className="flex flex-col gap-1 px-4">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="rounded-md px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-muted"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
             <div className="mt-2 flex flex-col gap-2 px-4">
               <Button
                 variant="outline"
                 nativeButton={false}
-                render={<a href="#kontakt" onClick={() => setOpen(false)}>Kontakt</a>}
+                render={<Link href="/#kontakt" onClick={() => setOpen(false)}>Kontakt</Link>}
               />
               <Button
                 nativeButton={false}
                 className="bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white hover:opacity-90"
                 render={
-                  <a href="#kontakt" onClick={() => setOpen(false)}>
+                  <Link href="/#kontakt" onClick={() => setOpen(false)}>
                     Naročite stran
-                  </a>
+                  </Link>
                 }
               />
             </div>
