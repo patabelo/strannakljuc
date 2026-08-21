@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/site/site-header";
 import { Hero } from "@/components/site/hero";
 import { Services } from "@/components/site/services";
 import { Process } from "@/components/site/process";
+import { About } from "@/components/site/about";
 import { Portfolio } from "@/components/site/portfolio";
 import { Pricing } from "@/components/site/pricing";
 import { Audience } from "@/components/site/audience";
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <Services />
         <Process />
+        <About />
         <Portfolio />
         <Pricing />
         <Audience />

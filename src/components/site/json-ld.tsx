@@ -29,7 +29,21 @@ export function JsonLd() {
       opens: "08:00",
       closes: "17:00",
     },
-    sameAs: [] as string[],
+    founder: {
+      "@type": "Person",
+      name: SITE.person.name,
+      email: SITE.email,
+      telephone: SITE.phoneTel,
+      jobTitle: "Izdelovalec spletnih strani",
+      knowsLanguage: ["sl", "de", "en"],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: SITE.address.street,
+        addressLocality: SITE.address.city,
+        postalCode: SITE.address.postalCode,
+        addressCountry: SITE.address.country,
+      },
+    },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Izdelava spletnih strani",

@@ -6,6 +6,13 @@ export const SITE = {
   email: "patrick.belcl.web@gmail.com",
   phoneDisplay: "070 914 756",
   phoneTel: "+38670914756",
+  person: {
+    name: "Patrick Belcl",
+    legalName: "Patrick Belcl s.p.",
+    vatPayer: false,
+    initials: "PB",
+    languages: ["slovenščina", "nemščina", "angleščina"],
+  },
   address: {
     street: "Mota 51e",
     postalCode: "9240",

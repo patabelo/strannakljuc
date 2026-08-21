@@ -52,6 +52,11 @@ export function SiteFooter() {
             <div>
               <h4 className="text-sm font-semibold">Podjetje</h4>
               <ul className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
+                <li>
+                  <Link href="/#o-meni" className="hover:text-foreground">
+                    O meni
+                  </Link>
+                </li>
                 <li><Link href="/#vprasanja" className="hover:text-foreground">Vprašanja</Link></li>
                 <li><Link href="/#kontakt" className="hover:text-foreground">Kontakt</Link></li>
                 <li>
@@ -83,8 +88,11 @@ export function SiteFooter() {
         <Separator className="my-8" />
 
         <div className="flex flex-col gap-2 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {SITE.name} ({SITE.domain}). Vse pravice pridržane.</p>
-          <p>Izdelano v Ljutomeru, Slovenija.</p>
+          <p>
+            © {new Date().getFullYear()} {SITE.person.legalName} · {SITE.domain}.
+            Ni davčni zavezanec za DDV.
+          </p>
+          <p>Mota, Ljutomer · delo po vsej Sloveniji.</p>
         </div>
       </div>
     </footer>

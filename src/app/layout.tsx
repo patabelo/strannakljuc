@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     "izdelava spletnih strani Pomurje",
     "cena izdelave spletne strani",
     "stran na ključ",
-    "spletni razvijalec",
+    "Patrick Belcl",
   ],
-  authors: [{ name: SITE.name, url: SITE.url }],
-  creator: SITE.name,
+  authors: [{ name: SITE.person.name, url: SITE.url }],
+  creator: SITE.person.name,
   publisher: SITE.name,
   category: "business",
   alternates: {

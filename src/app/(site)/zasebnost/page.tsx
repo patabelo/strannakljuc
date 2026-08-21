@@ -30,9 +30,9 @@ export default function PrivacyPage() {
           <section className="space-y-3">
             <h2 className="text-lg font-semibold text-foreground">Upravljavec</h2>
             <p>
-              Upravljavec osebnih podatkov je {SITE.name}, {SITE.address.street},{" "}
-              {SITE.address.postalCode} {SITE.address.city}, {SITE.address.countryName}.
-              Kontakt:{" "}
+              Upravljavec osebnih podatkov je {SITE.person.legalName},{" "}
+              {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city},{" "}
+              {SITE.address.countryName}. Ni davčni zavezanec za DDV. Kontakt:{" "}
               <a className="text-foreground underline" href={`mailto:${SITE.email}`}>
                 {SITE.email}
               </a>
