@@ -59,8 +59,8 @@ export function SiteFooter() {
               <h4 className="text-sm font-semibold">Kontakt</h4>
               <ul className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="mailto:info@strannakljuc.si" className="hover:text-foreground">
-                    info@strannakljuc.si
+                  <a href="mailto:patrick.belcl.web@gmail.com" className="hover:text-foreground">
+                    patrick.belcl.web@gmail.com
                   </a>
                 </li>
                 <li>
