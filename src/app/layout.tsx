@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zagon Studio — Landing strani in spletne strani, ki prodajajo",
+  title: "Stran na ključ (strannakljuc.si) — Landing strani, ki prodajajo",
   description:
     "Izdelujem hitre, lepe in prodajno usmerjene landing strani ter spletne strani za mala podjetja in podjetnike. Od ideje do žive strani v nekaj dneh.",
   keywords: [
@@ -22,9 +22,10 @@ export const metadata: Metadata = {
     "spletna stran po meri",
     "landing stran",
     "spletni razvijalec Slovenija",
+    "stran na ključ",
   ],
   openGraph: {
-    title: "Zagon Studio — Landing strani in spletne strani, ki prodajajo",
+    title: "Stran na ključ (strannakljuc.si) — Landing strani, ki prodajajo",
     description:
       "Izdelujem hitre, lepe in prodajno usmerjene landing strani ter spletne strani za mala podjetja in podjetnike.",
     locale: "sl_SI",

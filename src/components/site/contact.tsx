@@ -22,13 +22,13 @@ export function Contact() {
 
             <div className="mt-8 flex flex-col gap-3 text-sm">
               <a
-                href="mailto:info@zagonstudio.si"
+                href="mailto:info@strannakljuc.si"
                 className="flex items-center gap-3 text-white/90 transition-colors hover:text-white"
               >
                 <span className="flex size-9 items-center justify-center rounded-full bg-white/15">
                   <Mail className="size-4" />
                 </span>
-                info@zagonstudio.si
+                info@strannakljuc.si
               </a>
               <a
                 href="tel:+38640123456"

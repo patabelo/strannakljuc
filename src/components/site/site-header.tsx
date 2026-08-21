@@ -32,7 +32,7 @@ export function SiteHeader() {
             <Rocket className="size-4" />
           </span>
           <span className="text-base">
-            Zagon<span className="text-muted-foreground">Studio</span>
+            Stran<span className="text-muted-foreground">Naključ</span>
           </span>
         </Link>
 
@@ -72,7 +72,7 @@ export function SiteHeader() {
           </SheetTrigger>
           <SheetContent side="right" className="w-[85%]">
             <SheetHeader>
-              <SheetTitle>ZagonStudio</SheetTitle>
+              <SheetTitle>Stran na ključ</SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col gap-1 px-4">
               {NAV_LINKS.map((link) => (

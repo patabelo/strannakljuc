@@ -1,4 +1,4 @@
-# ZagonStudio — Landing Page
+# Stran na ključ (strannakljuc.si) — Landing Page
 
 Predstavitvena (landing) spletna stran za samostojnega izdelovalca spletnih
 strani in landing strani. Zgrajena z [Next.js](https://nextjs.org),

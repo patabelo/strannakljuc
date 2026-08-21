@@ -15,12 +15,15 @@ export function SiteFooter() {
                 <Rocket className="size-4" />
               </span>
               <span>
-                Zagon<span className="text-muted-foreground">Studio</span>
+                Stran<span className="text-muted-foreground">Naključ</span>
               </span>
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">
               Izdelava landing strani in spletnih strani, ki pomagajo malim
               podjetjem in podjetnikom rasti na spletu.
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              strannakljuc.si
             </p>
             <div className="mt-4 flex gap-3 text-muted-foreground">
               <a href="#" aria-label="Instagram" className="transition-colors hover:text-foreground">
@@ -56,8 +59,8 @@ export function SiteFooter() {
               <h4 className="text-sm font-semibold">Kontakt</h4>
               <ul className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="mailto:info@zagonstudio.si" className="hover:text-foreground">
-                    info@zagonstudio.si
+                  <a href="mailto:info@strannakljuc.si" className="hover:text-foreground">
+                    info@strannakljuc.si
                   </a>
                 </li>
                 <li>
@@ -73,7 +76,7 @@ export function SiteFooter() {
         <Separator className="my-8" />
 
         <div className="flex flex-col gap-2 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} ZagonStudio. Vse pravice pridržane.</p>
+          <p>© {new Date().getFullYear()} Stran na ključ (strannakljuc.si). Vse pravice pridržane.</p>
           <p>Izdelano z ♥ v Sloveniji.</p>
         </div>
       </div>
