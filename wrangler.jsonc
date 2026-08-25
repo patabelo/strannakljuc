@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Must match the Worker name already registered in the Cloudflare
+  // dashboard ("strannakljuc"), or Workers Builds will fail to deploy.
+  "name": "strannakljuc",
+  "compatibility_date": "2026-08-25",
+  // Pure static site (Next.js `output: "export"`) — no Worker script needed.
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

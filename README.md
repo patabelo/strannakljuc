@@ -30,30 +30,39 @@ npm run lint
 ## Objava na strannakljuc.si
 
 Stran je 100 % statična (`output: "export"` v `next.config.ts`), zato jo je mogoče
-gostovati na katerikoli storitvi za statične strani (Cloudflare Pages, Vercel,
-Netlify, GitHub Pages ...). Ko poganjaš `npm run build`, dobiš v mapi `out/`
-vse HTML/CSS/JS datoteke, ki jih naložiš na gostovanje.
+gostovati na katerikoli storitvi za statične strani. Ko poganjaš `npm run build`,
+dobiš v mapi `out/` vse HTML/CSS/JS datoteke.
 
-Primer za **Cloudflare Pages**:
+Projekt je povezan s Cloudflare Workerjem **`strannakljuc`** preko
+[Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) (Git
+integracija) — vsak push na `main` samodejno sproži nov build in deploy.
+Konfiguracija je v `wrangler.jsonc`, ki poganja Worker s statičnimi datotekami
+iz `./out` (brez ločenega Worker skripta).
 
-```bash
-npm run build
-npx wrangler pages deploy out --project-name strannakljuc
-```
+Da Workers Builds deploy uspe, mora biti v Cloudflare nadzorni plošči pod
+**Worker `strannakljuc` → Settings → Builds → Build configuration** nastavljen:
 
-Nato v Cloudflare nadzorni plošči:
+| Nastavitev | Vrednost |
+| --- | --- |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` (privzeto) |
+
+Za vezavo domene:
 
 1. Dodaj domeno `strannakljuc.si` v svoj Cloudflare račun (Cloudflare postane
    avtoritativni DNS strežnik).
 2. Pri registrarju domene nastavi Cloudflare-jeve nameserverje, ki jih dobiš
    po dodajanju domene.
-3. V projektu Pages pod **Custom domains** dodaj `strannakljuc.si` (in po
-   želji `www.strannakljuc.si`) — Cloudflare samodejno uredi DNS zapise in
-   izda SSL certifikat.
+3. Pod Worker `strannakljuc` → **Settings → Domains & Routes** dodaj
+   `strannakljuc.si` (in po želji `www.strannakljuc.si`) kot custom domain —
+   Cloudflare samodejno uredi DNS zapise in izda SSL certifikat.
 
-Enak `out/` izvoz lahko naložiš tudi na Vercel/Netlify in tam v nastavitvah
-projekta dodaš domeno `strannakljuc.si` ter pri registrarju usmeriš DNS
-zapise (A/CNAME) v skladu z njihovimi navodili.
+Za lokalni preizkus deploya (potrebna prijava `npx wrangler login`):
+
+```bash
+npm run build
+npx wrangler deploy
+```
 
 ## Struktura
 
