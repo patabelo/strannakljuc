@@ -16,12 +16,19 @@ export const SITE = {
     street: "Mota 51e",
     postalCode: "9240",
     city: "Ljutomer",
+    region: "Pomurje",
     country: "SI",
     countryName: "Slovenija",
   },
+  // Village-level coordinates for Mota, Ljutomer — used in LocalBusiness
+  // structured data so the map/local pack can place the business.
+  geo: {
+    latitude: 46.5466,
+    longitude: 16.2301,
+  },
   mapsQuery: "Mota 51e, 9240 Ljutomer, Slovenija",
   description:
-    "Izdelava hitrih, lepih in prodajno usmerjenih landing strani ter spletnih strani za mala podjetja in podjetnike v Sloveniji. Od ideje do žive strani v nekaj dneh.",
+    "Izdelava hitrih, prodajno usmerjenih landing strani in spletnih strani za mala podjetja v Sloveniji. Od ideje do žive strani v enem tednu.",
 } as const;
 
 export const ADDRESS_LINE = `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}`;
@@ -64,27 +71,59 @@ export const FAQS = [
 
 export const DEMOS = [
   {
-    slug: "kavarna-urban",
-    name: "Kavarna Urban",
-    category: "Gostinstvo",
+    slug: "kovinarstvo-meznaric",
+    name: "Kovinarstvo Meznarič",
+    category: "Kovinska dela",
     description:
-      "Topla landing stran za lokalno kavarno z jutranjo ponudbo, urami in rezervacijo mize.",
-    gradient: "from-amber-400 via-orange-400 to-rose-400",
+      "Robustna stran za kovinarsko obrt — varjenje, ograje in kovinske konstrukcije po meri.",
+    gradient: "from-zinc-500 via-slate-600 to-orange-500",
   },
   {
-    slug: "fizioterapija-vitalis",
-    name: "Fizioterapija Vitalis",
-    category: "Zdravstvene storitve",
+    slug: "mizarstvo-horvat",
+    name: "Mizarstvo Horvat",
+    category: "Mizarska dela",
     description:
-      "Mirna, zaupanja vredna predstavitvena stran za ordinacijo z jasnimi storitvami in naročanjem.",
-    gradient: "from-emerald-400 via-teal-400 to-cyan-400",
+      "Topla, lesena estetika za mizarstvo — pohištvo in izdelki po meri za dom.",
+    gradient: "from-amber-700 via-amber-600 to-yellow-600",
   },
   {
-    slug: "studio-lucia",
-    name: "Studio Lucia",
+    slug: "frizerski-salon-nika",
+    name: "Frizerski salon Nika",
     category: "Lepotne storitve",
     description:
-      "Elegantna stran za frizerski salon s storitvami, ceniki in klicem k rezervaciji termina.",
-    gradient: "from-fuchsia-400 via-pink-400 to-rose-400",
+      "Eleganten frizerski salon z online rezervacijo termina in pregledinim cenikom storitev.",
+    gradient: "from-rose-400 via-pink-500 to-fuchsia-600",
+  },
+  {
+    slug: "fasaderstvo-kocbek",
+    name: "Fasaderstvo Kocbek",
+    category: "Fasaderska dela",
+    description:
+      "Čista, arhitekturna stran za fasaderstvo — od toplotne izolacije do zaključnih ometov.",
+    gradient: "from-stone-400 via-orange-400 to-amber-500",
+  },
+  {
+    slug: "suhomontaza-vogrinec",
+    name: "Suhomontaža Vogrinec",
+    category: "Suhomontažna dela",
+    description:
+      "Pregledna, tehnična stran za suhomontažna dela, predelne stene in spuščene stropove.",
+    gradient: "from-sky-400 via-blue-500 to-indigo-600",
+  },
+  {
+    slug: "gradbenistvo-krajnc",
+    name: "Gradbeništvo Krajnc",
+    category: "Gradbena dela",
+    description:
+      "Zanesljiva stran za gradbeno podjetje — od novogradenj do adaptacij in zemeljskih del.",
+    gradient: "from-yellow-400 via-amber-500 to-zinc-700",
+  },
+  {
+    slug: "avtolicarstvo-kovacic",
+    name: "Avtoličarstvo Kovačič",
+    category: "Avtoličarska dela",
+    description:
+      "Dinamična stran za avtoličarsko delavnico s sodelovanjem z zavarovalnicami.",
+    gradient: "from-red-600 via-rose-600 to-zinc-800",
   },
 ] as const;
