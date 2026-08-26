@@ -4,11 +4,21 @@
   // dashboard ("strannakljuc"), or Workers Builds will fail to deploy.
   "name": "strannakljuc",
   "compatibility_date": "2026-08-25",
-  // Pure static site (Next.js `output: "export"`) — no Worker script needed.
+  // Next.js is statically exported to ./out. worker/index.js serves those
+  // files via the ASSETS binding and additionally handles POST /api/contact
+  // (sends the contact form to patrick.belcl.web@gmail.com by e-mail).
+  "main": "worker/index.js",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
     "not_found_handling": "404-page"
   },
+  // Requires the strannakljuc.si domain to be onboarded to Cloudflare Email
+  // Sending (Dashboard: Compute & AI > Email Service > Email Sending, or
+  // `npx wrangler email sending enable strannakljuc.si`) before it can send.
+  "send_email": [
+    { "name": "EMAIL" }
+  ],
   "observability": {
     "enabled": true
   }
