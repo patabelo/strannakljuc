@@ -14,25 +14,25 @@ export function About() {
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <div
             aria-hidden
-            className="flex size-36 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-fuchsia-500 text-4xl font-semibold text-white shadow-lg sm:size-44"
+            className="flex size-36 rotate-[-3deg] items-center justify-center rounded-full border-2 border-ink bg-card font-display text-4xl font-medium text-primary italic shadow-[4px_4px_0_0_var(--ink)] sm:size-44"
           >
             {SITE.person.initials}
           </div>
-          <h2 className="mt-6 text-2xl font-semibold tracking-tight">
+          <h3 className="mt-6 font-display text-2xl font-medium tracking-tight">
             {SITE.person.name}
-          </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
+          </h3>
+          <p className="mt-1 font-mono text-sm text-muted-foreground">
             {SITE.person.legalName} · {SITE.name}
           </p>
         </div>
 
         <div>
-          <span className="text-sm font-semibold uppercase tracking-wide text-indigo-400">
-            O meni
+          <span className="font-mono text-xs font-semibold tracking-[0.16em] text-primary uppercase">
+            {"// O meni"}
           </span>
-          <h3 className="mt-2 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="mt-2 text-balance font-display text-3xl font-medium tracking-tight sm:text-4xl">
             Spletne strani izdelujem, ker me to veseli
-          </h3>
+          </h2>
           <div className="mt-5 space-y-4 text-muted-foreground sm:text-lg">
             <p>
               Sem Patrick. Strani sestavljam zato, ker mi je všeč spremeniti
@@ -53,17 +53,17 @@ export function About() {
 
           <ul className="mt-6 flex flex-col gap-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
-              <MapPin className="size-4 text-indigo-400" />
+              <MapPin className="size-4 text-primary" />
               Mota, 9240 Ljutomer · delo po vsej Sloveniji
             </li>
             <li className="flex items-center gap-2">
-              <User className="size-4 text-indigo-400" />
+              <User className="size-4 text-primary" />
               Popoldanski s.p. — odgovorim sam, običajno v istem dnevu
             </li>
           </ul>
 
           <Button
-            className="mt-8 bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white hover:opacity-90"
+            className="shine-hover mt-8 border-[1.5px] border-ink bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--ink)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_var(--ink)]"
             nativeButton={false}
             render={<Link href="/#kontakt" />}
           >

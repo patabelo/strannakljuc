@@ -21,8 +21,12 @@ export function Faq() {
 
         <Accordion className="mt-10">
           {FAQS.map((faq) => (
-            <AccordionItem key={faq.question} value={faq.question}>
-              <AccordionTrigger className="text-base">
+            <AccordionItem
+              key={faq.question}
+              value={faq.question}
+              className="border-b-[1.5px] border-ink/15"
+            >
+              <AccordionTrigger className="font-display text-lg font-medium hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">

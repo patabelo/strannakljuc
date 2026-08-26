@@ -45,14 +45,14 @@ export function Process() {
         <div className="relative mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div
             aria-hidden
-            className="absolute top-6 right-0 left-0 hidden h-px bg-border lg:block"
+            className="absolute top-6 right-0 left-0 hidden border-t-[1.5px] border-dashed border-ink/25 lg:block"
           />
           {STEPS.map((step) => (
             <div key={step.title} className="relative flex flex-col items-start">
-              <div className="relative z-10 mb-4 flex size-12 items-center justify-center rounded-full border border-border bg-background text-indigo-400 shadow-sm">
+              <div className="relative z-10 mb-4 flex size-12 items-center justify-center rounded-full border-[1.5px] border-ink bg-background text-primary shadow-[2px_2px_0_0_var(--ink)]">
                 {step.icon}
               </div>
-              <h3 className="text-base font-semibold">{step.title}</h3>
+              <h3 className="font-display text-base font-medium">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {step.description}
               </p>

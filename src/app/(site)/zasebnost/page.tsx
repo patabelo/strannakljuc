@@ -16,19 +16,19 @@ export default function PrivacyPage() {
     <>
       <SiteHeader />
       <main id="vsebina" className="mx-auto w-full max-w-3xl flex-1 px-4 py-16 sm:px-6">
-        <p className="text-sm font-semibold uppercase tracking-wide text-indigo-400">
-          Pravno
+        <p className="font-mono text-xs font-semibold tracking-[0.16em] text-primary uppercase">
+          {"// Pravno"}
         </p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h1 className="mt-2 font-display text-3xl font-medium tracking-tight sm:text-4xl">
           Politika zasebnosti
         </h1>
-        <p className="mt-3 text-sm text-muted-foreground">
+        <p className="mt-3 font-mono text-sm text-muted-foreground">
           Zadnja posodobitev: 21. avgust 2026
         </p>
 
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground">
           <section className="space-y-3">
-            <h2 className="text-lg font-semibold text-foreground">Upravljavec</h2>
+            <h2 className="font-display text-lg font-medium text-foreground">Upravljavec</h2>
             <p>
               Upravljavec osebnih podatkov je {SITE.person.legalName},{" "}
               {SITE.address.street}, {SITE.address.postalCode} {SITE.address.city},{" "}
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-semibold text-foreground">
+            <h2 className="font-display text-lg font-medium text-foreground">
               Katere podatke zbiram
             </h2>
             <p>
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-semibold text-foreground">
+            <h2 className="font-display text-lg font-medium text-foreground">
               Namen in pravna podlaga
             </h2>
             <p>
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-semibold text-foreground">Hramba</h2>
+            <h2 className="font-display text-lg font-medium text-foreground">Hramba</h2>
             <p>
               Sporočila hranim toliko časa, kolikor je potrebno za komunikacijo o
               projektu, nato pa jih zbrišem, razen če zakon zahteva daljšo hrambo
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-semibold text-foreground">
+            <h2 className="font-display text-lg font-medium text-foreground">
               Vaše pravice
             </h2>
             <p>
@@ -84,7 +84,7 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-semibold text-foreground">Piškotki</h2>
+            <h2 className="font-display text-lg font-medium text-foreground">Piškotki</h2>
             <p>
               Ta spletna stran ne uporablja oglaševalskih ali analitičnih
               piškotkov. Google Maps v kontaktni sekciji lahko nastavi lastne
@@ -94,7 +94,7 @@ export default function PrivacyPage() {
         </div>
 
         <p className="mt-12 text-sm">
-          <Link href="/" className="text-indigo-400 hover:underline">
+          <Link href="/" className="text-primary hover:underline">
             ← Nazaj na domačo stran
           </Link>
         </p>

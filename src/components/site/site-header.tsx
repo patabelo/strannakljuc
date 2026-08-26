@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, Rocket } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { LogoMark } from "@/components/site/logo-mark";
 import {
   Sheet,
   SheetContent,
@@ -26,30 +27,28 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-fuchsia-500 text-white shadow-sm">
-            <Rocket className="size-4" />
-          </span>
-          <span className="text-base">
-            Stran<span className="text-muted-foreground">Naključ</span>
+        <Link href="/" className="group flex items-center gap-2.5">
+          <LogoMark className="size-9 shrink-0 -rotate-3 transition-transform group-hover:rotate-0" />
+          <span className="font-display text-lg font-medium tracking-tight italic">
+            Stran na ključ
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="rounded-sm px-2.5 py-2 font-mono text-[0.78rem] font-medium tracking-tight text-muted-foreground transition-colors hover:bg-accent hover:text-foreground xl:px-3"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <Button
             variant="ghost"
             size="sm"
@@ -59,7 +58,7 @@ export function SiteHeader() {
           <Button
             size="sm"
             nativeButton={false}
-            className="bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white hover:opacity-90"
+            className="shine-hover border-[1.5px] border-ink bg-primary text-primary-foreground shadow-[2px_2px_0_0_var(--ink)] transition-transform hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0_0_var(--ink)]"
             render={<Link href="/#kontakt">Naročite stran</Link>}
           />
         </div>
@@ -70,7 +69,7 @@ export function SiteHeader() {
               <Button
                 variant="outline"
                 size="icon"
-                className="md:hidden"
+                className="lg:hidden"
                 aria-label="Odpri meni"
               />
             }
@@ -79,7 +78,9 @@ export function SiteHeader() {
           </SheetTrigger>
           <SheetContent side="right" className="w-[85%]">
             <SheetHeader>
-              <SheetTitle>Stran na ključ</SheetTitle>
+              <SheetTitle className="font-display italic">
+                Stran na ključ
+              </SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col gap-1 px-4">
               {NAV_LINKS.map((link) => (
@@ -87,7 +88,7 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-md px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-muted"
+                  className="rounded-sm px-3 py-2.5 font-mono text-base font-medium text-foreground transition-colors hover:bg-accent"
                 >
                   {link.label}
                 </Link>
@@ -101,7 +102,7 @@ export function SiteHeader() {
               />
               <Button
                 nativeButton={false}
-                className="bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white hover:opacity-90"
+                className="border-[1.5px] border-ink bg-primary text-primary-foreground"
                 render={
                   <Link href="/#kontakt" onClick={() => setOpen(false)}>
                     Naročite stran

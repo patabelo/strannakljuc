@@ -1,18 +1,35 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Fraunces, IBM_Plex_Mono, Public_Sans } from "next/font/google";
 import "./globals.css";
 
 import { JsonLd } from "@/components/site/json-ld";
 import { SITE } from "@/lib/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Display serif with a lot of character (wonky, warm, editorial) for
+// headings and the wordmark — a deliberate alternative to the usual
+// geometric-grotesk look of most "AI-generated" sites.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin", "latin-ext"],
+  style: ["normal", "italic"],
+  weight: "variable",
+  axes: ["opsz", "WONK", "SOFT"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Humanist sans for body copy and UI — clean and highly legible without
+// defaulting to Inter/Roboto/Arial.
+const publicSans = Public_Sans({
+  variable: "--font-public-sans",
   subsets: ["latin", "latin-ext"],
+  weight: "variable",
+});
+
+// Monospace for labels, eyebrows and prices — gives the "printed ticket /
+// stationery" detailing used throughout the site.
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -73,13 +90,18 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0a0e16",
+  colorScheme: "dark",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="sl"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${publicSans.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="paper-grain min-h-full flex flex-col bg-background text-foreground">
         <a
           href="#vsebina"
           className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-100 focus:rounded-md focus:bg-background focus:px-3 focus:py-2 focus:text-foreground"

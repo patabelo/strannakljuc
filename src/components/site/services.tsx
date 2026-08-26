@@ -12,7 +12,6 @@ import {
   Card,
   CardContent,
   CardHeader,
-  CardTitle,
   CardDescription,
 } from "@/components/ui/card";
 
@@ -70,12 +69,17 @@ export function Services() {
 
       <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {SERVICES.map((service) => (
-          <Card key={service.title} className="transition-shadow hover:shadow-md">
+          <Card
+            key={service.title}
+            className="border-[1.5px] border-ink/15 shadow-none ring-0 transition-transform hover:-translate-y-0.5 hover:border-ink/30"
+          >
             <CardHeader>
-              <div className="mb-2 flex size-10 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-fuchsia-500 text-white">
+              <div className="mb-2 flex size-10 items-center justify-center rounded-full border-[1.5px] border-ink bg-accent text-primary">
                 {service.icon}
               </div>
-              <CardTitle className="text-lg">{service.title}</CardTitle>
+              <h3 className="font-display text-lg leading-snug font-medium">
+                {service.title}
+              </h3>
             </CardHeader>
             <CardContent>
               <CardDescription className="text-[0.925rem] leading-relaxed">
@@ -108,10 +112,10 @@ export function SectionHeading({
           : "max-w-2xl text-left"
       }
     >
-      <span className="text-sm font-semibold uppercase tracking-wide text-indigo-400">
-        {eyebrow}
+      <span className="font-mono text-xs font-semibold tracking-[0.16em] text-primary uppercase">
+        {`// ${eyebrow}`}
       </span>
-      <h2 className="mt-2 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+      <h2 className="mt-2 text-balance font-display text-3xl font-medium tracking-tight sm:text-4xl">
         {title}
       </h2>
       {description ? (

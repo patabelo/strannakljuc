@@ -96,10 +96,10 @@ export function Pricing() {
           description="Vsak projekt je unikaten, zato so cene okvirne izhodišče za pogovor. Skupaj poiščemo paket, ki ustreza vašemu proračunu."
         />
 
-        <div className="mx-auto mt-6 flex max-w-xl items-center justify-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 text-center text-sm text-indigo-300">
+        <div className="mx-auto mt-6 flex max-w-xl -rotate-1 items-center justify-center gap-2 rounded-sm border-[1.5px] border-dashed border-primary/60 bg-accent px-4 py-2 text-center font-mono text-sm text-primary">
           <span className="font-semibold">Uvodna cena</span>
           <span className="hidden sm:inline">—</span>
-          <span className="hidden sm:inline">
+          <span className="hidden text-foreground/70 sm:inline">
             znižano za prve stranke, dokler zbiram začetni portfelj
           </span>
         </div>
@@ -110,19 +110,19 @@ export function Pricing() {
               key={plan.name}
               className={
                 plan.highlighted
-                  ? "relative border-indigo-500/50 ring-2 ring-indigo-500/60 shadow-lg"
-                  : "relative"
+                  ? "relative overflow-visible border-2 border-ink shadow-[5px_5px_0_0_var(--ink)]"
+                  : "relative border-[1.5px] border-ink/20 shadow-none"
               }
             >
               {plan.highlighted ? (
-                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white">
+                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg] border-[1.5px] border-ink bg-primary font-mono text-[0.65rem] tracking-wide text-primary-foreground uppercase">
                   Priporočeno
                 </Badge>
               ) : null}
               <CardHeader>
-                <h3 className="text-lg font-semibold">{plan.name}</h3>
+                <h3 className="font-display text-lg font-medium">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground">{plan.tagline}</p>
-                <div className="mt-3 flex items-baseline gap-2">
+                <div className="mt-3 flex items-baseline gap-2 font-mono">
                   <span className="text-3xl font-semibold">{plan.price}</span>
                   <span className="text-base text-muted-foreground line-through">
                     {plan.originalPrice}
@@ -133,7 +133,7 @@ export function Pricing() {
                 <ul className="flex flex-1 flex-col gap-3">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2 text-sm">
-                      <Check className="mt-0.5 size-4 shrink-0 text-indigo-400" />
+                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -141,8 +141,8 @@ export function Pricing() {
                 <Button
                   className={
                     plan.highlighted
-                      ? "mt-6 w-full bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white hover:opacity-90"
-                      : "mt-6 w-full"
+                      ? "shine-hover mt-6 w-full border-[1.5px] border-ink bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--ink)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_var(--ink)]"
+                      : "mt-6 w-full border-[1.5px] border-ink/50"
                   }
                   variant={plan.highlighted ? "default" : "outline"}
                   nativeButton={false}
@@ -157,7 +157,7 @@ export function Pricing() {
 
         <div className="mx-auto mt-20 max-w-4xl">
           <div className="text-center">
-            <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h3 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
               Redno vzdrževanje in gostovanje
             </h3>
             <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
@@ -169,16 +169,23 @@ export function Pricing() {
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {MAINTENANCE_PLANS.map((plan) => (
-              <Card key={plan.name} className="relative">
+              <Card
+                key={plan.name}
+                className={
+                  plan.badge
+                    ? "relative overflow-visible border-[1.5px] border-ink/20 shadow-none"
+                    : "relative border-[1.5px] border-ink/20 shadow-none"
+                }
+              >
                 {plan.badge ? (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white">
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg] border-[1.5px] border-ink bg-secondary font-mono text-[0.65rem] tracking-wide text-secondary-foreground uppercase">
                     {plan.badge}
                   </Badge>
                 ) : null}
                 <CardHeader>
-                  <h4 className="text-lg font-semibold">{plan.name}</h4>
+                  <h4 className="font-display text-lg font-medium">{plan.name}</h4>
                   <p className="text-sm text-muted-foreground">{plan.tagline}</p>
-                  <div className="mt-3 flex items-baseline gap-1.5">
+                  <div className="mt-3 flex items-baseline gap-1.5 font-mono">
                     <span className="text-3xl font-semibold">{plan.price}</span>
                     <span className="text-sm text-muted-foreground">
                       {plan.period}
@@ -189,14 +196,14 @@ export function Pricing() {
                   <ul className="flex flex-1 flex-col gap-3">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-2 text-sm">
-                        <Check className="mt-0.5 size-4 shrink-0 text-indigo-400" />
+                        <Check className="mt-0.5 size-4 shrink-0 text-primary" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Button
                     variant="outline"
-                    className="mt-6 w-full"
+                    className="mt-6 w-full border-[1.5px] border-ink/50"
                     nativeButton={false}
                     render={<Link href="/#kontakt" />}
                   >
@@ -207,8 +214,8 @@ export function Pricing() {
             ))}
           </div>
 
-          <div className="mt-6 flex items-start gap-3 rounded-xl border border-border bg-card/50 p-4 text-sm text-muted-foreground">
-            <Info className="mt-0.5 size-4 shrink-0 text-indigo-400" />
+          <div className="mt-6 flex items-start gap-3 rounded-sm border-[1.5px] border-dashed border-ink/25 bg-card/50 p-4 text-sm text-muted-foreground">
+            <Info className="mt-0.5 size-4 shrink-0 text-primary" />
             <p>
               Naročnina ni obvezna — stran lahko po zagonu gostujete tudi
               sami. Priporočam pa jo, saj vključuje obnovo domene, gostovanje,
