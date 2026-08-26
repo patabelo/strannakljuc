@@ -2,7 +2,7 @@ export const SITE = {
   name: "Stran na ključ",
   shortName: "StranNaključ",
   domain: "strannakljuc.si",
-  url: "https://strannakljuc.si",
+  url: "https://www.strannakljuc.si",
   email: "patrick.belcl.web@gmail.com",
   phoneDisplay: "070 914 756",
   phoneTel: "+38670914756",

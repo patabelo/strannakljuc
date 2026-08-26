@@ -5,36 +5,37 @@ import { DEMOS, SITE } from "@/lib/site";
 export const dynamic = "force-static";
 
 /**
- * Generira `/sitemap.xml` ob buildu (Next.js Metadata Route).
- * Vključuje domačo stran, pravno, seznam primerov in vsak primer posebej.
+ * Generira `/sitemap.xml` ob buildu.
+ * URL-ji uporabljajo kanonično domeno https://www.strannakljuc.si
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
+  const base = SITE.url; // https://www.strannakljuc.si
 
   return [
     {
-      url: SITE.url,
+      url: `${base}/`,
       lastModified,
       changeFrequency: "weekly",
-      priority: 1,
+      priority: 1.0,
     },
     {
-      url: `${SITE.url}/primeri`,
+      url: `${base}/primeri`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     ...DEMOS.map((demo) => ({
-      url: `${SITE.url}/primeri/${demo.slug}`,
+      url: `${base}/primeri/${demo.slug}`,
       lastModified,
       changeFrequency: "monthly" as const,
-      priority: 0.7,
+      priority: 0.8,
     })),
     {
-      url: `${SITE.url}/zasebnost`,
+      url: `${base}/zasebnost`,
       lastModified,
       changeFrequency: "yearly",
-      priority: 0.2,
+      priority: 0.5,
     },
   ];
 }
