@@ -2,18 +2,40 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/site";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sent" | "error";
+
+function buildSubjectAndBody(name: string, email: string, message: string) {
+  const subject = `Povpraševanje s ${SITE.domain} — ${name}`;
+  const body = `Ime: ${name}\nE-pošta: ${email}\n\n${message}`;
+  return { subject, body };
+}
+
+function buildMailtoUrl(subject: string, body: string) {
+  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function buildGmailComposeUrl(subject: string, body: string) {
+  const params = new URLSearchParams({
+    view: "cm",
+    fs: "1",
+    to: SITE.email,
+    su: subject,
+    body,
+  });
+  return `https://mail.google.com/mail/?${params.toString()}`;
+}
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [links, setLinks] = useState<{ mailto: string; gmail: string } | null>(null);
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -28,43 +50,53 @@ export function ContactForm() {
       return;
     }
 
-    setStatus("sending");
-    setErrorMessage(null);
+    const { subject, body } = buildSubjectAndBody(name, email, message);
+    const mailto = buildMailtoUrl(subject, body);
+    const gmail = buildGmailComposeUrl(subject, body);
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
-      });
+    setLinks({ mailto, gmail });
+    setStatus("sent");
+    form.reset();
 
-      if (!response.ok) {
-        const payload = await response.json().catch(() => null);
-        throw new Error(payload?.error ?? "request-failed");
-      }
-
-      setStatus("sent");
-      form.reset();
-    } catch (error) {
-      setStatus("error");
-      setErrorMessage(
-        error instanceof Error && error.message !== "request-failed"
-          ? error.message
-          : `Sporočila ni bilo mogoče poslati. Prosimo, pišite neposredno na ${SITE.email}.`
-      );
-    }
+    // Try the visitor's own configured mail app first. If they don't have
+    // one set up, the "sent" screen below offers a direct Gmail link as a
+    // fallback — no backend or paid e-mail service required.
+    window.location.href = mailto;
   }
 
-  if (status === "sent") {
+  if (status === "sent" && links) {
     return (
       <div className="flex flex-col items-center gap-3 rounded-sm border-2 border-spotlight-foreground/80 bg-spotlight p-8 text-center text-spotlight-foreground shadow-[6px_6px_0_0_var(--primary)] sm:p-10">
         <CheckCircle2 className="size-10 text-primary" />
         <h3 className="font-display text-lg font-medium">
-          Sporočilo je bilo poslano
+          Odpiram vaš e-poštni program …
         </h3>
         <p className="text-sm text-spotlight-foreground/75">
-          Hvala za povpraševanje — odgovorim v 24 urah. Če je nujno, mi lahko
-          medtem pišete tudi na{" "}
+          Sporočilo je pripravljeno — samo še pošljite iz svoje e-pošte. Če se
+          nič ni odprlo, uporabite eno od spodnjih možnosti.
+        </p>
+        <div className="mt-2 flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+          <Button
+            type="button"
+            className="gap-2 border-[1.5px] border-spotlight-foreground bg-primary text-primary-foreground"
+            render={
+              <a href={links.gmail} target="_blank" rel="noopener noreferrer" />
+            }
+          >
+            <Mail className="size-4" />
+            Odpri v Gmailu
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            className="border-[1.5px] border-spotlight-foreground/50 text-spotlight-foreground hover:bg-spotlight-foreground/10"
+            render={<a href={links.mailto} />}
+          >
+            Odpri v drugem programu
+          </Button>
+        </div>
+        <p className="mt-1 text-sm text-spotlight-foreground/75">
+          Ali pišite kar neposredno na{" "}
           <a className="font-medium underline" href={`mailto:${SITE.email}`}>
             {SITE.email}
           </a>
@@ -150,10 +182,9 @@ export function ContactForm() {
       <Button
         type="submit"
         size="lg"
-        disabled={status === "sending"}
-        className="shine-hover mt-1 gap-2 border-[1.5px] border-spotlight-foreground bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--spotlight-foreground)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_var(--spotlight-foreground)] disabled:opacity-70"
+        className="shine-hover mt-1 gap-2 border-[1.5px] border-spotlight-foreground bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--spotlight-foreground)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_var(--spotlight-foreground)]"
       >
-        {status === "sending" ? "Pošiljam …" : "Pošlji povpraševanje"}
+        Pošlji povpraševanje
         <ArrowRight className="size-4" />
       </Button>
       <p className="text-center font-mono text-xs text-spotlight-foreground/60">
