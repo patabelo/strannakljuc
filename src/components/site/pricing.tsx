@@ -13,9 +13,9 @@ const PLANS = [
     originalPrice: "390 €",
     tagline: "Za samostojne podjetnike in mikro podjetja",
     features: [
-      "1 landing stran (do 5 sekcij)",
+      "1 prodajna spletna stran (do 5 vsebinskih razdelkov)",
       "Prilagojeno mobilnim napravam",
-      "Osnovna SEO nastavitev",
+      "Osnovna optimizacija za Google iskalnik",
       "Obrazec za kontakt",
       "Dostava v 5–7 dneh",
     ],
@@ -29,10 +29,10 @@ const PLANS = [
     features: [
       "Spletna stran do 5 podstrani",
       "Prilagojeno mobilnim napravam",
-      "Napredna SEO nastavitev",
-      "Povezava z Google Analytics",
-      "Osnovna animacija in interakcije",
-      "30 dni podpore po zagonu",
+      "Boljša vidnost na Googlu",
+      "Pregled, koliko ljudi pride na stran",
+      "Osnovno gibanje in odzivi na strani",
+      "30 dni podpore po objavi",
     ],
     highlighted: true,
   },
@@ -43,10 +43,10 @@ const PLANS = [
     tagline: "Za podjetja, ki želijo rasti dolgoročno",
     features: [
       "Spletna stran do 10 podstrani",
-      "Individualen design po meri",
-      "Napredna SEO in hitrostna optimizacija",
-      "Blog ali novice",
-      "Večjezičnost (SLO/EN)",
+      "Videz po meri vaše dejavnosti",
+      "Vidnost na Googlu in hitrejše nalaganje",
+      "Novice ali spletni dnevnik",
+      "Več jezikov (SLO/EN)",
       "90 dni podpore in vzdrževanja",
     ],
     highlighted: false,
@@ -62,7 +62,7 @@ const MAINTENANCE_PLANS = [
     features: [
       "Gostovanje strani in .si domena",
       "SSL certifikat (varna povezava https)",
-      "Redne varnostne kopije (backup)",
+      "Redne varnostne kopije",
       "Do 2 manjši popravki na mesec (besedilo, slike)",
       "Podpora po e-pošti",
     ],
@@ -100,7 +100,7 @@ export function Pricing() {
           <span className="font-semibold">Uvodna cena</span>
           <span className="hidden sm:inline">—</span>
           <span className="hidden text-foreground/70 sm:inline">
-            znižano za prve stranke, dokler zbiram začetni portfelj
+            znižano za prve stranke, dokler zbiram začetne primere del
           </span>
         </div>
 
@@ -161,9 +161,9 @@ export function Pricing() {
               Redno vzdrževanje in gostovanje
             </h3>
             <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-              Cene zgoraj so za izdelavo strani. Ko je stran živa, jo je treba
-              gostovati, obnavljati domeno in skrbeti za varnost — to urejam
-              za vas z mesečno ali letno naročnino.
+              Cene zgoraj so za izdelavo strani. Ko je stran objavljena na
+              spletu, jo je treba gostovati, obnavljati domeno in skrbeti za
+              varnost — to urejam za vas z mesečno ali letno naročnino.
             </p>
           </div>
 
@@ -217,7 +217,7 @@ export function Pricing() {
           <div className="mt-6 flex items-start gap-3 rounded-sm border-[1.5px] border-dashed border-ink/25 bg-card/50 p-4 text-sm text-muted-foreground">
             <Info className="mt-0.5 size-4 shrink-0 text-primary" />
             <p>
-              Naročnina ni obvezna — stran lahko po zagonu gostujete tudi
+              Naročnina ni obvezna — stran lahko po objavi gostujete tudi
               sami. Priporočam pa jo, saj vključuje obnovo domene, gostovanje,
               varnostne kopije in manjše sprotne popravke, brez skrbi, da bi
               kaj potekel ali nehalo delovati.

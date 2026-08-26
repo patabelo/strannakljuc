@@ -10,7 +10,7 @@ export function Portfolio() {
     <section id="referencie" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeading
         eyebrow="Primeri spletnih strani"
-        title="Oglejte si, kako izgleda živa stran"
+        title="Oglejte si, kako izgleda delujoča spletna stran"
         description="To so izmišljeni primeri, ki sem jih izdelal sam, da pokažem kakovost izdelave, mobilno prilagoditev in različne sloge — resničnih strank (še) nimam, zato gre za zglede sloga, ne pretekle projekte. Vaša stran bo seveda po meri vaše dejavnosti."
       />
 

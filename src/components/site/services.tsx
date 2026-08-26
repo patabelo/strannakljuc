@@ -22,7 +22,7 @@ const SERVICES: {
 }[] = [
   {
     icon: <LayoutTemplate className="size-5" />,
-    title: "Landing strani",
+    title: "Prodajne spletne strani",
     description:
       "Ena osredotočena stran za vaš izdelek, storitev ali dogodek — zasnovana tako, da obiskovalce pripelje do povpraševanja ali nakupa.",
   },
@@ -30,7 +30,7 @@ const SERVICES: {
     icon: <Building2 className="size-5" />,
     title: "Spletne strani za podjetja",
     description:
-      "Predstavitvena spletna stran z več podstranmi: O nas, Storitve, Referenc, Kontakt — urejena, hitra in enostavna za posodabljanje.",
+      "Predstavitvena spletna stran z več podstranmi: O nas, Storitve, Reference, Kontakt — urejena, hitra in enostavna za posodabljanje.",
   },
   {
     icon: <RefreshCw className="size-5" />,
@@ -42,19 +42,19 @@ const SERVICES: {
     icon: <Rocket className="size-5" />,
     title: "Strani za pred-naročila in dogodke",
     description:
-      "Kratke, udarne strani za lansiranje novega izdelka, akcijo ali dogodek — z odštevalnikom, obrazcem in jasnim CTA.",
+      "Kratke, udarne strani za predstavitev novega izdelka, akcijo ali dogodek — z odštevalnikom, obrazcem in jasnim gumbom za kontakt.",
   },
   {
     icon: <Search className="size-5" />,
-    title: "Osnovna SEO optimizacija",
+    title: "Vidnost na Googlu",
     description:
-      "Poskrbim za naslove, meta opise, hitrost nalaganja in strukturo, da vas lažje najdejo na Googlu.",
+      "Poskrbim za naslove, opise strani, hitrost nalaganja in strukturo, da vas lažje najdejo na Googlu.",
   },
   {
     icon: <Wrench className="size-5" />,
     title: "Vzdrževanje in dopolnitve",
     description:
-      "Po zagonu strani pomagam z manjšimi spremembami, novo vsebino ali dodatnimi funkcijami, ko jih potrebujete.",
+      "Po objavi strani pomagam z manjšimi spremembami, novo vsebino ali dodatnimi funkcijami, ko jih potrebujete.",
   },
 ];
 
@@ -64,7 +64,7 @@ export function Services() {
       <SectionHeading
         eyebrow="Storitve"
         title="Vse, kar potrebujete za nastop na spletu"
-        description="Od prve ideje do žive strani — vodim vas skozi celoten postopek, brez tehničnega žargona."
+        description="Od prve ideje do objavljene strani na spletu — vodim vas skozi celoten postopek, brez tehničnega žargona."
       />
 
       <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

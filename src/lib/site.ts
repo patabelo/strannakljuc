@@ -28,7 +28,7 @@ export const SITE = {
   },
   mapsQuery: "Mota 51e, 9240 Ljutomer, Slovenija",
   description:
-    "Izdelava hitrih, prodajno usmerjenih landing strani in spletnih strani za mala podjetja v Sloveniji. Od ideje do žive strani v enem tednu.",
+    "Izdelava hitrih, prodajno usmerjenih enostranskih in spletnih strani za mala podjetja v Sloveniji. Od ideje do objavljene strani na spletu v enem tednu.",
 } as const;
 
 export const ADDRESS_LINE = `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}`;
@@ -40,22 +40,22 @@ export const FAQS = [
   {
     question: "Koliko časa traja izdelava spletne strani?",
     answer:
-      "Enostavna landing stran je običajno pripravljena v 5–7 delovnih dneh po tem, ko potrdimo vsebino in design. Večje spletne strani z več podstranmi lahko trajajo od dva do tri tedne.",
+      "Enostavna prodajna spletna stran je običajno pripravljena v 5–7 delovnih dneh po tem, ko potrdimo vsebino in vizualni osnutek. Večje spletne strani z več podstranmi lahko trajajo od dva do tri tedne.",
   },
   {
     question: "Ali imam potem možnost sam urejati vsebino?",
     answer:
-      "Da. Glede na paket lahko stran opremim z enostavnim urejevalnikom vsebine, ali pa vam po zagonu razložim, kako sami posodobite besedila in slike.",
+      "Da. Glede na paket lahko stran opremim z enostavnim urejevalnikom vsebine, ali pa vam po objavi razložim, kako sami posodobite besedila in slike.",
   },
   {
     question: "Ali skrbite tudi za domeno in gostovanje?",
     answer:
-      "Da. Po izdelavi lahko stran gostujem za vas z mesečno (29 €) ali letno (290 €) naročnino, ki vključuje gostovanje, .si domeno, SSL certifikat, varnostne kopije in manjše popravke. Stran lahko gostujete tudi sami.",
+      "Da. Po izdelavi lahko stran gostujem za vas z mesečno (29 €) ali letno (290 €) naročnino, ki vključuje gostovanje, .si domeno, varno povezavo (https), varnostne kopije in manjše popravke. Stran lahko gostujete tudi sami.",
   },
   {
     question: "Kaj če potrebujem samo eno stran, ne celotne spletne strani?",
     answer:
-      "To je prav tiste vrste projekt, s katerim se največ ukvarjam. Landing strani so idealne za promocijo enega izdelka, storitve ali dogodka in jih izdelam hitro in učinkovito.",
+      "To je prav tiste vrste projekt, s katerim se največ ukvarjam. Enostranske prodajne strani so primerne za promocijo enega izdelka, storitve ali dogodka in jih izdelam hitro ter učinkovito.",
   },
   {
     question: "Ali je stran prilagojena za mobilne telefone?",
@@ -65,7 +65,7 @@ export const FAQS = [
   {
     question: "Kako poteka plačilo?",
     answer:
-      "Običajno se dogovorimo za predplačilo 50 % ob začetku projekta in preostanek ob predaji žive strani. Za manjše projekte je možno tudi plačilo v celoti ob zaključku.",
+      "Običajno se dogovorimo za predplačilo 50 % ob začetku projekta in preostanek ob predaji delujoče spletne strani. Za manjše projekte je možno tudi plačilo v celoti ob zaključku.",
   },
 ] as const;
 
@@ -91,7 +91,7 @@ export const DEMOS = [
     name: "Frizerski salon Nika",
     category: "Lepotne storitve",
     description:
-      "Eleganten frizerski salon z online rezervacijo termina in pregledinim cenikom storitev.",
+      "Eleganten frizerski salon s spletno rezervacijo termina in preglednim cenikom storitev.",
     gradient: "from-rose-400 via-pink-500 to-fuchsia-600",
   },
   {

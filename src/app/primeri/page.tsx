@@ -10,7 +10,7 @@ import { DEMOS } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Primeri izdelave spletnih strani",
   description:
-    "Trije živi primeri sloga: kavarna, fizioterapija in frizerski salon. Oglejte si, kako izgledajo strani, ki jih izdelujem pri Stran na ključ.",
+    "Sedem primerov sloga za obrtnike in lokalna podjetja. Oglejte si, kako izgledajo strani, ki jih izdelujem pri Stran na ključ.",
   alternates: { canonical: "/primeri" },
 };
 

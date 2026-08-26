@@ -5,7 +5,7 @@ import { ArrowRight, Sparkle, Timer, Smartphone, Gauge } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const STATS = [
-  { value: "5–7 dni", label: "do žive strani" },
+  { value: "5–7 dni", label: "do objavljene strani" },
   { value: "Ljutomer", label: "delo po vsej Sloveniji" },
   { value: "Uvodne cene", label: "za prve stranke" },
 ];
@@ -32,7 +32,7 @@ export function Hero() {
             className="animate-rise-in max-w-3xl text-balance font-display text-5xl leading-[1.05] font-medium tracking-tight sm:text-6xl md:text-7xl"
             style={{ animationDelay: "90ms" }}
           >
-            Landing strani, ki spremenijo{" "}
+            Prodajne spletne strani, ki spremenijo{" "}
             <em className="text-primary not-italic">
               obiskovalce v stranke
             </em>
@@ -43,8 +43,8 @@ export function Hero() {
             style={{ animationDelay: "180ms" }}
           >
             Izdelam vam hitro, lepo in prodajno naravnano spletno stran ali
-            landing stran — brez odvečnih zapletov, s poudarkom na rezultatih
-            in izkušnji na mobitelu.
+            enostransko prodajno stran — brez odvečnih zapletov, s poudarkom
+            na rezultatih in izkušnji na mobitelu.
           </p>
 
           <div
@@ -102,7 +102,7 @@ export function Hero() {
           />
           <FeaturePill
             icon={<Timer className="size-4" />}
-            text="Živa stran v enem tednu"
+            text="Objavljena stran v enem tednu"
           />
         </div>
       </div>

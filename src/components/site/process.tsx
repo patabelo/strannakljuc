@@ -11,9 +11,9 @@ const STEPS = [
   },
   {
     icon: <Palette className="size-5" />,
-    title: "2. Osnutek in design",
+    title: "2. Osnutek in oblikovanje",
     description:
-      "Pripravim vizualni osnutek strani, ki ga uskladimo z vašo blagovno znamko, preden se lotim kodiranja.",
+      "Pripravim vizualni osnutek strani, ki ga uskladimo z vašo blagovno znamko, preden se lotim izdelave.",
   },
   {
     icon: <Code2 className="size-5" />,
@@ -23,9 +23,9 @@ const STEPS = [
   },
   {
     icon: <Rocket className="size-5" />,
-    title: "4. Zagon in podpora",
+    title: "4. Objava in podpora",
     description:
-      "Stran objavim na vaši domeni, poskrbim za osnovni SEO in po zagonu ostanem na voljo za popravke.",
+      "Stran objavim na vaši domeni, poskrbim za osnovno vidnost na Googlu in po objavi ostanem na voljo za popravke.",
   },
 ];
 

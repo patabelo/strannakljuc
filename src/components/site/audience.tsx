@@ -8,7 +8,7 @@ const AUDIENCE = [
     icon: <Coffee className="size-5" />,
     title: "Gostinstvo in lokalne storitve",
     description:
-      "Kavarne, restavracije, saloni in obrtniki, ki potrebujejo jasno stran z urnikom, ponudbo in klicem k dejanju.",
+      "Kavarne, restavracije, saloni in obrtniki, ki potrebujejo jasno stran z urnikom, ponudbo in spodbudo k povpraševanju.",
   },
   {
     icon: <HeartPulse className="size-5" />,
@@ -30,7 +30,7 @@ export function Audience() {
       <SectionHeading
         eyebrow="Za koga"
         title="Strani, ki jih razume vsakodnevni obiskovalec"
-        description="Ne izdelujem kompleksnih platform. Osredotočam se na male podjetnike, ki potrebujejo lepo, hitro in razumljivo spletno stran — brez odvečnega žargona."
+        description="Ne izdelujem zapletenih spletnih sistemov. Osredotočam se na male podjetnike, ki potrebujejo lepo, hitro in razumljivo spletno stran — brez odvečnega žargona."
       />
 
       <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

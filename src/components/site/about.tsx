@@ -41,7 +41,7 @@ export function About() {
             </p>
             <p>
               Delam za podjetnike, obrtnike in lokalne storitve, ki še nimajo
-              digitalne prisotnosti ali imajo staro, počasno stran. Cilj ni
+              strani na spletu ali imajo staro, počasno stran. Cilj ni
               “imeti spletno stran”. Cilj je, da vas ljudje najdejo, razumejo
               kaj ponujate, in vas kontaktirajo.
             </p>

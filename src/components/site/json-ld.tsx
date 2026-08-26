@@ -16,7 +16,7 @@ export function JsonLd() {
     currenciesAccepted: "EUR",
     paymentAccepted: "Bank transfer",
     description: SITE.description,
-    slogan: "Landing strani, ki spremenijo obiskovalce v stranke.",
+    slogan: "Prodajne spletne strani, ki spremenijo obiskovalce v stranke.",
     knowsLanguage: ["sl", "en"],
     address: {
       "@type": "PostalAddress",
@@ -57,9 +57,9 @@ export function JsonLd() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Osnovni — ena landing stran",
+            name: "Osnovni — ena prodajna spletna stran",
             description:
-              "Ena osredotočena landing stran (do 5 sekcij), prilagojena mobilnim napravam, z osnovno SEO nastavitvijo in kontaktnim obrazcem.",
+              "Ena osredotočena prodajna spletna stran (do 5 vsebinskih razdelkov), prilagojena mobilnim napravam, z osnovno optimizacijo za Google iskalnik in kontaktnim obrazcem.",
           },
           price: "290",
           priceCurrency: "EUR",
@@ -70,7 +70,7 @@ export function JsonLd() {
             "@type": "Service",
             name: "Standard — spletna stran za podjetje",
             description:
-              "Spletna stran do 5 podstrani z napredno SEO nastavitvijo, Google Analytics in 30 dni podpore po zagonu.",
+              "Spletna stran do 5 podstrani z boljšo vidnostjo na Googlu, pregledom obiskov in 30 dni podpore po objavi.",
           },
           price: "490",
           priceCurrency: "EUR",
@@ -81,7 +81,7 @@ export function JsonLd() {
             "@type": "Service",
             name: "Premium — spletna stran po meri",
             description:
-              "Spletna stran do 10 podstrani z individualnim designom, napredno SEO in hitrostno optimizacijo ter 90 dni podpore.",
+              "Spletna stran do 10 podstrani z videzom po meri, vidnostjo na Googlu, hitrejšim nalaganjem in 90 dni podpore.",
           },
           price: "890",
           priceCurrency: "EUR",
@@ -92,7 +92,7 @@ export function JsonLd() {
             "@type": "Service",
             name: "Mesečno gostovanje in vzdrževanje",
             description:
-              "Gostovanje, .si domena, SSL certifikat, varnostne kopije in manjši mesečni popravki vsebine.",
+              "Gostovanje, .si domena, varna povezava (https), varnostne kopije in manjši mesečni popravki vsebine.",
           },
           price: "29",
           priceCurrency: "EUR",

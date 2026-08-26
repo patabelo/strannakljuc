@@ -18,7 +18,7 @@ export function SiteFooter() {
               </span>
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">
-              Izdelava landing strani in spletnih strani, ki pomagajo malim
+              Izdelava prodajnih in spletnih strani, ki pomagajo malim
               podjetjem in podjetnikom rasti na spletu.
             </p>
             <p className="mt-1 font-mono text-xs text-muted-foreground">
