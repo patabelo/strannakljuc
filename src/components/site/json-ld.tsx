@@ -1,47 +1,53 @@
-import { ADDRESS_LINE, FAQS, SITE } from "@/lib/site";
+import { FAQS, SITE } from "@/lib/site";
 
 export function JsonLd() {
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": `${SITE.url}/#business`,
     name: SITE.name,
     alternateName: SITE.shortName,
     url: SITE.url,
+    logo: `${SITE.url}/icon.svg`,
     image: `${SITE.url}/opengraph-image`,
     email: SITE.email,
     telephone: SITE.phoneTel,
     priceRange: "€€",
+    currenciesAccepted: "EUR",
+    paymentAccepted: "Bank transfer",
     description: SITE.description,
-    areaServed: {
-      "@type": "Country",
-      name: "Slovenia",
-    },
+    slogan: "Landing strani, ki spremenijo obiskovalce v stranke.",
+    knowsLanguage: ["sl", "en"],
     address: {
       "@type": "PostalAddress",
       streetAddress: SITE.address.street,
       addressLocality: SITE.address.city,
+      addressRegion: SITE.address.region,
       postalCode: SITE.address.postalCode,
       addressCountry: SITE.address.country,
     },
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "17:00",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: SITE.geo.latitude,
+      longitude: SITE.geo.longitude,
+    },
+    areaServed: [
+      { "@type": "City", name: "Ljutomer" },
+      { "@type": "AdministrativeArea", name: "Pomurje" },
+      { "@type": "Country", name: "Slovenija" },
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: SITE.email,
+      telephone: SITE.phoneTel,
+      areaServed: "SI",
+      availableLanguage: ["Slovenian", "English"],
     },
     founder: {
       "@type": "Person",
       name: SITE.person.name,
-      email: SITE.email,
-      telephone: SITE.phoneTel,
       jobTitle: "Izdelovalec spletnih strani",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: SITE.address.street,
-        addressLocality: SITE.address.city,
-        postalCode: SITE.address.postalCode,
-        addressCountry: SITE.address.country,
-      },
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -49,21 +55,53 @@ export function JsonLd() {
       itemListElement: [
         {
           "@type": "Offer",
-          name: "Osnovni — landing stran",
+          itemOffered: {
+            "@type": "Service",
+            name: "Osnovni — ena landing stran",
+            description:
+              "Ena osredotočena landing stran (do 5 sekcij), prilagojena mobilnim napravam, z osnovno SEO nastavitvijo in kontaktnim obrazcem.",
+          },
           price: "290",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          name: "Standard — spletna stran",
+          itemOffered: {
+            "@type": "Service",
+            name: "Standard — spletna stran za podjetje",
+            description:
+              "Spletna stran do 5 podstrani z napredno SEO nastavitvijo, Google Analytics in 30 dni podpore po zagonu.",
+          },
           price: "490",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          name: "Premium — spletna stran po meri",
+          itemOffered: {
+            "@type": "Service",
+            name: "Premium — spletna stran po meri",
+            description:
+              "Spletna stran do 10 podstrani z individualnim designom, napredno SEO in hitrostno optimizacijo ter 90 dni podpore.",
+          },
           price: "890",
           priceCurrency: "EUR",
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Mesečno gostovanje in vzdrževanje",
+            description:
+              "Gostovanje, .si domena, SSL certifikat, varnostne kopije in manjši mesečni popravki vsebine.",
+          },
+          price: "29",
+          priceCurrency: "EUR",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "29",
+            priceCurrency: "EUR",
+            billingDuration: "P1M",
+          },
         },
       ],
     },
@@ -85,17 +123,12 @@ export function JsonLd() {
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${SITE.url}/#website`,
     name: SITE.name,
     url: SITE.url,
     inLanguage: "sl-SI",
     description: SITE.description,
-    publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      email: SITE.email,
-      telephone: SITE.phoneTel,
-      address: ADDRESS_LINE,
-    },
+    publisher: { "@id": `${SITE.url}/#business` },
   };
 
   return (
@@ -113,5 +146,32 @@ export function JsonLd() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
       />
     </>
+  );
+}
+
+/** Renders a BreadcrumbList so Google can show a breadcrumb trail in
+ * search results instead of the raw URL — used on /primeri and each
+ * individual example page. */
+export function BreadcrumbJsonLd({
+  items,
+}: {
+  items: { name: string; path: string }[];
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${SITE.url}${item.path}`,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
   );
 }
