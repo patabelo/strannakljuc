@@ -1,7 +1,8 @@
 import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
-export const alt = "Stran na ključ — izdelava spletnih strani";
+export const alt =
+  "Stran na ključ — izdelava spletnih strani za mala podjetja v Sloveniji";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

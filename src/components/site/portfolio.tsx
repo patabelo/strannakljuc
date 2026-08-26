@@ -22,6 +22,8 @@ export function Portfolio() {
             className="group overflow-hidden rounded-sm border-[1.5px] border-ink/20 bg-card shadow-none transition-all hover:-translate-y-1 hover:border-ink/40 hover:shadow-[4px_4px_0_0_var(--ink)]"
           >
             <div
+              role="img"
+              aria-label={`Videz primera spletne strani: ${project.name} — ${project.category}`}
               className={`relative flex h-40 items-center justify-center bg-gradient-to-br ${project.gradient}`}
             >
               <span className="font-display text-2xl font-medium text-white/95 italic drop-shadow-sm">

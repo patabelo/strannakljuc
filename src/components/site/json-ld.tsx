@@ -131,6 +131,22 @@ export function JsonLd() {
     publisher: { "@id": `${SITE.url}/#business` },
   };
 
+  const webPage = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/#webpage`,
+    url: SITE.url,
+    name: SITE.title,
+    description: SITE.description,
+    inLanguage: "sl-SI",
+    isPartOf: { "@id": `${SITE.url}/#website` },
+    about: { "@id": `${SITE.url}/#business` },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${SITE.url}/opengraph-image`,
+    },
+  };
+
   return (
     <>
       <script
@@ -144,6 +160,10 @@ export function JsonLd() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPage) }}
       />
     </>
   );

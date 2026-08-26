@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Primer: Fasaderstvo Kocbek",
     description: "Arhitekturna stran za fasadersko obrt — primer izdelave pri Stran na ključ.",
+    type: "website",
+    locale: "sl_SI",
   },
 };
 

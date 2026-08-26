@@ -5,10 +5,28 @@ import type { SVGProps } from "react";
  * browser window (tab dots + address-bar divider), with the shaft and
  * teeth cascading below — "the key to your website" as a single glyph,
  * built for this brand rather than pulled from an icon set.
+ *
+ * When placed next to the wordmark text, pass `aria-hidden` so screen
+ * readers don't hear the logo twice. When used alone, keep the default
+ * accessible name below.
  */
-export function LogoMark(props: SVGProps<SVGSVGElement>) {
+export function LogoMark({
+  "aria-hidden": ariaHidden,
+  ...props
+}: SVGProps<SVGSVGElement>) {
+  const isHidden = ariaHidden === true || ariaHidden === "true";
+
   return (
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+      role={isHidden ? undefined : "img"}
+      aria-hidden={isHidden ? true : undefined}
+      aria-label={isHidden ? undefined : "Logotip Stran na ključ"}
+    >
+      {isHidden ? null : <title>Logotip Stran na ključ</title>}
       <rect x="3" y="3" width="42" height="42" rx="11" className="fill-secondary" />
       <rect x="22.5" y="20.5" width="6" height="19" rx="1.6" className="fill-primary" />
       <rect x="28.3" y="28.5" width="5.4" height="4.6" rx="1.1" className="fill-primary" />

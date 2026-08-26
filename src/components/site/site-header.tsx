@@ -30,13 +30,19 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="group flex items-center gap-2.5">
-          <LogoMark className="size-9 shrink-0 -rotate-3 transition-transform group-hover:rotate-0" />
+          <LogoMark
+            className="size-9 shrink-0 -rotate-3 transition-transform group-hover:rotate-0"
+            aria-hidden
+          />
           <span className="font-display text-lg font-medium tracking-tight italic">
             Stran na ključ
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav
+          aria-label="Glavna navigacija"
+          className="hidden items-center gap-1 lg:flex"
+        >
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}

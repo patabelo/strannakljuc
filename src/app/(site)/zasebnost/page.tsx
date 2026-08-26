@@ -9,6 +9,17 @@ export const metadata: Metadata = {
   title: "Politika zasebnosti",
   description: `Kako ${SITE.name} obdeluje osebne podatke ob povpraševanju prek spletne strani.`,
   alternates: { canonical: "/zasebnost" },
+  openGraph: {
+    title: "Politika zasebnosti | Stran na ključ",
+    description: `Kako ${SITE.name} obdeluje osebne podatke ob povpraševanju prek spletne strani.`,
+    url: "/zasebnost",
+    type: "website",
+    locale: "sl_SI",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function PrivacyPage() {

@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Primer: Gradbeništvo Krajnc",
     description: "Stran za gradbeno podjetje — primer izdelave pri Stran na ključ.",
+    type: "website",
+    locale: "sl_SI",
   },
 };
 

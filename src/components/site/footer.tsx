@@ -12,7 +12,10 @@ export function SiteFooter() {
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div className="min-w-0 max-w-sm">
             <Link href="/" className="flex items-center gap-2.5">
-              <LogoMark className="size-9 shrink-0 -rotate-3" />
+              <LogoMark
+                className="size-9 shrink-0 -rotate-3"
+                aria-hidden
+              />
               <span className="font-display text-base italic">
                 Stran na ključ
               </span>
@@ -39,9 +42,9 @@ export function SiteFooter() {
 
           <div className="grid min-w-0 grid-cols-2 gap-8 sm:grid-cols-3">
             <div className="min-w-0">
-              <h4 className="font-mono text-xs font-semibold tracking-[0.14em] text-primary uppercase">
+              <h2 className="font-mono text-xs font-semibold tracking-[0.14em] text-primary uppercase">
                 Povezave
-              </h4>
+              </h2>
               <ul className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
                 <li><Link href="/#storitve" className="hover:text-foreground">Storitve</Link></li>
                 <li><Link href="/#kako-deluje" className="hover:text-foreground">Kako deluje</Link></li>
@@ -50,9 +53,9 @@ export function SiteFooter() {
               </ul>
             </div>
             <div className="min-w-0">
-              <h4 className="font-mono text-xs font-semibold tracking-[0.14em] text-primary uppercase">
+              <h2 className="font-mono text-xs font-semibold tracking-[0.14em] text-primary uppercase">
                 Podjetje
-              </h4>
+              </h2>
               <ul className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
                 <li>
                   <Link href="/#o-meni" className="hover:text-foreground">
@@ -69,9 +72,9 @@ export function SiteFooter() {
               </ul>
             </div>
             <div className="min-w-0">
-              <h4 className="font-mono text-xs font-semibold tracking-[0.14em] text-primary uppercase">
+              <h2 className="font-mono text-xs font-semibold tracking-[0.14em] text-primary uppercase">
                 Kontakt
-              </h4>
+              </h2>
               <ul className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
                 <li>
                   <a
