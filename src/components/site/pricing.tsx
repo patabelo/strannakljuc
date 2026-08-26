@@ -13,7 +13,7 @@ const PLANS = [
     originalPrice: "390 €",
     tagline: "Za samostojne podjetnike in mikro podjetja",
     features: [
-      "1 prodajna spletna stran (do 5 vsebinskih razdelkov)",
+      "1 spletna stran (do 5 vsebinskih razdelkov)",
       "Prilagojeno mobilnim napravam",
       "Osnovna optimizacija za Google iskalnik",
       "Obrazec za kontakt",

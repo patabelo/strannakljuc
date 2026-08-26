@@ -28,7 +28,7 @@ export const SITE = {
   },
   mapsQuery: "Mota 51e, 9240 Ljutomer, Slovenija",
   description:
-    "Izdelava hitrih, prodajno usmerjenih enostranskih in spletnih strani za mala podjetja v Sloveniji. Od ideje do objavljene strani na spletu v enem tednu.",
+    "Izdelava hitrih spletnih strani za mala podjetja v Sloveniji. Od ideje do objavljene strani na spletu v enem tednu.",
 } as const;
 
 export const ADDRESS_LINE = `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}`;
@@ -40,7 +40,7 @@ export const FAQS = [
   {
     question: "Koliko časa traja izdelava spletne strani?",
     answer:
-      "Enostavna prodajna spletna stran je običajno pripravljena v 5–7 delovnih dneh po tem, ko potrdimo vsebino in vizualni osnutek. Večje spletne strani z več podstranmi lahko trajajo od dva do tri tedne.",
+      "Enostavna spletna stran je običajno pripravljena v 5–7 delovnih dneh po tem, ko potrdimo vsebino in vizualni osnutek. Večje spletne strani z več podstranmi lahko trajajo od dva do tri tedne.",
   },
   {
     question: "Ali imam potem možnost sam urejati vsebino?",
@@ -55,7 +55,7 @@ export const FAQS = [
   {
     question: "Kaj če potrebujem samo eno stran, ne celotne spletne strani?",
     answer:
-      "To je prav tiste vrste projekt, s katerim se največ ukvarjam. Enostranske prodajne strani so primerne za promocijo enega izdelka, storitve ali dogodka in jih izdelam hitro ter učinkovito.",
+      "To je prav tiste vrste projekt, s katerim se največ ukvarjam. Enostranske spletne strani so primerne za promocijo enega izdelka, storitve ali dogodka in jih izdelam hitro ter učinkovito.",
   },
   {
     question: "Ali je stran prilagojena za mobilne telefone?",

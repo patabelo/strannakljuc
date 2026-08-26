@@ -32,7 +32,7 @@ export function Hero() {
             className="animate-rise-in max-w-3xl text-balance font-display text-5xl leading-[1.05] font-medium tracking-tight sm:text-6xl md:text-7xl"
             style={{ animationDelay: "90ms" }}
           >
-            Prodajne spletne strani, ki spremenijo{" "}
+            Spletne strani, ki spremenijo{" "}
             <em className="text-primary not-italic">
               obiskovalce v stranke
             </em>
@@ -42,9 +42,9 @@ export function Hero() {
             className="animate-rise-in mt-6 max-w-xl text-balance text-lg text-muted-foreground sm:text-xl"
             style={{ animationDelay: "180ms" }}
           >
-            Izdelam vam hitro, lepo in prodajno naravnano spletno stran ali
-            enostransko prodajno stran — brez odvečnih zapletov, s poudarkom
-            na rezultatih in izkušnji na mobitelu.
+            Izdelam vam hitro in lepo spletno stran — eno stran ali več —
+            brez odvečnih zapletov, s poudarkom na rezultatih in izkušnji na
+            mobitelu.
           </p>
 
           <div

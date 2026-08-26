@@ -1,6 +1,6 @@
 # Stran na ključ (strannakljuc.si)
 
-Predstavitvena spletna stran za izdelavo prodajnih in spletnih strani.
+Predstavitvena spletna stran za izdelavo spletnih strani.
 Zgrajena z [Next.js](https://nextjs.org), TypeScript, Tailwind CSS in
 [shadcn/ui](https://ui.shadcn.com).
 

@@ -35,14 +35,13 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Stran na ključ — izdelava prodajnih in spletnih strani",
+    default: "Stran na ključ — izdelava spletnih strani",
     template: "%s | Stran na ključ",
   },
   description: SITE.description,
   applicationName: SITE.name,
   keywords: [
     "izdelava spletnih strani",
-    "prodajna spletna stran",
     "enostranska spletna stran",
     "spletna stran po meri",
     "izdelava spletne strani Slovenija",
@@ -64,12 +63,12 @@ export const metadata: Metadata = {
     locale: "sl_SI",
     url: SITE.url,
     siteName: SITE.name,
-    title: "Stran na ključ — prodajne spletne strani, ki delujejo",
+    title: "Stran na ključ — spletne strani, ki delujejo",
     description: SITE.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stran na ključ — prodajne spletne strani, ki delujejo",
+    title: "Stran na ključ — spletne strani, ki delujejo",
     description: SITE.description,
   },
   robots: {

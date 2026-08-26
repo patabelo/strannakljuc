@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
-export const alt = "Stran na ključ — izdelava prodajnih in spletnih strani";
+export const alt = "Stran na ključ — izdelava spletnih strani";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -47,8 +47,7 @@ export default function OpenGraphImage() {
             Stran na ključ
           </div>
           <div style={{ display: "flex", fontSize: 30, opacity: 0.85, maxWidth: 860, fontFamily: "sans-serif" }}>
-            Prodajne in spletne strani, ki spremenijo obiskovalce v
-            stranke.
+            Spletne strani, ki spremenijo obiskovalce v stranke.
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14, fontFamily: "monospace", fontSize: 22 }}>

@@ -16,7 +16,7 @@ export function JsonLd() {
     currenciesAccepted: "EUR",
     paymentAccepted: "Bank transfer",
     description: SITE.description,
-    slogan: "Prodajne spletne strani, ki spremenijo obiskovalce v stranke.",
+    slogan: "Spletne strani, ki spremenijo obiskovalce v stranke.",
     knowsLanguage: ["sl", "en"],
     address: {
       "@type": "PostalAddress",
@@ -57,9 +57,9 @@ export function JsonLd() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Osnovni — ena prodajna spletna stran",
+            name: "Osnovni — ena spletna stran",
             description:
-              "Ena osredotočena prodajna spletna stran (do 5 vsebinskih razdelkov), prilagojena mobilnim napravam, z osnovno optimizacijo za Google iskalnik in kontaktnim obrazcem.",
+              "Ena osredotočena spletna stran (do 5 vsebinskih razdelkov), prilagojena mobilnim napravam, z osnovno optimizacijo za Google iskalnik in kontaktnim obrazcem.",
           },
           price: "290",
           priceCurrency: "EUR",

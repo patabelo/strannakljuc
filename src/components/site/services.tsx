@@ -22,7 +22,7 @@ const SERVICES: {
 }[] = [
   {
     icon: <LayoutTemplate className="size-5" />,
-    title: "Prodajne spletne strani",
+    title: "Enostranske spletne strani",
     description:
       "Ena osredotočena stran za vaš izdelek, storitev ali dogodek — zasnovana tako, da obiskovalce pripelje do povpraševanja ali nakupa.",
   },
