@@ -18,9 +18,9 @@ export function About() {
           >
             {SITE.person.initials}
           </div>
-          <h3 className="mt-6 font-display text-2xl font-medium tracking-tight">
+          <p className="mt-6 font-display text-2xl font-medium tracking-tight">
             {SITE.person.name}
-          </h3>
+          </p>
           <p className="mt-1 font-mono text-sm text-muted-foreground">
             {SITE.person.legalName} · {SITE.name}
           </p>

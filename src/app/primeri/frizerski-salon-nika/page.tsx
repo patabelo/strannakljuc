@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Primer: Frizerski salon Nika",
     description: "Eleganten frizerski salon — primer izdelave pri Stran na ključ.",
+    type: "website",
+    locale: "sl_SI",
   },
 };
 

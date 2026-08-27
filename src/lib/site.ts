@@ -2,8 +2,8 @@ export const SITE = {
   name: "Stran na ključ",
   shortName: "StranNaključ",
   domain: "strannakljuc.si",
-  url: "https://strannakljuc.si",
-  email: "patrick.belcl.web@gmail.com",
+  url: "https://www.strannakljuc.si",
+  email: "patrick@strannakljuc.si",
   phoneDisplay: "070 914 756",
   phoneTel: "+38670914756",
   person: {
@@ -27,8 +27,17 @@ export const SITE = {
     longitude: 16.2301,
   },
   mapsQuery: "Mota 51e, 9240 Ljutomer, Slovenija",
+  /** Privzeti <title> — kratko, z glavno iskalno frazo in blagovno znamko. */
+  title:
+    "Izdelava spletnih strani za podjetja | Stran na ključ",
+  /** Open Graph / deljenje — lahko nekoliko bolj prodajno. */
+  ogTitle: "Stran na ključ — spletne strani za mala podjetja",
+  /**
+   * Meta description (~155 znakov): kaj, za koga, kje, korist.
+   * Brez angleškega žargona — razumljivo za lokalne podjetnike.
+   */
   description:
-    "Izdelava hitrih spletnih strani za mala podjetja v Sloveniji. Od ideje do objavljene strani na spletu v enem tednu.",
+    "Izdelava spletnih strani za mala podjetja in obrtnike v Sloveniji. Hitre, pregledne strani po meri — od Ljutomera po vsej državi, običajno v enem tednu.",
 } as const;
 
 export const ADDRESS_LINE = `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}`;

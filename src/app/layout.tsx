@@ -35,19 +35,21 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Stran na ključ — izdelava spletnih strani",
+    default: SITE.title,
     template: "%s | Stran na ključ",
   },
   description: SITE.description,
   applicationName: SITE.name,
   keywords: [
     "izdelava spletnih strani",
-    "enostranska spletna stran",
+    "spletna stran za podjetje",
     "spletna stran po meri",
+    "enostranska spletna stran",
     "izdelava spletne strani Slovenija",
     "izdelava spletnih strani Ljutomer",
     "izdelava spletnih strani Pomurje",
     "cena izdelave spletne strani",
+    "spletna stran za obrtnike",
     "stran na ključ",
     "Patrick Belcl",
   ],
@@ -57,19 +59,36 @@ export const metadata: Metadata = {
   category: "business",
   alternates: {
     canonical: "/",
+    languages: {
+      "sl-SI": SITE.url,
+    },
   },
   openGraph: {
     type: "website",
     locale: "sl_SI",
     url: SITE.url,
     siteName: SITE.name,
-    title: "Stran na ključ — spletne strani, ki delujejo",
+    title: SITE.ogTitle,
     description: SITE.description,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Stran na ključ — izdelava spletnih strani za mala podjetja v Sloveniji",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stran na ključ — spletne strani, ki delujejo",
+    title: SITE.ogTitle,
     description: SITE.description,
+    images: [
+      {
+        url: "/opengraph-image",
+        alt: "Stran na ključ — izdelava spletnih strani za mala podjetja v Sloveniji",
+      },
+    ],
   },
   robots: {
     index: true,

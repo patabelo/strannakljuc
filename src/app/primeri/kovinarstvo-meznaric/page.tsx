@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Primer: Kovinarstvo Meznarič",
     description: "Industrijska stran za kovinarsko obrt — primer izdelave pri Stran na ključ.",
+    type: "website",
+    locale: "sl_SI",
   },
 };
 

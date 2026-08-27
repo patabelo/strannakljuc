@@ -157,9 +157,9 @@ export function Pricing() {
 
         <div className="mx-auto mt-20 max-w-4xl">
           <div className="text-center">
-            <h3 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
+            <h2 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
               Redno vzdrževanje in gostovanje
-            </h3>
+            </h2>
             <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
               Cene zgoraj so za izdelavo strani. Ko je stran objavljena na
               spletu, jo je treba gostovati, obnavljati domeno in skrbeti za
@@ -183,7 +183,7 @@ export function Pricing() {
                   </Badge>
                 ) : null}
                 <CardHeader>
-                  <h4 className="font-display text-lg font-medium">{plan.name}</h4>
+                  <h3 className="font-display text-lg font-medium">{plan.name}</h3>
                   <p className="text-sm text-muted-foreground">{plan.tagline}</p>
                   <div className="mt-3 flex items-baseline gap-1.5 font-mono">
                     <span className="text-3xl font-semibold">{plan.price}</span>

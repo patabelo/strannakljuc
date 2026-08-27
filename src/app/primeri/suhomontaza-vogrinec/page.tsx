@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Primer: Suhomontaža Vogrinec",
     description: "Tehnična stran za suhomontažna dela — primer izdelave pri Stran na ključ.",
+    type: "website",
+    locale: "sl_SI",
   },
 };
 

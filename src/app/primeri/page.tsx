@@ -10,8 +10,16 @@ import { DEMOS } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Primeri izdelave spletnih strani",
   description:
-    "Sedem primerov sloga za obrtnike in lokalna podjetja. Oglejte si, kako izgledajo strani, ki jih izdelujem pri Stran na ključ.",
+    "Sedem primerov spletnih strani za obrtnike in lokalna podjetja. Oglejte si videz in strukturo strani, ki jih izdelujem pri Stran na ključ.",
   alternates: { canonical: "/primeri" },
+  openGraph: {
+    title: "Primeri izdelave spletnih strani | Stran na ključ",
+    description:
+      "Oglejte si primere spletnih strani za mizarje, frizerje, gradbenike in druge obrtnike.",
+    url: "/primeri",
+    type: "website",
+    locale: "sl_SI",
+  },
 };
 
 export default function DemosIndexPage() {

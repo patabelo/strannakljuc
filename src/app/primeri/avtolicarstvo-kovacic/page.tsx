@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Primer: Avtoličarstvo Kovačič",
     description: "Stran za avtoličarsko delavnico — primer izdelave pri Stran na ključ.",
+    type: "website",
+    locale: "sl_SI",
   },
 };
 
