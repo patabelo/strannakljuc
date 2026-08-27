@@ -60,7 +60,7 @@ export default function OpenGraphImage() {
               background: ORANGE,
             }}
           />
-          Ljutomer, Pomurje · po vsej Sloveniji
+          Ljutomer, Pomurje · sodelovanje na daljavo
         </div>
       </div>
     ),

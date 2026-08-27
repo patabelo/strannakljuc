@@ -47,8 +47,7 @@ export function Contact() {
                 <span className="flex size-9 items-center justify-center rounded-full border-[1.5px] border-ink/25 bg-card">
                   <MapPin className="size-4" />
                 </span>
-                {SITE.address.city}, {SITE.address.region} · delo po vsej
-                Sloveniji
+                {SITE.address.city}, {SITE.address.region}
               </div>
             </div>
 
@@ -62,8 +61,8 @@ export function Contact() {
                 </h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                   Pogovor, pregled osnutkov in potrjevanje vsebine uredimo po
-                  telefonu, videoklicu ali e-pošti — ne glede na to, kje v
-                  Sloveniji ste.
+                  telefonu, videoklicu ali e-pošti, zato osebni obisk ni
+                  potreben.
                 </p>
               </div>
             </div>

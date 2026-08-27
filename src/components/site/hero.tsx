@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const STATS = [
   { value: "5–7 dni", label: "do objavljene strani" },
-  { value: "Ljutomer", label: "delo po vsej Sloveniji" },
+  { value: "Ljutomer", label: "sodelovanje na daljavo" },
   { value: "Uvodne cene", label: "za prve stranke" },
 ];
 
@@ -42,9 +42,9 @@ export function Hero() {
             className="animate-rise-in mt-6 max-w-2xl text-balance text-lg text-muted-foreground sm:text-xl"
             style={{ animationDelay: "180ms" }}
           >
-            Za mala podjetja, obrtnike in lokalne storitve po vsej Sloveniji.
-            Od prve ideje do hitre, jasne in mobilno prilagojene strani —
-            brez tehničnih zapletov.
+            Za mala podjetja, obrtnike in lokalne storitve. Od prve ideje do
+            hitre, jasne in mobilno prilagojene strani — brez tehničnih
+            zapletov.
           </p>
 
           <div

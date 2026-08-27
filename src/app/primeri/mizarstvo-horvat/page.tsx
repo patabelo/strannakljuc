@@ -79,7 +79,7 @@ export default function MizarstvoHorvatPage() {
             <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 py-20 sm:grid-cols-2 sm:py-28">
               <div>
                 <p className="text-sm font-medium tracking-widest text-[#8a6a3f] uppercase">
-                  Mizarska obrt · po vsej Sloveniji
+                  Mizarska obrt · izdelano po meri
                 </p>
                 <h1 className="mt-4 text-4xl leading-tight italic sm:text-5xl">
                   Les, obdelan z roko mojstra.

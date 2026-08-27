@@ -47,14 +47,14 @@ export function About() {
             </p>
             <p>
               Sem popoldanski s.p. iz Ljutomera. Ni klicnega centra in ni
-              posrednikov — pišete in kličete mene. Delam po celi Sloveniji.
+              posrednikov — pišete in kličete mene.
             </p>
           </div>
 
           <ul className="mt-6 flex flex-col gap-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
               <MapPin className="size-4 text-primary" />
-              Ljutomer, Pomurje · sodelovanje po vsej Sloveniji
+              Ljutomer, Pomurje · sodelovanje na daljavo
             </li>
             <li className="flex items-center gap-2">
               <User className="size-4 text-primary" />

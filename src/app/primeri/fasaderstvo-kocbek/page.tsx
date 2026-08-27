@@ -116,7 +116,7 @@ export default function FasaderstvoKocbekPage() {
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-4 py-10 sm:grid-cols-3">
               <Info title="Energetska izkaznica" text="Vključena v ponudbo za sanacije" />
               <Info title="Garancija 10 let" text="Na izvedena fasaderska dela" />
-              <Info title="Delo po vsej Sloveniji" text="Lastna ekipa in mehanizacija" />
+              <Info title="Lastna ekipa" text="Izkušeni izvajalci in lastna mehanizacija" />
             </div>
           </section>
 

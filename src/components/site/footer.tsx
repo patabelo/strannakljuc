@@ -89,7 +89,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {SITE.person.legalName} · {SITE.domain}.
             Ni davčni zavezanec za DDV.
           </p>
-          <p>Ljutomer, Pomurje · sodelovanje po vsej Sloveniji.</p>
+          <p>Ljutomer, Pomurje · sodelovanje na daljavo.</p>
         </div>
       </div>
     </footer>

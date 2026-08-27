@@ -36,9 +36,9 @@ export const FAQS = [
       "Enostavna spletna stran je običajno pripravljena v 5–7 delovnih dneh po tem, ko potrdimo vsebino in vizualni osnutek. Večje spletne strani z več podstranmi lahko trajajo od dva do tri tedne.",
   },
   {
-    question: "Ali izdelujete spletne strani za podjetja po vsej Sloveniji?",
+    question: "Kako poteka sodelovanje na daljavo?",
     answer:
-      "Da. Sedež imam v Ljutomeru, s podjetniki in obrtniki pa sodelujem po vsej Sloveniji. Pogovor, pregled osnutka in potrjevanje vsebine lahko uredimo na daljavo.",
+      "Uvodni pogovor opravimo po telefonu ali videoklicu. Osnutke vam pošljem v pregled, komentarje pa uskladimo po e-pošti ali na kratkem klicu, zato osebni obisk ni potreben.",
   },
   {
     question: "Ali imam potem možnost sam urejati vsebino?",
