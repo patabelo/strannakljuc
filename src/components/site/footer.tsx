@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { AnalyticsSettingsButton } from "@/components/site/analytics-settings-button";
 import { Separator } from "@/components/ui/separator";
 import { LogoMark } from "@/components/site/logo-mark";
 import { SITE } from "@/lib/site";
@@ -53,6 +54,9 @@ export function SiteFooter() {
                   <Link href="/zasebnost" className="hover:text-foreground">
                     Zasebnost
                   </Link>
+                </li>
+                <li>
+                  <AnalyticsSettingsButton />
                 </li>
               </ul>
             </div>
