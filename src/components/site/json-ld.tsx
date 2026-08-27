@@ -6,7 +6,7 @@ function serializeJsonLd(data: unknown) {
 
 export function HomepageJsonLd() {
   const business = {
-    "@type": "ProfessionalService",
+    "@type": "Organization",
     "@id": `${SITE.url}/#business`,
     name: SITE.name,
     alternateName: SITE.shortName,
@@ -15,24 +15,14 @@ export function HomepageJsonLd() {
     image: `${SITE.url}/opengraph-image`,
     email: SITE.email,
     telephone: SITE.phoneTel,
-    priceRange: "€€",
-    currenciesAccepted: "EUR",
-    paymentAccepted: "Bančno nakazilo",
     description: SITE.description,
     slogan: "Spletne strani, ki spremenijo obiskovalce v stranke.",
     knowsLanguage: ["sl", "en"],
     address: {
       "@type": "PostalAddress",
-      streetAddress: SITE.address.street,
       addressLocality: SITE.address.city,
       addressRegion: SITE.address.region,
-      postalCode: SITE.address.postalCode,
       addressCountry: SITE.address.country,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: SITE.geo.latitude,
-      longitude: SITE.geo.longitude,
     },
     areaServed: [
       { "@type": "City", name: "Ljutomer" },

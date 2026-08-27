@@ -54,7 +54,7 @@ export function About() {
           <ul className="mt-6 flex flex-col gap-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
               <MapPin className="size-4 text-primary" />
-              Mota, 9240 Ljutomer · delo po vsej Sloveniji
+              Ljutomer, Pomurje · sodelovanje po vsej Sloveniji
             </li>
             <li className="flex items-center gap-2">
               <User className="size-4 text-primary" />

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Separator } from "@/components/ui/separator";
 import { LogoMark } from "@/components/site/logo-mark";
-import { ADDRESS_LINE, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -74,7 +74,9 @@ export function SiteFooter() {
                     {SITE.phoneDisplay}
                   </a>
                 </li>
-                <li>{ADDRESS_LINE}</li>
+                <li>
+                  {SITE.address.city}, {SITE.address.region}
+                </li>
               </ul>
             </div>
           </div>
@@ -87,7 +89,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {SITE.person.legalName} · {SITE.domain}.
             Ni davčni zavezanec za DDV.
           </p>
-          <p>Mota, Ljutomer · delo po vsej Sloveniji.</p>
+          <p>Ljutomer, Pomurje · sodelovanje po vsej Sloveniji.</p>
         </div>
       </div>
     </footer>

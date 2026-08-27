@@ -60,7 +60,7 @@ export default function OpenGraphImage() {
               background: ORANGE,
             }}
           />
-          Mota 51e, 9240 Ljutomer · po vsej Sloveniji
+          Ljutomer, Pomurje · po vsej Sloveniji
         </div>
       </div>
     ),

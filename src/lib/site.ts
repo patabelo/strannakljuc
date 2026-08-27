@@ -20,21 +20,9 @@ export const SITE = {
     country: "SI",
     countryName: "Slovenija",
   },
-  // Village-level coordinates for Mota, Ljutomer — used in LocalBusiness
-  // structured data so the map/local pack can place the business.
-  geo: {
-    latitude: 46.5466,
-    longitude: 16.2301,
-  },
-  mapsQuery: "Mota 51e, 9240 Ljutomer, Slovenija",
   description:
     "Izdelava hitrih spletnih strani za mala podjetja v Sloveniji. Od ideje do objavljene strani na spletu v enem tednu.",
 } as const;
-
-export const ADDRESS_LINE = `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}`;
-
-export const MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(SITE.mapsQuery)}&output=embed`;
-export const MAPS_LINK_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.mapsQuery)}`;
 
 export const FAQS = [
   {
