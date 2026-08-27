@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { Check, Info } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/site/services";
@@ -129,8 +127,8 @@ export function Pricing() {
                   </span>
                 </div>
               </CardHeader>
-              <CardContent className="flex flex-1 flex-col">
-                <ul className="flex flex-1 flex-col gap-3">
+              <CardContent>
+                <ul className="flex flex-col gap-3">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2 text-sm">
                       <Check className="mt-0.5 size-4 shrink-0 text-primary" />
@@ -138,18 +136,6 @@ export function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  className={
-                    plan.highlighted
-                      ? "shine-hover mt-6 w-full border-[1.5px] border-ink bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--ink)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_var(--ink)]"
-                      : "mt-6 w-full border-[1.5px] border-ink/50"
-                  }
-                  variant={plan.highlighted ? "default" : "outline"}
-                  nativeButton={false}
-                  render={<Link href="/#kontakt" />}
-                >
-                  Izberi paket
-                </Button>
               </CardContent>
             </Card>
           ))}
@@ -192,8 +178,8 @@ export function Pricing() {
                     </span>
                   </div>
                 </CardHeader>
-                <CardContent className="flex flex-1 flex-col">
-                  <ul className="flex flex-1 flex-col gap-3">
+                <CardContent>
+                  <ul className="flex flex-col gap-3">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-2 text-sm">
                         <Check className="mt-0.5 size-4 shrink-0 text-primary" />
@@ -201,14 +187,6 @@ export function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  <Button
-                    variant="outline"
-                    className="mt-6 w-full border-[1.5px] border-ink/50"
-                    nativeButton={false}
-                    render={<Link href="/#kontakt" />}
-                  >
-                    Izberi naročnino
-                  </Button>
                 </CardContent>
               </Card>
             ))}
