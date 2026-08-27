@@ -38,14 +38,20 @@ async function handleContact(request, env) {
   }
 
   const name = String(payload?.name ?? "").trim().slice(0, 120);
+  const email = String(payload?.email ?? "").trim().slice(0, 254);
   const message = String(payload?.message ?? "").trim().slice(0, 4000);
   const consent = payload?.consent === true;
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  if (!name || !message || !consent) {
+  if (!name || !email || !message || !consent) {
     return json(
       { ok: false, error: "Manjkajo obvezni podatki ali soglasje." },
       400
     );
+  }
+
+  if (!emailOk) {
+    return json({ ok: false, error: "E-poštni naslov ni veljaven." }, 400);
   }
 
   const apiKey = env.RESEND_API_KEY;
@@ -63,10 +69,11 @@ async function handleContact(request, env) {
   }
 
   const subject = `Povpraševanje s strannakljuc.si — ${name}`;
-  const text = `Novo povpraševanje prek spletne strani.\n\nIme: ${name}\n\nSporočilo:\n${message}\n`;
+  const text = `Novo povpraševanje prek spletne strani.\n\nIme: ${name}\nE-pošta: ${email}\n\nSporočilo:\n${message}\n`;
   const html = [
     `<p>Novo povpraševanje prek spletne strani.</p>`,
     `<p><strong>Ime:</strong> ${escapeHtml(name)}</p>`,
+    `<p><strong>E-pošta:</strong> ${escapeHtml(email)}</p>`,
     `<p><strong>Sporočilo:</strong></p>`,
     `<pre style="white-space:pre-wrap;font-family:sans-serif">${escapeHtml(
       message
@@ -83,6 +90,7 @@ async function handleContact(request, env) {
       body: JSON.stringify({
         from: CONTACT_FROM,
         to: CONTACT_TO,
+        reply_to: email,
         subject,
         text,
         html,

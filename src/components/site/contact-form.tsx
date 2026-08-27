@@ -5,25 +5,54 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { SITE } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function fieldClass(invalid: boolean) {
+  return [
+    "rounded-sm border-[1.5px] bg-background/[0.04] px-3 text-sm text-spotlight-foreground placeholder:text-spotlight-foreground/45 outline-none",
+    invalid
+      ? "border-destructive focus:border-destructive focus:ring-2 focus:ring-destructive/25"
+      : "border-spotlight-foreground/25 focus:border-primary focus:ring-2 focus:ring-primary/25",
+  ].join(" ");
+}
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [attempted, setAttempted] = useState(false);
+
+  const trimmedName = name.trim();
+  const trimmedEmail = email.trim();
+  const trimmedMessage = message.trim();
+  const emailOk = isValidEmail(trimmedEmail);
+  const nameInvalid = attempted && !trimmedName;
+  const emailInvalid = attempted && !emailOk;
+  const messageInvalid = attempted && !trimmedMessage;
+  const consentInvalid = attempted && !consent;
+  const canSubmit = Boolean(
+    trimmedName && emailOk && trimmedMessage && consent
+  );
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = event.currentTarget;
-    const data = new FormData(form);
-    const name = String(data.get("name") ?? "").trim();
-    const message = String(data.get("message") ?? "").trim();
-    const consent = data.get("consent") === "on";
+    setAttempted(true);
 
-    if (!name || !message || !consent) {
+    if (!canSubmit) {
       setStatus("error");
-      setErrorMessage("Prosim izpolnite ime in sporočilo ter potrdite soglasje.");
+      setErrorMessage(
+        trimmedEmail && !emailOk
+          ? "Prosim vnesite veljaven e-poštni naslov."
+          : "Prosim izpolnite vsa polja in potrdite soglasje — sicer sporočila ni mogoče poslati."
+      );
       return;
     }
 
@@ -34,7 +63,12 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, message, consent }),
+        body: JSON.stringify({
+          name: trimmedName,
+          email: trimmedEmail,
+          message: trimmedMessage,
+          consent,
+        }),
       });
       const payload = await res.json().catch(() => ({}));
       if (!res.ok || !payload.ok) {
@@ -45,7 +79,11 @@ export function ContactForm() {
         );
       }
       setStatus("sent");
-      form.reset();
+      setName("");
+      setEmail("");
+      setMessage("");
+      setConsent(false);
+      setAttempted(false);
     } catch (err) {
       setStatus("error");
       setErrorMessage(
@@ -95,7 +133,27 @@ export function ContactForm() {
           required
           autoComplete="name"
           placeholder="Janez Novak"
-          className="h-10 rounded-sm border-[1.5px] border-spotlight-foreground/25 bg-background/[0.04] px-3 text-sm text-spotlight-foreground placeholder:text-spotlight-foreground/45 outline-none focus:border-primary focus:ring-2 focus:ring-primary/25"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          aria-invalid={nameInvalid}
+          className={`h-10 ${fieldClass(nameInvalid)}`}
+        />
+      </div>
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="email" className="text-sm font-medium">
+          E-poštni naslov
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          placeholder="janez@podjetje.si"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          aria-invalid={emailInvalid}
+          className={`h-10 ${fieldClass(emailInvalid)}`}
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -108,7 +166,10 @@ export function ContactForm() {
           required
           rows={4}
           placeholder="Rad bi spletno stran za..."
-          className="resize-none rounded-sm border-[1.5px] border-spotlight-foreground/25 bg-background/[0.04] px-3 py-2 text-sm text-spotlight-foreground placeholder:text-spotlight-foreground/45 outline-none focus:border-primary focus:ring-2 focus:ring-primary/25"
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+          aria-invalid={messageInvalid}
+          className={`resize-none py-2 ${fieldClass(messageInvalid)}`}
         />
       </div>
       <label className="flex items-start gap-2 text-xs text-spotlight-foreground/70">
@@ -116,7 +177,12 @@ export function ContactForm() {
           type="checkbox"
           name="consent"
           required
-          className="mt-0.5 size-3.5 rounded-xs border-spotlight-foreground/40"
+          checked={consent}
+          onChange={(event) => setConsent(event.target.checked)}
+          aria-invalid={consentInvalid}
+          className={`mt-0.5 size-3.5 rounded-xs ${
+            consentInvalid ? "border-destructive" : "border-spotlight-foreground/40"
+          }`}
         />
         <span>
           Strinjam se z obdelavo podatkov za odgovor na povpraševanje. Več v{" "}
