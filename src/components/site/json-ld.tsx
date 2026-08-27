@@ -1,4 +1,4 @@
-import { FAQS, MAPS_LINK_URL, SITE, SOCIAL_LINKS } from "@/lib/site";
+import { FAQS, SITE, SOCIAL_LINKS } from "@/lib/site";
 
 const BUSINESS_ID = `${SITE.url}/#business`;
 const PERSON_ID = `${SITE.url}/#patrick-belcl`;
@@ -41,19 +41,12 @@ export function JsonLd() {
         description: SITE.description,
         slogan: "Spletne strani, ki spremenijo obiskovalce v stranke.",
         knowsLanguage: ["sl", "en"],
-        hasMap: MAPS_LINK_URL,
         address: {
           "@type": "PostalAddress",
-          streetAddress: SITE.address.street,
           addressLocality: SITE.address.city,
           addressRegion: SITE.address.region,
           postalCode: SITE.address.postalCode,
           addressCountry: SITE.address.country,
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: SITE.geo.latitude,
-          longitude: SITE.geo.longitude,
         },
         areaServed: [
           { "@type": "City", name: "Ljutomer" },

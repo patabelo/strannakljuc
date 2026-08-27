@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { InstagramIcon, LinkedinIcon, FacebookIcon } from "@/components/site/social-icons";
 import { LogoMark } from "@/components/site/logo-mark";
-import { ADDRESS_LINE, SITE, SOCIAL_LINKS } from "@/lib/site";
+import { SITE, SOCIAL_LINKS } from "@/lib/site";
 
 const SOCIAL_ICONS = {
   Instagram: InstagramIcon,
@@ -100,7 +100,6 @@ export function SiteFooter() {
                     {SITE.phoneDisplay}
                   </a>
                 </li>
-                <li>{ADDRESS_LINE}</li>
               </ul>
             </div>
           </div>
