@@ -48,6 +48,8 @@ export const metadata: Metadata = {
     "izdelava spletnih strani Ljutomer",
     "izdelava spletnih strani Pomurje",
     "cena izdelave spletne strani",
+    "spletna stran za obrtnike",
+    "spletna stran za malo podjetje",
     "stran na ključ",
     "Patrick Belcl",
   ],

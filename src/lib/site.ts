@@ -29,18 +29,42 @@ export const SITE = {
   mapsQuery: "Mota 51e, 9240 Ljutomer, Slovenija",
   description:
     "Izdelava hitrih spletnih strani za mala podjetja v Sloveniji. Od ideje do objavljene strani na spletu v enem tednu.",
+  // Leave empty until the profile exists — dummy "#" links hurt trust and SEO.
+  social: {
+    instagram: "",
+    linkedin: "",
+    facebook: "",
+  },
 } as const;
 
 export const ADDRESS_LINE = `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}`;
+
+export const SOCIAL_LINKS = (
+  [
+    { name: "Instagram", href: SITE.social.instagram },
+    { name: "LinkedIn", href: SITE.social.linkedin },
+    { name: "Facebook", href: SITE.social.facebook },
+  ] as const
+).filter((link) => link.href.length > 0);
 
 export const MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(SITE.mapsQuery)}&output=embed`;
 export const MAPS_LINK_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.mapsQuery)}`;
 
 export const FAQS = [
   {
+    question: "Koliko stane izdelava spletne strani?",
+    answer:
+      "Cene se trenutno začnejo pri 290 € za enostransko spletno stran. Paket Standard do 5 podstrani stane 490 €, Premium do 10 podstrani pa 890 €. Končna cena je odvisna od vsebine in funkcij, zato pred začetkom vedno pripravim jasno ponudbo.",
+  },
+  {
     question: "Koliko časa traja izdelava spletne strani?",
     answer:
       "Enostavna spletna stran je običajno pripravljena v 5–7 delovnih dneh po tem, ko potrdimo vsebino in vizualni osnutek. Večje spletne strani z več podstranmi lahko trajajo od dva do tri tedne.",
+  },
+  {
+    question: "Kako poteka sodelovanje na daljavo?",
+    answer:
+      "Uvodni pogovor opravimo po telefonu ali videoklicu. Osnutke vam pošljem v pregled, komentarje pa uskladimo po e-pošti ali na kratkem klicu, zato osebni obisk ni potreben.",
   },
   {
     question: "Ali imam potem možnost sam urejati vsebino?",
