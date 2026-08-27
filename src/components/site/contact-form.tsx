@@ -5,12 +5,10 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { CONTACT_LIMITS, isValidEmail } from "@/lib/contact";
 
 type Status = "idle" | "sending" | "sent" | "error";
-
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
+type ContactResponse = { ok?: boolean; error?: string };
 
 function fieldClass(invalid: boolean) {
   return [
@@ -44,6 +42,9 @@ export function ContactForm() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const website = String(data.get("website") ?? "");
     setAttempted(true);
 
     if (!canSubmit) {
@@ -68,12 +69,16 @@ export function ContactForm() {
           email: trimmedEmail,
           message: trimmedMessage,
           consent,
+          website,
         }),
+        signal: AbortSignal.timeout(15_000),
       });
-      const payload = await res.json().catch(() => ({}));
-      if (!res.ok || !payload.ok) {
+      const payload = (await res
+        .json()
+        .catch(() => null)) as ContactResponse | null;
+      if (!res.ok || payload?.ok !== true) {
         throw new Error(
-          typeof payload.error === "string"
+          typeof payload?.error === "string"
             ? payload.error
             : "Pošiljanje ni uspelo. Poskusite kasneje ali pišite neposredno."
         );
@@ -131,6 +136,7 @@ export function ContactForm() {
           name="name"
           type="text"
           required
+          maxLength={CONTACT_LIMITS.name}
           autoComplete="name"
           placeholder="Janez Novak"
           value={name}
@@ -148,6 +154,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
+          maxLength={CONTACT_LIMITS.email}
           autoComplete="email"
           placeholder="janez@podjetje.si"
           value={email}
@@ -164,12 +171,23 @@ export function ContactForm() {
           id="message"
           name="message"
           required
+          maxLength={CONTACT_LIMITS.message}
           rows={4}
           placeholder="Rad bi spletno stran za..."
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           aria-invalid={messageInvalid}
           className={`resize-none py-2 ${fieldClass(messageInvalid)}`}
+        />
+      </div>
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label htmlFor="website">Spletna stran</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
         />
       </div>
       <label className="flex items-start gap-2 text-xs text-spotlight-foreground/70">
