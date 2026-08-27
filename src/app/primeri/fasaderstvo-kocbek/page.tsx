@@ -1,21 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Droplets, Palette, Ruler, ShieldCheck, Sparkles, Thermometer } from "lucide-react";
 
 import { DemoBanner } from "@/components/demos/demo-banner";
 import { BreadcrumbJsonLd } from "@/components/site/json-ld";
+import { createDemoMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createDemoMetadata({
   title: "Fasaderstvo Kocbek — primer strani za fasadersko obrt",
   description:
     "Primer čiste, arhitekturne spletne strani za fasadersko obrt — izolacija, ometi in sanacije. Izdelava: Stran na ključ.",
-  alternates: { canonical: "/primeri/fasaderstvo-kocbek" },
-  openGraph: {
-    title: "Primer: Fasaderstvo Kocbek",
-    description: "Arhitekturna stran za fasadersko obrt — primer izdelave pri Stran na ključ.",
-  },
-};
+  path: "/primeri/fasaderstvo-kocbek",
+  openGraphTitle: "Primer: Fasaderstvo Kocbek",
+});
 
 const SERVICES: { icon: ReactNode; title: string; text: string }[] = [
   {
@@ -119,7 +116,7 @@ export default function FasaderstvoKocbekPage() {
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-4 py-10 sm:grid-cols-3">
               <Info title="Energetska izkaznica" text="Vključena v ponudbo za sanacije" />
               <Info title="Garancija 10 let" text="Na izvedena fasaderska dela" />
-              <Info title="Delo po vsej Sloveniji" text="Lastna ekipa in mehanizacija" />
+              <Info title="Lastna ekipa" text="Izkušeni izvajalci in lastna mehanizacija" />
             </div>
           </section>
 

@@ -1,20 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Flame, Fence, Hammer, ShieldCheck, Truck, Wrench } from "lucide-react";
 
 import { DemoBanner } from "@/components/demos/demo-banner";
 import { BreadcrumbJsonLd } from "@/components/site/json-ld";
+import { createDemoMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createDemoMetadata({
   title: "Kovinarstvo Meznarič — primer strani za kovinarsko obrt",
   description:
     "Primer robustne, industrijske spletne strani za kovinarsko obrt — varjenje, ograje in kovinske konstrukcije. Izdelava: Stran na ključ.",
-  alternates: { canonical: "/primeri/kovinarstvo-meznaric" },
-  openGraph: {
-    title: "Primer: Kovinarstvo Meznarič",
-    description: "Industrijska stran za kovinarsko obrt — primer izdelave pri Stran na ključ.",
-  },
-};
+  path: "/primeri/kovinarstvo-meznaric",
+  openGraphTitle: "Primer: Kovinarstvo Meznarič",
+});
 
 const SERVICES = [
   { icon: <Flame className="size-5" />, name: "Varjenje in kovinske konstrukcije" },

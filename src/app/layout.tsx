@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, IBM_Plex_Mono, Public_Sans } from "next/font/google";
 import "./globals.css";
 
-import { JsonLd } from "@/components/site/json-ld";
+import { AnalyticsConsent } from "@/components/site/analytics-consent";
 import { SITE } from "@/lib/site";
 
 // Display serif with a lot of character (wonky, warm, editorial) for
@@ -107,8 +107,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skoči na vsebino
         </a>
-        <JsonLd />
         {children}
+        <AnalyticsConsent />
       </body>
     </html>
   );

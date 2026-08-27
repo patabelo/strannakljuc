@@ -1,9 +1,12 @@
 import { FAQS, SITE } from "@/lib/site";
 
-export function JsonLd() {
-  const localBusiness = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+function serializeJsonLd(data: unknown) {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
+export function HomepageJsonLd() {
+  const business = {
+    "@type": "Organization",
     "@id": `${SITE.url}/#business`,
     name: SITE.name,
     alternateName: SITE.shortName,
@@ -12,24 +15,14 @@ export function JsonLd() {
     image: `${SITE.url}/opengraph-image`,
     email: SITE.email,
     telephone: SITE.phoneTel,
-    priceRange: "€€",
-    currenciesAccepted: "EUR",
-    paymentAccepted: "Bank transfer",
     description: SITE.description,
     slogan: "Spletne strani, ki spremenijo obiskovalce v stranke.",
     knowsLanguage: ["sl", "en"],
     address: {
       "@type": "PostalAddress",
-      streetAddress: SITE.address.street,
       addressLocality: SITE.address.city,
       addressRegion: SITE.address.region,
-      postalCode: SITE.address.postalCode,
       addressCountry: SITE.address.country,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: SITE.geo.latitude,
-      longitude: SITE.geo.longitude,
     },
     areaServed: [
       { "@type": "City", name: "Ljutomer" },
@@ -38,19 +31,16 @@ export function JsonLd() {
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      contactType: "customer service",
+      contactType: "Prodaja in podpora",
       email: SITE.email,
       telephone: SITE.phoneTel,
       areaServed: "SI",
-      availableLanguage: ["Slovenian", "English"],
+      availableLanguage: ["sl", "en"],
     },
-    founder: {
-      "@type": "Person",
-      name: SITE.person.name,
-      jobTitle: "Izdelovalec spletnih strani",
-    },
+    founder: { "@id": `${SITE.url}/#patrick-belcl` },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
+      "@id": `${SITE.url}/#ponudba`,
       name: "Izdelava spletnih strani",
       itemListElement: [
         {
@@ -107,9 +97,39 @@ export function JsonLd() {
     },
   };
 
+  const person = {
+    "@type": "Person",
+    "@id": `${SITE.url}/#patrick-belcl`,
+    name: SITE.person.name,
+    jobTitle: "Oblikovalec in izdelovalec spletnih strani",
+    worksFor: { "@id": `${SITE.url}/#business` },
+    knowsAbout: [
+      "Izdelava spletnih strani",
+      "Spletno oblikovanje",
+      "Mobilna prilagoditev",
+      "Tehnična optimizacija za iskalnike",
+    ],
+  };
+
+  const service = {
+    "@type": "Service",
+    "@id": `${SITE.url}/#izdelava-spletnih-strani`,
+    name: "Izdelava spletnih strani za mala podjetja in obrtnike",
+    serviceType: "Oblikovanje in izdelava spletnih strani",
+    description: SITE.description,
+    provider: { "@id": `${SITE.url}/#business` },
+    areaServed: { "@type": "Country", name: "Slovenija" },
+    audience: {
+      "@type": "Audience",
+      audienceType: "Mala podjetja, obrtniki in lokalne storitve",
+    },
+    hasOfferCatalog: { "@id": `${SITE.url}/#ponudba` },
+  };
+
   const faq = {
-    "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `${SITE.url}/#pogosta-vprasanja`,
+    isPartOf: { "@id": `${SITE.url}/#website` },
     mainEntity: FAQS.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -121,7 +141,6 @@ export function JsonLd() {
   };
 
   const website = {
-    "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${SITE.url}/#website`,
     name: SITE.name,
@@ -131,21 +150,16 @@ export function JsonLd() {
     publisher: { "@id": `${SITE.url}/#business` },
   };
 
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [business, person, service, website, faq],
+  };
+
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }}
+    />
   );
 }
 
@@ -171,7 +185,7 @@ export function BreadcrumbJsonLd({
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }}
     />
   );
 }

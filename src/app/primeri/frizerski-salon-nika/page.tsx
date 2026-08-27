@@ -1,19 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { DemoBanner } from "@/components/demos/demo-banner";
 import { BreadcrumbJsonLd } from "@/components/site/json-ld";
+import { createDemoMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createDemoMetadata({
   title: "Frizerski salon Nika — primer strani za frizerski salon",
   description:
     "Primer elegantne spletne strani za frizerski salon s cenikom storitev in rezervacijo termina. Izdelava: Stran na ključ.",
-  alternates: { canonical: "/primeri/frizerski-salon-nika" },
-  openGraph: {
-    title: "Primer: Frizerski salon Nika",
-    description: "Eleganten frizerski salon — primer izdelave pri Stran na ključ.",
-  },
-};
+  path: "/primeri/frizerski-salon-nika",
+  openGraphTitle: "Primer: Frizerski salon Nika",
+});
 
 const SERVICES = [
   { name: "Striženje in styling", price: "od 26 €" },

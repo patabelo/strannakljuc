@@ -2,105 +2,112 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
+import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { SITE } from "@/lib/site";
+import { CONTACT_LIMITS, isValidEmail } from "@/lib/contact";
 
-type Status = "idle" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "error";
+type ContactResponse = { ok?: boolean; error?: string };
 
-function buildSubjectAndBody(name: string, email: string, message: string) {
-  const subject = `Povpraševanje s ${SITE.domain} — ${name}`;
-  const body = `Ime: ${name}\nE-pošta: ${email}\n\n${message}`;
-  return { subject, body };
-}
-
-function buildMailtoUrl(subject: string, body: string) {
-  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-function buildGmailComposeUrl(subject: string, body: string) {
-  const params = new URLSearchParams({
-    view: "cm",
-    fs: "1",
-    to: SITE.email,
-    su: subject,
-    body,
-  });
-  return `https://mail.google.com/mail/?${params.toString()}`;
+function fieldClass(invalid: boolean) {
+  return [
+    "rounded-sm border-[1.5px] bg-background/[0.04] px-3 text-sm text-spotlight-foreground placeholder:text-spotlight-foreground/45 outline-none",
+    invalid
+      ? "border-destructive focus:border-destructive focus:ring-2 focus:ring-destructive/25"
+      : "border-spotlight-foreground/25 focus:border-primary focus:ring-2 focus:ring-primary/25",
+  ].join(" ");
 }
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [links, setLinks] = useState<{ mailto: string; gmail: string } | null>(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [attempted, setAttempted] = useState(false);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const trimmedName = name.trim();
+  const trimmedEmail = email.trim();
+  const trimmedMessage = message.trim();
+  const emailOk = isValidEmail(trimmedEmail);
+  const nameInvalid = attempted && !trimmedName;
+  const emailInvalid = attempted && !emailOk;
+  const messageInvalid = attempted && !trimmedMessage;
+  const consentInvalid = attempted && !consent;
+  const canSubmit = Boolean(
+    trimmedName && emailOk && trimmedMessage && consent
+  );
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
-    const name = String(data.get("name") ?? "").trim();
-    const email = String(data.get("email") ?? "").trim();
-    const message = String(data.get("message") ?? "").trim();
-    const consent = data.get("consent") === "on";
+    const website = String(data.get("website") ?? "");
+    setAttempted(true);
 
-    if (!name || !email || !message || !consent) {
+    if (!canSubmit) {
       setStatus("error");
-      setErrorMessage("Prosim izpolnite vsa polja in potrdite soglasje.");
+      setErrorMessage(
+        trimmedEmail && !emailOk
+          ? "Prosim vnesite veljaven e-poštni naslov."
+          : "Prosim izpolnite vsa polja in potrdite soglasje — sicer sporočila ni mogoče poslati."
+      );
       return;
     }
 
-    const { subject, body } = buildSubjectAndBody(name, email, message);
-    const mailto = buildMailtoUrl(subject, body);
-    const gmail = buildGmailComposeUrl(subject, body);
+    setStatus("sending");
+    setErrorMessage(null);
 
-    setLinks({ mailto, gmail });
-    setStatus("sent");
-    form.reset();
-
-    // Try the visitor's own configured mail app first. If they don't have
-    // one set up, the "sent" screen below offers a direct Gmail link as a
-    // fallback — no backend or paid e-mail service required.
-    window.location.href = mailto;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: trimmedName,
+          email: trimmedEmail,
+          message: trimmedMessage,
+          consent,
+          website,
+        }),
+        signal: AbortSignal.timeout(15_000),
+      });
+      const payload = (await res
+        .json()
+        .catch(() => null)) as ContactResponse | null;
+      if (!res.ok || payload?.ok !== true) {
+        throw new Error(
+          typeof payload?.error === "string"
+            ? payload.error
+            : "Pošiljanje ni uspelo. Poskusite kasneje ali pišite neposredno."
+        );
+      }
+      setStatus("sent");
+      setName("");
+      setEmail("");
+      setMessage("");
+      setConsent(false);
+      setAttempted(false);
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "Pošiljanje ni uspelo. Poskusite kasneje."
+      );
+    }
   }
 
-  if (status === "sent" && links) {
+  if (status === "sent") {
     return (
       <div className="flex flex-col items-center gap-3 rounded-sm border-2 border-spotlight-foreground/80 bg-spotlight p-8 text-center text-spotlight-foreground shadow-[6px_6px_0_0_var(--primary)] sm:p-10">
         <CheckCircle2 className="size-10 text-primary" />
         <h3 className="font-display text-lg font-medium">
-          Odpiram vaš e-poštni program …
+          Povpraševanje je poslano
         </h3>
         <p className="text-sm text-spotlight-foreground/75">
-          Sporočilo je pripravljeno — samo še pošljite iz svoje e-pošte. Če se
-          nič ni odprlo, uporabite eno od spodnjih možnosti.
-        </p>
-        <div className="mt-2 flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
-          <Button
-            type="button"
-            className="gap-2 border-[1.5px] border-spotlight-foreground bg-primary text-primary-foreground"
-            render={
-              <a href={links.gmail} target="_blank" rel="noopener noreferrer" />
-            }
-          >
-            <Mail className="size-4" />
-            Odpri v Gmailu
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            className="border-[1.5px] border-spotlight-foreground/50 text-spotlight-foreground hover:bg-spotlight-foreground/10"
-            render={<a href={links.mailto} />}
-          >
-            Odpri v drugem programu
-          </Button>
-        </div>
-        <p className="mt-1 text-sm text-spotlight-foreground/75">
-          Ali pišite kar neposredno na{" "}
-          <a className="font-medium underline" href={`mailto:${SITE.email}`}>
-            {SITE.email}
-          </a>
-          .
+          Hvala za sporočilo. Odgovorim v enem delovnem dnevu.
         </p>
         <Button
           type="button"
@@ -129,9 +136,13 @@ export function ContactForm() {
           name="name"
           type="text"
           required
+          maxLength={CONTACT_LIMITS.name}
           autoComplete="name"
           placeholder="Janez Novak"
-          className="h-10 rounded-sm border-[1.5px] border-spotlight-foreground/25 bg-background/[0.04] px-3 text-sm text-spotlight-foreground placeholder:text-spotlight-foreground/45 outline-none focus:border-primary focus:ring-2 focus:ring-primary/25"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          aria-invalid={nameInvalid}
+          className={`h-10 ${fieldClass(nameInvalid)}`}
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -143,9 +154,13 @@ export function ContactForm() {
           name="email"
           type="email"
           required
+          maxLength={CONTACT_LIMITS.email}
           autoComplete="email"
           placeholder="janez@podjetje.si"
-          className="h-10 rounded-sm border-[1.5px] border-spotlight-foreground/25 bg-background/[0.04] px-3 text-sm text-spotlight-foreground placeholder:text-spotlight-foreground/45 outline-none focus:border-primary focus:ring-2 focus:ring-primary/25"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          aria-invalid={emailInvalid}
+          className={`h-10 ${fieldClass(emailInvalid)}`}
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -156,9 +171,23 @@ export function ContactForm() {
           id="message"
           name="message"
           required
+          maxLength={CONTACT_LIMITS.message}
           rows={4}
           placeholder="Rad bi spletno stran za..."
-          className="resize-none rounded-sm border-[1.5px] border-spotlight-foreground/25 bg-background/[0.04] px-3 py-2 text-sm text-spotlight-foreground placeholder:text-spotlight-foreground/45 outline-none focus:border-primary focus:ring-2 focus:ring-primary/25"
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+          aria-invalid={messageInvalid}
+          className={`resize-none py-2 ${fieldClass(messageInvalid)}`}
+        />
+      </div>
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label htmlFor="website">Spletna stran</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
         />
       </div>
       <label className="flex items-start gap-2 text-xs text-spotlight-foreground/70">
@@ -166,7 +195,12 @@ export function ContactForm() {
           type="checkbox"
           name="consent"
           required
-          className="mt-0.5 size-3.5 rounded-xs border-spotlight-foreground/40"
+          checked={consent}
+          onChange={(event) => setConsent(event.target.checked)}
+          aria-invalid={consentInvalid}
+          className={`mt-0.5 size-3.5 rounded-xs ${
+            consentInvalid ? "border-destructive" : "border-spotlight-foreground/40"
+          }`}
         />
         <span>
           Strinjam se z obdelavo podatkov za odgovor na povpraševanje. Več v{" "}
@@ -182,10 +216,20 @@ export function ContactForm() {
       <Button
         type="submit"
         size="lg"
-        className="shine-hover mt-1 gap-2 border-[1.5px] border-spotlight-foreground bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--spotlight-foreground)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_var(--spotlight-foreground)]"
+        disabled={status === "sending"}
+        className="shine-hover mt-1 gap-2 border-[1.5px] border-spotlight-foreground bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--spotlight-foreground)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_var(--spotlight-foreground)] disabled:opacity-70"
       >
-        Pošlji povpraševanje
-        <ArrowRight className="size-4" />
+        {status === "sending" ? (
+          <>
+            <Loader2 className="size-4 animate-spin" />
+            Pošiljam …
+          </>
+        ) : (
+          <>
+            Pošlji povpraševanje
+            <ArrowRight className="size-4" />
+          </>
+        )}
       </Button>
       <p className="text-center font-mono text-xs text-spotlight-foreground/60">
         Brez obveznosti — odgovorim v 24 urah.

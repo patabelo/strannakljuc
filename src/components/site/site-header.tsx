@@ -18,7 +18,7 @@ const NAV_LINKS = [
   { href: "/#storitve", label: "Storitve" },
   { href: "/#kako-deluje", label: "Kako deluje" },
   { href: "/#o-meni", label: "O meni" },
-  { href: "/#referencie", label: "Primeri" },
+  { href: "/#primeri", label: "Primeri" },
   { href: "/#cenik", label: "Cenik" },
   { href: "/#vprasanja", label: "Vprašanja" },
 ];

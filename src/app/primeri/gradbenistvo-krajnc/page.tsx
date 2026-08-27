@@ -1,21 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ClipboardCheck, Home, Layers3, Shovel, TreeDeciduous, Truck } from "lucide-react";
 
 import { DemoBanner } from "@/components/demos/demo-banner";
 import { BreadcrumbJsonLd } from "@/components/site/json-ld";
+import { createDemoMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createDemoMetadata({
   title: "Gradbeništvo Krajnc — primer strani za gradbeno podjetje",
   description:
     "Primer zanesljive spletne strani za gradbeno podjetje — novogradnje, adaptacije in zemeljska dela. Izdelava: Stran na ključ.",
-  alternates: { canonical: "/primeri/gradbenistvo-krajnc" },
-  openGraph: {
-    title: "Primer: Gradbeništvo Krajnc",
-    description: "Stran za gradbeno podjetje — primer izdelave pri Stran na ključ.",
-  },
-};
+  path: "/primeri/gradbenistvo-krajnc",
+  openGraphTitle: "Primer: Gradbeništvo Krajnc",
+});
 
 const SERVICES: { icon: ReactNode; title: string; text: string }[] = [
   {

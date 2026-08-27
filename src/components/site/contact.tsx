@@ -1,7 +1,7 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Laptop, Mail, MapPin, Phone } from "lucide-react";
 
 import { ContactForm } from "@/components/site/contact-form";
-import { ADDRESS_LINE, MAPS_EMBED_URL, MAPS_LINK_URL, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export function Contact() {
   return (
@@ -43,30 +43,28 @@ export function Contact() {
                 </span>
                 {SITE.phoneDisplay}
               </a>
-              <a
-                href={MAPS_LINK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-foreground/90 transition-colors hover:text-primary"
-              >
+              <div className="flex items-center gap-3 text-foreground/90">
                 <span className="flex size-9 items-center justify-center rounded-full border-[1.5px] border-ink/25 bg-card">
                   <MapPin className="size-4" />
                 </span>
-                {ADDRESS_LINE} · delo po vsej Sloveniji
-              </a>
+                {SITE.address.city}, {SITE.address.region}
+              </div>
             </div>
 
-            <div className="mt-6 overflow-hidden rounded-sm border-[1.5px] border-ink/20">
-              <iframe
-                title={`Zemljevid — ${ADDRESS_LINE}`}
-                src={MAPS_EMBED_URL}
-                width="100%"
-                height="220"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="block opacity-90 grayscale-[20%] invert-[0.92] hue-rotate-180"
-              />
+            <div className="mt-7 flex max-w-md items-start gap-3 rounded-sm border-[1.5px] border-dashed border-ink/25 bg-card/60 p-4">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-full border-[1.5px] border-ink/25 bg-background text-primary">
+                <Laptop className="size-4" />
+              </span>
+              <div>
+                <h3 className="font-display font-medium">
+                  Sodelovanje na daljavo
+                </h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Pogovor, pregled osnutkov in potrjevanje vsebine uredimo po
+                  telefonu, videoklicu ali e-pošti, zato osebni obisk ni
+                  potreben.
+                </p>
+              </div>
             </div>
           </div>
 

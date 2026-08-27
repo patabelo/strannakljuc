@@ -29,15 +29,16 @@ npm run lint
 
 ## Objava na strannakljuc.si
 
-Stran je 100 % statična (`output: "export"` v `next.config.ts`), zato jo je mogoče
-gostovati na katerikoli storitvi za statične strani. Ko poganjaš `npm run build`,
-dobiš v mapi `out/` vse HTML/CSS/JS datoteke.
+Uporabniški del strani je statični izvoz (`output: "export"` v
+`next.config.ts`). Ukaz `npm run build` ustvari HTML/CSS/JS v mapi `out/`.
+Cloudflare Worker postreže te datoteke in obdeluje kontaktni obrazec na
+`POST /api/contact`.
 
 Projekt je povezan s Cloudflare Workerjem **`strannakljuc`** preko
 [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) (Git
 integracija) — vsak push na `main` samodejno sproži nov build in deploy.
 Konfiguracija je v `wrangler.jsonc`, ki poganja Worker s statičnimi datotekami
-iz `./out` (brez ločenega Worker skripta).
+iz `./out`; Worker koda je v `worker/index.ts`.
 
 Da Workers Builds deploy uspe, mora biti v Cloudflare nadzorni plošči pod
 **Worker `strannakljuc` → Settings → Builds → Build configuration** nastavljen:
@@ -61,8 +62,19 @@ Za lokalni preizkus deploya (potrebna prijava `npx wrangler login`):
 
 ```bash
 npm run build
+npm run cf:types:check
 npx wrangler deploy
 ```
+
+Kontaktni obrazec pošilja prek Resend API. Produkcijski Worker mora imeti
+nastavljeno skrivnost `RESEND_API_KEY`:
+
+```bash
+npx wrangler secret put RESEND_API_KEY
+```
+
+Za lokalni razvoj se vrednost shrani v git-ignorirano datoteko `.dev.vars`.
+Skrivnosti se nikoli ne dodajajo v `wrangler.jsonc` ali Git.
 
 ## Struktura
 
@@ -71,6 +83,7 @@ src/app/(site)/          # glavna stran in politika zasebnosti (temna tema)
 src/app/primeri/         # živi primeri sloga
 src/components/site/     # vsebinski razdelki glavne strani
 src/lib/site.ts          # ime, kontakt, naslov, FAQ, demos
+worker/index.ts           # kontaktni API in streženje statičnih datotek
 ```
 
 Kontakt, cene in primeri se urejajo v `src/lib/site.ts` ter

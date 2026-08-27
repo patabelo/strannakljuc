@@ -1,9 +1,9 @@
 import Link from "next/link";
 
+import { AnalyticsSettingsButton } from "@/components/site/analytics-settings-button";
 import { Separator } from "@/components/ui/separator";
-import { InstagramIcon, LinkedinIcon, FacebookIcon } from "@/components/site/social-icons";
 import { LogoMark } from "@/components/site/logo-mark";
-import { ADDRESS_LINE, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -24,17 +24,6 @@ export function SiteFooter() {
             <p className="mt-1 font-mono text-xs text-muted-foreground">
               {SITE.domain}
             </p>
-            <div className="mt-4 flex gap-3 text-muted-foreground">
-              <a href="#" aria-label="Instagram" className="transition-colors hover:text-foreground">
-                <InstagramIcon className="size-5" />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="transition-colors hover:text-foreground">
-                <LinkedinIcon className="size-5" />
-              </a>
-              <a href="#" aria-label="Facebook" className="transition-colors hover:text-foreground">
-                <FacebookIcon className="size-5" />
-              </a>
-            </div>
           </div>
 
           <div className="grid min-w-0 grid-cols-2 gap-8 sm:grid-cols-3">
@@ -45,7 +34,7 @@ export function SiteFooter() {
               <ul className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
                 <li><Link href="/#storitve" className="hover:text-foreground">Storitve</Link></li>
                 <li><Link href="/#kako-deluje" className="hover:text-foreground">Kako deluje</Link></li>
-                <li><Link href="/#referencie" className="hover:text-foreground">Primeri</Link></li>
+                <li><Link href="/#primeri" className="hover:text-foreground">Primeri</Link></li>
                 <li><Link href="/#cenik" className="hover:text-foreground">Cenik</Link></li>
               </ul>
             </div>
@@ -65,6 +54,9 @@ export function SiteFooter() {
                   <Link href="/zasebnost" className="hover:text-foreground">
                     Zasebnost
                   </Link>
+                </li>
+                <li>
+                  <AnalyticsSettingsButton />
                 </li>
               </ul>
             </div>
@@ -86,7 +78,9 @@ export function SiteFooter() {
                     {SITE.phoneDisplay}
                   </a>
                 </li>
-                <li>{ADDRESS_LINE}</li>
+                <li>
+                  {SITE.address.city}, {SITE.address.region}
+                </li>
               </ul>
             </div>
           </div>
@@ -99,7 +93,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {SITE.person.legalName} · {SITE.domain}.
             Ni davčni zavezanec za DDV.
           </p>
-          <p>Mota, Ljutomer · delo po vsej Sloveniji.</p>
+          <p>Ljutomer, Pomurje · sodelovanje na daljavo.</p>
         </div>
       </div>
     </footer>

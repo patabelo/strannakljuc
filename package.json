@@ -6,7 +6,11 @@
     "dev": "next dev -p 4127",
     "build": "next build",
     "start": "serve out",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "cf:types": "wrangler types",
+    "cf:types:check": "wrangler types --check",
+    "worker:dev": "wrangler dev"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

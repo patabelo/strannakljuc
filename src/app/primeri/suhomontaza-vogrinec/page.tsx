@@ -1,21 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { CheckCircle2, LayoutPanelTop, Layers, ShieldHalf, SquareStack, Volume2 } from "lucide-react";
 
 import { DemoBanner } from "@/components/demos/demo-banner";
 import { BreadcrumbJsonLd } from "@/components/site/json-ld";
+import { createDemoMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createDemoMetadata({
   title: "Suhomontaža Vogrinec — primer strani za suhomontažna dela",
   description:
     "Primer tehnične, pregledne spletne strani za suhomontažna dela — predelne stene in spuščeni stropovi. Izdelava: Stran na ključ.",
-  alternates: { canonical: "/primeri/suhomontaza-vogrinec" },
-  openGraph: {
-    title: "Primer: Suhomontaža Vogrinec",
-    description: "Tehnična stran za suhomontažna dela — primer izdelave pri Stran na ključ.",
-  },
-};
+  path: "/primeri/suhomontaza-vogrinec",
+  openGraphTitle: "Primer: Suhomontaža Vogrinec",
+});
 
 const SERVICES: { icon: ReactNode; title: string; text: string }[] = [
   {

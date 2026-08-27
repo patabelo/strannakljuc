@@ -3,14 +3,25 @@
   // Must match the Worker name already registered in the Cloudflare
   // dashboard ("strannakljuc"), or Workers Builds will fail to deploy.
   "name": "strannakljuc",
-  "compatibility_date": "2026-08-25",
-  // Pure static site (Next.js `output: "export"`) — no Worker script
-  // needed. The contact form opens a pre-filled mailto:/Gmail link
-  // directly from the visitor's own browser, so no backend or paid
-  // Cloudflare Email Sending plan is required.
+  "compatibility_date": "2026-08-27",
+  // Worker script handles POST /api/contact (e-pošta prek Resend API);
+  // vse ostalo postrežejo statični viri (Next.js `output: "export"`).
+  "main": "worker/index.ts",
+  "secrets": {
+    "required": ["RESEND_API_KEY"]
+  },
   "assets": {
     "directory": "./out",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": [
+      "/",
+      "/zasebnost*",
+      "/primeri*",
+      "/api/*",
+      "/robots.txt",
+      "/sitemap.xml"
+    ]
   },
   "observability": {
     "enabled": true

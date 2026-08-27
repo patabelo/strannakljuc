@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { DemoBanner } from "@/components/demos/demo-banner";
 import { BreadcrumbJsonLd } from "@/components/site/json-ld";
 import { Badge } from "@/components/ui/badge";
+import { createPageMetadata } from "@/lib/metadata";
 import { DEMOS } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Primeri izdelave spletnih strani",
   description:
     "Sedem primerov sloga za obrtnike in lokalna podjetja. Oglejte si, kako izgledajo strani, ki jih izdelujem pri Stran na ključ.",
-  alternates: { canonical: "/primeri" },
-};
+  path: "/primeri",
+});
 
 export default function DemosIndexPage() {
   return (
@@ -33,9 +33,9 @@ export default function DemosIndexPage() {
           Primeri izdelave
         </h1>
         <p className="mt-3 text-muted-foreground">
-          To so izmišljeni primeri, ki sem jih izdelal sam — resničnih strank
-          (še) nimam, zato so to zgledi sloga in kakovosti, ne pretekli
-          projekti.
+          Te konceptne strani sem zasnoval in izdelal za prikaz različnih
+          slogov, mobilne prilagoditve in kakovosti izvedbe. Blagovne znamke
+          so izmišljene in niso predstavljene kot pretekli naročniki.
         </p>
         <ul className="mt-10 flex flex-col gap-4">
           {DEMOS.map((demo) => (

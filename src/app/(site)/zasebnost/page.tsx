@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/footer";
+import { createPageMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Politika zasebnosti",
   description: `Kako ${SITE.name} obdeluje osebne podatke ob povpraševanju prek spletne strani.`,
-  alternates: { canonical: "/zasebnost" },
-};
+  path: "/zasebnost",
+});
 
 export default function PrivacyPage() {
   return (
@@ -23,7 +23,7 @@ export default function PrivacyPage() {
           Politika zasebnosti
         </h1>
         <p className="mt-3 font-mono text-sm text-muted-foreground">
-          Zadnja posodobitev: 21. avgust 2026
+          Zadnja posodobitev: 27. avgust 2026
         </p>
 
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground">
@@ -47,7 +47,9 @@ export default function PrivacyPage() {
             <p>
               Če izpolnite obrazec za povpraševanje, obdelam ime, e-poštni naslov
               in vsebino sporočila. Če me pokličete ali pišete neposredno, obdelam
-              podatke, ki jih prostovoljno posredujete.
+              podatke, ki jih prostovoljno posredujete. Če dovolite analitiko,
+              Google Analytics obdela tehnične podatke o obisku, kot so obiskana
+              stran, vrsta naprave, približna lokacija in vir obiska.
             </p>
           </section>
 
@@ -56,9 +58,54 @@ export default function PrivacyPage() {
               Namen in pravna podlaga
             </h2>
             <p>
-              Podatke uporabljam izključno za odgovor na vaše povpraševanje in
-              pripravo ponudbe. Pravna podlaga je vaše soglasje in/ali ukrepi pred
-              sklenitvijo pogodbe (člen 6(1)(a) in 6(1)(b) GDPR).
+              Kontaktne podatke uporabljam za odgovor na vaše povpraševanje in
+              pripravo ponudbe. Analitične podatke uporabljam samo za razumevanje
+              uporabe strani in izboljšanje vsebine. Pravna podlaga je vaše
+              soglasje in/ali ukrepi pred sklenitvijo pogodbe (člen 6(1)(a) in
+              6(1)(b) GDPR).
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="font-display text-lg font-medium text-foreground">
+              Dostava sporočil
+            </h2>
+            <p>
+              Za tehnično dostavo kontaktnih sporočil uporabljam storitev{" "}
+              <a
+                className="text-foreground underline"
+                href="https://resend.com/legal/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resend
+              </a>
+              . Podatki iz obrazca se tej storitvi posredujejo izključno za
+              dostavo e-pošte in odgovor na vaše povpraševanje.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="font-display text-lg font-medium text-foreground">
+              Spletna analitika
+            </h2>
+            <p>
+              Google Analytics 4 se naloži šele, ko izrecno dovolite analitične
+              piškotke. Brez soglasja se Googlova oznaka ne prenese in podatki o
+              obisku se Googlu ne pošljejo. Oglaševalsko shranjevanje in
+              prilagajanje oglasov ostaneta izklopljena.
+            </p>
+            <p>
+              Več o Googlovi obdelavi podatkov najdete v{" "}
+              <a
+                className="text-foreground underline"
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Googlovi politiki zasebnosti
+              </a>
+              .
             </p>
           </section>
 
@@ -86,9 +133,12 @@ export default function PrivacyPage() {
           <section className="space-y-3">
             <h2 className="font-display text-lg font-medium text-foreground">Piškotki</h2>
             <p>
-              Ta spletna stran ne uporablja oglaševalskih ali analitičnih
-              piškotkov. Google Maps v kontaktnem razdelku lahko nastavi lastne
-              piškotke — zemljevid naloži Google.
+              Brez vašega soglasja stran ne uporablja analitičnih piškotkov. Če
+              analitiko dovolite, lahko Google Analytics nastavi piškotke
+              <code className="mx-1 text-foreground">_ga</code> in
+              <code className="mx-1 text-foreground">_ga_*</code>. Vaša izbira
+              se shrani v lokalni pomnilnik brskalnika. Kadarkoli jo lahko
+              spremenite prek povezave »Nastavitve analitike« v nogi strani.
             </p>
           </section>
         </div>
