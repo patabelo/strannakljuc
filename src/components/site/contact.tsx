@@ -1,7 +1,7 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 import { ContactForm } from "@/components/site/contact-form";
-import { ADDRESS_LINE, MAPS_EMBED_URL, MAPS_LINK_URL, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export function Contact() {
   return (
@@ -43,30 +43,6 @@ export function Contact() {
                 </span>
                 {SITE.phoneDisplay}
               </a>
-              <a
-                href={MAPS_LINK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-foreground/90 transition-colors hover:text-primary"
-              >
-                <span className="flex size-9 items-center justify-center rounded-full border-[1.5px] border-ink/25 bg-card">
-                  <MapPin className="size-4" />
-                </span>
-                {ADDRESS_LINE} · delo po vsej Sloveniji
-              </a>
-            </div>
-
-            <div className="mt-6 overflow-hidden rounded-sm border-[1.5px] border-ink/20">
-              <iframe
-                title={`Zemljevid — ${ADDRESS_LINE}`}
-                src={MAPS_EMBED_URL}
-                width="100%"
-                height="220"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="block opacity-90 grayscale-[20%] invert-[0.92] hue-rotate-180"
-              />
             </div>
           </div>
 

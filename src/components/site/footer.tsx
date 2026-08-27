@@ -3,7 +3,13 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { InstagramIcon, LinkedinIcon, FacebookIcon } from "@/components/site/social-icons";
 import { LogoMark } from "@/components/site/logo-mark";
-import { ADDRESS_LINE, SITE } from "@/lib/site";
+import { SITE, SOCIAL_LINKS } from "@/lib/site";
+
+const SOCIAL_ICONS = {
+  Instagram: InstagramIcon,
+  LinkedIn: LinkedinIcon,
+  Facebook: FacebookIcon,
+} as const;
 
 export function SiteFooter() {
   return (
@@ -24,17 +30,25 @@ export function SiteFooter() {
             <p className="mt-1 font-mono text-xs text-muted-foreground">
               {SITE.domain}
             </p>
-            <div className="mt-4 flex gap-3 text-muted-foreground">
-              <a href="#" aria-label="Instagram" className="transition-colors hover:text-foreground">
-                <InstagramIcon className="size-5" />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="transition-colors hover:text-foreground">
-                <LinkedinIcon className="size-5" />
-              </a>
-              <a href="#" aria-label="Facebook" className="transition-colors hover:text-foreground">
-                <FacebookIcon className="size-5" />
-              </a>
-            </div>
+            {SOCIAL_LINKS.length > 0 ? (
+              <div className="mt-4 flex gap-3 text-muted-foreground">
+                {SOCIAL_LINKS.map((link) => {
+                  const Icon = SOCIAL_ICONS[link.name];
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer me"
+                      aria-label={link.name}
+                      className="transition-colors hover:text-foreground"
+                    >
+                      <Icon className="size-5" />
+                    </a>
+                  );
+                })}
+              </div>
+            ) : null}
           </div>
 
           <div className="grid min-w-0 grid-cols-2 gap-8 sm:grid-cols-3">
@@ -86,7 +100,6 @@ export function SiteFooter() {
                     {SITE.phoneDisplay}
                   </a>
                 </li>
-                <li>{ADDRESS_LINE}</li>
               </ul>
             </div>
           </div>

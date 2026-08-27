@@ -9,10 +9,12 @@ import { Audience } from "@/components/site/audience";
 import { Faq } from "@/components/site/faq";
 import { Contact } from "@/components/site/contact";
 import { SiteFooter } from "@/components/site/footer";
+import { FaqJsonLd } from "@/components/site/json-ld";
 
 export default function Home() {
   return (
     <>
+      <FaqJsonLd />
       <SiteHeader />
       <main id="vsebina" className="flex-1">
         <Hero />

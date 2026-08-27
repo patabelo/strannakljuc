@@ -87,8 +87,7 @@ export default function PrivacyPage() {
             <h2 className="font-display text-lg font-medium text-foreground">Piškotki</h2>
             <p>
               Ta spletna stran ne uporablja oglaševalskih ali analitičnih
-              piškotkov. Google Maps v kontaktnem razdelku lahko nastavi lastne
-              piškotke — zemljevid naloži Google.
+              piškotkov.
             </p>
           </section>
         </div>
