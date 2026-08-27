@@ -23,7 +23,7 @@ const PLANS = [
     name: "Standard",
     price: "490 €",
     originalPrice: "690 €",
-    tagline: "Najbolj priljubljena izbira za mala podjetja",
+    tagline: "Najbolj uravnotežen paket za mala podjetja",
     features: [
       "Spletna stran do 5 podstrani",
       "Prilagojeno mobilnim napravam",

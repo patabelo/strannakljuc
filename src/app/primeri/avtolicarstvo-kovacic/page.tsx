@@ -1,21 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Car, FileCheck, Paintbrush, Sparkle, Timer, Wrench } from "lucide-react";
 
 import { DemoBanner } from "@/components/demos/demo-banner";
 import { BreadcrumbJsonLd } from "@/components/site/json-ld";
+import { createDemoMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createDemoMetadata({
   title: "Avtoličarstvo Kovačič — primer strani za avtoličarsko delavnico",
   description:
     "Primer dinamične spletne strani za avtoličarsko delavnico — kleparska, ličarska dela in sodelovanje z zavarovalnicami. Izdelava: Stran na ključ.",
-  alternates: { canonical: "/primeri/avtolicarstvo-kovacic" },
-  openGraph: {
-    title: "Primer: Avtoličarstvo Kovačič",
-    description: "Stran za avtoličarsko delavnico — primer izdelave pri Stran na ključ.",
-  },
-};
+  path: "/primeri/avtolicarstvo-kovacic",
+  openGraphTitle: "Primer: Avtoličarstvo Kovačič",
+});
 
 const SERVICES: { icon: ReactNode; title: string; text: string }[] = [
   {

@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/footer";
+import { createPageMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Politika zasebnosti",
   description: `Kako ${SITE.name} obdeluje osebne podatke ob povpraševanju prek spletne strani.`,
-  alternates: { canonical: "/zasebnost" },
-};
+  path: "/zasebnost",
+});
 
 export default function PrivacyPage() {
   return (
@@ -23,7 +23,7 @@ export default function PrivacyPage() {
           Politika zasebnosti
         </h1>
         <p className="mt-3 font-mono text-sm text-muted-foreground">
-          Zadnja posodobitev: 21. avgust 2026
+          Zadnja posodobitev: 27. avgust 2026
         </p>
 
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground">
@@ -59,6 +59,25 @@ export default function PrivacyPage() {
               Podatke uporabljam izključno za odgovor na vaše povpraševanje in
               pripravo ponudbe. Pravna podlaga je vaše soglasje in/ali ukrepi pred
               sklenitvijo pogodbe (člen 6(1)(a) in 6(1)(b) GDPR).
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="font-display text-lg font-medium text-foreground">
+              Dostava sporočil
+            </h2>
+            <p>
+              Za tehnično dostavo kontaktnih sporočil uporabljam storitev{" "}
+              <a
+                className="text-foreground underline"
+                href="https://resend.com/legal/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resend
+              </a>
+              . Podatki iz obrazca se tej storitvi posredujejo izključno za
+              dostavo e-pošte in odgovor na vaše povpraševanje.
             </p>
           </section>
 

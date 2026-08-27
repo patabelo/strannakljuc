@@ -6,6 +6,10 @@ export const metadata: Metadata = {
     template: "%s | Primer izdelave — Stran na ključ",
     default: "Primeri izdelave spletnih strani",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function DemosLayout({ children }: { children: ReactNode }) {

@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Stran na ključ",
-  shortName: "StranNaključ",
+  shortName: "Stran na ključ",
   domain: "strannakljuc.si",
   url: "https://strannakljuc.si",
   email: "patrick@strannakljuc.si",
@@ -38,9 +38,19 @@ export const MAPS_LINK_URL = `https://www.google.com/maps/search/?api=1&query=${
 
 export const FAQS = [
   {
+    question: "Koliko stane izdelava spletne strani?",
+    answer:
+      "Cene se trenutno začnejo pri 290 € za enostransko spletno stran. Paket Standard do 5 podstrani stane 490 €, Premium do 10 podstrani pa 890 €. Končna cena je odvisna od vsebine in funkcij, zato pred začetkom vedno pripravim jasno ponudbo.",
+  },
+  {
     question: "Koliko časa traja izdelava spletne strani?",
     answer:
       "Enostavna spletna stran je običajno pripravljena v 5–7 delovnih dneh po tem, ko potrdimo vsebino in vizualni osnutek. Večje spletne strani z več podstranmi lahko trajajo od dva do tri tedne.",
+  },
+  {
+    question: "Ali izdelujete spletne strani za podjetja po vsej Sloveniji?",
+    answer:
+      "Da. Sedež imam v Ljutomeru, s podjetniki in obrtniki pa sodelujem po vsej Sloveniji. Pogovor, pregled osnutka in potrjevanje vsebine lahko uredimo na daljavo.",
   },
   {
     question: "Ali imam potem možnost sam urejati vsebino?",

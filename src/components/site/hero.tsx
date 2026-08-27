@@ -29,22 +29,22 @@ export function Hero() {
           </div>
 
           <h1
-            className="animate-rise-in max-w-3xl text-balance font-display text-5xl leading-[1.05] font-medium tracking-tight sm:text-6xl md:text-7xl"
+            className="animate-rise-in max-w-4xl text-balance font-display text-5xl leading-[1.05] font-medium tracking-tight sm:text-6xl md:text-7xl"
             style={{ animationDelay: "90ms" }}
           >
-            Spletne strani, ki spremenijo{" "}
+            Izdelava spletnih strani, ki spremenijo{" "}
             <em className="text-primary not-italic">
               obiskovalce v stranke
             </em>
           </h1>
 
           <p
-            className="animate-rise-in mt-6 max-w-xl text-balance text-lg text-muted-foreground sm:text-xl"
+            className="animate-rise-in mt-6 max-w-2xl text-balance text-lg text-muted-foreground sm:text-xl"
             style={{ animationDelay: "180ms" }}
           >
-            Izdelam vam hitro in lepo spletno stran — eno stran ali več —
-            brez odvečnih zapletov, s poudarkom na rezultatih in izkušnji na
-            mobitelu.
+            Za mala podjetja, obrtnike in lokalne storitve po vsej Sloveniji.
+            Od prve ideje do hitre, jasne in mobilno prilagojene strani —
+            brez tehničnih zapletov.
           </p>
 
           <div
@@ -65,7 +65,7 @@ export function Hero() {
               variant="outline"
               nativeButton={false}
               className="h-12 border-[1.5px] border-ink/70 px-6 text-base"
-              render={<Link href="/#referencie" />}
+              render={<Link href="/#primeri" />}
             >
               Poglejte primere strani
             </Button>

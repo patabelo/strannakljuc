@@ -1,21 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Hammer, Home, Sofa, TreePine, Warehouse, Wrench } from "lucide-react";
 
 import { DemoBanner } from "@/components/demos/demo-banner";
 import { BreadcrumbJsonLd } from "@/components/site/json-ld";
+import { createDemoMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createDemoMetadata({
   title: "Mizarstvo Horvat — primer strani za mizarsko obrt",
   description:
     "Primer tople, lesene spletne strani za mizarstvo — pohištvo in izdelki po meri. Izdelava: Stran na ključ.",
-  alternates: { canonical: "/primeri/mizarstvo-horvat" },
-  openGraph: {
-    title: "Primer: Mizarstvo Horvat",
-    description: "Topla stran za mizarsko obrt — primer izdelave pri Stran na ključ.",
-  },
-};
+  path: "/primeri/mizarstvo-horvat",
+  openGraphTitle: "Primer: Mizarstvo Horvat",
+});
 
 const SERVICES: { icon: ReactNode; title: string; text: string }[] = [
   {
