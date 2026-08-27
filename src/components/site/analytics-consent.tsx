@@ -39,8 +39,10 @@ const DENIED_CONSENT = {
 
 function initializeConsentMode() {
   window.dataLayer ??= [];
-  window.gtag ??= (...args: unknown[]) => {
-    window.dataLayer?.push(args);
+  window.gtag ??= function gtag() {
+    // Google Tag expects the function's array-like Arguments object.
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer?.push(arguments);
   };
 
   if (!window.__stranNaKljucConsentInitialized) {
@@ -159,14 +161,12 @@ export function AnalyticsConsent() {
     if (!configured.current) {
       gtag("js", new Date());
       gtag("config", GOOGLE_ANALYTICS_ID, {
-        send_page_view: false,
         allow_google_signals: false,
         allow_ad_personalization_signals: false,
       });
       configured.current = true;
-    }
-
-    if (lastTrackedPath.current !== pathname) {
+      lastTrackedPath.current = pathname;
+    } else if (lastTrackedPath.current !== pathname) {
       gtag("event", "page_view", {
         page_path: pathname,
         page_location: window.location.href,
