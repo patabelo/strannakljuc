@@ -86,7 +86,7 @@ async function handleContact(request, env) {
         subject,
         text,
         html,
-        tags: [{ name: "source", value: "strannakljuc.si-contact" }],
+        tags: [{ name: "source", value: "contact-form" }],
       }),
     });
 
