@@ -4,12 +4,12 @@
   // dashboard ("strannakljuc"), or Workers Builds will fail to deploy.
   "name": "strannakljuc",
   "compatibility_date": "2026-08-25",
-  // Pure static site (Next.js `output: "export"`) — no Worker script
-  // needed. The contact form opens a pre-filled mailto:/Gmail link
-  // directly from the visitor's own browser, so no backend or paid
-  // Cloudflare Email Sending plan is required.
+  // Worker script handles POST /api/contact (e-pošta prek Resend API);
+  // vse ostalo postrežejo statični viri (Next.js `output: "export"`).
+  "main": "worker/index.js",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
     "not_found_handling": "404-page"
   },
   "observability": {
