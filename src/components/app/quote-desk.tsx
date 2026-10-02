@@ -291,7 +291,7 @@ export function QuoteDesk() {
               </p>
               <p className="mt-3 text-sm text-white/60">{quote.summary}</p>
               <p className="mt-2 text-xs text-white/45">
-                Razpon je okviren in ni zavezujoča ponudba.
+                Povprečje javno objavljenih cen v Sloveniji (2025–2026). Ni zavezujoča ponudba.
               </p>
             </>
           ) : (

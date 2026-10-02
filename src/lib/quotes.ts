@@ -100,17 +100,27 @@ export function quoteFor(trade: TradeId, inputs: QuoteInputs): QuoteResult | nul
   }
 }
 
-/** m² × osnovna cena (po debelini) + dodatek za material (na m²). */
+/**
+ * Fasada z materialom in delom (izolacija, omet, barvanje).
+ * Primerjam.si, cenik 2026, €/m²:
+ * stiropor 15 cm 50–56, 20 cm 56–65;
+ * kamena volna 15 cm 71–80, 20 cm 81–94.
+ */
 function quoteFacade(input: FacadeInput): QuoteResult | null {
   const area = parseMeasure(input.area);
   if (area === null) return null;
 
-  const base = input.thickness === "15cm" ? 48 : 58;
-  const materialAddon = input.material === "stiropor" ? 14 : 36;
-  const mid = area * base + area * materialAddon;
+  const [lowPer, highPer] =
+    input.material === "stiropor"
+      ? input.thickness === "15cm"
+        ? [50, 56]
+        : [56, 65]
+      : input.thickness === "15cm"
+        ? [71, 80]
+        : [81, 94];
 
   return {
-    ...spread(mid),
+    ...priced(area, lowPer, highPer),
     summary: `${formatMeasure(area)} m², izolacija ${input.thickness.replace("cm", " cm")}, ${FACADE_MATERIAL[input.material]}`,
   };
 }
@@ -119,18 +129,21 @@ function quoteMetal(input: MetalInput): QuoteResult | null {
   const quantity = parseMeasure(input.quantity);
   if (quantity === null) return null;
 
-  const perUnit =
+  // Ograja: Omisli.si 60–90 €/m (železo, prašno barvanje), Mojmojster 150–220 €/m (inox, višina 1 m, z montažo).
+  // Nadstrešek: Mojmojster 180–220 €/m² (jeklo). Primerjam.si 200–380 €/m² za kovinski nadstrešek;
+  // ločene cene za inox na m² ni, zato inox vzame ta širši objavljeni razpon.
+  const [lowPer, highPer] =
     input.kind === "ograja"
       ? input.material === "inox"
-        ? 220
-        : 120
+        ? [150, 220]
+        : [60, 90]
       : input.material === "inox"
-        ? 380
-        : 240;
+        ? [200, 380]
+        : [180, 220];
   const unit = input.kind === "ograja" ? "m" : "m²";
 
   return {
-    ...spread(quantity * perUnit),
+    ...priced(quantity, lowPer, highPer),
     summary: `${METAL_KIND[input.kind]}, ${formatMeasure(quantity)} ${unit}, ${METAL_MATERIAL[input.material]}`,
   };
 }
@@ -139,10 +152,12 @@ function quoteDrywall(input: DrywallInput): QuoteResult | null {
   const area = parseMeasure(input.area);
   if (area === null) return null;
 
-  const perM2 = input.kind === "navadne" ? 36 : 48;
+  // Mojmojster: strop 21–27 €/m², enoslojna stena 28–32 €/m².
+  // Vlagoodporna obloga je v istem članku 26–29 €/m², zato je spodnja meja višja.
+  const [lowPer, highPer] = input.kind === "navadne" ? [21, 32] : [26, 32];
 
   return {
-    ...spread(area * perM2),
+    ...priced(area, lowPer, highPer),
     summary: `${formatMeasure(area)} m², ${DRYWALL_KIND[input.kind].toLowerCase()}`,
   };
 }
@@ -151,19 +166,21 @@ function quoteRoof(input: RoofInput): QuoteResult | null {
   const area = parseMeasure(input.area);
   if (area === null) return null;
 
-  const covering = input.covering === "opeka" ? 95 : 70;
-  const frame = input.frame === "da" ? 55 : 0;
+  // Prekrivanje z DDV, Strehar.si / emedia 2025: pločevina 50–75, opeka 60–90 €/m².
+  // Leseno ostrešje z dobavo in montažo, Mojmojster: 38–46 €/m², prišteje se le ob menjavi.
+  const [coverLow, coverHigh] = input.covering === "opeka" ? [60, 90] : [50, 75];
+  const [frameLow, frameHigh] = input.frame === "da" ? [38, 46] : [0, 0];
 
   return {
-    ...spread(area * (covering + frame)),
+    ...priced(area, coverLow + frameLow, coverHigh + frameHigh),
     summary: `${formatMeasure(area)} m², ${ROOF_COVERING[input.covering].toLowerCase()}, menjava ostrešja: ${input.frame === "da" ? "da" : "ne"}`,
   };
 }
 
-function spread(mid: number) {
+function priced(quantity: number, lowPer: number, highPer: number) {
   return {
-    low: Math.round(mid * 0.9),
-    high: Math.round(mid * 1.16),
+    low: Math.round(quantity * lowPer),
+    high: Math.round(quantity * highPer),
   };
 }
 
