@@ -120,11 +120,11 @@ export function QuoteDesk() {
         Kalkulatorji ponudb
       </p>
       <h1 className="mt-3 max-w-xl font-display text-4xl tracking-[-0.03em] sm:text-5xl">
-        Okvirna cena, preden pokličete stranko.
+        Izračunajte si okvirno ceno.
       </h1>
       <p className="mt-4 max-w-2xl text-white/70">
-        Izberite dejavnost, vnesite mere in takoj vidite razpon. Pod ceno lahko
-        obiskovalec pusti kontakt, vi pa prejmete povpraševanje.
+        Izberite dejavnost in vnesite mere, da takoj pridobite informativno
+        ponudbo. Za natančen izračun nam pošljite neobvezujoče povpraševanje.
       </p>
 
       <div
@@ -296,9 +296,9 @@ export function QuoteDesk() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 font-display text-[1.65rem] leading-tight tracking-[-0.03em] text-[#ffe1c4]">
-                Okvirna cena ponudbe:
-                <span className="mt-1 block">
+              <p className="mt-4 font-display text-[1.65rem] leading-tight tracking-[-0.03em]">
+                <span className="text-[#ffe1c4]">Okvirna cena ponudbe:</span>
+                <span className="mt-1 block text-[#f2792c]">
                   od {formatEuroAmount(quote.low)} do {formatEuroAmount(quote.high)} €
                 </span>
               </p>
@@ -369,10 +369,11 @@ export function QuoteDesk() {
                   {error}
                 </p>
               ) : null}
+              <p className="text-xs text-gray-400">Pošiljanje povpraševanja je popolnoma neobvezujoče.</p>
               <button
                 type="submit"
                 disabled={status === "sending" || !quote}
-                className="mt-1 bg-[#f6f1e8] px-4 py-2.5 text-sm text-[#14120f] disabled:opacity-40"
+                className="mt-1 bg-[#f2792c] px-4 py-2.5 text-sm font-medium text-[#1a1008] transition-colors hover:bg-[#ff9340] disabled:opacity-40"
               >
                 {status === "sending" ? "Pošiljam…" : "Pošlji"}
               </button>
