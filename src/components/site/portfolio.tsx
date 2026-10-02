@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { SectionHeading } from "@/components/site/services";
 import { DEMOS } from "@/lib/site";
@@ -18,13 +19,18 @@ export function Portfolio() {
           <li key={project.slug} className={project.slug === "kovinarstvo-meznaric" ? "sm:col-span-2 lg:col-span-2" : ""}>
             <Link
               href={`/primeri/${project.slug}`}
-              className="group flex h-full flex-col border border-foreground/12 bg-card transition-colors hover:border-foreground/40"
+              className="group flex h-full flex-col border border-white/15 bg-black/35 transition-colors hover:border-white/40"
             >
-              <span
-                className="flex min-h-40 items-end p-6"
-                style={{ background: project.swatch }}
-              >
-                <span className="font-display text-3xl tracking-[-0.03em] text-white">
+              <span className="relative flex min-h-44 items-end overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 30vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+                <span className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/10" />
+                <span className="relative p-6 font-display text-3xl tracking-[-0.03em] text-white">
                   {project.name}
                 </span>
               </span>

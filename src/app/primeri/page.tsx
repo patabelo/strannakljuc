@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { DemoBanner } from "@/components/demos/demo-banner";
@@ -34,25 +35,32 @@ export default function DemosIndexPage() {
           (še) nimam, zato so to zgledi sloga in kakovosti, ne pretekli
           projekti.
         </p>
-        <ul className="mt-10 border-t border-foreground/15">
+        <ul className="mt-10 border-t border-white/15">
           {DEMOS.map((demo) => (
             <li key={demo.slug}>
               <Link
                 href={`/primeri/${demo.slug}`}
-                className="group grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-foreground/15 py-5"
+                className="group grid grid-cols-[4.5rem_1fr_auto] items-center gap-4 border-b border-white/15 py-4"
               >
+                <Image
+                  src={demo.image}
+                  alt={demo.imageAlt}
+                  width={128}
+                  height={128}
+                  className="size-16 object-cover"
+                />
                 <span>
-                  <span className="font-mono text-[0.68rem] tracking-[0.12em] text-muted-foreground uppercase">
+                  <span className="font-mono text-[0.68rem] tracking-[0.12em] text-white/60 uppercase">
                     {demo.category}
                   </span>
                   <span className="mt-1 block font-display text-xl tracking-[-0.02em] group-hover:text-primary">
                     {demo.name}
                   </span>
-                  <span className="mt-1 block text-sm text-muted-foreground">
+                  <span className="mt-1 block text-sm text-white/70">
                     {demo.description}
                   </span>
                 </span>
-                <span className="text-sm text-muted-foreground">Odpri</span>
+                <span className="text-sm text-white/70">Odpri</span>
               </Link>
             </li>
           ))}
