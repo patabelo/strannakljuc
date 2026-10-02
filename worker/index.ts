@@ -212,7 +212,7 @@ async function handleLead(request: Request, env: Env): Promise<Response> {
   const email = clean(payload.email, 120);
   const trade = clean(payload.trade, 40);
   const tradeName = clean(payload.tradeLabel, 40);
-  const summary = clean(payload.summary, 500);
+  const summary = clean(payload.summary, 2500);
   const priceLabel = clean(payload.priceLabel, 160);
   const priceLow = numberInRange(payload.priceLow);
   const priceHigh = numberInRange(payload.priceHigh);

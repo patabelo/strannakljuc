@@ -90,7 +90,9 @@ export function QuoteDesk() {
           email: lead.email.trim(),
           trade,
           tradeLabel: tradeLabel(trade),
-          summary: quote.summary,
+          summary: [quote.summary, ...quote.lines.map((line) => `${line.label}: ${line.low}–${line.high} €`)].join(
+            "\n",
+          ),
           priceLow: quote.low,
           priceHigh: quote.high,
           priceLabel: priceLine(quote),
@@ -160,7 +162,7 @@ export function QuoteDesk() {
         })}
       </div>
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
+      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_26rem] lg:items-start">
         <div
           role="tabpanel"
           id={`panel-${trade}`}
@@ -283,15 +285,25 @@ export function QuoteDesk() {
           </p>
           {quote ? (
             <>
-              <p className="mt-3 font-display text-[1.65rem] leading-tight tracking-[-0.03em] text-[#ffe1c4]">
+              <p className="mt-3 text-sm text-white/60">{quote.summary}</p>
+              <ul className="mt-4 divide-y divide-white/10 border-y border-white/10">
+                {quote.lines.map((line) => (
+                  <li key={line.label} className="flex items-start justify-between gap-3 py-2 text-sm">
+                    <span>{line.label}</span>
+                    <span className="shrink-0 text-white/70">
+                      {formatEuroAmount(line.low)}–{formatEuroAmount(line.high)} €
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 font-display text-[1.65rem] leading-tight tracking-[-0.03em] text-[#ffe1c4]">
                 Okvirna cena ponudbe:
                 <span className="mt-1 block">
                   od {formatEuroAmount(quote.low)} do {formatEuroAmount(quote.high)} €
                 </span>
               </p>
-              <p className="mt-3 text-sm text-white/60">{quote.summary}</p>
               <p className="mt-2 text-xs text-white/45">
-                Povprečje javno objavljenih cen v Sloveniji (2025–2026). Ni zavezujoča ponudba.
+                Postavke sledijo javno objavljenim povprečjem v Sloveniji (2025–2026). Ni zavezujoča ponudba.
               </p>
             </>
           ) : (
