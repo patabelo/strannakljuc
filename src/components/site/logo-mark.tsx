@@ -1,38 +1,14 @@
 import type { SVGProps } from "react";
 
-/**
- * Custom mark for "Stran na ključ": a key whose bow is drawn as a
- * browser window (tab dots + address-bar divider), with the shaft and
- * teeth cascading below — "the key to your website" as a single glyph,
- * built for this brand rather than pulled from an icon set.
- */
+/** A page-key: quiet geometry, one weight, readable at favicon size. */
 export function LogoMark(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <rect x="3" y="3" width="42" height="42" rx="2" fill="#f4efe6" />
-      <rect x="22.5" y="20.5" width="6" height="19" rx="1.6" fill="#12141c" />
-      <rect x="28.3" y="28.5" width="5.4" height="4.6" rx="1.1" fill="#12141c" />
-      <rect x="28.3" y="35.3" width="8" height="4.6" rx="1.1" fill="#12141c" />
-      <rect
-        x="7"
-        y="6.5"
-        width="21.5"
-        height="17"
-        rx="2"
-        stroke="#12141c"
-        strokeWidth="2.4"
-      />
-      <line
-        x1="7"
-        y1="13.3"
-        x2="28.5"
-        y2="13.3"
-        stroke="#12141c"
-        strokeWidth="2.4"
-      />
-      <circle cx="11.2" cy="9.9" r="1.25" fill="#12141c" />
-      <circle cx="15.7" cy="9.9" r="1.25" fill="#12141c" />
-      <circle cx="20.2" cy="9.9" r="1.25" fill="#12141c" />
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden xmlns="http://www.w3.org/2000/svg" {...props}>
+      <circle cx="15" cy="22" r="8" stroke="currentColor" strokeWidth="2.4" />
+      <circle cx="15" cy="22" r="2.1" fill="currentColor" />
+      <path fill="currentColor" d="M22.4 20.8h17.2v2.4H22.4z" />
+      <path fill="currentColor" d="M32.2 23.2h2.4v5.2h-2.4z" />
+      <path fill="currentColor" d="M36.8 23.2h2.4v7.6h-2.4z" />
     </svg>
   );
 }

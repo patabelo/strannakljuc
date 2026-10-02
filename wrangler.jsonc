@@ -4,14 +4,18 @@
   // dashboard ("strannakljuc"), or Workers Builds will fail to deploy.
   "name": "strannakljuc",
   "compatibility_date": "2026-08-25",
-  // Pure static site (Next.js `output: "export"`) — no Worker script
-  // needed. The contact form opens a pre-filled mailto:/Gmail link
-  // directly from the visitor's own browser, so no backend or paid
-  // Cloudflare Email Sending plan is required.
+  // Static site plus one contact endpoint. The form posts here;
+  // the Worker emails patrick@strannakljuc.si. Everything else is a file.
+  "main": "worker/index.ts",
   "assets": {
     "directory": "./out",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
   },
+  "send_email": [
+    { "name": "EMAIL" }
+  ],
   "observability": {
     "enabled": true
   }

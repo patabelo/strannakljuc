@@ -21,7 +21,7 @@ export const SITE = {
     countryName: "Slovenija",
   },
   description:
-    "Izdelava spletnih strani za mala in velika podjetja v Sloveniji. Od ideje do objavljene strani v enem tednu. Možno je tudi dolgoročno sodelovanje.",
+    "Izdelava spletnih strani za vse: male podjetnike, zasebnike in d.o.o. Od ideje do objavljene strani v enem tednu. Možno je tudi dolgoročno sodelovanje.",
   // Leave empty until the profile exists — dummy "#" links hurt trust and SEO.
   social: {
     instagram: "",

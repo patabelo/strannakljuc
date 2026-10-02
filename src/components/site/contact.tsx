@@ -15,7 +15,8 @@ export function Contact() {
           <p className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground">
             Napišite mi nekaj besed o svojem projektu. Odgovorim v enem
             delovnem dnevu z okvirno ponudbo in predlogom naslednjih korakov.
-            Velja za mala podjetja, velika podjetja in dolgoročno sodelovanje.
+            Velja za male podjetnike, zasebnike, d.o.o. in za dolgoročno
+            sodelovanje.
           </p>
 
           <dl className="mt-10 space-y-5">

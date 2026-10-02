@@ -14,6 +14,7 @@ import {
 
 const NAV_LINKS = [
   { href: "/#storitve", label: "Storitve" },
+  { href: "/kako-delam", label: "Kako delam" },
   { href: "/#referencie", label: "Primeri" },
   { href: "/#cenik", label: "Cenik" },
   { href: "/#sodelovanje", label: "Sodelovanje" },
@@ -27,7 +28,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#05070e]/75 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-5 sm:px-8">
         <Link href="/" className="flex items-center gap-2.5">
-          <LogoMark className="size-7" />
+          <LogoMark className="size-8 text-[#f4efe6]" />
           <span className="font-display text-[1.15rem] tracking-[-0.03em]">
             Stran na ključ
           </span>

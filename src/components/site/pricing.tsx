@@ -54,7 +54,7 @@ export function Pricing() {
         index="05"
         eyebrow="Cenik"
         title="Pregledne cene, brez skritih stroškov"
-        description="Vsak projekt je unikaten, zato so cene okvirne izhodišče za pogovor. Skupaj poiščemo paket, ki ustreza vašemu proračunu — za malo podjetje, veliko podjetje ali karkoli vmes."
+        description="Vsak projekt je unikaten, zato so cene okvirne izhodišče za pogovor. Skupaj poiščemo paket, ki ustreza vašemu proračunu — za podjetnika, zasebnika ali d.o.o."
       />
 
       <p className="mt-10 text-sm text-muted-foreground">

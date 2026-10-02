@@ -2,19 +2,19 @@ import { SectionHeading } from "@/components/site/services";
 
 const AUDIENCE = [
   {
-    title: "Gostinstvo in lokalne storitve",
+    title: "Samostojni podjetniki",
     description:
-      "Kavarne, restavracije, saloni in obrtniki, ki potrebujejo jasno stran z urnikom, ponudbo in spodbudo k povpraševanju.",
+      "Obrtniki, s.p. in manjši posli, ki potrebujejo jasno stran: ponudbo, območje dela in preprost način, da vas stranka pokliče.",
   },
   {
-    title: "Ordinacije in svetovalci",
+    title: "Zasebniki",
     description:
-      "Fizioterapevti, trenerji, pravniki in drugi strokovnjaki, kjer je zaupanje na prvem mestu — in enostavno naročanje.",
+      "Če nastopate v svojem imenu — svetovanje, ustvarjanje, storitev — stran pove, kdo ste in kako vas dosežejo.",
   },
   {
-    title: "Podjetniki, ki šele začenjajo",
+    title: "Družbe in večja podjetja",
     description:
-      "Če še nimate spletne strani ali je stara in počasna, pripravim sodoben nastop, ki na mobitelu deluje enako dobro kot na računalniku.",
+      "Tudi za d.o.o. in ekipe z več storitvami. Obseg prilagodim podjetju: od predstavitvene strani do več podstrani.",
   },
 ];
 
@@ -24,8 +24,8 @@ export function Audience() {
       <SectionHeading
         index="07"
         eyebrow="Za koga"
-        title="Strani, ki jih razume vsakodnevni obiskovalec"
-        description="Ne izdelujem zapletenih spletnih sistemov. Delam za mala podjetja, velika podjetja in vse vmes — lepo, hitro in razumljivo stran, brez odvečnega žargona. Po objavi lahko sodelovanje ostane dolgoročno."
+        title="Spletne strani za vse"
+        description="Izdelujem spletne strani za vse: za male podjetnike, zasebnike in d.o.o. Enak pristop za manjši obrat in za večje podjetje. Po objavi lahko sodelovanje ostane dolgoročno."
       />
 
       <ul className="mt-12 grid gap-10 sm:grid-cols-3">

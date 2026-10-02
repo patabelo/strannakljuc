@@ -20,7 +20,7 @@ export function Hero() {
           <p className="mt-7 max-w-[42ch] text-lg leading-relaxed text-muted-foreground">
             Izdelam vam hitro in lepo spletno stran — eno stran ali več —
             brez odvečnih zapletov, s poudarkom na rezultatih in izkušnji na
-            mobitelu. Za mala podjetja, velika podjetja in vse vmes.
+            mobitelu. Strani so za vse: male podjetnike, zasebnike in d.o.o.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link

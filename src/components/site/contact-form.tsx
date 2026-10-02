@@ -5,38 +5,41 @@ import Link from "next/link";
 
 import { SITE } from "@/lib/site";
 
-type Status = "idle" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "error";
 
-function buildSubjectAndBody(name: string, email: string, message: string) {
-  const subject = `Povpraševanje s ${SITE.domain} — ${name}`;
-  const body = `Ime: ${name}\nE-pošta: ${email}\n\n${message}`;
-  return { subject, body };
-}
-
-function buildMailtoUrl(subject: string, body: string) {
-  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-function buildGmailComposeUrl(subject: string, body: string) {
-  const params = new URLSearchParams({
-    view: "cm",
-    fs: "1",
-    to: SITE.email,
-    su: subject,
-    body,
-  });
-  return `https://mail.google.com/mail/?${params.toString()}`;
-}
+const shellClass =
+  "relative isolate overflow-hidden border border-white/15 bg-[#070b18] px-6 py-8 shadow-[0_24px_70px_-28px_rgba(0,0,0,0.85)] sm:px-8";
 
 const fieldClass =
-  "w-full border-0 border-b border-foreground/25 bg-transparent py-2 text-sm outline-none placeholder:text-muted-foreground/70 focus:border-foreground";
+  "w-full border border-white/15 bg-[#10182c] px-3 py-2.5 text-sm text-[#f6f1e8] outline-none placeholder:text-white/45 focus:border-[#e7c27a]";
+
+function FormSky() {
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0"
+      style={{
+        backgroundColor: "#070b18",
+        backgroundImage: `
+          radial-gradient(1.2px 1.2px at 18% 24%, rgba(255,255,255,0.9), transparent),
+          radial-gradient(1px 1px at 74% 18%, rgba(255,255,255,0.75), transparent),
+          radial-gradient(1.5px 1.5px at 88% 70%, rgba(255,214,170,0.9), transparent),
+          radial-gradient(1px 1px at 32% 78%, rgba(255,255,255,0.6), transparent),
+          linear-gradient(165deg, rgba(10,16,36,0.94), rgba(7,11,24,0.92) 55%, rgba(22,14,40,0.94)),
+          url("/space-bg.jpg")
+        `,
+        backgroundSize: "auto, auto, auto, auto, cover, cover",
+        backgroundPosition: "center",
+      }}
+    />
+  );
+}
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [links, setLinks] = useState<{ mailto: string; gmail: string } | null>(null);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -44,6 +47,7 @@ export function ContactForm() {
     const email = String(data.get("email") ?? "").trim();
     const message = String(data.get("message") ?? "").trim();
     const consent = data.get("consent") === "on";
+    const company = String(data.get("company") ?? "");
 
     if (!name || !email || !message || !consent) {
       setStatus("error");
@@ -51,60 +55,62 @@ export function ContactForm() {
       return;
     }
 
-    const { subject, body } = buildSubjectAndBody(name, email, message);
-    const mailto = buildMailtoUrl(subject, body);
-    const gmail = buildGmailComposeUrl(subject, body);
+    setStatus("sending");
+    setErrorMessage(null);
 
-    setLinks({ mailto, gmail });
-    setStatus("sent");
-    form.reset();
-
-    window.location.href = mailto;
+    try {
+      const response = await fetch("/api/povprasevanje", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ name, email, message, consent: true, company }),
+      });
+      const result = (await response.json()) as { ok?: boolean; error?: string };
+      if (!response.ok || !result.ok) {
+        setStatus("error");
+        setErrorMessage(result.error ?? "Sporočila ni bilo mogoče poslati.");
+        return;
+      }
+      form.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+      setErrorMessage("Sporočila ni bilo mogoče poslati. Pišite na patrick@strannakljuc.si.");
+    }
   }
 
-  if (status === "sent" && links) {
+  if (status === "sent") {
     return (
-      <div className="border border-foreground/15 px-6 py-8">
-        <h3 className="font-display text-2xl tracking-[-0.03em]">
-          Odpiram vaš e-poštni program
-        </h3>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Sporočilo je pripravljeno — samo še pošljite iz svoje e-pošte. Če se
-          nič ni odprlo, uporabite eno od spodnjih možnosti.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm">
-          <a
-            href={links.gmail}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-foreground px-4 py-2.5 text-background"
+      <div className={shellClass}>
+        <FormSky />
+        <div className="relative">
+          <h3 className="font-display text-2xl tracking-[-0.03em]">Sporočilo je poslano</h3>
+          <p className="mt-3 text-sm leading-relaxed text-white/75">
+            Dobil sem ga na {SITE.email}. Odgovorim v enem delovnem dnevu.
+          </p>
+          <button
+            type="button"
+            className="mt-6 text-sm underline underline-offset-4"
+            onClick={() => setStatus("idle")}
           >
-            Odpri v Gmailu
-          </a>
-          <a href={links.mailto} className="self-center underline underline-offset-4">
-            Odpri v drugem programu
-          </a>
+            Pošlji novo sporočilo
+          </button>
         </div>
-        <p className="mt-6 text-sm text-muted-foreground">
-          Ali pišite kar neposredno na{" "}
-          <a className="text-foreground underline" href={`mailto:${SITE.email}`}>
-            {SITE.email}
-          </a>
-          .
-        </p>
-        <button
-          type="button"
-          className="mt-6 text-sm underline underline-offset-4"
-          onClick={() => setStatus("idle")}
-        >
-          Pošlji novo sporočilo
-        </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
+    <form onSubmit={handleSubmit} className={`${shellClass} flex flex-col gap-6`} noValidate>
+      <FormSky />
+      <div className="relative flex flex-col gap-6">
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden
+        className="absolute -left-[9999px] h-0 w-0"
+      />
       <div className="flex flex-col gap-1">
         <label htmlFor="name" className="font-mono text-[0.68rem] tracking-[0.14em] uppercase">
           Ime in priimek
@@ -166,11 +172,13 @@ export function ContactForm() {
       ) : null}
       <button
         type="submit"
-        className="mt-1 w-fit bg-foreground px-5 py-3 text-sm text-background transition-colors hover:bg-primary"
+        disabled={status === "sending"}
+        className="mt-1 w-fit bg-foreground px-5 py-3 text-sm text-background transition-colors hover:bg-primary disabled:opacity-60"
       >
-        Pošlji povpraševanje
+        {status === "sending" ? "Pošiljam…" : "Pošlji povpraševanje"}
       </button>
-      <p className="text-xs text-muted-foreground">Brez obveznosti — odgovorim v 24 urah.</p>
+      <p className="text-xs text-white/60">Brez obveznosti — odgovorim v 24 urah.</p>
+      </div>
     </form>
   );
 }
