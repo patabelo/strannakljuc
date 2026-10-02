@@ -1,65 +1,51 @@
-import { MessageCircle, Palette, Code2, Rocket } from "lucide-react";
-
 import { SectionHeading } from "@/components/site/services";
 
 const STEPS = [
   {
-    icon: <MessageCircle className="size-5" />,
-    title: "1. Kratek pogovor",
+    title: "Pogovor",
     description:
-      "Spoznam vaše podjetje, cilje in ciljno publiko. Skupaj določimo obseg strani in kaj mora doseči.",
+      "Določiva, kaj stran mora doseči: koga nagovarja, katere storitve pokaže in kam vodi obiskovalca.",
   },
   {
-    icon: <Palette className="size-5" />,
-    title: "2. Osnutek in oblikovanje",
+    title: "Osnutek",
     description:
-      "Pripravim vizualni osnutek strani, ki ga uskladimo z vašo blagovno znamko, preden se lotim izdelave.",
+      "Pred izdelavo vidite postavitev in besedilo. Uskladiva videz z vašo dejavnostjo, šele nato gre stran v izdelavo.",
   },
   {
-    icon: <Code2 className="size-5" />,
-    title: "3. Izdelava",
+    title: "Izdelava",
     description:
-      "Stran zgradim po meri — hitro, varno in prilagojeno vsem napravam, od mobitela do velikega zaslona.",
+      "Stran je narejena po meri: prilagojena mobitelu, hitra pri odpiranju in pripravljena za objavo na vaši domeni.",
   },
   {
-    icon: <Rocket className="size-5" />,
-    title: "4. Objava in podpora",
+    title: "Objava",
     description:
-      "Stran objavim na vaši domeni, poskrbim za osnovno vidnost na Googlu in po objavi ostanem na voljo za popravke.",
+      "Stran gre v živo, z osnovno pripravo za Google. Po predaji lahko sodelovanje nadaljujeva.",
   },
 ];
 
 export function Process() {
   return (
-    <section
-      id="kako-deluje"
-      className="border-t border-border bg-muted/30 py-20"
-    >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Postopek"
-          title="Kako deluje sodelovanje"
-          description="Preprost, pregleden proces v štirih korakih — brez presenečenj in skritih stroškov."
-        />
+    <section id="kako-deluje" className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <SectionHeading
+        index="03"
+        eyebrow="Postopek"
+        title="Štirje koraki do objave"
+        description="Jasen potek, dogovorjen obseg in cena, preden se delo začne. Brez skritih postavk."
+      />
 
-        <div className="relative mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div
-            aria-hidden
-            className="absolute top-6 right-0 left-0 hidden border-t-[1.5px] border-dashed border-ink/25 lg:block"
-          />
-          {STEPS.map((step) => (
-            <div key={step.title} className="relative flex flex-col items-start">
-              <div className="relative z-10 mb-4 flex size-12 items-center justify-center rounded-full border-[1.5px] border-ink bg-background text-primary shadow-[2px_2px_0_0_var(--ink)]">
-                {step.icon}
-              </div>
-              <h3 className="font-display text-base font-medium">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {step.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <ol className="mt-12 grid gap-px bg-foreground/15 sm:grid-cols-2 lg:grid-cols-4">
+        {STEPS.map((step, index) => (
+          <li key={step.title} className="bg-black/40 p-6 backdrop-blur-sm">
+            <span className="font-mono text-xs text-primary">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 className="mt-6 font-display text-xl tracking-[-0.02em]">{step.title}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              {step.description}
+            </p>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }

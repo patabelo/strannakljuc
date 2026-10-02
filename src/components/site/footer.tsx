@@ -1,105 +1,80 @@
 import Link from "next/link";
 
-import { Separator } from "@/components/ui/separator";
 import { InstagramIcon, LinkedinIcon, FacebookIcon } from "@/components/site/social-icons";
-import { LogoMark } from "@/components/site/logo-mark";
-import { ADDRESS_LINE, SITE } from "@/lib/site";
+import { SITE, SOCIAL_LINKS } from "@/lib/site";
+
+const SOCIAL_ICONS = {
+  Instagram: InstagramIcon,
+  LinkedIn: LinkedinIcon,
+  Facebook: FacebookIcon,
+} as const;
+
+const LINKS = [
+  { href: "/#storitve", label: "Storitve" },
+  { href: "/#kako-deluje", label: "Postopek" },
+  { href: "/#referencie", label: "Primeri" },
+  { href: "/#cenik", label: "Cenik" },
+  { href: "/#sodelovanje", label: "Sodelovanje" },
+  { href: "/#o-meni", label: "Studio" },
+  { href: "/#vprasanja", label: "Vprašanja" },
+  { href: "/#kontakt", label: "Kontakt" },
+  { href: "/zasebnost", label: "Zasebnost" },
+];
 
 export function SiteFooter() {
   return (
-    <footer className="border-t-2 border-ink bg-card">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-          <div className="min-w-0 max-w-sm">
-            <Link href="/" className="flex items-center gap-2.5">
-              <LogoMark className="size-9 shrink-0 -rotate-3" />
-              <span className="font-display text-base italic">
-                Stran na ključ
-              </span>
+    <footer className="border-t border-foreground/15">
+      <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <Link href="/" className="font-display text-2xl tracking-[-0.03em]">
+              Stran na ključ
             </Link>
-            <p className="mt-3 text-sm text-muted-foreground">
-              Izdelava spletnih strani, ki pomagajo malim podjetjem in
-              podjetnikom rasti na spletu.
+            <p className="mt-2 max-w-xs text-sm text-muted-foreground">
+              Studio za izdelavo spletnih strani. Naročilo in sodelovanje
+              neposredno s s.p.
             </p>
-            <p className="mt-1 font-mono text-xs text-muted-foreground">
-              {SITE.domain}
-            </p>
-            <div className="mt-4 flex gap-3 text-muted-foreground">
-              <a href="#" aria-label="Instagram" className="transition-colors hover:text-foreground">
-                <InstagramIcon className="size-5" />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="transition-colors hover:text-foreground">
-                <LinkedinIcon className="size-5" />
-              </a>
-              <a href="#" aria-label="Facebook" className="transition-colors hover:text-foreground">
-                <FacebookIcon className="size-5" />
-              </a>
-            </div>
           </div>
-
-          <div className="grid min-w-0 grid-cols-2 gap-8 sm:grid-cols-3">
-            <div className="min-w-0">
-              <h4 className="font-mono text-xs font-semibold tracking-[0.14em] text-primary uppercase">
-                Povezave
-              </h4>
-              <ul className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
-                <li><Link href="/#storitve" className="hover:text-foreground">Storitve</Link></li>
-                <li><Link href="/#kako-deluje" className="hover:text-foreground">Kako deluje</Link></li>
-                <li><Link href="/#referencie" className="hover:text-foreground">Primeri</Link></li>
-                <li><Link href="/#cenik" className="hover:text-foreground">Cenik</Link></li>
-              </ul>
-            </div>
-            <div className="min-w-0">
-              <h4 className="font-mono text-xs font-semibold tracking-[0.14em] text-primary uppercase">
-                Podjetje
-              </h4>
-              <ul className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
-                <li>
-                  <Link href="/#o-meni" className="hover:text-foreground">
-                    O meni
-                  </Link>
-                </li>
-                <li><Link href="/#vprasanja" className="hover:text-foreground">Vprašanja</Link></li>
-                <li><Link href="/#kontakt" className="hover:text-foreground">Kontakt</Link></li>
-                <li>
-                  <Link href="/zasebnost" className="hover:text-foreground">
-                    Zasebnost
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="min-w-0">
-              <h4 className="font-mono text-xs font-semibold tracking-[0.14em] text-primary uppercase">
-                Kontakt
-              </h4>
-              <ul className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground">
-                <li>
-                  <a
-                    href={`mailto:${SITE.email}`}
-                    className="break-all hover:text-foreground"
-                  >
-                    {SITE.email}
-                  </a>
-                </li>
-                <li>
-                  <a href={`tel:${SITE.phoneTel}`} className="hover:text-foreground">
-                    {SITE.phoneDisplay}
-                  </a>
-                </li>
-                <li>{ADDRESS_LINE}</li>
-              </ul>
-            </div>
-          </div>
+          <ul className="flex max-w-md flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
+            {LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="hover:text-foreground">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <Separator className="my-8 bg-ink/15" />
-
-        <div className="flex flex-col gap-2 font-mono text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-foreground/10 pt-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {SITE.person.legalName} · {SITE.domain}.
-            Ni davčni zavezanec za DDV.
+            © {new Date().getFullYear()} {SITE.person.legalName}. Ni davčni
+            zavezanec za DDV.
           </p>
-          <p>Mota, Ljutomer · delo po vsej Sloveniji.</p>
+          <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <a href={`mailto:${SITE.email}`} className="hover:text-foreground">
+              {SITE.email}
+            </a>
+            <a href={`tel:${SITE.phoneTel}`} className="hover:text-foreground">
+              {SITE.phoneDisplay}
+            </a>
+            <span>Ljutomer · po vsej Sloveniji</span>
+            {SOCIAL_LINKS.map((link) => {
+              const Icon = SOCIAL_ICONS[link.name];
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  aria-label={link.name}
+                  className="hover:text-foreground"
+                >
+                  <Icon className="size-4" />
+                </a>
+              );
+            })}
+          </p>
         </div>
       </div>
     </footer>

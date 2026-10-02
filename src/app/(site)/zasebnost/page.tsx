@@ -16,8 +16,8 @@ export default function PrivacyPage() {
     <>
       <SiteHeader />
       <main id="vsebina" className="mx-auto w-full max-w-3xl flex-1 px-4 py-16 sm:px-6">
-        <p className="font-mono text-xs font-semibold tracking-[0.16em] text-primary uppercase">
-          {"// Pravno"}
+        <p className="font-mono text-[0.72rem] tracking-[0.16em] text-primary uppercase">
+          Pravno
         </p>
         <h1 className="mt-2 font-display text-3xl font-medium tracking-tight sm:text-4xl">
           Politika zasebnosti
@@ -87,8 +87,7 @@ export default function PrivacyPage() {
             <h2 className="font-display text-lg font-medium text-foreground">Piškotki</h2>
             <p>
               Ta spletna stran ne uporablja oglaševalskih ali analitičnih
-              piškotkov. Google Maps v kontaktnem razdelku lahko nastavi lastne
-              piškotke — zemljevid naloži Google.
+              piškotkov.
             </p>
           </section>
         </div>

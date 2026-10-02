@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/site";
 
 type Status = "idle" | "sent" | "error";
@@ -29,6 +27,9 @@ function buildGmailComposeUrl(subject: string, body: string) {
   });
   return `https://mail.google.com/mail/?${params.toString()}`;
 }
+
+const fieldClass =
+  "w-full border-0 border-b border-foreground/25 bg-transparent py-2 text-sm outline-none placeholder:text-muted-foreground/70 focus:border-foreground";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -58,70 +59,54 @@ export function ContactForm() {
     setStatus("sent");
     form.reset();
 
-    // Try the visitor's own configured mail app first. If they don't have
-    // one set up, the "sent" screen below offers a direct Gmail link as a
-    // fallback — no backend or paid e-mail service required.
     window.location.href = mailto;
   }
 
   if (status === "sent" && links) {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-sm border-2 border-spotlight-foreground/80 bg-spotlight p-8 text-center text-spotlight-foreground shadow-[6px_6px_0_0_var(--primary)] sm:p-10">
-        <CheckCircle2 className="size-10 text-primary" />
-        <h3 className="font-display text-lg font-medium">
-          Odpiram vaš e-poštni program …
+      <div className="border border-foreground/15 px-6 py-8">
+        <h3 className="font-display text-2xl tracking-[-0.03em]">
+          Odpiram vaš e-poštni program
         </h3>
-        <p className="text-sm text-spotlight-foreground/75">
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
           Sporočilo je pripravljeno — samo še pošljite iz svoje e-pošte. Če se
           nič ni odprlo, uporabite eno od spodnjih možnosti.
         </p>
-        <div className="mt-2 flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
-          <Button
-            type="button"
-            className="gap-2 border-[1.5px] border-spotlight-foreground bg-primary text-primary-foreground"
-            render={
-              <a href={links.gmail} target="_blank" rel="noopener noreferrer" />
-            }
+        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+          <a
+            href={links.gmail}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-foreground px-4 py-2.5 text-background"
           >
-            <Mail className="size-4" />
             Odpri v Gmailu
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            className="border-[1.5px] border-spotlight-foreground/50 text-spotlight-foreground hover:bg-spotlight-foreground/10"
-            render={<a href={links.mailto} />}
-          >
+          </a>
+          <a href={links.mailto} className="self-center underline underline-offset-4">
             Odpri v drugem programu
-          </Button>
+          </a>
         </div>
-        <p className="mt-1 text-sm text-spotlight-foreground/75">
+        <p className="mt-6 text-sm text-muted-foreground">
           Ali pišite kar neposredno na{" "}
-          <a className="font-medium underline" href={`mailto:${SITE.email}`}>
+          <a className="text-foreground underline" href={`mailto:${SITE.email}`}>
             {SITE.email}
           </a>
           .
         </p>
-        <Button
+        <button
           type="button"
-          variant="outline"
-          className="mt-2 border-[1.5px] border-spotlight-foreground/50 text-spotlight-foreground hover:bg-spotlight-foreground/10"
+          className="mt-6 text-sm underline underline-offset-4"
           onClick={() => setStatus("idle")}
         >
           Pošlji novo sporočilo
-        </Button>
+        </button>
       </div>
     );
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col gap-4 rounded-sm border-2 border-spotlight-foreground/80 bg-spotlight p-6 text-spotlight-foreground shadow-[6px_6px_0_0_var(--primary)] sm:p-8"
-      noValidate
-    >
-      <div className="flex flex-col gap-1.5">
-        <label htmlFor="name" className="text-sm font-medium">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
+      <div className="flex flex-col gap-1">
+        <label htmlFor="name" className="font-mono text-[0.68rem] tracking-[0.14em] uppercase">
           Ime in priimek
         </label>
         <input
@@ -131,11 +116,11 @@ export function ContactForm() {
           required
           autoComplete="name"
           placeholder="Janez Novak"
-          className="h-10 rounded-sm border-[1.5px] border-spotlight-foreground/25 bg-background/[0.04] px-3 text-sm text-spotlight-foreground placeholder:text-spotlight-foreground/45 outline-none focus:border-primary focus:ring-2 focus:ring-primary/25"
+          className={fieldClass}
         />
       </div>
-      <div className="flex flex-col gap-1.5">
-        <label htmlFor="email" className="text-sm font-medium">
+      <div className="flex flex-col gap-1">
+        <label htmlFor="email" className="font-mono text-[0.68rem] tracking-[0.14em] uppercase">
           E-poštni naslov
         </label>
         <input
@@ -145,11 +130,11 @@ export function ContactForm() {
           required
           autoComplete="email"
           placeholder="janez@podjetje.si"
-          className="h-10 rounded-sm border-[1.5px] border-spotlight-foreground/25 bg-background/[0.04] px-3 text-sm text-spotlight-foreground placeholder:text-spotlight-foreground/45 outline-none focus:border-primary focus:ring-2 focus:ring-primary/25"
+          className={fieldClass}
         />
       </div>
-      <div className="flex flex-col gap-1.5">
-        <label htmlFor="message" className="text-sm font-medium">
+      <div className="flex flex-col gap-1">
+        <label htmlFor="message" className="font-mono text-[0.68rem] tracking-[0.14em] uppercase">
           O vašem projektu
         </label>
         <textarea
@@ -158,19 +143,19 @@ export function ContactForm() {
           required
           rows={4}
           placeholder="Rad bi spletno stran za..."
-          className="resize-none rounded-sm border-[1.5px] border-spotlight-foreground/25 bg-background/[0.04] px-3 py-2 text-sm text-spotlight-foreground placeholder:text-spotlight-foreground/45 outline-none focus:border-primary focus:ring-2 focus:ring-primary/25"
+          className={`${fieldClass} resize-none`}
         />
       </div>
-      <label className="flex items-start gap-2 text-xs text-spotlight-foreground/70">
+      <label className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground">
         <input
           type="checkbox"
           name="consent"
           required
-          className="mt-0.5 size-3.5 rounded-xs border-spotlight-foreground/40"
+          className="mt-0.5 size-3.5 accent-foreground"
         />
         <span>
           Strinjam se z obdelavo podatkov za odgovor na povpraševanje. Več v{" "}
-          <Link href="/zasebnost" className="underline">
+          <Link href="/zasebnost" className="text-foreground underline">
             politiki zasebnosti
           </Link>
           .
@@ -179,17 +164,13 @@ export function ContactForm() {
       {status === "error" ? (
         <p className="text-sm text-destructive">{errorMessage}</p>
       ) : null}
-      <Button
+      <button
         type="submit"
-        size="lg"
-        className="shine-hover mt-1 gap-2 border-[1.5px] border-spotlight-foreground bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--spotlight-foreground)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_var(--spotlight-foreground)]"
+        className="mt-1 w-fit bg-foreground px-5 py-3 text-sm text-background transition-colors hover:bg-primary"
       >
         Pošlji povpraševanje
-        <ArrowRight className="size-4" />
-      </Button>
-      <p className="text-center font-mono text-xs text-spotlight-foreground/60">
-        Brez obveznosti — odgovorim v 24 urah.
-      </p>
+      </button>
+      <p className="text-xs text-muted-foreground">Brez obveznosti — odgovorim v 24 urah.</p>
     </form>
   );
 }

@@ -20,27 +20,39 @@ export const SITE = {
     country: "SI",
     countryName: "Slovenija",
   },
-  // Village-level coordinates for Mota, Ljutomer — used in LocalBusiness
-  // structured data so the map/local pack can place the business.
-  geo: {
-    latitude: 46.5466,
-    longitude: 16.2301,
-  },
-  mapsQuery: "Mota 51e, 9240 Ljutomer, Slovenija",
   description:
-    "Izdelava hitrih spletnih strani za mala podjetja v Sloveniji. Od ideje do objavljene strani na spletu v enem tednu.",
+    "Studio za izdelavo spletnih strani za mala podjetja v Sloveniji. Od ideje do objavljene strani v enem tednu.",
+  // Leave empty until the profile exists — dummy "#" links hurt trust and SEO.
+  social: {
+    instagram: "",
+    linkedin: "",
+    facebook: "",
+  },
 } as const;
 
-export const ADDRESS_LINE = `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}`;
-
-export const MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(SITE.mapsQuery)}&output=embed`;
-export const MAPS_LINK_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.mapsQuery)}`;
+export const SOCIAL_LINKS = (
+  [
+    { name: "Instagram", href: SITE.social.instagram },
+    { name: "LinkedIn", href: SITE.social.linkedin },
+    { name: "Facebook", href: SITE.social.facebook },
+  ] as const
+).filter((link) => link.href.length > 0);
 
 export const FAQS = [
+  {
+    question: "Koliko stane izdelava spletne strani?",
+    answer:
+      "Cene se trenutno začnejo pri 290 € za enostransko spletno stran. Paket Standard do 5 podstrani stane 490 €, Premium do 10 podstrani pa 890 €. Končna cena je odvisna od vsebine in funkcij, zato pred začetkom vedno pripravim jasno ponudbo.",
+  },
   {
     question: "Koliko časa traja izdelava spletne strani?",
     answer:
       "Enostavna spletna stran je običajno pripravljena v 5–7 delovnih dneh po tem, ko potrdimo vsebino in vizualni osnutek. Večje spletne strani z več podstranmi lahko trajajo od dva do tri tedne.",
+  },
+  {
+    question: "Kako poteka sodelovanje na daljavo?",
+    answer:
+      "Uvodni pogovor opravimo po telefonu ali videoklicu. Osnutke vam pošljem v pregled, komentarje pa uskladimo po e-pošti ali na kratkem klicu, zato osebni obisk ni potreben.",
   },
   {
     question: "Ali imam potem možnost sam urejati vsebino?",
@@ -69,61 +81,4 @@ export const FAQS = [
   },
 ] as const;
 
-export const DEMOS = [
-  {
-    slug: "kovinarstvo-meznaric",
-    name: "Kovinarstvo Meznarič",
-    category: "Kovinska dela",
-    description:
-      "Robustna stran za kovinarsko obrt — varjenje, ograje in kovinske konstrukcije po meri.",
-    gradient: "from-zinc-500 via-slate-600 to-orange-500",
-  },
-  {
-    slug: "mizarstvo-horvat",
-    name: "Mizarstvo Horvat",
-    category: "Mizarska dela",
-    description:
-      "Topla, lesena estetika za mizarstvo — pohištvo in izdelki po meri za dom.",
-    gradient: "from-amber-700 via-amber-600 to-yellow-600",
-  },
-  {
-    slug: "frizerski-salon-nika",
-    name: "Frizerski salon Nika",
-    category: "Lepotne storitve",
-    description:
-      "Eleganten frizerski salon s spletno rezervacijo termina in preglednim cenikom storitev.",
-    gradient: "from-rose-400 via-pink-500 to-fuchsia-600",
-  },
-  {
-    slug: "fasaderstvo-kocbek",
-    name: "Fasaderstvo Kocbek",
-    category: "Fasaderska dela",
-    description:
-      "Čista, arhitekturna stran za fasaderstvo — od toplotne izolacije do zaključnih ometov.",
-    gradient: "from-stone-400 via-orange-400 to-amber-500",
-  },
-  {
-    slug: "suhomontaza-vogrinec",
-    name: "Suhomontaža Vogrinec",
-    category: "Suhomontažna dela",
-    description:
-      "Pregledna, tehnična stran za suhomontažna dela, predelne stene in spuščene stropove.",
-    gradient: "from-sky-400 via-blue-500 to-indigo-600",
-  },
-  {
-    slug: "gradbenistvo-krajnc",
-    name: "Gradbeništvo Krajnc",
-    category: "Gradbena dela",
-    description:
-      "Zanesljiva stran za gradbeno podjetje — od novogradenj do adaptacij in zemeljskih del.",
-    gradient: "from-yellow-400 via-amber-500 to-zinc-700",
-  },
-  {
-    slug: "avtolicarstvo-kovacic",
-    name: "Avtoličarstvo Kovačič",
-    category: "Avtoličarska dela",
-    description:
-      "Dinamična stran za avtoličarsko delavnico s sodelovanjem z zavarovalnicami.",
-    gradient: "from-red-600 via-rose-600 to-zinc-800",
-  },
-] as const;
+export { DEMOS } from "@/lib/crafts";

@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE.url}/primeri`,
       lastModified,
       changeFrequency: "monthly",
-      priority: 0.6,
+      priority: 0.8,
     },
     ...DEMOS.map((demo) => ({
       url: `${SITE.url}/primeri/${demo.slug}`,

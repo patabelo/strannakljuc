@@ -1,74 +1,51 @@
 import Link from "next/link";
-import { MapPin, User } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/site";
 
 export function About() {
   return (
-    <section
-      id="o-meni"
-      className="border-t border-border bg-muted/30 py-20"
-    >
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-          <div
-            aria-hidden
-            className="flex size-36 rotate-[-3deg] items-center justify-center rounded-full border-2 border-ink bg-card font-display text-4xl font-medium text-primary italic shadow-[4px_4px_0_0_var(--ink)] sm:size-44"
-          >
-            {SITE.person.initials}
-          </div>
-          <h3 className="mt-6 font-display text-2xl font-medium tracking-tight">
+    <section id="o-meni" className="border-y border-white/10 bg-black/50 text-foreground backdrop-blur-md">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+        <div>
+          <p className="font-mono text-[0.72rem] tracking-[0.16em] text-foreground/55 uppercase">
+            Studio
+          </p>
+          <p className="mt-6 font-display text-4xl leading-none tracking-[-0.04em] sm:text-5xl">
             {SITE.person.name}
-          </h3>
-          <p className="mt-1 font-mono text-sm text-muted-foreground">
-            {SITE.person.legalName} · {SITE.name}
+          </p>
+          <p className="mt-4 text-sm leading-relaxed text-foreground/65">
+            {SITE.person.legalName}
+            <br />
+            Ljutomer · naročila po vsej Sloveniji
           </p>
         </div>
 
         <div>
-          <span className="font-mono text-xs font-semibold tracking-[0.16em] text-primary uppercase">
-            {"// O meni"}
-          </span>
-          <h2 className="mt-2 text-balance font-display text-3xl font-medium tracking-tight sm:text-4xl">
-            Spletne strani izdelujem, ker me to veseli
+          <h2 className="max-w-[16ch] font-display text-3xl leading-[1.05] tracking-[-0.03em] sm:text-[2.7rem]">
+            Ena oseba. Celotna izdelava.
           </h2>
-          <div className="mt-5 space-y-4 text-muted-foreground sm:text-lg">
+          <div className="mt-6 max-w-xl space-y-4 text-[1.02rem] leading-relaxed text-foreground/78">
             <p>
-              Sem Patrick. Strani sestavljam zato, ker mi je všeč spremeniti
-              zmedeno idejo v nekaj, kar stranka razume v treh sekundah — in
-              ker vem, kako težko je malemu poslu sploh priti na splet.
+              Stran na ključ je studio za mala podjetja in obrtnike. Naročilo
+              ne gre skozi agencijo: pogovor, osnutek, izdelava in objava
+              ostanejo pri meni.
             </p>
             <p>
-              Delam za podjetnike, obrtnike in lokalne storitve, ki še nimajo
-              strani na spletu ali imajo staro, počasno stran. Cilj ni
-              “imeti spletno stran”. Cilj je, da vas ljudje najdejo, razumejo
-              kaj ponujate, in vas kontaktirajo.
+              Stran je narejena zato, da vas ljudje najdejo, v nekaj sekundah
+              razumejo ponudbo in vas kontaktirajo. Na mobitelu enako jasno
+              kot na računalniku.
             </p>
             <p>
-              Sem popoldanski s.p. iz Ljutomera. Ni klicnega centra in ni
-              posrednikov — pišete in kličete mene. Delam po celi Sloveniji.
+              Kot s.p. sem vaš neposredni izvajalec. Pišete in kličete mene.
+              Odgovorim sam, običajno še isti dan.
             </p>
           </div>
-
-          <ul className="mt-6 flex flex-col gap-2 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2">
-              <MapPin className="size-4 text-primary" />
-              Mota, 9240 Ljutomer · delo po vsej Sloveniji
-            </li>
-            <li className="flex items-center gap-2">
-              <User className="size-4 text-primary" />
-              Popoldanski s.p. — odgovorim sam, običajno v istem dnevu
-            </li>
-          </ul>
-
-          <Button
-            className="shine-hover mt-8 border-[1.5px] border-ink bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--ink)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_var(--ink)]"
-            nativeButton={false}
-            render={<Link href="/#kontakt" />}
+          <Link
+            href="/#sodelovanje"
+            className="mt-8 inline-block border-b border-foreground/40 pb-0.5 text-sm hover:border-foreground"
           >
-            Pišite mi
-          </Button>
+            Dolgoročno sodelovanje
+          </Link>
         </div>
       </div>
     </section>
