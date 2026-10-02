@@ -53,8 +53,8 @@ export function Collaboration() {
       <SectionHeading
         index="06"
         eyebrow="Sodelovanje"
-        title="Po objavi ostanem vaš izvajalec"
-        description="Izdelava je enkratno naročilo. Sodelovanje je nadaljevanje: gostovanje, popravki in skrb za stran, neposredno s s.p."
+        title="Po objavi lahko sodelujeva dolgoročno"
+        description="Izdelava je enkratno naročilo, za malo ali veliko podjetje. Sodelovanje je nadaljevanje: gostovanje, popravki in skrb za stran, neposredno s s.p."
       />
 
       <ul className="mt-12 grid gap-8 sm:grid-cols-3">

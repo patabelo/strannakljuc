@@ -9,12 +9,13 @@ export function Contact() {
           <p className="font-mono text-[0.72rem] tracking-[0.16em] text-primary uppercase">
             Kontakt
           </p>
-          <h2 className="mt-3 max-w-[14ch] font-display text-3xl leading-[1.05] tracking-[-0.03em] sm:text-[2.6rem]">
-            Povejte, kakšno stran potrebujete.
+          <h2 className="mt-3 max-w-[16ch] font-display text-3xl leading-[1.05] tracking-[-0.03em] sm:text-[2.6rem]">
+            Pripravljeni na svojo novo spletno stran?
           </h2>
-          <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-muted-foreground">
-            V enem delovnem dnevu dobite predlog: obseg, rok in ceno. Brez
-            obveznosti.
+          <p className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground">
+            Napišite mi nekaj besed o svojem projektu. Odgovorim v enem
+            delovnem dnevu z okvirno ponudbo in predlogom naslednjih korakov.
+            Velja za mala podjetja, velika podjetja in dolgoročno sodelovanje.
           </p>
 
           <dl className="mt-10 space-y-5">
