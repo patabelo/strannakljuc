@@ -24,7 +24,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-foreground/10 bg-background">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#05070e]/75 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-5 sm:px-8">
         <Link href="/" className="flex items-center gap-2.5">
           <LogoMark className="size-7" />
@@ -60,7 +60,7 @@ export function SiteHeader() {
             >
               Meni
             </SheetTrigger>
-            <SheetContent side="right" className="w-[min(100%,22rem)] bg-background">
+            <SheetContent side="right" className="w-[min(100%,22rem)] bg-[#0c1018]">
               <SheetHeader>
                 <SheetTitle className="font-display tracking-[-0.03em]">
                   Stran na ključ

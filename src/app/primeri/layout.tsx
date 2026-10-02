@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function DemosLayout({ children }: { children: ReactNode }) {
-  return <div className="min-h-svh bg-white text-zinc-900">{children}</div>;
+  return <div className="min-h-svh">{children}</div>;
 }

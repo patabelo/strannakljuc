@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function DemosIndexPage() {
   return (
-    <div className="min-h-svh bg-background text-foreground">
+    <div className="min-h-svh text-foreground">
       <BreadcrumbJsonLd
         items={[
           { name: "Domov", path: "/" },

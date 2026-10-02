@@ -35,7 +35,7 @@ export function Process() {
 
       <ol className="mt-12 grid gap-px bg-foreground/15 sm:grid-cols-2 lg:grid-cols-4">
         {STEPS.map((step, index) => (
-          <li key={step.title} className="bg-background p-6">
+          <li key={step.title} className="bg-black/40 p-6 backdrop-blur-sm">
             <span className="font-mono text-xs text-primary">
               {String(index + 1).padStart(2, "0")}
             </span>

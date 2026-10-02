@@ -51,46 +51,46 @@
 }
 
 /*
- * Warm paper and black ink. One red is used only for a running index,
- * never as a glow or a filled "brand blob".
+ * Night sky. Type is warm paper, surfaces are dark glass so the
+ * star photograph stays visible behind the page.
  */
 :root {
-  --background: oklch(0.965 0.012 88);
-  --foreground: oklch(0.22 0.018 55);
-  --ink: oklch(0.22 0.018 55);
-  --card: oklch(0.975 0.008 88);
-  --card-foreground: oklch(0.22 0.018 55);
-  --popover: oklch(0.975 0.008 88);
-  --popover-foreground: oklch(0.22 0.018 55);
-  --primary: oklch(0.47 0.15 28);
-  --primary-foreground: oklch(0.97 0.01 88);
-  --secondary: oklch(0.92 0.012 88);
-  --secondary-foreground: oklch(0.22 0.018 55);
-  --navy: oklch(0.32 0.04 250);
-  --spotlight: oklch(0.22 0.018 55);
-  --spotlight-foreground: oklch(0.965 0.012 88);
-  --muted: oklch(0.93 0.012 88);
-  --muted-foreground: oklch(0.46 0.02 55);
-  --accent: oklch(0.93 0.012 88);
-  --accent-foreground: oklch(0.22 0.018 55);
-  --destructive: oklch(0.5 0.18 25);
-  --border: oklch(0.22 0.018 55 / 16%);
-  --input: oklch(0.22 0.018 55 / 22%);
-  --ring: oklch(0.22 0.018 55 / 35%);
-  --chart-1: oklch(0.47 0.15 28);
-  --chart-2: oklch(0.32 0.04 250);
-  --chart-3: oklch(0.7 0.08 70);
-  --chart-4: oklch(0.55 0.04 55);
-  --chart-5: oklch(0.4 0.02 55);
+  --background: oklch(0.17 0.02 265);
+  --foreground: oklch(0.96 0.012 88);
+  --ink: oklch(0.96 0.012 88);
+  --card: oklch(0.14 0.02 265 / 0.62);
+  --card-foreground: oklch(0.96 0.012 88);
+  --popover: oklch(0.16 0.02 265);
+  --popover-foreground: oklch(0.96 0.012 88);
+  --primary: oklch(0.74 0.14 42);
+  --primary-foreground: oklch(0.16 0.02 55);
+  --secondary: oklch(0.22 0.02 265);
+  --secondary-foreground: oklch(0.96 0.012 88);
+  --navy: oklch(0.28 0.04 260);
+  --spotlight: oklch(0.16 0.02 265);
+  --spotlight-foreground: oklch(0.96 0.012 88);
+  --muted: oklch(0.2 0.02 265);
+  --muted-foreground: oklch(0.8 0.015 88);
+  --accent: oklch(0.22 0.02 265);
+  --accent-foreground: oklch(0.96 0.012 88);
+  --destructive: oklch(0.7 0.16 25);
+  --border: oklch(0.96 0.012 88 / 18%);
+  --input: oklch(0.96 0.012 88 / 28%);
+  --ring: oklch(0.96 0.012 88 / 40%);
+  --chart-1: oklch(0.74 0.14 42);
+  --chart-2: oklch(0.55 0.06 250);
+  --chart-3: oklch(0.75 0.08 70);
+  --chart-4: oklch(0.7 0.03 88);
+  --chart-5: oklch(0.45 0.02 260);
   --radius: 0.15rem;
-  --sidebar: oklch(0.975 0.008 88);
-  --sidebar-foreground: oklch(0.22 0.018 55);
-  --sidebar-primary: oklch(0.47 0.15 28);
-  --sidebar-primary-foreground: oklch(0.97 0.01 88);
-  --sidebar-accent: oklch(0.93 0.012 88);
-  --sidebar-accent-foreground: oklch(0.22 0.018 55);
-  --sidebar-border: oklch(0.22 0.018 55 / 16%);
-  --sidebar-ring: oklch(0.22 0.018 55 / 35%);
+  --sidebar: oklch(0.14 0.02 260);
+  --sidebar-foreground: oklch(0.96 0.012 88);
+  --sidebar-primary: oklch(0.74 0.14 42);
+  --sidebar-primary-foreground: oklch(0.16 0.02 55);
+  --sidebar-accent: oklch(0.22 0.02 260);
+  --sidebar-accent-foreground: oklch(0.96 0.012 88);
+  --sidebar-border: oklch(0.96 0.012 88 / 16%);
+  --sidebar-ring: oklch(0.96 0.012 88 / 35%);
 }
 
 @layer base {
@@ -98,7 +98,20 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: #05070e;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(180deg, rgb(5 7 14 / 0.58), rgb(5 7 14 / 0.74) 42%, rgb(5 7 14 / 0.82)),
+      url("/space-bg.jpg");
+    background-position: center;
+    background-size: cover;
   }
   html {
     @apply font-sans scroll-smooth;
@@ -120,6 +133,6 @@
 }
 
 ::selection {
-  background: var(--foreground);
-  color: var(--background);
+  background: #f4efe6;
+  color: #12141c;
 }
