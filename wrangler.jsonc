@@ -4,8 +4,9 @@
   // dashboard ("strannakljuc"), or Workers Builds will fail to deploy.
   "name": "strannakljuc",
   "compatibility_date": "2026-08-25",
-  // Static site plus one contact endpoint. The form posts here;
-  // the Worker emails patrick@strannakljuc.si. Everything else is a file.
+  // Static site. /api/povprasevanje and /api/submit-lead email
+  // patrick@strannakljuc.si. /api/scan-invoice returns a sample invoice.
+  // Everything else is a file.
   "main": "worker/index.ts",
   "assets": {
     "directory": "./out",

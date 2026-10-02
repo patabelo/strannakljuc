@@ -19,6 +19,7 @@ const LINKS = [
   { href: "/#o-meni", label: "O meni" },
   { href: "/#vprasanja", label: "Vprašanja" },
   { href: "/#kontakt", label: "Kontakt" },
+  { href: "/aplikacija", label: "Orodja" },
   { href: "/zasebnost", label: "Zasebnost" },
 ];
 

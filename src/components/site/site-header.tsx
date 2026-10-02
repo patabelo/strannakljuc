@@ -19,6 +19,7 @@ const NAV_LINKS = [
   { href: "/#cenik", label: "Cenik" },
   { href: "/#sodelovanje", label: "Sodelovanje" },
   { href: "/#o-meni", label: "O meni" },
+  { href: "/aplikacija", label: "Orodja" },
 ];
 
 export function SiteHeader() {
