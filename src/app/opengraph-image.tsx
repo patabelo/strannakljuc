@@ -6,7 +6,6 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const BLACK = "#08090c";
-const NAVY = "#16233d";
 const CREAM = "#f0e6d3";
 const ORANGE = "#f2792c";
 
@@ -28,15 +27,11 @@ export default function OpenGraphImage() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <svg width="64" height="64" viewBox="0 0 48 48" fill="none">
-            <rect x="3" y="3" width="42" height="42" rx="11" fill={NAVY} />
-            <rect x="22.5" y="20.5" width="6" height="19" rx="1.6" fill={ORANGE} />
-            <rect x="28.3" y="28.5" width="5.4" height="4.6" rx="1.1" fill={ORANGE} />
-            <rect x="28.3" y="35.3" width="8" height="4.6" rx="1.1" fill={ORANGE} />
-            <rect x="7" y="6.5" width="21.5" height="17" rx="4.5" fill="none" stroke={ORANGE} strokeWidth="2.4" />
-            <line x1="7" y1="13.3" x2="28.5" y2="13.3" stroke={ORANGE} strokeWidth="2.4" />
-            <circle cx="11.2" cy="9.9" r="1.25" fill={ORANGE} />
-            <circle cx="15.7" cy="9.9" r="1.25" fill={ORANGE} />
-            <circle cx="20.2" cy="9.9" r="1.25" fill={ORANGE} />
+            <circle cx="15" cy="22" r="8" stroke={CREAM} strokeWidth="2.4" />
+            <circle cx="15" cy="22" r="2.1" fill={CREAM} />
+            <path fill={CREAM} d="M22.4 20.8h17.2v2.4H22.4z" />
+            <path fill={CREAM} d="M32.2 23.2h2.4v5.2h-2.4z" />
+            <path fill={CREAM} d="M36.8 23.2h2.4v7.6h-2.4z" />
           </svg>
           <div style={{ display: "flex", fontSize: 26, opacity: 0.75, fontFamily: "monospace" }}>
             strannakljuc.si

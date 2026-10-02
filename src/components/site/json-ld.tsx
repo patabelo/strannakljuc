@@ -149,7 +149,7 @@ export function JsonLd() {
       {
         "@type": "Service",
         "@id": SERVICE_ID,
-        name: "Izdelava spletnih strani za mala in velika podjetja",
+        name: "Izdelava spletnih strani za podjetnike, zasebnike in d.o.o.",
         serviceType: "Oblikovanje in izdelava spletnih strani",
         description: SITE.description,
         provider: { "@id": BUSINESS_ID },

@@ -38,7 +38,7 @@ export function Services() {
         index="02"
         eyebrow="Storitve"
         title="Vse, kar potrebujete za nastop na spletu"
-        description="Od prve ideje do objavljene strani na spletu — vodim vas skozi celoten postopek, brez tehničnega žargona. Za mala podjetja, velika podjetja in vse vmes."
+        description="Od prve ideje do objavljene strani na spletu — vodim vas skozi celoten postopek, brez tehničnega žargona. Za male podjetnike, zasebnike in d.o.o."
       />
 
       <ol className="mt-12 border-t border-foreground/15">

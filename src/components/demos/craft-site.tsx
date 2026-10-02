@@ -5,6 +5,17 @@ import { DemoBanner } from "@/components/demos/demo-banner";
 import { BreadcrumbJsonLd } from "@/components/site/json-ld";
 import type { Craft } from "@/lib/crafts";
 
+function BackToSite() {
+  return (
+    <Link
+      href="/"
+      className="inline-flex items-center bg-white px-4 py-2.5 text-sm font-medium text-black"
+    >
+      ← Nazaj na mojo stran
+    </Link>
+  );
+}
+
 export function CraftSite({ craft }: { craft: Craft }) {
   return (
     <>
@@ -32,11 +43,14 @@ export function CraftSite({ craft }: { craft: Craft }) {
 
         <div className="relative z-10">
           <header className="border-b border-white/15">
-            <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4">
+            <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-5 py-4">
               <p className="font-display text-xl tracking-[-0.03em]">{craft.name}</p>
-              <a href={`tel:${craft.phone}`} className="text-sm" style={{ color: craft.accent }}>
-                {craft.phoneDisplay}
-              </a>
+              <div className="flex flex-wrap items-center gap-4">
+                <BackToSite />
+                <a href={`tel:${craft.phone}`} className="text-sm" style={{ color: craft.accent }}>
+                  {craft.phoneDisplay}
+                </a>
+              </div>
             </div>
           </header>
 
@@ -87,12 +101,9 @@ export function CraftSite({ craft }: { craft: Craft }) {
                 >
                   {craft.phoneDisplay}
                 </a>
-                <p className="mt-10 text-xs text-white/55">
-                  Primer izdelave ·{" "}
-                  <Link href="/" className="underline">
-                    strannakljuc.si
-                  </Link>
-                </p>
+                <div className="mt-10">
+                  <BackToSite />
+                </div>
               </div>
             </section>
           </main>

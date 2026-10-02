@@ -12,6 +12,7 @@ const SOCIAL_ICONS = {
 const LINKS = [
   { href: "/#storitve", label: "Storitve" },
   { href: "/#kako-deluje", label: "Postopek" },
+  { href: "/kako-delam", label: "Kako delam" },
   { href: "/#referencie", label: "Primeri" },
   { href: "/#cenik", label: "Cenik" },
   { href: "/#sodelovanje", label: "Sodelovanje" },
@@ -31,8 +32,8 @@ export function SiteFooter() {
               Stran na ključ
             </Link>
             <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-              Izdelava spletnih strani za mala podjetja, velika podjetja in
-              vse vmes. Možno je tudi dolgoročno sodelovanje.
+              Izdelava spletnih strani za vse: male podjetnike, zasebnike in
+              d.o.o. Možno je tudi dolgoročno sodelovanje.
             </p>
           </div>
           <ul className="flex max-w-md flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">

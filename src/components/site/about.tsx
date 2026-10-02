@@ -31,10 +31,10 @@ export function About() {
               ker vem, kako težko je malemu poslu sploh priti na splet.
             </p>
             <p>
-              Delam za mala podjetja, velika podjetja in vse vmes: podjetnike,
-              obrtnike, lokale in ekipe, ki še nimajo strani ali imajo staro,
-              počasno stran. Cilj ni “imeti spletno stran”. Cilj je, da vas
-              ljudje najdejo, razumejo kaj ponujate, in vas kontaktirajo.
+              Delam za vse. Za male podjetnike in zasebnike, za d.o.o. in za
+              večja podjetja, ki še nimajo strani ali imajo staro, počasno
+              stran. Cilj ni “imeti spletno stran”. Cilj je, da vas ljudje
+              najdejo, razumejo kaj ponujate, in vas kontaktirajo.
             </p>
             <p>
               Sem popoldanski s.p. iz Ljutomera. Ni klicnega centra in ni
