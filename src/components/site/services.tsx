@@ -37,8 +37,8 @@ export function Services() {
       <SectionHeading
         index="02"
         eyebrow="Storitve"
-        title="Stran, ki proda vašo ponudbo"
-        description="Od vsebine do objave. Vi poveste, kaj delate. Jaz poskrbim, da je to na spletu jasno, hitro in pripravljeno za povpraševanje."
+        title="Vse, kar potrebujete za nastop na spletu"
+        description="Od prve ideje do objavljene strani na spletu — vodim vas skozi celoten postopek, brez tehničnega žargona. Za mala podjetja, velika podjetja in vse vmes."
       />
 
       <ol className="mt-12 border-t border-foreground/15">

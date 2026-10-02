@@ -17,7 +17,7 @@ const NAV_LINKS = [
   { href: "/#referencie", label: "Primeri" },
   { href: "/#cenik", label: "Cenik" },
   { href: "/#sodelovanje", label: "Sodelovanje" },
-  { href: "/#o-meni", label: "Studio" },
+  { href: "/#o-meni", label: "O meni" },
 ];
 
 export function SiteHeader() {

@@ -19,7 +19,7 @@ const PLANS = [
     name: "Standard",
     price: "490 €",
     originalPrice: "690 €",
-    tagline: "Najbolj priljubljena izbira za mala podjetja",
+    tagline: "Najbolj priljubljena izbira",
     features: [
       "Spletna stran do 5 podstrani",
       "Prilagojeno mobilnim napravam",
@@ -53,11 +53,15 @@ export function Pricing() {
       <SectionHeading
         index="05"
         eyebrow="Cenik"
-        title="Jasna cena, preden se delo začne"
-        description="Cene so izhodišče za ponudbo. Obseg in rok potrdiva pisno, preden se izdelava začne. Uvodne cene veljajo za prve naročnike."
+        title="Pregledne cene, brez skritih stroškov"
+        description="Vsak projekt je unikaten, zato so cene okvirne izhodišče za pogovor. Skupaj poiščemo paket, ki ustreza vašemu proračunu — za malo podjetje, veliko podjetje ali karkoli vmes."
       />
 
-      <div className="mt-12 grid border border-foreground/15 lg:grid-cols-3">
+      <p className="mt-10 text-sm text-muted-foreground">
+        Uvodna cena — znižano za prve stranke, dokler zbiram začetne primere del.
+      </p>
+
+      <div className="mt-6 grid border border-foreground/15 lg:grid-cols-3">
         {PLANS.map((plan) => (
           <article
             key={plan.name}

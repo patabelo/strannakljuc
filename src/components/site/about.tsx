@@ -8,7 +8,7 @@ export function About() {
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
         <div>
           <p className="font-mono text-[0.72rem] tracking-[0.16em] text-foreground/55 uppercase">
-            Studio
+            O meni
           </p>
           <p className="mt-6 font-display text-4xl leading-none tracking-[-0.04em] sm:text-5xl">
             {SITE.person.name}
@@ -21,23 +21,25 @@ export function About() {
         </div>
 
         <div>
-          <h2 className="max-w-[16ch] font-display text-3xl leading-[1.05] tracking-[-0.03em] sm:text-[2.7rem]">
-            Ena oseba. Celotna izdelava.
+          <h2 className="max-w-[18ch] font-display text-3xl leading-[1.05] tracking-[-0.03em] sm:text-[2.7rem]">
+            Spletne strani izdelujem, ker me to veseli
           </h2>
           <div className="mt-6 max-w-xl space-y-4 text-[1.02rem] leading-relaxed text-foreground/78">
             <p>
-              Stran na ključ je studio za mala podjetja in obrtnike. Naročilo
-              ne gre skozi agencijo: pogovor, osnutek, izdelava in objava
-              ostanejo pri meni.
+              Sem Patrick. Strani sestavljam zato, ker mi je všeč spremeniti
+              zmedeno idejo v nekaj, kar stranka razume v treh sekundah — in
+              ker vem, kako težko je malemu poslu sploh priti na splet.
             </p>
             <p>
-              Stran je narejena zato, da vas ljudje najdejo, v nekaj sekundah
-              razumejo ponudbo in vas kontaktirajo. Na mobitelu enako jasno
-              kot na računalniku.
+              Delam za mala podjetja, velika podjetja in vse vmes: podjetnike,
+              obrtnike, lokale in ekipe, ki še nimajo strani ali imajo staro,
+              počasno stran. Cilj ni “imeti spletno stran”. Cilj je, da vas
+              ljudje najdejo, razumejo kaj ponujate, in vas kontaktirajo.
             </p>
             <p>
-              Kot s.p. sem vaš neposredni izvajalec. Pišete in kličete mene.
-              Odgovorim sam, običajno še isti dan.
+              Sem popoldanski s.p. iz Ljutomera. Ni klicnega centra in ni
+              posrednikov — pišete in kličete mene. Delam po celi Sloveniji.
+              Po objavi lahko sodelovanje nadaljujeva dolgoročno.
             </p>
           </div>
           <Link

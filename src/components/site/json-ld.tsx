@@ -39,7 +39,7 @@ export function JsonLd() {
         currenciesAccepted: "EUR",
         paymentAccepted: "Bank transfer",
         description: SITE.description,
-        slogan: "Stran, ki vaše podjetje naredi vidno.",
+        slogan: "Spletne strani, ki spremenijo obiskovalce v stranke.",
         knowsLanguage: ["sl", "en"],
         address: {
           "@type": "PostalAddress",
@@ -149,7 +149,7 @@ export function JsonLd() {
       {
         "@type": "Service",
         "@id": SERVICE_ID,
-        name: "Izdelava spletnih strani za mala podjetja in obrtnike",
+        name: "Izdelava spletnih strani za mala in velika podjetja",
         serviceType: "Oblikovanje in izdelava spletnih strani",
         description: SITE.description,
         provider: { "@id": BUSINESS_ID },
