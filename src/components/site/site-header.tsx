@@ -25,21 +25,21 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#05070e]/75 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-5 sm:px-8">
-        <Link href="/" className="flex items-center gap-2.5">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#05070e]/80 backdrop-blur-md">
+      <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
+        <Link href="/" className="flex shrink-0 items-center gap-2.5">
           <LogoMark className="size-8 text-[#f4efe6]" />
           <span className="font-display text-[1.15rem] tracking-[-0.03em]">
             Stran na ključ
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-5 xl:flex">
+        <nav className="hidden items-center gap-x-4 lg:flex xl:gap-x-6">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-[0.82rem] text-muted-foreground transition-colors hover:text-foreground"
+              className="text-[1.02rem] font-medium tracking-[-0.01em] text-[#f2792c] underline-offset-[7px] transition-colors hover:text-[#ffe1c4] hover:underline"
             >
               {link.label}
             </Link>
@@ -56,7 +56,7 @@ export function SiteHeader() {
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
-              className="text-sm xl:hidden"
+              className="text-base font-medium text-[#f2792c] lg:hidden"
               aria-label="Odpri meni"
             >
               Meni
@@ -73,7 +73,7 @@ export function SiteHeader() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="border-b border-foreground/10 py-3 text-lg"
+                    className="border-b border-white/10 py-3.5 text-xl font-medium text-[#f2792c]"
                   >
                     {link.label}
                   </Link>
