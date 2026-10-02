@@ -50,7 +50,13 @@ export function SiteFooter() {
         <div className="mt-10 flex flex-col gap-3 border-t border-foreground/10 pt-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {SITE.person.legalName}. Ni davčni
-            zavezanec za DDV.
+            zavezanec za DDV.{" "}
+            <a
+              href="https://www.eso.org/public/images/eso0932a/"
+              className="hover:text-foreground"
+            >
+              Nebo: ESO/S. Brunier
+            </a>
           </p>
           <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <a href={`mailto:${SITE.email}`} className="hover:text-foreground">

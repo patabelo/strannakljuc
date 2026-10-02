@@ -26,7 +26,7 @@ function FormSky() {
           radial-gradient(1.5px 1.5px at 88% 70%, rgba(255,214,170,0.9), transparent),
           radial-gradient(1px 1px at 32% 78%, rgba(255,255,255,0.6), transparent),
           linear-gradient(165deg, rgba(10,16,36,0.94), rgba(7,11,24,0.92) 55%, rgba(22,14,40,0.94)),
-          url("/space-bg.jpg")
+          url("/space-bg.webp")
         `,
         backgroundSize: "auto, auto, auto, auto, cover, cover",
         backgroundPosition: "center",
