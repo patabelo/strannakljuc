@@ -24,8 +24,8 @@ export function Audience() {
       <SectionHeading
         index="07"
         eyebrow="Za koga"
-        title="Strani, ki jih razume vsakodnevni obiskovalec"
-        description="Ne izdelujem zapletenih spletnih sistemov. Osredotočam se na male podjetnike, ki potrebujejo lepo, hitro in razumljivo spletno stran — brez odvečnega žargona."
+        title="Za podjetja, ki potrebujejo jasno stran"
+        description="Ne delam velikih portalov. Delam strani za lokale, obrti in strokovnjake, kjer mora obiskovalec hitro razumeti ponudbo in vedeti, kako vas doseže."
       />
 
       <ul className="mt-12 grid gap-10 sm:grid-cols-3">

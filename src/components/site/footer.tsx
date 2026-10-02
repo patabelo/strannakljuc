@@ -14,7 +14,8 @@ const LINKS = [
   { href: "/#kako-deluje", label: "Postopek" },
   { href: "/#referencie", label: "Primeri" },
   { href: "/#cenik", label: "Cenik" },
-  { href: "/#o-meni", label: "O meni" },
+  { href: "/#sodelovanje", label: "Sodelovanje" },
+  { href: "/#o-meni", label: "Studio" },
   { href: "/#vprasanja", label: "Vprašanja" },
   { href: "/#kontakt", label: "Kontakt" },
   { href: "/zasebnost", label: "Zasebnost" },
@@ -30,8 +31,8 @@ export function SiteFooter() {
               Stran na ključ
             </Link>
             <p className="mt-2 max-w-xs text-sm text-muted-foreground">
-              Izdelava spletnih strani, ki pomagajo malim podjetjem in
-              podjetnikom rasti na spletu.
+              Studio za izdelavo spletnih strani. Naročilo in sodelovanje
+              neposredno s s.p.
             </p>
           </div>
           <ul className="flex max-w-md flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">

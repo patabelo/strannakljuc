@@ -2,9 +2,10 @@ import { SiteHeader } from "@/components/site/site-header";
 import { Hero } from "@/components/site/hero";
 import { Services } from "@/components/site/services";
 import { Process } from "@/components/site/process";
-import { About } from "@/components/site/about";
 import { Portfolio } from "@/components/site/portfolio";
+import { About } from "@/components/site/about";
 import { Pricing } from "@/components/site/pricing";
+import { Collaboration } from "@/components/site/collaboration";
 import { Audience } from "@/components/site/audience";
 import { Faq } from "@/components/site/faq";
 import { Contact } from "@/components/site/contact";
@@ -20,9 +21,10 @@ export default function Home() {
         <Hero />
         <Services />
         <Process />
-        <About />
         <Portfolio />
+        <About />
         <Pricing />
+        <Collaboration />
         <Audience />
         <Faq />
         <Contact />

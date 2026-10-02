@@ -7,40 +7,39 @@ export function Portfolio() {
   return (
     <section id="referencie" className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
       <SectionHeading
-        index="05"
+        index="04"
         eyebrow="Primeri"
-        title="Oglejte si, kako izgleda delujoča spletna stran"
-        description="To so izmišljeni primeri, ki sem jih izdelal sam, da pokažem kakovost izdelave, mobilno prilagoditev in različne sloge — resničnih strank (še) nimam, zato gre za zglede sloga, ne pretekle projekte. Vaša stran bo seveda po meri vaše dejavnosti."
+        title="Tako lahko izgleda vaša stran"
+        description="Zgledi sloga za obrtnike in lokalna podjetja. Vaša stran nastane po meri dejavnosti: vsebina, barve in zgradba so vaše, ne predloga."
       />
 
-      <ul className="mt-12 border-t border-foreground/15">
-        {DEMOS.map((project, index) => (
-          <li key={project.slug}>
+      <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {DEMOS.map((project) => (
+          <li key={project.slug} className={project.slug === "kovinarstvo-meznaric" ? "sm:col-span-2 lg:col-span-2" : ""}>
             <Link
               href={`/primeri/${project.slug}`}
-              className="group grid grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-1 border-b border-foreground/15 py-5 sm:grid-cols-[3rem_7rem_minmax(0,1fr)_auto] sm:items-center sm:gap-6"
+              className="group flex h-full flex-col border border-foreground/12 bg-card transition-colors hover:border-foreground/40"
             >
-              <span className="font-mono text-xs text-muted-foreground">
-                {String(index + 1).padStart(2, "0")}
-              </span>
               <span
-                aria-hidden
-                className="hidden h-px w-full sm:block"
-                style={{ background: project.swatch, height: 3 }}
-              />
-              <span className="min-w-0">
-                <span className="block font-display text-xl tracking-[-0.02em] group-hover:text-primary">
+                className="flex min-h-40 items-end p-6"
+                style={{ background: project.swatch }}
+              >
+                <span className="font-display text-3xl tracking-[-0.03em] text-white">
                   {project.name}
                 </span>
-                <span className="mt-1 block text-sm text-muted-foreground">
-                  {project.category}
-                  <span className="hidden sm:inline"> — {project.description}</span>
-                </span>
               </span>
-              <span className="col-start-2 text-sm text-muted-foreground sm:col-start-auto">
-                Odpri
-                <span className="inline-block transition-transform group-hover:translate-x-1">
-                  {" →"}
+              <span className="flex flex-1 flex-col p-5">
+                <span className="font-mono text-[0.65rem] tracking-[0.14em] text-muted-foreground uppercase">
+                  {project.category}
+                </span>
+                <span className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {project.description}
+                </span>
+                <span className="mt-5 text-sm">
+                  Odpri primer
+                  <span className="inline-block transition-transform group-hover:translate-x-1">
+                    {" →"}
+                  </span>
                 </span>
               </span>
             </Link>

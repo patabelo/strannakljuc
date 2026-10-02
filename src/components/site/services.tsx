@@ -37,8 +37,8 @@ export function Services() {
       <SectionHeading
         index="02"
         eyebrow="Storitve"
-        title="Vse, kar potrebujete za nastop na spletu"
-        description="Od prve ideje do objavljene strani na spletu — vodim vas skozi celoten postopek, brez tehničnega žargona."
+        title="Stran, ki proda vašo ponudbo"
+        description="Od vsebine do objave. Vi poveste, kaj delate. Jaz poskrbim, da je to na spletu jasno, hitro in pripravljeno za povpraševanje."
       />
 
       <ol className="mt-12 border-t border-foreground/15">
@@ -79,7 +79,7 @@ export function SectionHeading({
           {index ? `${index} — ` : ""}
           {eyebrow}
         </p>
-        <h2 className="mt-3 max-w-[16ch] font-display text-3xl leading-[1.05] font-medium tracking-[-0.03em] text-balance sm:text-[2.6rem]">
+        <h2 className="mt-3 max-w-xl font-display text-3xl leading-[1.05] font-medium tracking-[-0.03em] text-balance sm:text-[2.6rem]">
           {title}
         </h2>
       </div>

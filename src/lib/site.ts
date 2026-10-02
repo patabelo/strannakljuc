@@ -21,7 +21,7 @@ export const SITE = {
     countryName: "Slovenija",
   },
   description:
-    "Izdelava hitrih spletnih strani za mala podjetja v Sloveniji. Od ideje do objavljene strani na spletu v enem tednu.",
+    "Studio za izdelavo spletnih strani za mala podjetja v Sloveniji. Od ideje do objavljene strani v enem tednu.",
   // Leave empty until the profile exists — dummy "#" links hurt trust and SEO.
   social: {
     instagram: "",
@@ -116,7 +116,7 @@ export const DEMOS = [
     description:
       "Čista, arhitekturna stran za fasaderstvo — od toplotne izolacije do zaključnih ometov.",
     gradient: "from-stone-400 via-orange-400 to-amber-500",
-    swatch: "#b08968",
+    swatch: "#7a5840",
   },
   {
     slug: "suhomontaza-vogrinec",
@@ -134,7 +134,7 @@ export const DEMOS = [
     description:
       "Zanesljiva stran za gradbeno podjetje — od novogradenj do adaptacij in zemeljskih del.",
     gradient: "from-yellow-400 via-amber-500 to-zinc-700",
-    swatch: "#a67c2d",
+    swatch: "#6f501c",
   },
   {
     slug: "avtolicarstvo-kovacic",

@@ -7,14 +7,14 @@ export function Contact() {
       <div className="mx-auto grid max-w-6xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="font-mono text-[0.72rem] tracking-[0.16em] text-primary uppercase">
-            09 — Kontakt
+            Kontakt
           </p>
           <h2 className="mt-3 max-w-[14ch] font-display text-3xl leading-[1.05] tracking-[-0.03em] sm:text-[2.6rem]">
-            Pripravljeni na svojo novo spletno stran?
+            Povejte, kakšno stran potrebujete.
           </h2>
           <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-muted-foreground">
-            Napišite mi nekaj besed o svojem projektu. Odgovorim v enem
-            delovnem dnevu z okvirno ponudbo in predlogom naslednjih korakov.
+            V enem delovnem dnevu dobite predlog: obseg, rok in ceno. Brez
+            obveznosti.
           </p>
 
           <dl className="mt-10 space-y-5">

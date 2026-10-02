@@ -14,11 +14,10 @@ import {
 
 const NAV_LINKS = [
   { href: "/#storitve", label: "Storitve" },
-  { href: "/#kako-deluje", label: "Postopek" },
-  { href: "/#o-meni", label: "O meni" },
   { href: "/#referencie", label: "Primeri" },
   { href: "/#cenik", label: "Cenik" },
-  { href: "/#vprasanja", label: "Vprašanja" },
+  { href: "/#sodelovanje", label: "Sodelovanje" },
+  { href: "/#o-meni", label: "Studio" },
 ];
 
 export function SiteHeader() {
@@ -49,9 +48,9 @@ export function SiteHeader() {
         <div className="flex items-center gap-5">
           <Link
             href="/#kontakt"
-            className="hidden text-[0.82rem] underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground sm:inline"
+            className="hidden bg-foreground px-3.5 py-2 text-[0.82rem] text-background transition-colors hover:bg-primary sm:inline"
           >
-            Pišite
+            Naročite stran
           </Link>
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -83,7 +82,7 @@ export function SiteHeader() {
                   onClick={() => setOpen(false)}
                   className="mt-6 w-fit bg-foreground px-4 py-2.5 text-sm text-background"
                 >
-                  Pišite
+                  Naročite stran
                 </Link>
               </nav>
             </SheetContent>

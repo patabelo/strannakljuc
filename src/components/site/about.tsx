@@ -5,50 +5,46 @@ import { SITE } from "@/lib/site";
 export function About() {
   return (
     <section id="o-meni" className="border-y border-foreground/15 bg-foreground text-background">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
         <div>
           <p className="font-mono text-[0.72rem] tracking-[0.16em] text-background/55 uppercase">
-            04 — O meni
+            Studio
           </p>
-          <p className="mt-6 font-display text-5xl leading-none tracking-[-0.04em] sm:text-6xl">
-            {SITE.person.initials}
-          </p>
-          <p className="mt-6 font-display text-2xl tracking-[-0.03em]">
+          <p className="mt-6 font-display text-4xl leading-none tracking-[-0.04em] sm:text-5xl">
             {SITE.person.name}
           </p>
-          <p className="mt-2 text-sm text-background/65">
+          <p className="mt-4 text-sm leading-relaxed text-background/65">
             {SITE.person.legalName}
             <br />
-            Ljutomer · delo po vsej Sloveniji
+            Ljutomer · naročila po vsej Sloveniji
           </p>
         </div>
 
         <div>
-          <h2 className="max-w-[18ch] font-display text-3xl leading-[1.05] tracking-[-0.03em] sm:text-4xl">
-            Spletne strani izdelujem, ker me to veseli
+          <h2 className="max-w-[16ch] font-display text-3xl leading-[1.05] tracking-[-0.03em] sm:text-[2.7rem]">
+            Ena oseba. Celotna izdelava.
           </h2>
-          <div className="mt-6 max-w-xl space-y-4 text-[0.98rem] leading-relaxed text-background/75">
+          <div className="mt-6 max-w-xl space-y-4 text-[1.02rem] leading-relaxed text-background/78">
             <p>
-              Sem Patrick. Strani sestavljam zato, ker mi je všeč spremeniti
-              zmedeno idejo v nekaj, kar stranka razume v treh sekundah — in
-              ker vem, kako težko je malemu poslu sploh priti na splet.
+              Stran na ključ je studio za mala podjetja in obrtnike. Naročilo
+              ne gre skozi agencijo: pogovor, osnutek, izdelava in objava
+              ostanejo pri meni.
             </p>
             <p>
-              Delam za podjetnike, obrtnike in lokalne storitve, ki še nimajo
-              strani na spletu ali imajo staro, počasno stran. Cilj ni
-              “imeti spletno stran”. Cilj je, da vas ljudje najdejo, razumejo
-              kaj ponujate, in vas kontaktirajo.
+              Stran je narejena zato, da vas ljudje najdejo, v nekaj sekundah
+              razumejo ponudbo in vas kontaktirajo. Na mobitelu enako jasno
+              kot na računalniku.
             </p>
             <p>
-              Sem popoldanski s.p. iz Ljutomera. Ni klicnega centra in ni
-              posrednikov — pišete in kličete mene. Delam po celi Sloveniji.
+              Kot s.p. sem vaš neposredni izvajalec. Pišete in kličete mene.
+              Odgovorim sam, običajno še isti dan.
             </p>
           </div>
           <Link
-            href="/#kontakt"
+            href="/#sodelovanje"
             className="mt-8 inline-block border-b border-background/40 pb-0.5 text-sm hover:border-background"
           >
-            Pišite mi
+            Dolgoročno sodelovanje
           </Link>
         </div>
       </div>

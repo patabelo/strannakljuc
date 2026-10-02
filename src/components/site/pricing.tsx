@@ -47,51 +47,17 @@ const PLANS = [
   },
 ];
 
-const MAINTENANCE_PLANS = [
-  {
-    name: "Mesečno",
-    price: "29 €",
-    period: "/ mesec",
-    tagline: "Plačujte sproti, brez vezave — prekinete lahko kadarkoli",
-    features: [
-      "Gostovanje strani in .si domena",
-      "SSL certifikat (varna povezava https)",
-      "Redne varnostne kopije",
-      "Do 2 manjši popravki na mesec (besedilo, slike)",
-      "Podpora po e-pošti",
-    ],
-    note: null,
-  },
-  {
-    name: "Letno",
-    price: "290 €",
-    period: "/ leto",
-    tagline: "Enkratno letno plačilo — 2 meseca gostovanja podarjena",
-    features: [
-      "Vse iz mesečnega paketa",
-      "Plačate za 10 mesecev, dobite 12",
-      "Prednostna obravnava popravkov",
-      "1x letni pregled in posodobitev vsebine",
-    ],
-    note: "Prihranite 58 € na leto",
-  },
-];
-
 export function Pricing() {
   return (
     <section id="cenik" className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
       <SectionHeading
-        index="06"
+        index="05"
         eyebrow="Cenik"
-        title="Pregledne cene, brez skritih stroškov"
-        description="Vsak projekt je unikaten, zato so cene okvirne izhodišče za pogovor. Skupaj poiščemo paket, ki ustreza vašemu proračunu."
+        title="Jasna cena, preden se delo začne"
+        description="Cene so izhodišče za ponudbo. Obseg in rok potrdiva pisno, preden se izdelava začne. Uvodne cene veljajo za prve naročnike."
       />
 
-      <p className="mt-10 text-sm text-muted-foreground">
-        Uvodna cena — znižano za prve stranke, dokler zbiram začetne primere del.
-      </p>
-
-      <div className="mt-6 grid border border-foreground/15 lg:grid-cols-3">
+      <div className="mt-12 grid border border-foreground/15 lg:grid-cols-3">
         {PLANS.map((plan) => (
           <article
             key={plan.name}
@@ -146,57 +112,6 @@ export function Pricing() {
             </ul>
           </article>
         ))}
-      </div>
-
-      <div className="mt-20">
-        <h3 className="font-display text-3xl tracking-[-0.03em]">
-          Redno vzdrževanje in gostovanje
-        </h3>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          Cene zgoraj so za izdelavo strani. Ko je stran objavljena na spletu,
-          jo je treba gostovati, obnavljati domeno in skrbeti za varnost — to
-          urejam za vas z mesečno ali letno naročnino.
-        </p>
-
-        <div className="mt-8 grid border border-foreground/15 sm:grid-cols-2">
-          {MAINTENANCE_PLANS.map((plan) => (
-            <article
-              key={plan.name}
-              className="border-b border-foreground/15 px-6 py-8 last:border-b-0 sm:border-b-0 sm:odd:border-r"
-            >
-              <div className="flex items-baseline justify-between gap-4">
-                <h4 className="font-display text-2xl tracking-[-0.03em]">{plan.name}</h4>
-                {plan.note ? (
-                  <span className="font-mono text-[0.65rem] tracking-[0.12em] text-primary uppercase">
-                    {plan.note}
-                  </span>
-                ) : null}
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">{plan.tagline}</p>
-              <p className="mt-6 flex items-baseline gap-1">
-                <span className="font-display text-4xl tracking-[-0.04em]">{plan.price}</span>
-                <span className="text-sm text-muted-foreground">{plan.period}</span>
-              </p>
-              <ul className="mt-6">
-                {plan.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="border-t border-foreground/10 py-2.5 text-sm"
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-
-        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          Naročnina ni obvezna — stran lahko po objavi gostujete tudi sami.
-          Priporočam pa jo, saj vključuje obnovo domene, gostovanje, varnostne
-          kopije in manjše sprotne popravke, brez skrbi, da bi kaj potekel ali
-          nehalo delovati.
-        </p>
       </div>
     </section>
   );

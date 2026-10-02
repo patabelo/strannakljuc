@@ -2,24 +2,24 @@ import { SectionHeading } from "@/components/site/services";
 
 const STEPS = [
   {
-    title: "Kratek pogovor",
+    title: "Pogovor",
     description:
-      "Spoznam vaše podjetje, cilje in ciljno publiko. Skupaj določimo obseg strani in kaj mora doseči.",
+      "Določiva, kaj stran mora doseči: koga nagovarja, katere storitve pokaže in kam vodi obiskovalca.",
   },
   {
-    title: "Osnutek in oblikovanje",
+    title: "Osnutek",
     description:
-      "Pripravim vizualni osnutek strani, ki ga uskladimo z vašo blagovno znamko, preden se lotim izdelave.",
+      "Pred izdelavo vidite postavitev in besedilo. Uskladiva videz z vašo dejavnostjo, šele nato gre stran v izdelavo.",
   },
   {
     title: "Izdelava",
     description:
-      "Stran zgradim po meri — hitro, varno in prilagojeno vsem napravam, od mobitela do velikega zaslona.",
+      "Stran je narejena po meri: prilagojena mobitelu, hitra pri odpiranju in pripravljena za objavo na vaši domeni.",
   },
   {
-    title: "Objava in podpora",
+    title: "Objava",
     description:
-      "Stran objavim na vaši domeni, poskrbim za osnovno vidnost na Googlu in po objavi ostanem na voljo za popravke.",
+      "Stran gre v živo, z osnovno pripravo za Google. Po predaji lahko sodelovanje nadaljujeva.",
   },
 ];
 
@@ -29,8 +29,8 @@ export function Process() {
       <SectionHeading
         index="03"
         eyebrow="Postopek"
-        title="Kako deluje sodelovanje"
-        description="Preprost, pregleden proces v štirih korakih — brez presenečenj in skritih stroškov."
+        title="Štirje koraki do objave"
+        description="Jasen potek, dogovorjen obseg in cena, preden se delo začne. Brez skritih postavk."
       />
 
       <ol className="mt-12 grid gap-px bg-foreground/15 sm:grid-cols-2 lg:grid-cols-4">

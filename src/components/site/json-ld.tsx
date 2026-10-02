@@ -39,7 +39,7 @@ export function JsonLd() {
         currenciesAccepted: "EUR",
         paymentAccepted: "Bank transfer",
         description: SITE.description,
-        slogan: "Spletne strani, ki spremenijo obiskovalce v stranke.",
+        slogan: "Stran, ki vaše podjetje naredi vidno.",
         knowsLanguage: ["sl", "en"],
         address: {
           "@type": "PostalAddress",
