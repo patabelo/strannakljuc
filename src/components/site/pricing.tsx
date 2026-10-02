@@ -1,7 +1,3 @@
-import { Check, Info } from "lucide-react";
-
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/site/services";
 
 const PLANS = [
@@ -64,7 +60,7 @@ const MAINTENANCE_PLANS = [
       "Do 2 manjši popravki na mesec (besedilo, slike)",
       "Podpora po e-pošti",
     ],
-    badge: null,
+    note: null,
   },
   {
     name: "Letno",
@@ -77,131 +73,130 @@ const MAINTENANCE_PLANS = [
       "Prednostna obravnava popravkov",
       "1x letni pregled in posodobitev vsebine",
     ],
-    badge: "Prihranite 58 €/leto",
+    note: "Prihranite 58 € na leto",
   },
 ];
 
 export function Pricing() {
   return (
-    <section
-      id="cenik"
-      className="border-t border-border bg-muted/30 py-20"
-    >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Cenik"
-          title="Pregledne cene, brez skritih stroškov"
-          description="Vsak projekt je unikaten, zato so cene okvirne izhodišče za pogovor. Skupaj poiščemo paket, ki ustreza vašemu proračunu."
-        />
+    <section id="cenik" className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <SectionHeading
+        index="06"
+        eyebrow="Cenik"
+        title="Pregledne cene, brez skritih stroškov"
+        description="Vsak projekt je unikaten, zato so cene okvirne izhodišče za pogovor. Skupaj poiščemo paket, ki ustreza vašemu proračunu."
+      />
 
-        <div className="mx-auto mt-6 flex max-w-xl -rotate-1 items-center justify-center gap-2 rounded-sm border-[1.5px] border-dashed border-primary/60 bg-accent px-4 py-2 text-center font-mono text-sm text-primary">
-          <span className="font-semibold">Uvodna cena</span>
-          <span className="hidden sm:inline">—</span>
-          <span className="hidden text-foreground/70 sm:inline">
-            znižano za prve stranke, dokler zbiram začetne primere del
-          </span>
-        </div>
+      <p className="mt-10 text-sm text-muted-foreground">
+        Uvodna cena — znižano za prve stranke, dokler zbiram začetne primere del.
+      </p>
 
-        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {PLANS.map((plan) => (
-            <Card
-              key={plan.name}
+      <div className="mt-6 grid border border-foreground/15 lg:grid-cols-3">
+        {PLANS.map((plan) => (
+          <article
+            key={plan.name}
+            className={
+              plan.highlighted
+                ? "bg-foreground px-6 py-8 text-background lg:border-x lg:border-foreground"
+                : "border-b border-foreground/15 px-6 py-8 last:border-b-0 lg:border-b-0"
+            }
+          >
+            <div className="flex items-baseline justify-between gap-4">
+              <h3 className="font-display text-2xl tracking-[-0.03em]">{plan.name}</h3>
+              {plan.highlighted ? (
+                <span className="font-mono text-[0.65rem] tracking-[0.14em] uppercase">
+                  Najpogosteje
+                </span>
+              ) : null}
+            </div>
+            <p
               className={
                 plan.highlighted
-                  ? "relative overflow-visible border-2 border-ink shadow-[5px_5px_0_0_var(--ink)]"
-                  : "relative border-[1.5px] border-ink/20 shadow-none"
+                  ? "mt-2 text-sm text-background/70"
+                  : "mt-2 text-sm text-muted-foreground"
               }
             >
-              {plan.highlighted ? (
-                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg] border-[1.5px] border-ink bg-primary font-mono text-[0.65rem] tracking-wide text-primary-foreground uppercase">
-                  Priporočeno
-                </Badge>
-              ) : null}
-              <CardHeader>
-                <h3 className="font-display text-lg font-medium">{plan.name}</h3>
-                <p className="text-sm text-muted-foreground">{plan.tagline}</p>
-                <div className="mt-3 flex items-baseline gap-2 font-mono">
-                  <span className="text-3xl font-semibold">{plan.price}</span>
-                  <span className="text-base text-muted-foreground line-through">
-                    {plan.originalPrice}
+              {plan.tagline}
+            </p>
+            <p className="mt-6 flex items-baseline gap-3">
+              <span className="font-display text-4xl tracking-[-0.04em]">{plan.price}</span>
+              <span
+                className={
+                  plan.highlighted
+                    ? "text-sm text-background/50 line-through"
+                    : "text-sm text-muted-foreground line-through"
+                }
+              >
+                {plan.originalPrice}
+              </span>
+            </p>
+            <ul className="mt-6">
+              {plan.features.map((feature) => (
+                <li
+                  key={feature}
+                  className={
+                    plan.highlighted
+                      ? "border-t border-background/15 py-2.5 text-sm"
+                      : "border-t border-foreground/10 py-2.5 text-sm"
+                  }
+                >
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-20">
+        <h3 className="font-display text-3xl tracking-[-0.03em]">
+          Redno vzdrževanje in gostovanje
+        </h3>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          Cene zgoraj so za izdelavo strani. Ko je stran objavljena na spletu,
+          jo je treba gostovati, obnavljati domeno in skrbeti za varnost — to
+          urejam za vas z mesečno ali letno naročnino.
+        </p>
+
+        <div className="mt-8 grid border border-foreground/15 sm:grid-cols-2">
+          {MAINTENANCE_PLANS.map((plan) => (
+            <article
+              key={plan.name}
+              className="border-b border-foreground/15 px-6 py-8 last:border-b-0 sm:border-b-0 sm:odd:border-r"
+            >
+              <div className="flex items-baseline justify-between gap-4">
+                <h4 className="font-display text-2xl tracking-[-0.03em]">{plan.name}</h4>
+                {plan.note ? (
+                  <span className="font-mono text-[0.65rem] tracking-[0.12em] text-primary uppercase">
+                    {plan.note}
                   </span>
-                </div>
-              </CardHeader>
-              <CardContent className="flex flex-1 flex-col">
-                <ul className="flex flex-1 flex-col gap-3">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm">
-                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+                ) : null}
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">{plan.tagline}</p>
+              <p className="mt-6 flex items-baseline gap-1">
+                <span className="font-display text-4xl tracking-[-0.04em]">{plan.price}</span>
+                <span className="text-sm text-muted-foreground">{plan.period}</span>
+              </p>
+              <ul className="mt-6">
+                {plan.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="border-t border-foreground/10 py-2.5 text-sm"
+                  >
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
 
-        <div className="mx-auto mt-20 max-w-4xl">
-          <div className="text-center">
-            <h3 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
-              Redno vzdrževanje in gostovanje
-            </h3>
-            <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-              Cene zgoraj so za izdelavo strani. Ko je stran objavljena na
-              spletu, jo je treba gostovati, obnavljati domeno in skrbeti za
-              varnost — to urejam za vas z mesečno ali letno naročnino.
-            </p>
-          </div>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {MAINTENANCE_PLANS.map((plan) => (
-              <Card
-                key={plan.name}
-                className={
-                  plan.badge
-                    ? "relative overflow-visible border-[1.5px] border-ink/20 shadow-none"
-                    : "relative border-[1.5px] border-ink/20 shadow-none"
-                }
-              >
-                {plan.badge ? (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rotate-[-2deg] border-[1.5px] border-ink bg-secondary font-mono text-[0.65rem] tracking-wide text-secondary-foreground uppercase">
-                    {plan.badge}
-                  </Badge>
-                ) : null}
-                <CardHeader>
-                  <h4 className="font-display text-lg font-medium">{plan.name}</h4>
-                  <p className="text-sm text-muted-foreground">{plan.tagline}</p>
-                  <div className="mt-3 flex items-baseline gap-1.5 font-mono">
-                    <span className="text-3xl font-semibold">{plan.price}</span>
-                    <span className="text-sm text-muted-foreground">
-                      {plan.period}
-                    </span>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex flex-1 flex-col">
-                  <ul className="flex flex-1 flex-col gap-3">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2 text-sm">
-                        <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="mt-6 flex items-start gap-3 rounded-sm border-[1.5px] border-dashed border-ink/25 bg-card/50 p-4 text-sm text-muted-foreground">
-            <Info className="mt-0.5 size-4 shrink-0 text-primary" />
-            <p>
-              Naročnina ni obvezna — stran lahko po objavi gostujete tudi
-              sami. Priporočam pa jo, saj vključuje obnovo domene, gostovanje,
-              varnostne kopije in manjše sprotne popravke, brez skrbi, da bi
-              kaj potekel ali nehalo delovati.
-            </p>
-          </div>
-        </div>
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          Naročnina ni obvezna — stran lahko po objavi gostujete tudi sami.
+          Priporočam pa jo, saj vključuje obnovo domene, gostovanje, varnostne
+          kopije in manjše sprotne popravke, brez skrbi, da bi kaj potekel ali
+          nehalo delovati.
+        </p>
       </div>
     </section>
   );

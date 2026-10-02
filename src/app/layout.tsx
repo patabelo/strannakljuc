@@ -92,8 +92,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0e16",
-  colorScheme: "dark",
+  themeColor: "#f4efe6",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -102,7 +102,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="sl"
       className={`${fraunces.variable} ${publicSans.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="paper-grain min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         <a
           href="#vsebina"
           className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-100 focus:rounded-md focus:bg-background focus:px-3 focus:py-2 focus:text-foreground"

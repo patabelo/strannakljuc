@@ -89,6 +89,7 @@ export const DEMOS = [
     description:
       "Robustna stran za kovinarsko obrt — varjenje, ograje in kovinske konstrukcije po meri.",
     gradient: "from-zinc-500 via-slate-600 to-orange-500",
+    swatch: "#3a3a3a",
   },
   {
     slug: "mizarstvo-horvat",
@@ -97,6 +98,7 @@ export const DEMOS = [
     description:
       "Topla, lesena estetika za mizarstvo — pohištvo in izdelki po meri za dom.",
     gradient: "from-amber-700 via-amber-600 to-yellow-600",
+    swatch: "#8a5a2b",
   },
   {
     slug: "frizerski-salon-nika",
@@ -105,6 +107,7 @@ export const DEMOS = [
     description:
       "Eleganten frizerski salon s spletno rezervacijo termina in preglednim cenikom storitev.",
     gradient: "from-rose-400 via-pink-500 to-fuchsia-600",
+    swatch: "#9a3d55",
   },
   {
     slug: "fasaderstvo-kocbek",
@@ -113,6 +116,7 @@ export const DEMOS = [
     description:
       "Čista, arhitekturna stran za fasaderstvo — od toplotne izolacije do zaključnih ometov.",
     gradient: "from-stone-400 via-orange-400 to-amber-500",
+    swatch: "#b08968",
   },
   {
     slug: "suhomontaza-vogrinec",
@@ -121,6 +125,7 @@ export const DEMOS = [
     description:
       "Pregledna, tehnična stran za suhomontažna dela, predelne stene in spuščene stropove.",
     gradient: "from-sky-400 via-blue-500 to-indigo-600",
+    swatch: "#3d6f8f",
   },
   {
     slug: "gradbenistvo-krajnc",
@@ -129,6 +134,7 @@ export const DEMOS = [
     description:
       "Zanesljiva stran za gradbeno podjetje — od novogradenj do adaptacij in zemeljskih del.",
     gradient: "from-yellow-400 via-amber-500 to-zinc-700",
+    swatch: "#a67c2d",
   },
   {
     slug: "avtolicarstvo-kovacic",
@@ -137,5 +143,6 @@ export const DEMOS = [
     description:
       "Dinamična stran za avtoličarsko delavnico s sodelovanjem z zavarovalnicami.",
     gradient: "from-red-600 via-rose-600 to-zinc-800",
+    swatch: "#8f2d2d",
   },
 ] as const;

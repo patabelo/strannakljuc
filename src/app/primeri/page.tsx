@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 import { DemoBanner } from "@/components/demos/demo-banner";
 import { BreadcrumbJsonLd } from "@/components/site/json-ld";
-import { Badge } from "@/components/ui/badge";
 import { DEMOS } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -16,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function DemosIndexPage() {
   return (
-    <div className="paper-grain min-h-svh bg-background text-foreground">
+    <div className="min-h-svh bg-background text-foreground">
       <BreadcrumbJsonLd
         items={[
           { name: "Domov", path: "/" },
@@ -24,12 +22,11 @@ export default function DemosIndexPage() {
         ]}
       />
       <DemoBanner name="primeri sloga" />
-      <div aria-hidden className="bg-grid fixed inset-0 -z-10 opacity-50" />
-      <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-        <span className="font-mono text-xs font-semibold tracking-[0.16em] text-primary uppercase">
-          {"// Primeri spletnih strani"}
-        </span>
-        <h1 className="mt-2 font-display text-3xl font-medium tracking-tight sm:text-4xl">
+      <main className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+        <p className="font-mono text-[0.72rem] tracking-[0.16em] text-primary uppercase">
+          Primeri
+        </p>
+        <h1 className="mt-3 font-display text-4xl tracking-[-0.03em]">
           Primeri izdelave
         </h1>
         <p className="mt-3 text-muted-foreground">
@@ -37,30 +34,25 @@ export default function DemosIndexPage() {
           (še) nimam, zato so to zgledi sloga in kakovosti, ne pretekli
           projekti.
         </p>
-        <ul className="mt-10 flex flex-col gap-4">
+        <ul className="mt-10 border-t border-foreground/15">
           {DEMOS.map((demo) => (
             <li key={demo.slug}>
               <Link
                 href={`/primeri/${demo.slug}`}
-                className="group block rounded-sm border-[1.5px] border-ink/20 bg-card p-5 transition-all hover:-translate-y-0.5 hover:border-ink/40 hover:shadow-[4px_4px_0_0_var(--ink)]"
+                className="group grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-foreground/15 py-5"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <Badge
-                      variant="secondary"
-                      className="mb-2 font-mono text-[0.65rem] tracking-wide uppercase"
-                    >
-                      {demo.category}
-                    </Badge>
-                    <h2 className="font-display text-lg font-medium">
-                      {demo.name}
-                    </h2>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {demo.description}
-                    </p>
-                  </div>
-                  <ArrowUpRight className="mt-1 size-5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
+                <span>
+                  <span className="font-mono text-[0.68rem] tracking-[0.12em] text-muted-foreground uppercase">
+                    {demo.category}
+                  </span>
+                  <span className="mt-1 block font-display text-xl tracking-[-0.02em] group-hover:text-primary">
+                    {demo.name}
+                  </span>
+                  <span className="mt-1 block text-sm text-muted-foreground">
+                    {demo.description}
+                  </span>
+                </span>
+                <span className="text-sm text-muted-foreground">Odpri</span>
               </Link>
             </li>
           ))}

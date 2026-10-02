@@ -9,27 +9,25 @@ import { FAQS } from "@/lib/site";
 
 export function Faq() {
   return (
-    <section
-      id="vprasanja"
-      className="border-t border-border bg-muted/30 py-20"
-    >
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <section id="vprasanja" className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div className="mx-auto max-w-3xl">
         <SectionHeading
-          eyebrow="Pogosta vprašanja"
+          index="08"
+          eyebrow="Vprašanja"
           title="Vse, kar bi radi vedeli vnaprej"
         />
 
-        <Accordion className="mt-10">
+        <Accordion className="mt-8 border-t border-foreground/15">
           {FAQS.map((faq) => (
             <AccordionItem
               key={faq.question}
               value={faq.question}
-              className="border-b-[1.5px] border-ink/15"
+              className="border-b border-foreground/15"
             >
-              <AccordionTrigger className="font-display text-lg font-medium hover:no-underline">
+              <AccordionTrigger className="py-4 font-display text-lg font-medium tracking-[-0.02em] hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
+              <AccordionContent className="pb-5 text-sm leading-relaxed text-muted-foreground">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

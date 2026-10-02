@@ -16,8 +16,8 @@ export default function PrivacyPage() {
     <>
       <SiteHeader />
       <main id="vsebina" className="mx-auto w-full max-w-3xl flex-1 px-4 py-16 sm:px-6">
-        <p className="font-mono text-xs font-semibold tracking-[0.16em] text-primary uppercase">
-          {"// Pravno"}
+        <p className="font-mono text-[0.72rem] tracking-[0.16em] text-primary uppercase">
+          Pravno
         </p>
         <h1 className="mt-2 font-display text-3xl font-medium tracking-tight sm:text-4xl">
           Politika zasebnosti
