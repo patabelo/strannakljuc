@@ -10,15 +10,15 @@ const SOCIAL_ICONS = {
 } as const;
 
 const LINKS = [
-  { href: "/#storitve", label: "Storitve" },
-  { href: "/#kako-deluje", label: "Postopek" },
+  { href: "/storitve", label: "Storitve" },
+  { href: "/kako-deluje", label: "Postopek" },
   { href: "/kako-delam", label: "Kako delam" },
-  { href: "/#referencie", label: "Primeri" },
-  { href: "/#cenik", label: "Cenik" },
-  { href: "/#sodelovanje", label: "Sodelovanje" },
-  { href: "/#o-meni", label: "O meni" },
-  { href: "/#vprasanja", label: "Vprašanja" },
-  { href: "/#kontakt", label: "Kontakt" },
+  { href: "/primeri", label: "Primeri" },
+  { href: "/cenik", label: "Cenik" },
+  { href: "/sodelovanje", label: "Sodelovanje" },
+  { href: "/o-meni", label: "O meni" },
+  { href: "/vprasanja", label: "Vprašanja" },
+  { href: "/kontakt", label: "Kontakt" },
   { href: "/aplikacija", label: "Orodja" },
   { href: "/zasebnost", label: "Zasebnost" },
 ];

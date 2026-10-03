@@ -9,7 +9,7 @@ export function DemoBanner({ name }: { name: string }) {
       </Link>
       {" · "}
       {name} ni resnično podjetje.{" "}
-      <Link href="/#kontakt" className="font-medium text-[#f2792c] hover:text-white">
+      <Link href="/kontakt" className="font-medium text-[#f2792c] hover:text-white">
         Naročite svojo stran →
       </Link>
     </div>

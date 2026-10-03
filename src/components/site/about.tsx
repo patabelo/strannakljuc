@@ -42,7 +42,7 @@ export function About() {
             </p>
           </div>
           <Link
-            href="/#sodelovanje"
+            href="/sodelovanje"
             className="mt-8 inline-block border-b border-foreground/40 pb-0.5 text-sm hover:border-foreground"
           >
             Dolgoročno sodelovanje

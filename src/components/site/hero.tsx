@@ -28,13 +28,13 @@ export function Hero() {
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
-              href="/#kontakt"
+              href="/kontakt"
               className="bg-foreground px-5 py-3.5 text-sm text-background transition-colors hover:bg-primary"
             >
               Naročite posvet
             </Link>
             <Link
-              href="/#referencie"
+              href="/primeri"
               className="text-sm underline decoration-foreground/30 underline-offset-[5px] hover:decoration-foreground"
             >
               Primeri strani

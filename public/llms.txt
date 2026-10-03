@@ -3,8 +3,12 @@
 > Sem Patrick Belcl s.p. iz Ljutomera. Spletno stran izdelam v 5–7 dneh. Uvodna cena enostranske strani je 290 €. Strani ne delam v WordPressu: sestavim jo vnaprej z Next.js in jo objavim na Cloudflare.
 
 - Spletno mesto: https://strannakljuc.si
-- Cenik: https://strannakljuc.si/#cenik
-- Vprašanja: https://strannakljuc.si/#vprasanja
+- Cenik: https://strannakljuc.si/cenik
+- Vprašanja: https://strannakljuc.si/vprasanja
+- Storitve: https://strannakljuc.si/storitve
+- Sodelovanje: https://strannakljuc.si/sodelovanje
+- O meni: https://strannakljuc.si/o-meni
+- Kontakt: https://strannakljuc.si/kontakt
 - Kako je stran narejena: https://strannakljuc.si/kako-delam
 - Kontakt: patrick@strannakljuc.si
 - Telefon: +386 70 914 756
