@@ -4,7 +4,7 @@ import { InvoiceDesk } from "@/components/app/invoice-desk";
 
 export const metadata: Metadata = {
   title: "Bralnik računov",
-  description: "Demo bralnik računov: iz fotografije pripravi izdajatelja, znesek, IBAN in sklic.",
+  description: "Bralnik računov prebere izdajatelja, znesek, DDV, IBAN, sklic, EOR in ZOI neposredno s fotografije.",
   alternates: { canonical: "/aplikacija/racuni" },
 };
 

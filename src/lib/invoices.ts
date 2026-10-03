@@ -1,9 +1,32 @@
 export interface ScannedInvoice {
   izdajatelj: string;
+  davcnaStevilka: string;
+  idZaDdv: string;
+  stevilkaRacuna: string;
+  datumIzdaje: string;
+  osnova: string;
+  ddv: string;
   znesek: string;
   iban: string;
   sklic: string;
+  eor: string;
+  zoi: string;
 }
+
+export const EMPTY_INVOICE: ScannedInvoice = {
+  izdajatelj: "",
+  davcnaStevilka: "",
+  idZaDdv: "",
+  stevilkaRacuna: "",
+  datumIzdaje: "",
+  osnova: "",
+  ddv: "",
+  znesek: "",
+  iban: "",
+  sklic: "",
+  eor: "",
+  zoi: "",
+};
 
 export interface SavedInvoice extends ScannedInvoice {
   id: string;
@@ -50,22 +73,48 @@ function readStored(): SavedInvoice[] {
     if (!raw) return EMPTY;
     const parsed = JSON.parse(raw) as unknown;
     if (!Array.isArray(parsed)) return EMPTY;
-    return parsed.filter(isSavedInvoice);
+    return parsed.flatMap((item) => {
+      const invoice = asSavedInvoice(item);
+      return invoice ? [invoice] : [];
+    });
   } catch {
     return EMPTY;
   }
 }
 
-function isSavedInvoice(value: unknown): value is SavedInvoice {
-  if (!value || typeof value !== "object") return false;
+function asSavedInvoice(value: unknown): SavedInvoice | null {
+  if (!value || typeof value !== "object") return null;
   const invoice = value as Partial<SavedInvoice>;
-  return (
-    typeof invoice.id === "string" &&
-    typeof invoice.izdajatelj === "string" &&
-    typeof invoice.znesek === "string" &&
-    typeof invoice.iban === "string" &&
-    typeof invoice.sklic === "string" &&
-    typeof invoice.filename === "string" &&
-    typeof invoice.savedAt === "string"
-  );
+  if (
+    typeof invoice.id !== "string" ||
+    typeof invoice.izdajatelj !== "string" ||
+    typeof invoice.znesek !== "string" ||
+    typeof invoice.filename !== "string" ||
+    typeof invoice.savedAt !== "string"
+  ) {
+    return null;
+  }
+
+  return {
+    ...EMPTY_INVOICE,
+    id: invoice.id,
+    filename: invoice.filename,
+    savedAt: invoice.savedAt,
+    izdajatelj: invoice.izdajatelj,
+    znesek: invoice.znesek,
+    davcnaStevilka: text(invoice.davcnaStevilka),
+    idZaDdv: text(invoice.idZaDdv),
+    stevilkaRacuna: text(invoice.stevilkaRacuna),
+    datumIzdaje: text(invoice.datumIzdaje),
+    osnova: text(invoice.osnova),
+    ddv: text(invoice.ddv),
+    iban: text(invoice.iban),
+    sklic: text(invoice.sklic),
+    eor: text(invoice.eor),
+    zoi: text(invoice.zoi),
+  };
+}
+
+function text(value: unknown) {
+  return typeof value === "string" ? value : "";
 }

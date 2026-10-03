@@ -5,7 +5,7 @@
   "name": "strannakljuc",
   "compatibility_date": "2026-08-25",
   // Static site. /api/povprasevanje and /api/submit-lead email
-  // patrick@strannakljuc.si. /api/scan-invoice returns a sample invoice.
+  // patrick@strannakljuc.si. /api/scan-invoice no longer invents invoice data.
   // Everything else is a file.
   "main": "worker/index.ts",
   "assets": {

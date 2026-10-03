@@ -9,9 +9,24 @@ import {
   getInvoiceSnapshot,
   subscribeInvoices,
   type SavedInvoice,
-  type ScanResponse,
   type ScannedInvoice,
 } from "@/lib/invoices";
+import { readInvoiceImage } from "@/lib/read-invoice";
+
+const FIELDS: { key: keyof ScannedInvoice; label: string }[] = [
+  { key: "izdajatelj", label: "Izdajatelj" },
+  { key: "davcnaStevilka", label: "Davčna številka" },
+  { key: "idZaDdv", label: "ID za DDV" },
+  { key: "stevilkaRacuna", label: "Številka računa" },
+  { key: "datumIzdaje", label: "Datum izdaje" },
+  { key: "osnova", label: "Osnova brez DDV" },
+  { key: "ddv", label: "DDV" },
+  { key: "znesek", label: "Znesek za plačilo" },
+  { key: "iban", label: "IBAN" },
+  { key: "sklic", label: "Sklic" },
+  { key: "eor", label: "EOR" },
+  { key: "zoi", label: "ZOI" },
+];
 
 const ACCEPT = "image/jpeg,image/png,image/webp,image/heic,image/heif";
 
@@ -69,24 +84,20 @@ export function InvoiceDesk() {
     setDraftName(next.name);
   }
 
-  async function scan(filename: string) {
+  async function scan() {
+    if (!file) return;
     setScanning(true);
     setError(null);
     try {
-      const response = await fetch("/api/scan-invoice", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ filename }),
-      });
-      const result = (await response.json()) as ScanResponse;
-      if (!response.ok || !result.ok || !result.invoice) {
+      const result = await readInvoiceImage(file);
+      if (!result.ok || !result.invoice) {
         setError(result.error ?? "Računa ni bilo mogoče prebrati.");
         return;
       }
       setDraft(result.invoice);
-      setDraftName(filename);
+      setDraftName(file.name);
     } catch {
-      setError("Računa ni bilo mogoče prebrati. Poskusite znova.");
+      setError("Besedila na sliki ni bilo mogoče prebrati. Poskusite z jasnejšo fotografijo.");
     } finally {
       setScanning(false);
     }
@@ -101,9 +112,17 @@ export function InvoiceDesk() {
     const saved: SavedInvoice = {
       ...draft,
       izdajatelj: draft.izdajatelj.trim(),
+      davcnaStevilka: draft.davcnaStevilka.trim(),
+      idZaDdv: draft.idZaDdv.trim(),
+      stevilkaRacuna: draft.stevilkaRacuna.trim(),
+      datumIzdaje: draft.datumIzdaje.trim(),
+      osnova: draft.osnova.trim(),
+      ddv: draft.ddv.trim(),
       znesek: draft.znesek.trim(),
       iban: draft.iban.trim(),
       sklic: draft.sklic.trim(),
+      eor: draft.eor.trim(),
+      zoi: draft.zoi.trim(),
       id: crypto.randomUUID(),
       filename: draftName,
       savedAt: new Date().toISOString(),
@@ -122,9 +141,9 @@ export function InvoiceDesk() {
         Fotografija računa, pripravljeni podatki.
       </h1>
       <p className="mt-4 max-w-2xl text-white/70">
-        Spustite sliko računa ali jo zajemite s kamero. Demo vrne izdajatelja,
-        znesek, IBAN in sklic. Fotografija ostane v brskalniku in se ne pošlje
-        na strežnik.
+        Spustite sliko računa ali jo zajemite s kamero. Prebere se samo besedilo,
+        ki je na sliki: izdajatelj, znesek, DDV, IBAN, sklic, EOR in ZOI. Če
+        fotografija ni račun, se podatki ne izmislijo. Slika ostane v brskalniku.
       </p>
 
       <div
@@ -187,18 +206,10 @@ export function InvoiceDesk() {
         <button
           type="button"
           disabled={!file || scanning}
-          onClick={() => file && scan(file.name)}
+          onClick={() => scan()}
           className="bg-[#f2792c] px-4 py-2.5 text-sm text-[#1a1008] disabled:opacity-40"
         >
-          {scanning ? "Berem račun…" : "Preberi račun"}
-        </button>
-        <button
-          type="button"
-          disabled={scanning}
-          onClick={() => scan("demo-racun.jpg")}
-          className="text-sm text-white/70 underline underline-offset-4 hover:text-[#f6f1e8] disabled:opacity-40"
-        >
-          Preizkusi z vzorčnim računom
+          {scanning ? "Berem besedilo na sliki…" : "Preberi račun"}
         </button>
       </div>
       {error && !draft ? (
@@ -213,14 +224,15 @@ export function InvoiceDesk() {
           <p className="mt-3 text-sm text-white/55">Še ni shranjenih računov.</p>
         ) : (
           <div className="mt-4 overflow-x-auto border border-white/10">
-            <table className="w-full min-w-[44rem] text-left text-sm">
+            <table className="w-full min-w-[56rem] text-left text-sm">
               <thead className="bg-[#10151f] font-mono text-[0.68rem] tracking-[0.12em] text-white/50 uppercase">
                 <tr>
                   <th className="px-3 py-3 font-medium">Izdajatelj</th>
+                  <th className="px-3 py-3 font-medium">Št. računa</th>
+                  <th className="px-3 py-3 font-medium">Datum računa</th>
                   <th className="px-3 py-3 font-medium">Znesek</th>
                   <th className="px-3 py-3 font-medium">IBAN</th>
                   <th className="px-3 py-3 font-medium">Sklic</th>
-                  <th className="px-3 py-3 font-medium">Datum</th>
                   <th className="px-3 py-3 font-medium">
                     <span className="sr-only">Odstrani</span>
                   </th>
@@ -230,15 +242,11 @@ export function InvoiceDesk() {
                 {invoices.map((invoice) => (
                   <tr key={invoice.id} className="border-t border-white/10">
                     <td className="px-3 py-3">{invoice.izdajatelj}</td>
-                    <td className="px-3 py-3 whitespace-nowrap">{invoice.znesek} €</td>
+                    <td className="px-3 py-3 whitespace-nowrap">{invoice.stevilkaRacuna}</td>
+                    <td className="px-3 py-3 whitespace-nowrap">{invoice.datumIzdaje}</td>
+                    <td className="px-3 py-3 whitespace-nowrap">{invoice.znesek}</td>
                     <td className="px-3 py-3 whitespace-nowrap">{invoice.iban}</td>
                     <td className="px-3 py-3 whitespace-nowrap">{invoice.sklic}</td>
-                    <td className="px-3 py-3 whitespace-nowrap text-white/60">
-                      {new Intl.DateTimeFormat("sl-SI", {
-                        dateStyle: "medium",
-                        timeStyle: "short",
-                      }).format(new Date(invoice.savedAt))}
-                    </td>
                     <td className="px-3 py-3 text-right">
                       <button
                         type="button"
@@ -270,7 +278,7 @@ export function InvoiceDesk() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="racun-naslov"
-            className="max-h-[92svh] w-full overflow-y-auto border border-white/15 bg-[#10151f] p-5 shadow-2xl sm:max-w-lg sm:p-6"
+            className="max-h-[92svh] w-full overflow-y-auto border border-white/15 bg-[#10151f] p-5 shadow-2xl sm:max-w-2xl sm:p-6"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -292,29 +300,17 @@ export function InvoiceDesk() {
               </button>
             </div>
             <p className="mt-2 text-sm text-white/55">
-              Podatke lahko popravite, preden jih shranite v tabelo.
+              Izpolnjena so samo polja, prebrana s slike. Prazna dopolnite sami, preden shranite.
             </p>
-            <div className="mt-5 grid gap-4">
-              <DraftField
-                label="Izdajatelj"
-                value={draft.izdajatelj}
-                onChange={(izdajatelj) => setDraft({ ...draft, izdajatelj })}
-              />
-              <DraftField
-                label="Znesek"
-                value={draft.znesek}
-                onChange={(znesek) => setDraft({ ...draft, znesek })}
-              />
-              <DraftField
-                label="IBAN"
-                value={draft.iban}
-                onChange={(iban) => setDraft({ ...draft, iban })}
-              />
-              <DraftField
-                label="Sklic"
-                value={draft.sklic}
-                onChange={(sklic) => setDraft({ ...draft, sklic })}
-              />
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              {FIELDS.map((field) => (
+                <DraftField
+                  key={field.key}
+                  label={field.label}
+                  value={draft[field.key]}
+                  onChange={(value) => setDraft({ ...draft, [field.key]: value })}
+                />
+              ))}
             </div>
             {error ? (
               <p className="mt-3 text-sm text-[#ffb4a8]" role="alert">

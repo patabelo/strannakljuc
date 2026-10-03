@@ -112,33 +112,6 @@ function escapeHtml(value: string) {
     .replaceAll('"', "&quot;");
 }
 
-const INVOICE_SAMPLES = [
-  {
-    izdajatelj: "Fasaderstvo Kocbek s.p.",
-    znesek: "1.860,00",
-    iban: "SI56 2900 0001 2345 678",
-    sklic: "SI00 2026-184",
-  },
-  {
-    izdajatelj: "Kovinarstvo Meznarič s.p.",
-    znesek: "2.430,50",
-    iban: "SI56 1010 0005 4321 098",
-    sklic: "SI12 9988123",
-  },
-  {
-    izdajatelj: "Suhomontaža Vogrinec s.p.",
-    znesek: "740,00",
-    iban: "SI56 0400 1004 9988 221",
-    sklic: "SI00 441-2026",
-  },
-  {
-    izdajatelj: "Krovstvo Horvat d.o.o.",
-    znesek: "4.120,80",
-    iban: "SI56 6100 0001 7788 334",
-    sklic: "SI12 20261077",
-  },
-];
-
 const TRADES = new Set(["fasaderstvo", "kovinarstvo", "gipsarija", "strehe"]);
 
 type LeadPayload = {
@@ -156,37 +129,19 @@ type LeadPayload = {
   company?: unknown;
 };
 
-/**
- * Draft stand-in for a vision call. The photo never leaves the browser;
- * the filename only picks one of the sample invoices.
- */
+/** Reading happens in the browser. This route no longer invents invoice data. */
 async function handleScan(request: Request): Promise<Response> {
   if (request.method !== "POST") {
     return json({ ok: false, error: "Dovoljena je samo metoda POST." }, 405);
   }
 
-  const length = Number(request.headers.get("content-length") ?? "0");
-  if (Number.isFinite(length) && length > 8_000) {
-    return json({ ok: false, error: "Zahteva je predolga." }, 413);
-  }
-
-  let filename = "demo-racun.jpg";
-  try {
-    const body = (await request.json()) as { filename?: unknown };
-    if (typeof body.filename === "string" && body.filename.trim()) {
-      filename = body.filename.trim().slice(0, 180);
-    }
-  } catch {
-    filename = "demo-racun.jpg";
-  }
-
-  await new Promise((resolve) => setTimeout(resolve, 600));
-
-  let hash = 0;
-  for (const char of filename) hash = (hash + char.charCodeAt(0)) % INVOICE_SAMPLES.length;
-  const invoice = INVOICE_SAMPLES[hash] ?? INVOICE_SAMPLES[0];
-
-  return json({ ok: true, invoice });
+  return json(
+    {
+      ok: false,
+      error: "Račun se prebere iz slike v brskalniku. Vzorčnih podatkov ne ustvarjamo.",
+    },
+    400,
+  );
 }
 
 /** Draft lead inbox. In production this emails the same address as the contact form. */
