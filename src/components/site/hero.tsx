@@ -18,12 +18,12 @@ export function Hero() {
             Spletne strani, ki spremenijo obiskovalce v stranke.
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            <strong className="font-semibold text-foreground">Patrick Belcl s.p.</strong> iz
-            Ljutomera izdela spletno stran v{" "}
+            Sem <strong className="font-semibold text-foreground">Patrick Belcl s.p.</strong> iz
+            Ljutomera. Spletno stran izdelam v{" "}
             <strong className="font-semibold text-foreground">5–7 dneh</strong>. Uvodna
             cena enostranske strani je{" "}
             <strong className="font-semibold text-foreground">290 €</strong>. Na stran
-            lahko doda <strong className="font-semibold text-foreground">kalkulator ponudbe</strong> in{" "}
+            lahko dodam <strong className="font-semibold text-foreground">kalkulator ponudbe</strong> in{" "}
             <strong className="font-semibold text-foreground">zajem računov</strong>.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -41,8 +41,8 @@ export function Hero() {
             </Link>
           </div>
           <p className="mt-6 max-w-xl text-sm text-muted-foreground">
-            Na voljo za nove projekte v tem mesecu. Pišete in kličete Patricka
-            Belcla, brez posrednika. Odgovor je običajno isti dan. Po objavi je
+            Na voljo sem za nove projekte v tem mesecu. Pišete in kličete mene,
+            brez posrednika. Odgovorim običajno isti dan. Po objavi je
             gostovanje 29 € na mesec ali 290 € na leto.
           </p>
         </div>

@@ -4,7 +4,7 @@ const STEPS = [
   {
     title: "Kratek pogovor",
     description:
-      "Pogovor je po telefonu ali videoklicu z Patrickom Belclom. Določimo obseg: ena stran, do 5 ali do 10 podstrani, in ali potrebujete kalkulator ali zajem računov.",
+      "Pogovor je po telefonu ali videoklicu z menoj. Določimo obseg: ena stran, do 5 ali do 10 podstrani, in ali potrebujete kalkulator ali zajem računov.",
   },
   {
     title: "Osnutek in oblikovanje",

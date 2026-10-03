@@ -9,21 +9,21 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Kako je narejena spletna stran",
   description:
-    "Strani Patricka Belcla niso v WordPressu. Next.js stran je sestavljena vnaprej in gostuje na Cloudflare, zato ob obisku ni baze in ni vtičnikov.",
+    "Strani ne delam v WordPressu. Next.js stran sestavim vnaprej in jo objavim na Cloudflare, zato ob obisku ni baze in ni vtičnikov.",
   alternates: { canonical: "/kako-delam" },
   openGraph: {
     title: "Kako je narejena spletna stran",
     description:
-      "Next.js stran na Cloudflare je sestavljena vnaprej. Običajni WordPress stran zgradi ob vsakem obisku.",
+      "Next.js stran sestavim vnaprej in jo objavim na Cloudflare. Običajni WordPress stran zgradi ob vsakem obisku.",
     url: "/kako-delam",
   },
 };
 
 const TAKEAWAYS = [
-  "Stran **Patricka Belcla s.p.** je sestavljena vnaprej. Ob obisku strežnik pošlje že narejeno stran.",
+  "Stran sestavim vnaprej. Ob obisku strežnik pošlje že narejeno stran.",
   "V strani ni **WordPressa**, ni vtičnikov in ni baze, ki bi se odpirala ob vsakem kliku.",
   "Izdelana je z **HTML**, **CSS**, **TypeScript**, **React** in **Next.js**. Gostuje na **Cloudflare**.",
-  "Hitrost je eden od signalov, ki jih Google upošteva. Prvega mesta na Googlu stran ne obljubi.",
+  "Hitrost je eden od signalov, ki jih Google upošteva. Prvega mesta na Googlu ne obljubim.",
 ];
 
 const STACK = [
@@ -73,7 +73,7 @@ export default function HowIBuildPage() {
           Kako je narejena spletna stran
         </h1>
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-          <RichText text="**Patrick Belcl s.p.** strani ne dela v WordPressu. Stran sestavi vnaprej z **Next.js** in jo objavi na **Cloudflare**. Ob obisku strežnik pošlje že narejeno stran, zato na telefonu ni čakanja na bazo in vtičnike." />
+          <RichText text="Strani ne delam v WordPressu. Stran sestavim vnaprej z **Next.js** in jo objavim na **Cloudflare**. Ob obisku strežnik pošlje že narejeno stran, zato na telefonu ni čakanja na bazo in vtičnike." />
         </p>
 
         <section className="mt-10" aria-labelledby="poudarki-izdelave">
@@ -97,7 +97,7 @@ export default function HowIBuildPage() {
             Več vtičnikov pomeni več čakanja.
           </p>
           <p className="leading-relaxed text-muted-foreground">
-            Stran na ključ je sestavljena vnaprej. Strežnik pošlje že narejen
+            Stran sestavim vnaprej. Strežnik pošlje že narejen
             HTML. Ni baze, ki bi se odpirala ob vsakem kliku, in ni vtičnikov,
             ki bi se nalagali za vsakega obiskovalca.
           </p>
@@ -141,7 +141,7 @@ export default function HowIBuildPage() {
             <li>Brez skritega sistema, ki bi ga morali vzdrževati z vtičniki.</li>
           </ul>
           <p className="leading-relaxed text-muted-foreground">
-            Kasnejšo spremembo naredi Patrick Belcl. To je gostovanje za 29 € na
+            Kasnejšo spremembo naredim jaz. To je gostovanje za 29 € na
             mesec, z do 2 manjšima popravkoma, ne tečaj za urejanje WordPressa.
           </p>
         </section>
@@ -177,16 +177,16 @@ export default function HowIBuildPage() {
             vsebina, konkurenca in to, ali na stran kdo poveže.
           </p>
           <p className="leading-relaxed text-muted-foreground">
-            Poleg hitrosti ima vsaka stran naslov, kratek opis in zgradbo, da
-            Google ve, o čem govori. To je osnova, brez katere iskalnik stran
-            težko pravilno pokaže.
+            Poleg hitrosti uredim naslov, kratek opis in zgradbo, da Google ve,
+            o čem stran govori. To je osnova, brez katere iskalnik stran težko
+            pravilno pokaže.
           </p>
         </section>
 
         <section className="mt-12 border-t border-white/15 pt-8">
-          <h2 className="font-display text-2xl tracking-[-0.03em]">Česa stran ne obljubi?</h2>
+          <h2 className="font-display text-2xl tracking-[-0.03em]">Česa ne obljubim?</h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
-            Ne obljubi prvega mesta na Googlu. Obljubi stran, ki se naloži
+            Ne obljubim prvega mesta na Googlu. Obljubim stran, ki se naloži
             hitro, je jasna stranki in je tehnično pripravljena, da jo Google
             lahko prebere.
           </p>

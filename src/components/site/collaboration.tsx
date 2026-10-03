@@ -5,11 +5,11 @@ import { SectionHeading } from "@/components/site/services";
 const POINTS = [
   {
     title: "Isti izvajalec",
-    text: "Stran vodi človek, ki jo je izdelal. Ni predaje drugi ekipi in ni čakanja na projektnega vodjo.",
+    text: "Stran vodim jaz, ker sem jo izdelal. Ni predaje drugi ekipi in ni čakanja na projektnega vodjo.",
   },
   {
     title: "Dogovor s s.p.",
-    text: "Sodelujete neposredno s Patrick Belcl, s.p. Račun, domena in gostovanje so urejeni na enem mestu.",
+    text: "Sodelujete neposredno z menoj. Račun, domena in gostovanje so urejeni na enem mestu.",
   },
   {
     title: "Stran ostane živa",
@@ -101,7 +101,7 @@ export function Collaboration() {
 
       <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
         Sodelovanje ni pogoj za izdelavo. Stran lahko gostujete sami. Če
-        ostanete pri Patrick Belcl s.p., sta domena, gostovanje in do 2
+        ostanete pri meni, sta domena, gostovanje in do 2
         manjša popravka na mesec na istem računu. Letno plačilo 290 € prihrani
         58 € glede na 12 mesecev po 29 €.
       </p>

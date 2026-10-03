@@ -21,7 +21,7 @@ export const SITE = {
     countryName: "Slovenija",
   },
   description:
-    "Patrick Belcl s.p. iz Ljutomera izdela spletno stran v 5–7 dneh. Uvodna cena od 290 €. Kalkulator ponudbe in zajem računov.",
+    "Sem Patrick Belcl. Iz Ljutomera izdelam spletno stran v 5–7 dneh. Uvodna cena od 290 €. Kalkulator ponudbe in zajem računov.",
   // Leave empty until the profile exists — dummy "#" links hurt trust and SEO.
   social: {
     instagram: "",
@@ -42,7 +42,7 @@ export const FAQS = [
   {
     question: "Koliko stane izdelava spletne strani?",
     answer:
-      "**Patrick Belcl s.p.** (Stran na ključ, Ljutomer) ima uvodne cene, dokler zbiram prve objavljene strani. **Osnovni** paket, ena stran z do 5 razdelki, stane **290 €** (redna cena 390 €). **Standard**, do 5 podstrani, stane **490 €** (690 €). **Premium**, do 10 podstrani, stane **890 €** (1190 €). Enostranska stran s kalkulatorjem ponudbe stane **540 €**, s zajemom računov **640 €**, z obema orodjema **780 €**. K že obstoječi strani kalkulator ponudbe stane **250 €**, zajem računov **350 €**, oboje **490 €**. Pred začetkom pripravim pisno ponudbo.",
+      "Uvodne cene imam, dokler zbiram prve objavljene strani. Sem **Patrick Belcl s.p.** iz Ljutomera (Stran na ključ). **Osnovni** paket, ena stran z do 5 razdelki, stane **290 €** (redna cena 390 €). **Standard**, do 5 podstrani, stane **490 €** (690 €). **Premium**, do 10 podstrani, stane **890 €** (1190 €). Enostranska stran s kalkulatorjem ponudbe stane **540 €**, s zajemom računov **640 €**, z obema orodjema **780 €**. K že obstoječi strani kalkulator ponudbe stane **250 €**, zajem računov **350 €**, oboje **490 €**. Pred začetkom pripravim pisno ponudbo.",
   },
   {
     question: "Koliko časa traja izdelava spletne strani?",
@@ -52,7 +52,7 @@ export const FAQS = [
   {
     question: "Kdo izdela spletno stran?",
     answer:
-      "Stran izdela **Patrick Belcl s.p.**, Mota 51e, **9240 Ljutomer**. Telefon je **070 914 756**, e-pošta **patrick@strannakljuc.si**. Pišete in kličete njega, brez posrednika. Odgovor je običajno isti dan. Delo je po vsej Sloveniji, tudi na daljavo.",
+      "Stran izdelam jaz, **Patrick Belcl s.p.**, Mota 51e, **9240 Ljutomer**. Telefon je **070 914 756**, e-pošta **patrick@strannakljuc.si**. Pišete in kličete mene, brez posrednika. Odgovorim običajno isti dan. Delam po vsej Sloveniji, tudi na daljavo.",
   },
   {
     question: "Kaj je kalkulator ponudbe?",
@@ -67,12 +67,12 @@ export const FAQS = [
   {
     question: "Ali je stran narejena v WordPressu?",
     answer:
-      "Ne. Stran je sestavljena vnaprej z **Next.js**, **React** in **TypeScript** ter gostuje na **Cloudflare**. Ob obisku strežnik pošlje že narejeno stran. Ni WordPressa, ni vtičnikov in ni baze, ki bi se odpirala ob vsakem kliku. Hitrost je eden od signalov, ki jih Google upošteva. Prvega mesta na Googlu ne obljubim.",
+      "Ne. Stran sestavim vnaprej z **Next.js**, **React** in **TypeScript** ter jo objavim na **Cloudflare**. Ob obisku strežnik pošlje že narejeno stran. Ni WordPressa, ni vtičnikov in ni baze, ki bi se odpirala ob vsakem kliku. Hitrost je eden od signalov, ki jih Google upošteva. Prvega mesta na Googlu ne obljubim.",
   },
   {
     question: "Kako poteka sodelovanje na daljavo?",
     answer:
-      "Uvodni pogovor je po telefonu **070 914 756** ali po videoklicu z **Patrickom Belclom**. Osnutek pride v pregled, popravki po e-pošti **patrick@strannakljuc.si** ali na kratkem klicu. Obisk v Ljutomeru ni potreben.",
+      "Uvodni pogovor je po telefonu **070 914 756** ali po videoklicu z menoj. Osnutek vam pošljem v pregled, popravke uskladiva po e-pošti **patrick@strannakljuc.si** ali na kratkem klicu. Obisk v Ljutomeru ni potreben.",
   },
   {
     question: "Ali lahko vsebino urejam sam?",
@@ -97,7 +97,7 @@ export const FAQS = [
   {
     question: "Kako poteka plačilo?",
     answer:
-      "Običajno je **50 %** ob začetku in **50 %** ob predaji delujoče strani. Manjši projekt se lahko plača v celoti ob zaključku. Plačilo je z nakazilom. **Patrick Belcl s.p.** ni davčni zavezanec za DDV.",
+      "Običajno je **50 %** ob začetku in **50 %** ob predaji delujoče strani. Manjši projekt se lahko plača v celoti ob zaključku. Plačilo je z nakazilom. Nisem davčni zavezanec za DDV.",
   },
 ] as const;
 

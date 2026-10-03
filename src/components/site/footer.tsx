@@ -33,7 +33,7 @@ export function SiteFooter() {
               Stran na ključ
             </Link>
             <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-              Izdelava spletnih strani za vse: male podjetnike, zasebnike in
+              Spletne strani izdelujem za vse: male podjetnike, zasebnike in
               d.o.o. Možno je tudi dolgoročno sodelovanje.
             </p>
           </div>

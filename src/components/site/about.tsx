@@ -22,23 +22,22 @@ export function About() {
 
         <div>
           <h2 className="max-w-[18ch] font-display text-3xl leading-[1.05] tracking-[-0.03em] sm:text-[2.7rem]">
-            Kdo je Patrick Belcl?
+            Kdo sem?
           </h2>
           <div className="mt-6 max-w-xl space-y-4 text-[1.02rem] leading-relaxed text-foreground/78">
             <p>
-              <strong className="font-semibold text-foreground">Patrick Belcl s.p.</strong> iz
-              Ljutomera (Mota 51e, 9240) izdeluje spletne strani pod imenom Stran
-              na ključ. Stran naredi sam, brez agencije in brez posrednika.
+              Sem <strong className="font-semibold text-foreground">Patrick Belcl s.p.</strong> iz
+              Ljutomera (Mota 51e, 9240). Spletne strani izdelujem pod imenom Stran
+              na ključ. Stran naredim sam, brez agencije in brez posrednika.
             </p>
             <p>
-              Dela za samostojne podjetnike, zasebnike, d.o.o. in večja
-              podjetja, ki strani še nimajo ali imajo staro. Naročnik dobi
-              stran, na kateri je ponudba razumljiva in je kontakt na telefonu
-              dosegljiv.
+              Delam za samostojne podjetnike, zasebnike, d.o.o. in večja
+              podjetja, ki strani še nimajo ali imajo staro. Dobite stran, na
+              kateri je ponudba razumljiva in je kontakt na telefonu dosegljiv.
             </p>
             <p>
-              Je popoldanski s.p. Ni klicnega centra. Telefon je 070 914 756,
-              e-pošta patrick@strannakljuc.si. Delo je po vsej Sloveniji. Ni
+              Sem popoldanski s.p. Ni klicnega centra. Telefon je 070 914 756,
+              e-pošta patrick@strannakljuc.si. Delam po vsej Sloveniji. Nisem
               davčni zavezanec za DDV.
             </p>
           </div>

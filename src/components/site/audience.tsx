@@ -25,7 +25,7 @@ export function Audience() {
         index="07"
         eyebrow="Za koga"
         title="Za koga je Stran na ključ?"
-        description="Za samostojne podjetnike, zasebnike, d.o.o. in večja podjetja v Sloveniji. Isti izvajalec vodi manjšo obrtno stran in stran z več podstranmi."
+        description="Za samostojne podjetnike, zasebnike, d.o.o. in večja podjetja v Sloveniji. Manjšo obrtno stran in stran z več podstranmi vodim sam."
       />
 
       <ul className="mt-12 grid gap-10 sm:grid-cols-3">

@@ -1,6 +1,6 @@
 # Stran na ključ
 
-> Patrick Belcl s.p. iz Ljutomera izdela spletno stran v 5–7 dneh. Uvodna cena enostranske strani je 290 €. Stran ni v WordPressu: sestavljena je vnaprej z Next.js in gostuje na Cloudflare.
+> Sem Patrick Belcl s.p. iz Ljutomera. Spletno stran izdelam v 5–7 dneh. Uvodna cena enostranske strani je 290 €. Strani ne delam v WordPressu: sestavim jo vnaprej z Next.js in jo objavim na Cloudflare.
 
 - Spletno mesto: https://strannakljuc.si
 - Cenik: https://strannakljuc.si/#cenik
@@ -10,7 +10,7 @@
 - Telefon: +386 70 914 756
 - Naslov: Mota 51e, 9240 Ljutomer, Slovenija
 - Jezik: slovenščina
-- Lastnik: Patrick Belcl s.p. (ni davčni zavezanec za DDV)
+- Lastnik: Patrick Belcl s.p. Nisem davčni zavezanec za DDV.
 - Plačilo: 50 % ob začetku, 50 % ob predaji, nakazilo na TRR
 
 ## Ključni poudarki
@@ -20,9 +20,9 @@
 - Kalkulator ponudbe zbere okvirno ceno in kontakt. Zajem računov prebere fotografijo ali PDF v znesek, DDV in TRR. To ni oddaja na FURS.
 - Gostovanje: 29 €/mesec ali 290 €/leto (prihranek 58 € glede na 12 × 29 €). Vključuje .si domeno, https, kopije in do 2 manjša popravka na mesec.
 
-## Kaj izdela
+## Kaj izdelam
 
-Patrick Belcl s.p. izdeluje spletne strani za samostojne podjetnike, zasebnike, d.o.o. in večja podjetja po Sloveniji. Stran je najprej narejena za telefon. Vsaka dobi naslov, opis in kontakt. SEO poveča vidnost med klasičnimi zadetki na Googlu, da stranke podjetje najdejo prve, ko iščejo njegove storitve. GEO prilagodi vsebino, da ChatGPT, Gemini in Perplexity podjetje izpostavijo v odgovorih. SEO je za ljudi, ki guglajo. GEO za ljudi, ki odgovore iščejo z umetno inteligenco.
+Spletne strani izdelujem za samostojne podjetnike, zasebnike, d.o.o. in večja podjetja po Sloveniji. Stran je najprej narejena za telefon. Vsaka dobi naslov, opis in kontakt. S SEO poskrbim, da vas stranke najdejo prve med klasičnimi zadetki na Googlu, ko iščejo vaše storitve. Z GEO prilagodim vsebino, da ChatGPT, Gemini in Perplexity vaše podjetje izpostavijo v odgovorih. SEO je za ljudi, ki guglajo. GEO za ljudi, ki odgovore iščejo z umetno inteligenco.
 
 Kalkulator ponudbe: stranka izbere fasaderstvo, kovinarstvo, gipsarijo ali strehe, vnese mere in vidi ceno po ceniku lastnika. Dokler lastnik cen ne shrani, kalkulator pokaže slovensko povprečje in to napiše.
 
@@ -47,11 +47,11 @@ Uvodne cene veljajo, dokler zbiram prve objavljene strani. Redna cena je v oklep
 
 ## Kako je stran narejena
 
-Stran je sestavljena vnaprej. Običajni WordPress ob vsakem obisku odpre bazo in požene vtičnike. Tu tega ni. Orodja: HTML, CSS, TypeScript, React, Next.js, Cloudflare.
+Stran sestavim vnaprej. Običajni WordPress ob vsakem obisku odpre bazo in požene vtičnike. Tu tega ni. Orodja: HTML, CSS, TypeScript, React, Next.js, Cloudflare.
 
 ## Primeri sloga
 
-Izmišljeni zgledi. To niso resnična podjetja in niso referenčni projekti:
+Izmišljeni zgledi. Naredil sem jih sam. To niso resnična podjetja in niso referenčni projekti:
 
 - https://strannakljuc.si/primeri
 - https://strannakljuc.si/primeri/kovinarstvo-meznaric
@@ -64,4 +64,4 @@ Izmišljeni zgledi. To niso resnična podjetja in niso referenčni projekti:
 
 ## Območje
 
-Sedež: Mota pri Ljutomeru, Pomurje. Delo po vsej Sloveniji, tudi na daljavo. Odgovor je običajno isti dan.
+Sedež: Mota pri Ljutomeru, Pomurje. Delam po vsej Sloveniji, tudi na daljavo. Odgovorim običajno isti dan.

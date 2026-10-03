@@ -1,10 +1,10 @@
 import { RichText } from "@/components/site/rich-text";
 
 const POINTS = [
-  "**Patrick Belcl s.p.** iz Ljutomera izdela spletno stran v **5–7 dneh**. Uvodna cena enostranske strani je **290 €**.",
+  "Spletno stran izdelam v **5–7 dneh**. Uvodna cena enostranske strani je **290 €**.",
   "Stran je sestavljena vnaprej z **Next.js** in gostuje na **Cloudflare**. Ni WordPressa in ni vtičnikov, ki bi se nalagali ob vsakem obisku.",
   "**Kalkulator ponudbe** (250 €) stranki pokaže okvirno ceno in zbere kontakt. **Zajem računov** (350 €) prebere fotografijo ali PDF v znesek, DDV in TRR.",
-  "Gostovanje po objavi stane **29 € na mesec** ali **290 € na leto**. Patrick Belcl s.p. ni zavezanec za DDV. Delo je po vsej Sloveniji.",
+  "Gostovanje po objavi stane **29 € na mesec** ali **290 € na leto**. Nisem zavezanec za DDV. Delam po vsej Sloveniji.",
 ];
 
 export function Takeaways() {

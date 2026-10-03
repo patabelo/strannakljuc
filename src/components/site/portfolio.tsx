@@ -11,7 +11,7 @@ export function Portfolio() {
         index="04"
         eyebrow="Primeri"
         title="Kako izgledajo zgledi strani?"
-        description="Primeri so izmišljeni. Resničnih strank še ni, zato to niso referenčni projekti. Patrick Belcl jih je naredil sam, da se vidi slog, prilagoditev telefonu in razlika med obrtmi. Vaša stran je po meri vaše dejavnosti."
+        description="Primeri so izmišljeni. Resničnih strank še ni, zato to niso referenčni projekti. Naredil sem jih sam, da se vidi slog, prilagoditev telefonu in razlika med obrtmi. Vaša stran je po meri vaše dejavnosti."
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
