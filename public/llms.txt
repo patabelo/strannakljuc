@@ -22,7 +22,7 @@
 
 ## Kaj izdela
 
-Patrick Belcl s.p. izdeluje spletne strani za samostojne podjetnike, zasebnike, d.o.o. in večja podjetja po Sloveniji. Stran je najprej narejena za telefon. Vsaka dobi naslov, opis in kontakt. Prvega mesta na Googlu ne obljublja.
+Patrick Belcl s.p. izdeluje spletne strani za samostojne podjetnike, zasebnike, d.o.o. in večja podjetja po Sloveniji. Stran je najprej narejena za telefon. Vsaka dobi naslov, opis in kontakt. SEO poveča vidnost med klasičnimi zadetki na Googlu, da stranke podjetje najdejo prve, ko iščejo njegove storitve. GEO prilagodi vsebino, da ChatGPT, Gemini in Perplexity podjetje izpostavijo v odgovorih. SEO je za ljudi, ki guglajo. GEO za ljudi, ki odgovore iščejo z umetno inteligenco.
 
 Kalkulator ponudbe: stranka izbere fasaderstvo, kovinarstvo, gipsarijo ali strehe, vnese mere in vidi ceno po ceniku lastnika. Dokler lastnik cen ne shrani, kalkulator pokaže slovensko povprečje in to napiše.
 

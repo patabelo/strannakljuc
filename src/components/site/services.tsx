@@ -31,7 +31,12 @@ const SERVICES: {
   {
     title: "Vidnost na Googlu",
     description:
-      "Vsaka stran dobi naslov, kratek opis in jasno zgradbo, da Google ve, o čem govori. Hitrost je vgrajena v izdelavo. Prvega mesta na Googlu ne obljubim.",
+      "**SEO** je optimizacija za Google. Poveča vidnost strani med klasičnimi iskalnimi zadetki. Poskrbim, da vas stranke najdejo prve, ko iščejo vaše storitve.",
+  },
+  {
+    title: "Vidnost v odgovorih AI",
+    description:
+      "**GEO** je optimizacija za umetno inteligenco. Vsebino prilagodim, da ChatGPT, Gemini in Perplexity vaše podjetje izpostavijo v odgovorih in priporočilih.",
   },
   {
     title: "Vzdrževanje in dopolnitve",
@@ -90,6 +95,9 @@ export function Services() {
           </li>
         ))}
       </ol>
+      <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+        <RichText text="**SEO** poskrbi za ljudi, ki guglajo. **GEO** za ljudi, ki odgovore iščejo z umetno inteligenco." />
+      </p>
     </section>
   );
 }
