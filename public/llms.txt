@@ -30,7 +30,7 @@ Zajem računov: JPG, PNG, WEBP, HEIC ali PDF do 20 MB. Branje je v brskalniku, d
 
 ## Cenik
 
-Uvodne cene veljajo, dokler zbiram prve objavljene strani. Redna cena je v oklepaju.
+Uvodne cene veljajo, dokler zbiram prve objavljene strani. Kjer je navedena redna cena, ne velja.
 
 | Paket | Obseg | Uvodna cena | Redna cena |
 | --- | --- | --- | --- |
@@ -40,9 +40,9 @@ Uvodne cene veljajo, dokler zbiram prve objavljene strani. Redna cena je v oklep
 | Stran in ponudba | Osnovni + kalkulator ponudbe | 540 € | 740 € |
 | Stran in računi | Osnovni + zajem računov | 640 € | 840 € |
 | Stran in oboje | Osnovni + obe orodji | 780 € | 1080 € |
-| Kalkulator ponudbe | Dodatek k obstoječi strani | 250 € | — |
-| Zajem računov | Dodatek k obstoječi strani | 350 € | — |
-| Obe orodji | Dodatek k obstoječi strani | 490 € | — |
+| Kalkulator ponudbe | Dodatek k obstoječi strani | 250 € | |
+| Zajem računov | Dodatek k obstoječi strani | 350 € | |
+| Obe orodji | Dodatek k obstoječi strani | 490 € | |
 | Gostovanje | .si, https, kopije, do 2 popravka | 29 €/mesec ali 290 €/leto | 348 € za 12 mesecev |
 
 ## Kako je stran narejena

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 
 import { RichText } from "@/components/site/rich-text";
@@ -111,7 +112,7 @@ export function SectionHeading({
   index?: string;
   eyebrow: string;
   title: string;
-  description?: string;
+  description?: ReactNode;
 }) {
   return (
     <div className="grid gap-6 border-t border-foreground/15 pt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-end">

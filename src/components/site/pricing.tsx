@@ -107,7 +107,14 @@ export function Pricing() {
         index="05"
         eyebrow="Cenik"
         title="Koliko stane spletna stran?"
-        description="Uvodna cena enostranske strani je 290 €. Do 5 podstrani stane 490 €, do 10 podstrani 890 €. Enostranska stran z obema orodjema stane 780 €. Cene spodaj so uvodne, dokler zbiram prve objavljene strani."
+        description={
+          <>
+            Uvodna cena enostranske strani je <ValidPrice>290 €</ValidPrice>. Do 5 podstrani
+            stane <ValidPrice>490 €</ValidPrice>, do 10 podstrani <ValidPrice>890 €</ValidPrice>.
+            Enostranska stran z obema orodjema stane <ValidPrice>780 €</ValidPrice>. Cene spodaj
+            so uvodne, dokler zbiram prve objavljene strani.
+          </>
+        }
       />
 
       <h3 className="mt-10 font-display text-2xl tracking-[-0.03em]">
@@ -115,10 +122,8 @@ export function Pricing() {
       </h3>
       <PriceTable />
       <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-        Črtica pomeni, da za to postavko ni posebej objavljene višje cene. Letno
-        gostovanje <strong className="font-semibold text-foreground">290 €</strong> zamenja
-        12 mesecev po 29 €, to je <strong className="font-semibold text-foreground">348 €</strong>,
-        zato je prihranek <strong className="font-semibold text-foreground">58 €</strong>.
+        Letno gostovanje <ValidPrice>290 €</ValidPrice> zamenja 12 mesecev po 29 €, to je{" "}
+        <RegularPrice>348 €</RegularPrice>, zato je prihranek <ValidPrice>58 €</ValidPrice>.
       </p>
 
       <p className="mt-10 text-sm text-muted-foreground">
@@ -138,9 +143,8 @@ export function Pricing() {
           fotografije ali PDF pripravi znesek, DDV in TRR. Obe orodji lahko
           stojita na paketu Osnovni. K že obstoječi strani ali k paketu Standard
           in Premium orodje dodam posebej: kalkulator{" "}
-          <strong className="font-semibold text-foreground">250 €</strong>, zajem računov{" "}
-          <strong className="font-semibold text-foreground">350 €</strong>, oboje{" "}
-          <strong className="font-semibold text-foreground">490 €</strong>.
+          <ValidPrice>250 €</ValidPrice>, zajem računov <ValidPrice>350 €</ValidPrice>, oboje{" "}
+          <ValidPrice>490 €</ValidPrice>.
         </p>
       </div>
 
@@ -150,17 +154,17 @@ export function Pricing() {
   );
 }
 
-const PRICE_ROWS: { name: string; scope: string; intro: string; regular: string }[] = [
+const PRICE_ROWS: { name: string; scope: string; intro: string; regular?: string }[] = [
   { name: "Osnovni", scope: "1 stran, do 5 razdelkov, obrazec, 5–7 dni", intro: "290 €", regular: "390 €" },
   { name: "Standard", scope: "Do 5 podstrani, 30 dni podpore", intro: "490 €", regular: "690 €" },
   { name: "Premium", scope: "Do 10 podstrani, SLO/EN, 90 dni podpore", intro: "890 €", regular: "1190 €" },
   { name: "Stran in ponudba", scope: "Osnovni + kalkulator ponudbe", intro: "540 €", regular: "740 €" },
   { name: "Stran in računi", scope: "Osnovni + zajem računov", intro: "640 €", regular: "840 €" },
   { name: "Stran in oboje", scope: "Osnovni + kalkulator in zajem računov", intro: "780 €", regular: "1080 €" },
-  { name: "Kalkulator ponudbe", scope: "Dodatek k že obstoječi strani", intro: "250 €", regular: "—" },
-  { name: "Zajem računov", scope: "Dodatek k že obstoječi strani", intro: "350 €", regular: "—" },
-  { name: "Obe orodji", scope: "Dodatek k že obstoječi strani", intro: "490 €", regular: "—" },
-  { name: "Gostovanje, mesečno", scope: ".si domena, https, kopije, do 2 popravka", intro: "29 €/mesec", regular: "—" },
+  { name: "Kalkulator ponudbe", scope: "Dodatek k že obstoječi strani", intro: "250 €" },
+  { name: "Zajem računov", scope: "Dodatek k že obstoječi strani", intro: "350 €" },
+  { name: "Obe orodji", scope: "Dodatek k že obstoječi strani", intro: "490 €" },
+  { name: "Gostovanje, mesečno", scope: ".si domena, https, kopije, do 2 popravka", intro: "29 €/mesec" },
   { name: "Gostovanje, letno", scope: "Isto kot mesečno, prednostni popravki, letni pregled", intro: "290 €/leto", regular: "348 €" },
 ];
 
@@ -191,18 +195,52 @@ function PriceTable() {
               <td className="col-span-2 row-start-2 pt-1 text-muted-foreground md:table-cell md:px-4 md:py-3 md:pt-0">
                 {row.scope}
               </td>
-              <td className="col-start-2 row-start-1 text-right font-medium text-foreground md:table-cell md:px-4 md:py-3 md:text-left">
-                {row.intro}
+              <td className="col-start-2 row-start-1 text-right md:table-cell md:px-4 md:py-3 md:text-left">
+                <ValidPrice>{row.intro}</ValidPrice>
               </td>
-              <td className="col-span-2 row-start-3 text-muted-foreground md:table-cell md:px-4 md:py-3">
-                <span className="md:hidden">Redna cena </span>
-                {row.regular}
+              <td
+                className={
+                  row.regular
+                    ? "col-span-2 row-start-3 text-muted-foreground md:table-cell md:px-4 md:py-3"
+                    : "hidden md:table-cell md:px-4 md:py-3"
+                }
+              >
+                {row.regular ? (
+                  <>
+                    <span className="md:hidden">Redna cena </span>
+                    <RegularPrice>{row.regular}</RegularPrice>
+                  </>
+                ) : null}
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
+  );
+}
+
+function ValidPrice({ children }: { children: React.ReactNode }) {
+  return <strong className="font-semibold text-primary">{children}</strong>;
+}
+
+function RegularPrice({
+  children,
+  onLight = false,
+}: {
+  children: React.ReactNode;
+  onLight?: boolean;
+}) {
+  return (
+    <s
+      className={
+        onLight
+          ? "text-sm font-normal text-background/45 line-through decoration-background/35 decoration-1"
+          : "text-sm font-normal text-muted-foreground/80 line-through decoration-muted-foreground/40 decoration-1"
+      }
+    >
+      {children}
+    </s>
   );
 }
 
@@ -236,16 +274,8 @@ function PlanGrid({ plans }: { plans: Plan[] }) {
             {plan.tagline}
           </p>
           <p className="mt-6 flex items-baseline gap-3">
-            <span className="font-display text-4xl tracking-[-0.04em]">{plan.price}</span>
-            <span
-              className={
-                plan.highlighted
-                  ? "text-sm text-background/50 line-through"
-                  : "text-sm text-muted-foreground line-through"
-              }
-            >
-              {plan.originalPrice}
-            </span>
+            <span className="font-display text-4xl tracking-[-0.04em] text-primary">{plan.price}</span>
+            <RegularPrice onLight={plan.highlighted}>{plan.originalPrice}</RegularPrice>
           </p>
           <ul className="mt-6">
             {plan.features.map((feature) => (
