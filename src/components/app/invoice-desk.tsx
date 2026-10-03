@@ -147,10 +147,10 @@ export function InvoiceDesk() {
   return (
     <div>
       <p className="font-mono text-[0.72rem] tracking-[0.16em] text-[#f2792c] uppercase">
-        Bralnik računov
+        Zajem računov
       </p>
       <h1 className="mt-3 max-w-xl font-display text-4xl tracking-[-0.03em] sm:text-5xl">
-        Fotografija ali PDF računa, pripravljeni podatki.
+        Zajemite račun iz fotografije ali PDF.
       </h1>
       <p className="mt-4 max-w-2xl text-white/70">
         Spustite sliko ali PDF računa, lahko pa ga zajamete s kamero. Pred

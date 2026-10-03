@@ -86,13 +86,15 @@ export function JsonLd() {
           "Spletno oblikovanje",
           "Mobilna prilagoditev",
           "Tehnična optimizacija za iskalnike",
+          "Kalkulator ponudbe",
+          "Zajem računov",
         ],
         knowsLanguage: ["sl", "en"],
       },
       {
         "@type": "OfferCatalog",
         "@id": CATALOG_ID,
-        name: "Izdelava spletnih strani",
+        name: "Spletne strani in orodja za obrtnike",
         itemListElement: [
           {
             "@type": "Offer",
@@ -125,6 +127,61 @@ export function JsonLd() {
                 "Spletna stran do 10 podstrani z videzom po meri, vidnostjo na Googlu, hitrejšim nalaganjem in 90 dni podpore.",
             },
             price: "890",
+            priceCurrency: "EUR",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Stran in ponudba — enostranska stran in kalkulator ponudbe",
+              description:
+                "Enostranska spletna stran s kalkulatorjem ponudbe. Stranka vnese mere, vidi okvirno ceno po vašem ceniku in pusti kontakt.",
+            },
+            price: "540",
+            priceCurrency: "EUR",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Stran in računi — enostranska stran in zajem računov",
+              description:
+                "Enostranska spletna stran z zajemom računov iz fotografije ali PDF, s preverjanjem zneska in izvozom preglednice za računovodjo.",
+            },
+            price: "640",
+            priceCurrency: "EUR",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Stran in oboje — kalkulator ponudbe in zajem računov",
+              description:
+                "Enostranska spletna stran s kalkulatorjem ponudbe in zajemom računov.",
+            },
+            price: "780",
+            priceCurrency: "EUR",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Kalkulator ponudbe",
+              description:
+                "Dodatek k obstoječi strani: stranka izračuna okvirno ceno in pusti povpraševanje.",
+            },
+            price: "250",
+            priceCurrency: "EUR",
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Zajem računov",
+              description:
+                "Dodatek k obstoječi strani: fotografija ali PDF računa se odpre v znesek, DDV, TRR in sklic.",
+            },
+            price: "350",
             priceCurrency: "EUR",
           },
           {

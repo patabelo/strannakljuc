@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 
 const LINKS = [
   { href: "/aplikacija", label: "Pregled", icon: LayoutDashboard },
-  { href: "/aplikacija/racuni", label: "Bralnik računov", icon: Receipt },
-  { href: "/aplikacija/kalkulatorji", label: "Kalkulatorji ponudb", icon: Calculator },
+  { href: "/aplikacija/kalkulatorji", label: "Kalkulator ponudbe", icon: Calculator },
+  { href: "/aplikacija/racuni", label: "Zajem računov", icon: Receipt },
   { href: "/aplikacija/nastavitve", label: "Nastavitve", icon: Settings },
 ];
 

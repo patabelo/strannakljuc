@@ -51,6 +51,8 @@ export const metadata: Metadata = {
     "spletna stran za obrtnike",
     "spletna stran za malo podjetje",
     "stran na ključ",
+    "kalkulator ponudbe",
+    "zajem računov",
     "Patrick Belcl",
   ],
   authors: [{ name: SITE.person.name, url: SITE.url }],

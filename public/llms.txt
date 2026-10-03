@@ -11,13 +11,19 @@
 
 ## Kaj ponuja
 
-Patrick Belcl, s.p. izdeluje spletne strani za vse: male podjetnike, zasebnike, d.o.o. in večja podjetja, po vsej Sloveniji. Strani so zasnovane najprej za mobitel, z osnovno vidnostjo na Googlu in jasnim pozivom k povpraševanju. Po objavi je možno dolgoročno sodelovanje neposredno s s.p.: gostovanje, domena in popravki, 29 €/mesec ali 290 €/leto.
+Patrick Belcl, s.p. izdeluje spletne strani za vse: male podjetnike, zasebnike, d.o.o. in večja podjetja, po vsej Sloveniji. Strani so zasnovane najprej za mobitel, z osnovno vidnostjo na Googlu in jasnim pozivom k povpraševanju. Na stran lahko doda kalkulator ponudbe (stranka sama izračuna okvirno ceno in pusti kontakt) in zajem računov (fotografija ali PDF se odpre v znesek, DDV in TRR). Po objavi je možno dolgoročno sodelovanje neposredno s s.p.: gostovanje, domena in popravki, 29 €/mesec ali 290 €/leto.
 
 ## Cenik (uvodne cene)
 
 - Osnovni — ena spletna stran: 290 €
 - Standard — do 5 podstrani: 490 €
 - Premium — do 10 podstrani po meri: 890 €
+- Stran in ponudba — enostranska stran in kalkulator ponudbe: 540 €
+- Stran in računi — enostranska stran in zajem računov: 640 €
+- Stran in oboje — enostranska stran, kalkulator in zajem računov: 780 €
+- Kalkulator ponudbe k že obstoječi strani: 250 €
+- Zajem računov k že obstoječi strani: 350 €
+- Obe orodji k že obstoječi strani: 490 €
 - Gostovanje in vzdrževanje: 29 € / mesec ali 290 € / leto (vključuje .si domeno, https, varnostne kopije)
 
 ## Primeri sloga

@@ -186,7 +186,7 @@ async function handleLead(request: Request, env: Env): Promise<Response> {
     return json({ ok: false, error: "Ponudba ni popolna." }, 400);
   }
 
-  const subject = `${companyName || "Kalkulator"} — ${tradeName || trade} — ${firstName} ${lastName}`;
+  const subject = `${companyName || "Kalkulator ponudbe"} — ${tradeName || trade} — ${firstName} ${lastName}`;
   const text = [
     companyName ? `Podjetje: ${companyName}` : "",
     `Ime: ${firstName} ${lastName}`,

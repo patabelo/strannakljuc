@@ -129,7 +129,7 @@ export function QuoteDesk() {
   return (
     <div>
       <p className="font-mono text-[0.72rem] tracking-[0.16em] text-[#f2792c] uppercase">
-        Kalkulatorji ponudb
+        Kalkulator ponudbe
       </p>
       <h1 className="mt-3 max-w-xl font-display text-4xl tracking-[-0.03em] sm:text-5xl">
         Izračunajte si okvirno ceno.

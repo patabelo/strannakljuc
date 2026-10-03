@@ -3,18 +3,18 @@ import { Calculator, Receipt } from "lucide-react";
 
 const TOOLS = [
   {
-    href: "/aplikacija/racuni",
+    href: "/aplikacija/kalkulatorji",
     eyebrow: "01",
-    title: "Bralnik računov",
-    text: "Slika računa se odpre v pregled: izdajatelj, znesek, IBAN in sklic. Podatke preverite in shranite v seznam.",
-    icon: Receipt,
+    title: "Kalkulator ponudbe",
+    text: "Stranka izbere dejavnost, vnese mere in vidi okvirno ceno po vašem ceniku. Kontakt pusti v obrazcu.",
+    icon: Calculator,
   },
   {
-    href: "/aplikacija/kalkulatorji",
+    href: "/aplikacija/racuni",
     eyebrow: "02",
-    title: "Kalkulatorji ponudb",
-    text: "Fasaderstvo, kovinarstvo, gipsarija in strehe. Stranka vnese mere, vidi okvirno ceno in pusti kontakt.",
-    icon: Calculator,
+    title: "Zajem računov",
+    text: "Fotografija ali PDF prejetega računa. Izpišejo se znesek, DDV, TRR in sklic, kadar so na dokumentu.",
+    icon: Receipt,
   },
 ];
 
@@ -22,15 +22,15 @@ export default function AplikacijaPage() {
   return (
     <div>
       <p className="font-mono text-[0.72rem] tracking-[0.16em] text-[#f2792c] uppercase">
-        Demo portal
+        Orodja
       </p>
       <h1 className="mt-3 max-w-2xl font-display text-4xl tracking-[-0.03em] sm:text-6xl">
-        Orodja, ki jih obrtnik da stranki na svojo stran.
+        Kalkulator ponudbe in zajem računov.
       </h1>
       <p className="mt-5 max-w-2xl text-lg text-white/70">
-        Dva primera, ki delata takoj: branje računa iz fotografije in izračun
-        okvirne ponudbe. To je prikaz, kako lahko spletna stran zbira delo,
-        ne samo obiske.
+        Kalkulator ponudbe stranki takoj pokaže okvirno ceno in zbere kontakt.
+        Zajem računov iz fotografije ali PDF pripravi znesek, DDV in TRR. Podatke
+        preverite in izvozite za računovodjo.
       </p>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2">

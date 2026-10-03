@@ -100,7 +100,7 @@ export function SettingsDesk() {
         Vaš cenik in prejem povpraševanj.
       </h1>
       <p className="mt-4 max-w-2xl text-white/70">
-        Vpišite svoje cene. Kalkulator jih uporabi namesto slovenskega povprečja. Povpraševanja
+        Vpišite svoje cene. Kalkulator ponudbe jih uporabi namesto slovenskega povprečja. Povpraševanja
         prispejo na e-pošto, ki jo vpišete spodaj.
       </p>
 

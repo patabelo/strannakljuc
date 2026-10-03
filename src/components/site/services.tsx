@@ -1,4 +1,11 @@
-const SERVICES = [
+import Link from "next/link";
+
+const SERVICES: {
+  title: string;
+  description: string;
+  href?: string;
+  linkLabel?: string;
+}[] = [
   {
     title: "Enostranske spletne strani",
     description:
@@ -29,6 +36,20 @@ const SERVICES = [
     description:
       "Po objavi strani pomagam z manjšimi spremembami, novo vsebino ali dodatnimi funkcijami, ko jih potrebujete.",
   },
+  {
+    title: "Kalkulator ponudbe",
+    description:
+      "Na vaši strani stranka izbere storitev, vpiše mere in takoj vidi okvirno ceno po vašem ceniku. Ime in telefon pusti v obrazcu, povpraševanje pa pride na vaš e-naslov, tudi ko niste pri telefonu.",
+    href: "/aplikacija/kalkulatorji",
+    linkLabel: "Odpri kalkulator ponudbe",
+  },
+  {
+    title: "Zajem računov",
+    description:
+      "Fotografijo ali PDF prejetega računa odprete v brskalniku. Orodje izpiše znesek, DDV, TRR in sklic, kadar so na dokumentu. Podatke preverite in izvozite preglednico za računovodjo.",
+    href: "/aplikacija/racuni",
+    linkLabel: "Odpri zajem računov",
+  },
 ];
 
 export function Services() {
@@ -51,9 +72,19 @@ export function Services() {
               {String(index + 1).padStart(2, "0")}
             </span>
             <h3 className="font-display text-xl tracking-[-0.02em]">{service.title}</h3>
-            <p className="text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-              {service.description}
-            </p>
+            <div>
+              <p className="text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                {service.description}
+              </p>
+              {service.href && service.linkLabel ? (
+                <Link
+                  href={service.href}
+                  className="mt-2 inline-block text-sm text-primary underline-offset-4 hover:underline"
+                >
+                  {service.linkLabel}
+                </Link>
+              ) : null}
+            </div>
           </li>
         ))}
       </ol>

@@ -42,7 +42,7 @@ export const FAQS = [
   {
     question: "Koliko stane izdelava spletne strani?",
     answer:
-      "Cene se trenutno začnejo pri 290 € za enostransko spletno stran. Paket Standard do 5 podstrani stane 490 €, Premium do 10 podstrani pa 890 €. Končna cena je odvisna od vsebine in funkcij, zato pred začetkom vedno pripravim jasno ponudbo.",
+      "Cene se trenutno začnejo pri 290 € za enostransko spletno stran. Paket Standard do 5 podstrani stane 490 €, Premium do 10 podstrani pa 890 €. Enostranska stran s kalkulatorjem ponudbe stane 540 €, s zajemom računov 640 €, z obema orodjema pa 780 €. Če stran že imate, kalkulator ponudbe dodam za 250 €, zajem računov za 350 €, oboje skupaj za 490 €. Končna cena je odvisna od vsebine, zato pred začetkom vedno pripravim jasno ponudbo.",
   },
   {
     question: "Koliko časa traja izdelava spletne strani?",

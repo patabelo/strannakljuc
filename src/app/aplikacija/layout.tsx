@@ -4,9 +4,9 @@ import type { ReactNode } from "react";
 import { AppShell } from "@/components/app/app-shell";
 
 export const metadata: Metadata = {
-  title: "Orodja za obrtnike",
+  title: "Kalkulator ponudbe in zajem računov",
   description:
-    "Demo portal za obrtnike: bralnik računov in kalkulatorji ponudb za fasaderstvo, kovinarstvo, gipsarijo in strehe.",
+    "Kalkulator ponudbe izračuna okvirno ceno in zbere kontakt. Zajem računov prebere fotografijo ali PDF v znesek, DDV in TRR.",
   alternates: { canonical: "/aplikacija" },
 };
 

@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { QuoteDesk } from "@/components/app/quote-desk";
 
 export const metadata: Metadata = {
-  title: "Kalkulatorji ponudb",
+  title: "Kalkulator ponudbe",
   description:
-    "Okvirne ponudbe za fasaderstvo, kovinarstvo, gipsarijo in strehe, z obrazcem za povpraševanje.",
+    "Kalkulator ponudbe na vaši spletni strani: stranka vnese mere, vidi okvirno ceno in pusti povpraševanje. Fasade, kovina, suhomontaža in strehe.",
   alternates: { canonical: "/aplikacija/kalkulatorji" },
 };
 
