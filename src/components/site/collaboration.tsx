@@ -53,8 +53,8 @@ export function Collaboration() {
       <SectionHeading
         index="06"
         eyebrow="Sodelovanje"
-        title="Po objavi lahko sodelujeva dolgoročno"
-        description="Izdelava je enkratno naročilo, za podjetnika, zasebnika ali d.o.o. Sodelovanje je nadaljevanje: gostovanje, popravki in skrb za stran, neposredno s s.p."
+        title="Koliko stane gostovanje po objavi?"
+        description="Gostovanje stane 29 € na mesec ali 290 € na leto. V ceni so .si domena, https, varnostne kopije in do 2 manjša popravka na mesec. Izdelava strani je ločeno, enkratno naročilo. Sodelovanje ni pogoj."
       />
 
       <ul className="mt-12 grid gap-8 sm:grid-cols-3">
@@ -100,9 +100,10 @@ export function Collaboration() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-        Sodelovanje ni pogoj za izdelavo. Stran lahko po objavi gostujete tudi
-        sami. Če ostanete, skrbim za domeno, gostovanje in manjše popravke, da
-        vam tega ni treba urejati.
+        Sodelovanje ni pogoj za izdelavo. Stran lahko gostujete sami. Če
+        ostanete pri Patrick Belcl s.p., sta domena, gostovanje in do 2
+        manjša popravka na mesec na istem računu. Letno plačilo 290 € prihrani
+        58 € glede na 12 mesecev po 29 €.
       </p>
       <Link
         href="/#kontakt"

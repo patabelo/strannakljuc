@@ -10,8 +10,8 @@ export function Portfolio() {
       <SectionHeading
         index="04"
         eyebrow="Primeri"
-        title="Tako lahko izgleda vaša stran"
-        description="To so izmišljeni primeri, ki sem jih izdelal sam, da pokažem kakovost izdelave, mobilno prilagoditev in različne sloge — resničnih strank (še) nimam, zato gre za zglede sloga, ne pretekle projekte. Vaša stran bo seveda po meri vaše dejavnosti."
+        title="Kako izgledajo zgledi strani?"
+        description="Primeri so izmišljeni. Resničnih strank še ni, zato to niso referenčni projekti. Patrick Belcl jih je naredil sam, da se vidi slog, prilagoditev telefonu in razlika med obrtmi. Vaša stran je po meri vaše dejavnosti."
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

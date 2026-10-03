@@ -4,17 +4,17 @@ const AUDIENCE = [
   {
     title: "Samostojni podjetniki",
     description:
-      "Obrtniki, s.p. in manjši posli, ki potrebujejo jasno stran: ponudbo, območje dela in preprost način, da vas stranka pokliče.",
+      "Obrtniki in s.p., ki rabijo ponudbo, območje dela in klic na isti strani. Fasader, krovec, kovinar ali suhomontažer lahko doda kalkulator ponudbe.",
   },
   {
     title: "Zasebniki",
     description:
-      "Če nastopate v svojem imenu — svetovanje, ustvarjanje, storitev — stran pove, kdo ste in kako vas dosežejo.",
+      "Svetovanje, ustvarjanje ali osebna storitev. Stran pove, kdo ste, kje delate in kako vas dosežejo.",
   },
   {
     title: "Družbe in večja podjetja",
     description:
-      "Tudi za d.o.o. in ekipe z več storitvami. Obseg prilagodim podjetju: od predstavitvene strani do več podstrani.",
+      "D.o.o. in ekipe z več storitvami. Obseg je od ene strani do 10 podstrani, po potrebi z zajemom računov za preglednico računovodji.",
   },
 ];
 
@@ -24,8 +24,8 @@ export function Audience() {
       <SectionHeading
         index="07"
         eyebrow="Za koga"
-        title="Spletne strani za vse"
-        description="Izdelujem spletne strani za vse: za male podjetnike, zasebnike in d.o.o. Enak pristop za manjši obrat in za večje podjetje. Po objavi lahko sodelovanje ostane dolgoročno."
+        title="Za koga je Stran na ključ?"
+        description="Za samostojne podjetnike, zasebnike, d.o.o. in večja podjetja v Sloveniji. Isti izvajalec vodi manjšo obrtno stran in stran z več podstranmi."
       />
 
       <ul className="mt-12 grid gap-10 sm:grid-cols-3">

@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { RichText } from "@/components/site/rich-text";
+
 const SERVICES: {
   title: string;
   description: string;
@@ -9,44 +11,44 @@ const SERVICES: {
   {
     title: "Enostranske spletne strani",
     description:
-      "Ena osredotočena stran za vaš izdelek, storitev ali dogodek — zasnovana tako, da obiskovalce pripelje do povpraševanja ali nakupa.",
+      "Ena stran z do **5 razdelki**: ponudba, območje in kontakt na istem zaslonu. To je paket **Osnovni**, uvodna cena **290 €**, rok **5–7 delovnih dni**.",
   },
   {
     title: "Spletne strani za podjetja",
     description:
-      "Predstavitvena spletna stran z več podstranmi: O nas, Storitve, Reference, Kontakt — urejena, hitra in enostavna za posodabljanje.",
+      "Več podstrani: O nas, Storitve, Reference in Kontakt. **Standard** gre do **5 podstrani** za **490 €**. **Premium** gre do **10 podstrani**, z videzom po meri in jezikoma SLO/EN, za **890 €**.",
   },
   {
     title: "Prenova obstoječe strani",
     description:
-      "Vašo staro stran posodobim v sodoben, hiter in mobilno prijazen izgled — brez izgube vsebine, ki jo že imate.",
+      "Obstoječe besedilo in slike ohranimo. Zamenjam počasno ali neprilagojeno stran z novo, ki je najprej narejena za telefon.",
   },
   {
     title: "Strani za pred-naročila in dogodke",
     description:
-      "Kratke, udarne strani za predstavitev novega izdelka, akcijo ali dogodek — z odštevalnikom, obrazcem in jasnim gumbom za kontakt.",
+      "Kratka stran za en izdelek, akcijo ali dogodek. Na njej sta odštevalnik, obrazec in en gumb za kontakt.",
   },
   {
     title: "Vidnost na Googlu",
     description:
-      "Poskrbim za naslove, opise strani, hitrost nalaganja in strukturo, da vas lažje najdejo na Googlu.",
+      "Vsaka stran dobi naslov, kratek opis in jasno zgradbo, da Google ve, o čem govori. Hitrost je vgrajena v izdelavo. Prvega mesta na Googlu ne obljubim.",
   },
   {
     title: "Vzdrževanje in dopolnitve",
     description:
-      "Po objavi strani pomagam z manjšimi spremembami, novo vsebino ali dodatnimi funkcijami, ko jih potrebujete.",
+      "Po objavi gostovanje vključuje do **2 manjša popravka na mesec** za **29 €**. Večja dopolnitev, na primer novo orodje, je ločena ponudba.",
   },
   {
     title: "Kalkulator ponudbe",
     description:
-      "Na vaši strani stranka izbere storitev, vpiše mere in takoj vidi okvirno ceno po vašem ceniku. Ime in telefon pusti v obrazcu, povpraševanje pa pride na vaš e-naslov, tudi ko niste pri telefonu.",
+      "Stranka izbere fasaderstvo, kovinarstvo, gipsarijo ali strehe, vnese mere in vidi ceno po vašem ceniku. Ime in telefon ostaneta v obrazcu, povpraševanje pride na vaš e-naslov. Samo orodje stane **250 €**, z enostransko stranjo **540 €**.",
     href: "/aplikacija/kalkulatorji",
     linkLabel: "Odpri kalkulator ponudbe",
   },
   {
     title: "Zajem računov",
     description:
-      "Fotografijo ali PDF prejetega računa odprete v brskalniku. Orodje izpiše znesek, DDV, TRR in sklic, kadar so na dokumentu. Podatke preverite in izvozite preglednico za računovodjo.",
+      "Fotografija ali PDF (do **20 MB**) se v brskalniku odpre v znesek, DDV, TRR in sklic, če so na dokumentu. Datoteka ne gre na strežnik. Podatke preverite in izvozite CSV za računovodjo. To ni oddaja na FURS. Samo orodje stane **350 €**, z enostransko stranjo **640 €**.",
     href: "/aplikacija/racuni",
     linkLabel: "Odpri zajem računov",
   },
@@ -58,8 +60,8 @@ export function Services() {
       <SectionHeading
         index="02"
         eyebrow="Storitve"
-        title="Vse, kar potrebujete za nastop na spletu"
-        description="Od prve ideje do objavljene strani na spletu — vodim vas skozi celoten postopek, brez tehničnega žargona. Za male podjetnike, zasebnike in d.o.o."
+        title="Katere strani in orodja izdelam?"
+        description="Osnovni paket je ena stran za 290 € v 5–7 dneh. Standard do 5 podstrani stane 490 €, Premium do 10 podstrani 890 €. Kalkulator ponudbe in zajem računov se dodata k novi ali že obstoječi strani."
       />
 
       <ol className="mt-12 border-t border-foreground/15">
@@ -74,7 +76,7 @@ export function Services() {
             <h3 className="font-display text-xl tracking-[-0.02em]">{service.title}</h3>
             <div>
               <p className="text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                {service.description}
+                <RichText text={service.description} />
               </p>
               {service.href && service.linkLabel ? (
                 <Link

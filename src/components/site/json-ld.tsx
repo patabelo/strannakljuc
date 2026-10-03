@@ -1,3 +1,4 @@
+import { plainText } from "@/components/site/rich-text";
 import { FAQS, SITE, SOCIAL_LINKS } from "@/lib/site";
 
 const BUSINESS_ID = `${SITE.url}/#business`;
@@ -244,7 +245,7 @@ export function FaqJsonLd() {
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer,
+        text: plainText(item.answer),
       },
     })),
   };

@@ -1,34 +1,57 @@
 # Stran na ključ
 
-> Izdelava spletnih strani za vse: male podjetnike, zasebnike in d.o.o. Od ideje do objavljene strani v enem tednu. Možno je tudi dolgoročno sodelovanje.
+> Patrick Belcl s.p. iz Ljutomera izdela spletno stran v 5–7 dneh. Uvodna cena enostranske strani je 290 €. Stran ni v WordPressu: sestavljena je vnaprej z Next.js in gostuje na Cloudflare.
 
 - Spletno mesto: https://strannakljuc.si
+- Cenik: https://strannakljuc.si/#cenik
+- Vprašanja: https://strannakljuc.si/#vprasanja
+- Kako je stran narejena: https://strannakljuc.si/kako-delam
 - Kontakt: patrick@strannakljuc.si
 - Telefon: +386 70 914 756
-- Kraj: Ljutomer, Slovenija
+- Naslov: Mota 51e, 9240 Ljutomer, Slovenija
 - Jezik: slovenščina
 - Lastnik: Patrick Belcl s.p. (ni davčni zavezanec za DDV)
+- Plačilo: 50 % ob začetku, 50 % ob predaji, nakazilo na TRR
 
-## Kaj ponuja
+## Ključni poudarki
 
-Patrick Belcl, s.p. izdeluje spletne strani za vse: male podjetnike, zasebnike, d.o.o. in večja podjetja, po vsej Sloveniji. Strani so zasnovane najprej za mobitel, z osnovno vidnostjo na Googlu in jasnim pozivom k povpraševanju. Na stran lahko doda kalkulator ponudbe (stranka sama izračuna okvirno ceno in pusti kontakt) in zajem računov (fotografija ali PDF se odpre v znesek, DDV in TRR). Po objavi je možno dolgoročno sodelovanje neposredno s s.p.: gostovanje, domena in popravki, 29 €/mesec ali 290 €/leto.
+- Enostranska stran: 290 €, rok 5–7 delovnih dni po potrditvi osnutka.
+- Standard do 5 podstrani: 490 €. Premium do 10 podstrani: 890 €.
+- Kalkulator ponudbe zbere okvirno ceno in kontakt. Zajem računov prebere fotografijo ali PDF v znesek, DDV in TRR. To ni oddaja na FURS.
+- Gostovanje: 29 €/mesec ali 290 €/leto (prihranek 58 € glede na 12 × 29 €). Vključuje .si domeno, https, kopije in do 2 manjša popravka na mesec.
 
-## Cenik (uvodne cene)
+## Kaj izdela
 
-- Osnovni — ena spletna stran: 290 €
-- Standard — do 5 podstrani: 490 €
-- Premium — do 10 podstrani po meri: 890 €
-- Stran in ponudba — enostranska stran in kalkulator ponudbe: 540 €
-- Stran in računi — enostranska stran in zajem računov: 640 €
-- Stran in oboje — enostranska stran, kalkulator in zajem računov: 780 €
-- Kalkulator ponudbe k že obstoječi strani: 250 €
-- Zajem računov k že obstoječi strani: 350 €
-- Obe orodji k že obstoječi strani: 490 €
-- Gostovanje in vzdrževanje: 29 € / mesec ali 290 € / leto (vključuje .si domeno, https, varnostne kopije)
+Patrick Belcl s.p. izdeluje spletne strani za samostojne podjetnike, zasebnike, d.o.o. in večja podjetja po Sloveniji. Stran je najprej narejena za telefon. Vsaka dobi naslov, opis in kontakt. Prvega mesta na Googlu ne obljublja.
+
+Kalkulator ponudbe: stranka izbere fasaderstvo, kovinarstvo, gipsarijo ali strehe, vnese mere in vidi ceno po ceniku lastnika. Dokler lastnik cen ne shrani, kalkulator pokaže slovensko povprečje in to napiše.
+
+Zajem računov: JPG, PNG, WEBP, HEIC ali PDF do 20 MB. Branje je v brskalniku, datoteka ne gre na strežnik. Praznih polj ne pokaže. Lastnik preveri znesek in izvozi CSV.
+
+## Cenik
+
+Uvodne cene veljajo, dokler zbiram prve objavljene strani. Redna cena je v oklepaju.
+
+| Paket | Obseg | Uvodna cena | Redna cena |
+| --- | --- | --- | --- |
+| Osnovni | 1 stran, do 5 razdelkov, 5–7 dni | 290 € | 390 € |
+| Standard | Do 5 podstrani, 30 dni podpore | 490 € | 690 € |
+| Premium | Do 10 podstrani, SLO/EN, 90 dni | 890 € | 1190 € |
+| Stran in ponudba | Osnovni + kalkulator ponudbe | 540 € | 740 € |
+| Stran in računi | Osnovni + zajem računov | 640 € | 840 € |
+| Stran in oboje | Osnovni + obe orodji | 780 € | 1080 € |
+| Kalkulator ponudbe | Dodatek k obstoječi strani | 250 € | — |
+| Zajem računov | Dodatek k obstoječi strani | 350 € | — |
+| Obe orodji | Dodatek k obstoječi strani | 490 € | — |
+| Gostovanje | .si, https, kopije, do 2 popravka | 29 €/mesec ali 290 €/leto | 348 € za 12 mesecev |
+
+## Kako je stran narejena
+
+Stran je sestavljena vnaprej. Običajni WordPress ob vsakem obisku odpre bazo in požene vtičnike. Tu tega ni. Orodja: HTML, CSS, TypeScript, React, Next.js, Cloudflare.
 
 ## Primeri sloga
 
-Izmišljeni zgledi izdelave (niso resnična podjetja):
+Izmišljeni zgledi. To niso resnična podjetja in niso referenčni projekti:
 
 - https://strannakljuc.si/primeri
 - https://strannakljuc.si/primeri/kovinarstvo-meznaric
@@ -41,4 +64,4 @@ Izmišljeni zgledi izdelave (niso resnična podjetja):
 
 ## Območje
 
-Sedež v Moti pri Ljutomeru (Pomurje). Delo po vsej Sloveniji, tudi na daljavo.
+Sedež: Mota pri Ljutomeru, Pomurje. Delo po vsej Sloveniji, tudi na daljavo. Odgovor je običajno isti dan.

@@ -17,10 +17,14 @@ export function Hero() {
           <h1 className="mt-5 max-w-[12ch] font-display text-[2.7rem] leading-[0.96] font-medium tracking-[-0.04em] sm:text-6xl lg:text-[4.15rem]">
             Spletne strani, ki spremenijo obiskovalce v stranke.
           </h1>
-          <p className="mt-7 max-w-[42ch] text-lg leading-relaxed text-muted-foreground">
-            Izdelam vam hitro in lepo spletno stran — eno stran ali več —
-            brez odvečnih zapletov, s poudarkom na rezultatih in izkušnji na
-            mobitelu. Strani so za vse: male podjetnike, zasebnike in d.o.o.
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <strong className="font-semibold text-foreground">Patrick Belcl s.p.</strong> iz
+            Ljutomera izdela spletno stran v{" "}
+            <strong className="font-semibold text-foreground">5–7 dneh</strong>. Uvodna
+            cena enostranske strani je{" "}
+            <strong className="font-semibold text-foreground">290 €</strong>. Na stran
+            lahko doda <strong className="font-semibold text-foreground">kalkulator ponudbe</strong> in{" "}
+            <strong className="font-semibold text-foreground">zajem računov</strong>.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
@@ -36,10 +40,10 @@ export function Hero() {
               Primeri strani
             </Link>
           </div>
-          <p className="mt-6 max-w-md text-sm text-muted-foreground">
-            Na voljo za nove projekte v tem mesecu. Delam sam — pišete in
-            kličete mene. Odgovorim običajno v istem dnevu. Po objavi je
-            možno tudi dolgoročno sodelovanje.
+          <p className="mt-6 max-w-xl text-sm text-muted-foreground">
+            Na voljo za nove projekte v tem mesecu. Pišete in kličete Patricka
+            Belcla, brez posrednika. Odgovor je običajno isti dan. Po objavi je
+            gostovanje 29 € na mesec ali 290 € na leto.
           </p>
         </div>
 

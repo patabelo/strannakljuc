@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/site/site-header";
 import { Hero } from "@/components/site/hero";
+import { Takeaways } from "@/components/site/takeaways";
 import { Services } from "@/components/site/services";
 import { Process } from "@/components/site/process";
 import { Portfolio } from "@/components/site/portfolio";
@@ -19,6 +20,7 @@ export default function Home() {
       <SiteHeader />
       <main id="vsebina" className="flex-1">
         <Hero />
+        <Takeaways />
         <Services />
         <Process />
         <Portfolio />

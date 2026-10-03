@@ -4,22 +4,22 @@ const STEPS = [
   {
     title: "Kratek pogovor",
     description:
-      "Spoznam vaše podjetje, cilje in ciljno publiko. Skupaj določimo obseg strani in kaj mora doseči.",
+      "Pogovor je po telefonu ali videoklicu z Patrickom Belclom. Določimo obseg: ena stran, do 5 ali do 10 podstrani, in ali potrebujete kalkulator ali zajem računov.",
   },
   {
     title: "Osnutek in oblikovanje",
     description:
-      "Pripravim vizualni osnutek strani, ki ga uskladimo z vašo blagovno znamko, preden se lotim izdelave.",
+      "Pred izdelavo dobite vizualni osnutek. Popravki gredo po e-pošti ali na kratkem klicu. Izdelava steče šele po potrditvi osnutka.",
   },
   {
     title: "Izdelava",
     description:
-      "Stran zgradim po meri — hitro, varno in prilagojeno vsem napravam, od mobitela do velikega zaslona.",
+      "Stran sestavim vnaprej z Next.js. Ni WordPressa. Najprej je narejena za telefon, nato za večji zaslon.",
   },
   {
     title: "Objava in podpora",
     description:
-      "Stran objavim na vaši domeni, poskrbim za osnovno vidnost na Googlu in po objavi ostanem na voljo za popravke ter dolgoročno sodelovanje.",
+      "Stran objavim na vaši domeni s https. Enostranska stran je pripravljena v 5–7 delovnih dneh po potrditvi osnutka. Gostovanje zatem stane 29 € na mesec ali pa stran gostujete sami.",
   },
 ];
 
@@ -29,8 +29,8 @@ export function Process() {
       <SectionHeading
         index="03"
         eyebrow="Postopek"
-        title="Kako deluje sodelovanje"
-        description="Preprost, pregleden proces v štirih korakih — brez presenečenj in skritih stroškov."
+        title="Kako poteka izdelava?"
+        description="Štirje koraki: pogovor, osnutek, izdelava in objava. Enostranska stran je objavljena v 5–7 delovnih dneh po potrditvi osnutka. Več podstrani traja 2–3 tedne."
       />
 
       <ol className="mt-12 grid gap-px bg-foreground/15 sm:grid-cols-2 lg:grid-cols-4">
