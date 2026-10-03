@@ -27,13 +27,16 @@ export function parseInvoiceText(raw: string): ScanResponse {
   const stevilkaRacuna = findInvoiceNumber(flat);
   const datumIzdaje = findDate(flat);
   const osnova =
+    moneyAfter(flat, /vrednost\s*brez\s*davka/i) ||
     moneyAfter(flat, /osnova(?:\s*za\s*ddv)?/i) ||
-    moneyAfter(flat, /vrednost\s*brez\s*ddv|brez\s*ddv/i);
-  const ddv = findVatAmount(flat);
-  const labeledTotal = moneyAfter(
-    flat,
-    /za\s*pla[čc]ilo|skupaj|skupni\s*znesek|znesek\s*z\s*ddv|total/i,
-  );
+    moneyAfter(flat, /vrednost\s*brez\s*ddv|skupaj\s*vrednost\s*brez/i);
+  const ddv =
+    moneyAfter(flat, /vrednost\s*davka/i) ||
+    findVatAmount(flat);
+  const labeledTotal =
+    moneyAfter(flat, /skupaj\s*za\s*pla[čc]ilo/i) ||
+    moneyAfter(flat, /za\s*pla[čc]ilo(?:\s*eur)?/i) ||
+    moneyAfter(flat, /znesek\s*z\s*ddv|total/i);
   const znesek = labeledTotal || lastMoney(flat);
   const izdajatelj = findIssuer(lines);
   const hasInvoiceWord = /ra[čc]un|faktura|invoice|blagajn|ponudba|predra[čc]un/i.test(flat);
@@ -78,6 +81,8 @@ function formatIban(compact: string) {
 
 function findVatId(compact: string, iban: string) {
   const withoutIban = iban ? compact.replace(iban.replace(/\s/g, ""), "") : compact;
+  const labeled = withoutIban.match(/IDzaDDV:?SI(\d{8})(?!\d)/i);
+  if (labeled) return `SI${labeled[1]}`;
   const match = withoutIban.match(/SI\d{8}(?!\d)/i);
   return match ? match[0].toUpperCase() : "";
 }
@@ -112,20 +117,29 @@ function findSklic(flat: string) {
 }
 
 function findInvoiceNumber(flat: string) {
-  const match = flat.match(
-    /(?:ponudba|predra[čc]un|ra[čc]un)\s*(?:[šs]t\.?|[šs]tevilka)?\s*[:.]?\s*([A-Za-z0-9][A-Za-z0-9./-]{1,30})/i,
-  );
-  if (!match) return "";
-  const value = match[1].replace(/[.,;:]$/, "");
-  if (!/\d/.test(value)) return "";
-  if (/^(poravnate|valute|za|od|in|na|do)$/i.test(value)) return "";
-  return value;
+  const patterns = [
+    /ponudb[ae]\s*[šs]t\.?\s*[:.]?\s*([0-9][0-9A-Za-z./-]{2,})/i,
+    /(?:pred)?ra[čc]un\s*[šs]t\.?\s*[:.]?\s*([0-9][0-9A-Za-z./-]{2,})/i,
+    /[šs]tevilka\s*(?:dokumenta|ra[čc]una)\s*[:.]?\s*([0-9][0-9A-Za-z./-]{2,})/i,
+  ];
+  for (const pattern of patterns) {
+    const match = flat.match(pattern);
+    if (!match) continue;
+    const value = match[1].replace(/[.,;:]$/, "");
+    if (/^si\d/i.test(value)) continue;
+    if (/\d/.test(value)) return value;
+  }
+  return "";
 }
 
 function findDate(flat: string) {
-  const issued = flat.match(/(?:datum\s*izdaje|\bdne)\s*[:.]?\s*(\d{1,2}\.\s*\d{1,2}\.\s*\d{4})/i);
+  const withoutExpiry = flat
+    .replace(/rok\s*veljavnosti\s*[:.]?\s*\d{1,2}\.\s*\d{1,2}\.\s*\d{4}/gi, "")
+    .replace(/velja\s*do\s*[:.]?\s*\d{1,2}\.\s*\d{1,2}\.\s*\d{4}/gi, "");
+  const issued = withoutExpiry.match(
+    /(?:datum(?:\s*izdaje)?|\bdne)\s*[:.]?\s*(\d{1,2}\.\s*\d{1,2}\.\s*\d{4})/i,
+  );
   if (issued) return issued[1].replace(/\s/g, "");
-  const withoutExpiry = flat.replace(/velja\s*do\s*[:.]?\s*\d{1,2}\.\s*\d{1,2}\.\s*\d{4}/gi, "");
   const any = withoutExpiry.match(/(\d{1,2}\.\s*\d{1,2}\.\s*\d{4})/);
   return any ? any[1].replace(/\s/g, "") : "";
 }
@@ -149,8 +163,13 @@ function findPhone(flat: string) {
 }
 
 function findEmail(flat: string) {
-  const match = flat.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
-  return match ? match[0].toLowerCase() : "";
+  const labeled = flat.match(/e-?mail\s*[:.]?\s*([^\s,;]+)/i);
+  const raw = labeled?.[1] ?? flat.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i)?.[0] ?? "";
+  if (!raw) return "";
+  const repaired = raw.includes("@")
+    ? raw
+    : raw.replace(/^([A-Za-z0-9._%+-]+?)D(?=[A-Za-z0-9-]+\.[A-Za-z]{2,}$)/, "$1@");
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(repaired) ? repaired.toLowerCase() : "";
 }
 
 function findAddress(lines: string[]) {
@@ -163,11 +182,16 @@ function findAddress(lines: string[]) {
 }
 
 function findCustomer(lines: string[], issuer: string) {
+  const people: string[] = [];
   for (const line of lines) {
-    const head = line.split(/\s+(?=dokument|naro[čc]ilnica|na[čc]in\s+pla)/i)[0]?.trim() ?? "";
-    if (isPerson(head, issuer)) return clip(head);
+    const head = line
+      .split(/\s+(?=dokument|naro[čc]ilnica|na[čc]in\s+pla|ponudba\s*[šs]t)/i)[0]
+      ?.replace(/\s+[a-z]$/i, "")
+      .trim() ?? "";
+    if (/^(kraj|datum|objekt|[šs]ifra|opis|cena|rok|ddv)\b/i.test(head)) continue;
+    if (isPerson(head, issuer)) people.push(clip(head));
   }
-  return "";
+  return people.find((person) => /\sin\s/i.test(person)) ?? people[0] ?? "";
 }
 
 function isPerson(line: string, issuer: string) {
@@ -205,12 +229,17 @@ function findIssuer(lines: string[]) {
     if (lines[index + 1]) return clip(lines[index + 1]);
   }
 
-  const company = lines.find((line) =>
-    /(?:d\.?\s*o\.?\s*o\.?|s\.?\s*p\.?|d\.?\s*d\.?)/i.test(line),
-  );
+  const legal = /(?:\bd[\.\s]*[o0][\.\s]*[o0]\.?|\bs[\.\s]*p\.|\bd\.\s*d\.)/i;
+  const company = lines.find((line) => legal.test(line) && !/id\s*za\s*ddv|mati[čc]na/i.test(line));
   if (!company) return "";
-  const trimmed = company.match(/^(.+?(?:d\.?\s*o\.?\s*o\.?|s\.?\s*p\.?|d\.?\s*d\.?))/i);
-  return clip(trimmed?.[1] ?? company);
+  const trimmed = company.match(
+    /([\p{Lu}][\p{L}0-9&.'’ -]{1,70}?(?:\bd[\.\s]*[o0][\.\s]*[o0]\.?|\bs[\.\s]*p\.|\bd\.\s*d\.))/u,
+  );
+  return cleanLegalForm(clip(trimmed?.[1] ?? company));
+}
+
+function cleanLegalForm(value: string) {
+  return value.replace(/d[\.\s]*0[\.\s]*0\.?/gi, "d.o.o.");
 }
 
 function clip(value: string) {
