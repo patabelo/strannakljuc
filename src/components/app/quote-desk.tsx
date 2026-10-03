@@ -1,11 +1,17 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { Check } from "lucide-react";
 
 import {
+  getSettingsServerSnapshot,
+  getSettingsSnapshot,
+  subscribeSettings,
+} from "@/lib/business-settings";
+import {
   INITIAL_INPUTS,
   formatEuroAmount,
+  lineAmount,
   priceLine,
   quoteFor,
   tradeLabel,
@@ -46,13 +52,17 @@ const EMPTY_LEAD: LeadForm = {
 };
 
 export function QuoteDesk() {
+  const settings = useSyncExternalStore(subscribeSettings, getSettingsSnapshot, getSettingsServerSnapshot);
   const [trade, setTrade] = useState<TradeId>("fasaderstvo");
   const [inputs, setInputs] = useState<QuoteInputs>(INITIAL_INPUTS);
   const [lead, setLead] = useState<LeadForm>(EMPTY_LEAD);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
-  const quote = useMemo(() => quoteFor(trade, inputs), [trade, inputs]);
+  const quote = useMemo(
+    () => quoteFor(trade, inputs, settings.prices),
+    [trade, inputs, settings.prices],
+  );
 
   function patch<K extends TradeId>(id: K, next: Partial<QuoteInputs[K]>) {
     setInputs((current) => ({ ...current, [id]: { ...current[id], ...next } }));
@@ -90,12 +100,14 @@ export function QuoteDesk() {
           email: lead.email.trim(),
           trade,
           tradeLabel: tradeLabel(trade),
-          summary: [quote.summary, ...quote.lines.map((line) => `${line.label}: ${line.low}–${line.high} €`)].join(
+          summary: [quote.summary, ...quote.lines.map((line) => `${line.label}: ${lineAmount(line)}`)].join(
             "\n",
           ),
           priceLow: quote.low,
           priceHigh: quote.high,
           priceLabel: priceLine(quote),
+          notifyEmail: settings.notifyEmail,
+          companyName: settings.companyName,
           consent: true,
           company: lead.company,
         }),
@@ -290,20 +302,22 @@ export function QuoteDesk() {
                 {quote.lines.map((line) => (
                   <li key={line.label} className="flex items-start justify-between gap-3 py-2 text-sm">
                     <span>{line.label}</span>
-                    <span className="shrink-0 text-white/70">
-                      {formatEuroAmount(line.low)}–{formatEuroAmount(line.high)} €
-                    </span>
+                    <span className="shrink-0 text-white/70">{lineAmount(line)}</span>
                   </li>
                 ))}
               </ul>
               <p className="mt-4 font-display text-[1.65rem] leading-tight tracking-[-0.03em]">
-                <span className="text-[#ffe1c4]">Okvirna cena ponudbe:</span>
+                <span className="text-[#ffe1c4]">Okvirna cena:</span>
                 <span className="mt-1 block text-[#f2792c]">
-                  od {formatEuroAmount(quote.low)} do {formatEuroAmount(quote.high)} €
+                  {quote.low === quote.high
+                    ? `${formatEuroAmount(quote.low)} €`
+                    : `od ${formatEuroAmount(quote.low)} do ${formatEuroAmount(quote.high)} €`}
                 </span>
               </p>
               <p className="mt-2 text-xs text-white/45">
-                Postavke sledijo javno objavljenim povprečjem v Sloveniji (2025–2026). Ni zavezujoča ponudba.
+                {settings.customized
+                  ? `Cene so iz cenika${settings.companyName ? ` ${settings.companyName}` : ""}. Ni zavezujoča ponudba.`
+                  : "Začetne cene so slovensko povprečje. Svoje vpišite v nastavitvah. Ni zavezujoča ponudba."}
               </p>
             </>
           ) : (
@@ -316,7 +330,8 @@ export function QuoteDesk() {
               role="status"
             >
               <Check className="mr-2 inline size-4" />
-              Hvala! Podjetnik je prejel vaše podatke in vas bo kontaktiral v kratkem.
+              Hvala! Povpraševanje je poslano
+              {settings.companyName ? ` podjetju ${settings.companyName}` : ""}. Odgovor sledi v kratkem.
             </p>
           ) : (
             <form onSubmit={submit} className="mt-6 grid gap-3">

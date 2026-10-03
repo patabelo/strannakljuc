@@ -136,6 +136,7 @@ export function InvoiceDesk() {
       id: crypto.randomUUID(),
       filename: draftName,
       savedAt: new Date().toISOString(),
+      checked: false,
     } satisfies SavedInvoice;
     for (const field of FIELDS) saved[field.key] = draft[field.key].trim();
     commitInvoices([saved, ...invoices]);
@@ -152,9 +153,9 @@ export function InvoiceDesk() {
         Fotografija ali PDF računa, pripravljeni podatki.
       </h1>
       <p className="mt-4 max-w-2xl text-white/70">
-        Spustite sliko ali PDF računa, lahko pa ga zajamete s kamero. Prikažejo
-        se samo podatki, ki so na dokumentu. Če datoteka ni račun, se podatki
-        ne izmislijo. Datoteka ostane v brskalniku.
+        Spustite sliko ali PDF računa, lahko pa ga zajamete s kamero. Pred
+        plačilom preverite znesek in TRR, označite račun kot preverjen in ga
+        izvozite za računovodjo. Datoteka ostane v brskalniku.
       </p>
 
       <div
@@ -230,7 +231,18 @@ export function InvoiceDesk() {
       ) : null}
 
       <section className="mt-12">
-        <h2 className="font-display text-2xl tracking-[-0.03em]">Shranjeni računi</h2>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="font-display text-2xl tracking-[-0.03em]">Shranjeni računi</h2>
+          {invoices.length > 0 ? (
+            <button
+              type="button"
+              onClick={() => exportInvoices(invoices)}
+              className="border border-white/20 px-3 py-2 text-sm"
+            >
+              Izvozi CSV
+            </button>
+          ) : null}
+        </div>
         {invoices.length === 0 ? (
           <p className="mt-3 text-sm text-white/55">Še ni shranjenih računov.</p>
         ) : (
@@ -248,6 +260,20 @@ export function InvoiceDesk() {
                       </div>
                     ))}
                   </dl>
+                  <div className="flex flex-col items-end gap-2">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        commitInvoices(
+                          invoices.map((item) =>
+                            item.id === invoice.id ? { ...item, checked: !item.checked } : item,
+                          ),
+                        )
+                      }
+                      className={`px-2 py-1 text-xs ${invoice.checked ? "bg-[#f2792c] text-[#1a1008]" : "border border-white/20 text-white/70"}`}
+                    >
+                      {invoice.checked ? "Preverjeno" : "Označi preverjeno"}
+                    </button>
                   <button
                     type="button"
                     aria-label={`Odstrani račun ${invoice.izdajatelj}`}
@@ -258,6 +284,7 @@ export function InvoiceDesk() {
                   >
                     <Trash2 className="size-4" />
                   </button>
+                  </div>
                 </div>
               </li>
             ))}
@@ -340,6 +367,26 @@ export function InvoiceDesk() {
 
 function isAccepted(file: File) {
   return file.type.startsWith("image/") || isPdfFile(file);
+}
+
+function exportInvoices(invoices: SavedInvoice[]) {
+  const headers = ["Preverjeno", ...FIELDS.map((field) => field.label), "Datoteka", "Shranjeno"];
+  const rows = invoices.map((invoice) => [
+    invoice.checked ? "da" : "ne",
+    ...FIELDS.map((field) => invoice[field.key]),
+    invoice.filename,
+    invoice.savedAt,
+  ]);
+  const csv = [headers, ...rows]
+    .map((row) => row.map((cell) => `"${String(cell).replaceAll('"', '""')}"`).join(";"))
+    .join("\r\n");
+  const blob = new Blob([`\uFEFF${csv}`], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "racuni.csv";
+  link.click();
+  URL.revokeObjectURL(url);
 }
 
 function filledFields(invoice: ScannedInvoice) {

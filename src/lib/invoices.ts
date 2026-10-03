@@ -40,6 +40,7 @@ export interface SavedInvoice extends ScannedInvoice {
   id: string;
   filename: string;
   savedAt: string;
+  checked: boolean;
 }
 
 export interface ScanResponse {
@@ -108,6 +109,7 @@ function asSavedInvoice(value: unknown): SavedInvoice | null {
     id: invoice.id,
     filename: invoice.filename,
     savedAt: invoice.savedAt,
+    checked: invoice.checked === true,
     izdajatelj: invoice.izdajatelj,
     znesek: invoice.znesek,
     naslov: text(invoice.naslov),

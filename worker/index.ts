@@ -125,6 +125,8 @@ type LeadPayload = {
   priceLow?: unknown;
   priceHigh?: unknown;
   priceLabel?: unknown;
+  notifyEmail?: unknown;
+  companyName?: unknown;
   consent?: unknown;
   company?: unknown;
 };
@@ -169,6 +171,8 @@ async function handleLead(request: Request, env: Env): Promise<Response> {
   const tradeName = clean(payload.tradeLabel, 40);
   const summary = clean(payload.summary, 2500);
   const priceLabel = clean(payload.priceLabel, 160);
+  const notifyEmail = clean(payload.notifyEmail, 120);
+  const companyName = clean(payload.companyName, 80);
   const priceLow = numberInRange(payload.priceLow);
   const priceHigh = numberInRange(payload.priceHigh);
 
@@ -182,29 +186,34 @@ async function handleLead(request: Request, env: Env): Promise<Response> {
     return json({ ok: false, error: "Ponudba ni popolna." }, 400);
   }
 
-  const subject = `Kalkulator ${tradeName || trade} — ${firstName} ${lastName}`;
+  const subject = `${companyName || "Kalkulator"} — ${tradeName || trade} — ${firstName} ${lastName}`;
   const text = [
+    companyName ? `Podjetje: ${companyName}` : "",
     `Ime: ${firstName} ${lastName}`,
     `Telefon: ${phone}`,
     `E-pošta: ${email}`,
     `Dejavnost: ${tradeName || trade}`,
-    `Vnos: ${summary}`,
+    summary,
     priceLabel || `Okvirna cena: ${priceLow}–${priceHigh} €`,
-  ].join("\n");
+  ]
+    .filter(Boolean)
+    .join("\n");
+  const recipient = isEmail(notifyEmail) ? notifyEmail : TO;
   const html = text
     .split("\n")
     .map((line) => `<p>${escapeHtml(line)}</p>`)
     .join("");
 
   try {
-    await env.EMAIL.send({
-      to: TO,
+    const message = {
       from: FROM,
       replyTo: { email, name: `${firstName} ${lastName}` },
       subject,
       text,
       html,
-    });
+    };
+    await env.EMAIL.send({ ...message, to: recipient });
+    if (recipient !== TO) await env.EMAIL.send({ ...message, to: TO });
   } catch (error) {
     console.error("lead email failed", error instanceof Error ? error.message : error);
     return json(

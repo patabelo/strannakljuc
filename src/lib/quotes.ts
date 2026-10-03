@@ -90,86 +90,157 @@ const ROOF_COVERING: Record<RoofCovering, string> = {
   plocevina: "Pločevina",
 };
 
+export interface UnitPrices {
+  facade: {
+    stiropor15Material: number;
+    stiropor15Labor: number;
+    stiropor20Material: number;
+    stiropor20Labor: number;
+    volna15Material: number;
+    volna15Labor: number;
+    volna20Material: number;
+    volna20Labor: number;
+    scaffold: number;
+    protection: number;
+    waste: number;
+  };
+  metal: {
+    fencePowderMaterial: number;
+    fencePowderLabor: number;
+    fenceInoxMaterial: number;
+    fenceInoxLabor: number;
+    canopyPowderMaterial: number;
+    canopyPowderLabor: number;
+    canopyInoxMaterial: number;
+    canopyInoxLabor: number;
+    foundations: number;
+  };
+  drywall: {
+    plainMaterial: number;
+    plainLabor: number;
+    wetMaterial: number;
+    wetLabor: number;
+  };
+  roof: {
+    removal: number;
+    battens: number;
+    tileMaterial: number;
+    tileLabor: number;
+    sheetMaterial: number;
+    sheetLabor: number;
+    frame: number;
+  };
+}
+
+/** Starting prices are midpoints of published Slovenian ranges. The owner replaces them. */
+export const DEFAULT_UNIT_PRICES: UnitPrices = {
+  facade: {
+    stiropor15Material: 23,
+    stiropor15Labor: 31,
+    stiropor20Material: 26,
+    stiropor20Labor: 35,
+    volna15Material: 32,
+    volna15Labor: 44,
+    volna20Material: 38,
+    volna20Labor: 50,
+    scaffold: 7,
+    protection: 2,
+    waste: 150,
+  },
+  metal: {
+    fencePowderMaterial: 45,
+    fencePowderLabor: 30,
+    fenceInoxMaterial: 111,
+    fenceInoxLabor: 74,
+    canopyPowderMaterial: 120,
+    canopyPowderLabor: 80,
+    canopyInoxMaterial: 174,
+    canopyInoxLabor: 116,
+    foundations: 300,
+  },
+  drywall: {
+    plainMaterial: 10,
+    plainLabor: 17,
+    wetMaterial: 13,
+    wetLabor: 16,
+  },
+  roof: {
+    removal: 7,
+    battens: 8,
+    tileMaterial: 21,
+    tileLabor: 40,
+    sheetMaterial: 19,
+    sheetLabor: 29,
+    frame: 42,
+  },
+};
+
 export function tradeLabel(trade: TradeId) {
   return TRADE_LABEL[trade];
 }
 
-export function quoteFor(trade: TradeId, inputs: QuoteInputs): QuoteResult | null {
+export function quoteFor(
+  trade: TradeId,
+  inputs: QuoteInputs,
+  prices: UnitPrices = DEFAULT_UNIT_PRICES,
+): QuoteResult | null {
   switch (trade) {
     case "fasaderstvo":
-      return quoteFacade(inputs.fasaderstvo);
+      return quoteFacade(inputs.fasaderstvo, prices);
     case "kovinarstvo":
-      return quoteMetal(inputs.kovinarstvo);
+      return quoteMetal(inputs.kovinarstvo, prices);
     case "gipsarija":
-      return quoteDrywall(inputs.gipsarija);
+      return quoteDrywall(inputs.gipsarija, prices);
     case "strehe":
-      return quoteRoof(inputs.strehe);
+      return quoteRoof(inputs.strehe, prices);
   }
 }
 
-/**
- * Skupna cena fasadnega sistema je Primerjam.si 2026 (material in delo):
- * stiropor 15 cm 50–56, 20 cm 56–65; kamena volna 15 cm 71–80, 20 cm 81–94 €/m².
- * Razdelitev material:delo je 30:40, kot v primeru na fasada.si, da je delo vidna postavka.
- * Posebej so prišteti oder 5–8 €/m², zaščita odprtin 1–2 €/m² (fasaderji.si 2026)
- * in odvoz odpadkov 100–200 € na objekt.
- */
-function quoteFacade(input: FacadeInput): QuoteResult | null {
+function quoteFacade(input: FacadeInput, prices: UnitPrices): QuoteResult | null {
   const area = parseMeasure(input.area);
   if (area === null) return null;
-
-  const [systemLow, systemHigh] =
+  const facade = prices.facade;
+  const [material, labor] =
     input.material === "stiropor"
       ? input.thickness === "15cm"
-        ? [50, 56]
-        : [56, 65]
+        ? [facade.stiropor15Material, facade.stiropor15Labor]
+        : [facade.stiropor20Material, facade.stiropor20Labor]
       : input.thickness === "15cm"
-        ? [71, 80]
-        : [81, 94];
-  const [materialLow, laborLow, materialHigh, laborHigh] = splitShare(systemLow, systemHigh, 30 / 70);
+        ? [facade.volna15Material, facade.volna15Labor]
+        : [facade.volna20Material, facade.volna20Labor];
 
   return finish(
     `${formatMeasure(area)} m², izolacija ${input.thickness.replace("cm", " cm")}, ${FACADE_MATERIAL[input.material]}`,
     [
-      perM(area, "Material: izolacija, lepilo, mrežica, zaključni sloj", materialLow, materialHigh),
-      perM(area, "Delo: vgradnja, omet in barvanje", laborLow, laborHigh),
-      perM(area, "Gradbeni oder, postavitev in snemanje", 5, 8),
-      perM(area, "Zaščita oken in vrat", 1, 2),
-      fixed("Odvoz odpadkov", 100, 200),
+      rate(area, "Material: izolacija, lepilo, mrežica, zaključni sloj", material),
+      rate(area, "Delo: vgradnja, omet in barvanje", labor),
+      rate(area, "Gradbeni oder, postavitev in snemanje", facade.scaffold),
+      rate(area, "Zaščita oken in vrat", facade.protection),
+      fixedAmount("Odvoz odpadkov", facade.waste),
     ],
   );
 }
 
-function quoteMetal(input: MetalInput): QuoteResult | null {
+function quoteMetal(input: MetalInput, prices: UnitPrices): QuoteResult | null {
   const quantity = parseMeasure(input.quantity);
   if (quantity === null) return null;
 
-  // Skupaj ostane objavljeni razpon. Razdeljen je na material in delo, da sta obe postavki vidni.
-  // Ograja: Omisli.si 60–90 €/m (prašno barvano železo), Mojmojster 150–220 €/m (inox z montažo).
-  // Nadstrešek: Mojmojster 180–220 €/m² (jeklo), Primerjam.si 200–380 €/m² (kovinski, tudi višji razred).
-  // Temelji nadstreška: Mojmojster, okoli 300 € na objekt.
+  const metal = prices.metal;
   const unit = input.kind === "ograja" ? "m" : "m²";
-  const [totalLow, totalHigh] =
+  const [material, labor] =
     input.kind === "ograja"
       ? input.material === "inox"
-        ? [150, 220]
-        : [60, 90]
+        ? [metal.fenceInoxMaterial, metal.fenceInoxLabor]
+        : [metal.fencePowderMaterial, metal.fencePowderLabor]
       : input.material === "inox"
-        ? [200, 380]
-        : [180, 220];
-  const [materialLow, laborLow, materialHigh, laborHigh] = splitShare(totalLow, totalHigh, 0.6);
+        ? [metal.canopyInoxMaterial, metal.canopyInoxLabor]
+        : [metal.canopyPowderMaterial, metal.canopyPowderLabor];
 
-  const lines =
-    input.kind === "ograja"
-      ? [
-          perM(quantity, "Material: profili, polnilo in zaščita", materialLow, materialHigh),
-          perM(quantity, "Delo: izdelava, varjenje in montaža", laborLow, laborHigh),
-        ]
-      : [
-          perM(quantity, "Material: konstrukcija, zaščita in kritina", materialLow, materialHigh),
-          perM(quantity, "Delo: izdelava in montaža", laborLow, laborHigh),
-          fixed("Temelji stebrov", 300, 300),
-        ];
+  const lines = [
+    rate(quantity, "Material", material),
+    rate(quantity, "Delo: izdelava in montaža", labor),
+  ];
+  if (input.kind === "nadstresek") lines.push(fixedAmount("Temelji stebrov", metal.foundations));
 
   return finish(
     `${METAL_KIND[input.kind]}, ${formatMeasure(quantity)} ${unit}, ${METAL_MATERIAL[input.material]}`,
@@ -177,48 +248,37 @@ function quoteMetal(input: MetalInput): QuoteResult | null {
   );
 }
 
-function quoteDrywall(input: DrywallInput): QuoteResult | null {
+function quoteDrywall(input: DrywallInput, prices: UnitPrices): QuoteResult | null {
   const area = parseMeasure(input.area);
   if (area === null) return null;
-
-  // Skupaj je Mojmojster: navadne 21–32 €/m² (strop do enoslojne stene), vlagoodporne 26–32 €/m².
-  // Material je plošča, profili in fugiranje; ostanek je delo, da je vsota enak objavljeni razpon.
-  const [materialLow, materialHigh, laborLow, laborHigh] =
-    input.kind === "navadne" ? [8, 12, 13, 20] : [11, 14, 15, 18];
+  const drywall = prices.drywall;
+  const [material, labor] =
+    input.kind === "navadne"
+      ? [drywall.plainMaterial, drywall.plainLabor]
+      : [drywall.wetMaterial, drywall.wetLabor];
 
   return finish(`${formatMeasure(area)} m², ${DRYWALL_KIND[input.kind].toLowerCase()}`, [
-    perM(area, "Material: plošče, profili, vijaki in fugirna masa", materialLow, materialHigh),
-    perM(area, "Delo: montaža, kitanje in bandažiranje", laborLow, laborHigh),
+    rate(area, "Material: plošče, profili, vijaki in fugirna masa", material),
+    rate(area, "Delo: montaža, kitanje in bandažiranje", labor),
   ]);
 }
 
-function quoteRoof(input: RoofInput): QuoteResult | null {
+function quoteRoof(input: RoofInput, prices: UnitPrices): QuoteResult | null {
   const area = parseMeasure(input.area);
   if (area === null) return null;
-
-  // Prekrivanje z DDV, Strehar.si / emedia 2025: pločevina 50–75, opeka 60–90 €/m².
-  // Znotraj tega so demontaža (Strehar, od 6 €/m²), letve in folija (Strehar, od 5,50 €/m²),
-  // material kritine (Primerjam: pločevina 13–25, opeka 11–31 €/m²) in delo kot ostanek.
-  // Ostrešje, Mojmojster 38–46 €/m², se prišteje samo ob menjavi.
-  const removal: [number, number] = [6, 8];
-  const battens: [number, number] = [6, 9];
-  const material: [number, number] = input.covering === "opeka" ? [11, 31] : [13, 25];
-  const cover: [number, number] = input.covering === "opeka" ? [60, 90] : [50, 75];
-  const labor: [number, number] = [
-    cover[0] - removal[0] - battens[0] - material[0],
-    cover[1] - removal[1] - battens[1] - material[1],
-  ];
+  const roof = prices.roof;
+  const [material, labor] =
+    input.covering === "opeka"
+      ? [roof.tileMaterial, roof.tileLabor]
+      : [roof.sheetMaterial, roof.sheetLabor];
 
   const lines = [
-    perM(area, "Demontaža stare kritine in odvoz", removal[0], removal[1]),
-    perM(area, "Letve, kontraletve in sekundarna kritina", battens[0], battens[1]),
-    perM(area, `Material: ${ROOF_COVERING[input.covering].toLowerCase()}`, material[0], material[1]),
-    perM(area, "Delo: polaganje, obrobe in žlebovi", labor[0], labor[1]),
+    rate(area, "Demontaža stare kritine in odvoz", roof.removal),
+    rate(area, "Letve, kontraletve in sekundarna kritina", roof.battens),
+    rate(area, `Material: ${ROOF_COVERING[input.covering].toLowerCase()}`, material),
+    rate(area, "Delo: polaganje, obrobe in žlebovi", labor),
   ];
-
-  if (input.frame === "da") {
-    lines.push(perM(area, "Ostrešje: les, izdelava in montaža", 38, 46));
-  }
+  if (input.frame === "da") lines.push(rate(area, "Ostrešje: les, izdelava in montaža", roof.frame));
 
   return finish(
     `${formatMeasure(area)} m², ${ROOF_COVERING[input.covering].toLowerCase()}, menjava ostrešja: ${input.frame === "da" ? "da" : "ne"}`,
@@ -226,22 +286,14 @@ function quoteRoof(input: RoofInput): QuoteResult | null {
   );
 }
 
-function perM(quantity: number, label: string, lowPer: number, highPer: number): QuoteLine {
-  return {
-    label,
-    low: Math.round(quantity * lowPer),
-    high: Math.round(quantity * highPer),
-  };
+function rate(quantity: number, label: string, unitPrice: number): QuoteLine {
+  const amount = Math.round(quantity * unitPrice);
+  return { label, low: amount, high: amount };
 }
 
-function fixed(label: string, low: number, high: number): QuoteLine {
-  return { label, low, high };
-}
-
-function splitShare(totalLow: number, totalHigh: number, materialShare: number) {
-  const materialLow = Math.round(totalLow * materialShare);
-  const materialHigh = Math.round(totalHigh * materialShare);
-  return [materialLow, totalLow - materialLow, materialHigh, totalHigh - materialHigh] as const;
+function fixedAmount(label: string, amount: number): QuoteLine {
+  const value = Math.round(amount);
+  return { label, low: value, high: value };
 }
 
 function finish(summary: string, lines: QuoteLine[]): QuoteResult {
@@ -274,5 +326,11 @@ export function formatEuroAmount(value: number) {
 }
 
 export function priceLine(result: QuoteResult) {
+  if (result.low === result.high) return `Okvirna cena: ${formatEuroAmount(result.low)} €`;
   return `Okvirna cena ponudbe: od ${formatEuroAmount(result.low)} do ${formatEuroAmount(result.high)} €`;
+}
+
+export function lineAmount(line: QuoteLine) {
+  if (line.low === line.high) return `${formatEuroAmount(line.low)} €`;
+  return `${formatEuroAmount(line.low)}–${formatEuroAmount(line.high)} €`;
 }
