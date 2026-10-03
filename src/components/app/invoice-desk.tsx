@@ -11,7 +11,7 @@ import {
   type SavedInvoice,
   type ScannedInvoice,
 } from "@/lib/invoices";
-import { readInvoiceImage } from "@/lib/read-invoice";
+import { isPdfFile, readInvoiceImage, renderPdfPreview } from "@/lib/read-invoice";
 
 const FIELDS: { key: keyof ScannedInvoice; label: string }[] = [
   { key: "izdajatelj", label: "Izdajatelj" },
@@ -32,7 +32,7 @@ const FIELDS: { key: keyof ScannedInvoice; label: string }[] = [
   { key: "zoi", label: "ZOI" },
 ];
 
-const ACCEPT = "image/jpeg,image/png,image/webp,image/heic,image/heif";
+const ACCEPT = "image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf,.pdf";
 
 export function InvoiceDesk() {
   const inputId = useId();
@@ -40,6 +40,7 @@ export function InvoiceDesk() {
   const closeRef = useRef<HTMLButtonElement>(null);
 
   const previewRef = useRef<string | null>(null);
+  const previewToken = useRef(0);
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -72,20 +73,37 @@ export function InvoiceDesk() {
   function takeFile(next: File | null) {
     setError(null);
     if (!next) return;
-    if (!next.type.startsWith("image/")) {
-      setError("Izberite sliko računa (JPG, PNG ali WEBP).");
+    if (!isAccepted(next)) {
+      setError("Izberite sliko ali PDF računa.");
       return;
     }
-    if (next.size > 15 * 1024 * 1024) {
-      setError("Slika je prevelika. Izberite datoteko do 15 MB.");
+    if (next.size > 20 * 1024 * 1024) {
+      setError("Datoteka je prevelika. Izberite datoteko do 20 MB.");
       return;
     }
+    const token = previewToken.current + 1;
+    previewToken.current = token;
     if (previewRef.current) URL.revokeObjectURL(previewRef.current);
+    previewRef.current = null;
+    setPreview(null);
+    setFile(next);
+    setDraftName(next.name);
+    if (isPdfFile(next)) {
+      void renderPdfPreview(next)
+        .then((url) => {
+          if (!url || token !== previewToken.current) {
+            if (url) URL.revokeObjectURL(url);
+            return;
+          }
+          previewRef.current = url;
+          setPreview(url);
+        })
+        .catch(() => undefined);
+      return;
+    }
     const url = URL.createObjectURL(next);
     previewRef.current = url;
     setPreview(url);
-    setFile(next);
-    setDraftName(next.name);
   }
 
   async function scan() {
@@ -101,7 +119,7 @@ export function InvoiceDesk() {
       setDraft(result.invoice);
       setDraftName(file.name);
     } catch {
-      setError("Besedila na sliki ni bilo mogoče prebrati. Poskusite z jasnejšo fotografijo.");
+      setError("Besedila v dokumentu ni bilo mogoče prebrati. Poskusite z jasnejšo datoteko.");
     } finally {
       setScanning(false);
     }
@@ -131,12 +149,12 @@ export function InvoiceDesk() {
         Bralnik računov
       </p>
       <h1 className="mt-3 max-w-xl font-display text-4xl tracking-[-0.03em] sm:text-5xl">
-        Fotografija računa, pripravljeni podatki.
+        Fotografija ali PDF računa, pripravljeni podatki.
       </h1>
       <p className="mt-4 max-w-2xl text-white/70">
-        Spustite sliko računa ali jo zajemite s kamero. Prikažejo se samo
-        podatki, ki so na dokumentu. Če fotografija ni račun, se podatki ne
-        izmislijo. Slika ostane v brskalniku.
+        Spustite sliko ali PDF računa, lahko pa ga zajamete s kamero. Prikažejo
+        se samo podatki, ki so na dokumentu. Če datoteka ni račun, se podatki
+        ne izmislijo. Datoteka ostane v brskalniku.
       </p>
 
       <div
@@ -161,14 +179,14 @@ export function InvoiceDesk() {
         ) : (
           <ImagePlus className="mx-auto size-8 text-[#f2792c]" />
         )}
-        <p className="mt-3 text-lg">{file ? file.name : "Spustite sliko računa sem"}</p>
-        <p className="mt-1 text-sm text-white/55">JPG, PNG ali WEBP, do 15 MB</p>
+        <p className="mt-3 text-lg">{file ? file.name : "Spustite sliko ali PDF računa sem"}</p>
+        <p className="mt-1 text-sm text-white/55">JPG, PNG, WEBP ali PDF, do 20 MB</p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <label
             htmlFor={inputId}
             className="cursor-pointer bg-[#f6f1e8] px-4 py-2.5 text-sm text-[#14120f]"
           >
-            Izberi sliko
+            Izberi datoteko
           </label>
           <label
             htmlFor={cameraId}
@@ -202,7 +220,7 @@ export function InvoiceDesk() {
           onClick={() => scan()}
           className="bg-[#f2792c] px-4 py-2.5 text-sm text-[#1a1008] disabled:opacity-40"
         >
-          {scanning ? "Berem besedilo na sliki…" : "Preberi račun"}
+          {scanning ? "Berem dokument…" : "Preberi račun"}
         </button>
       </div>
       {error && !draft ? (
@@ -318,6 +336,10 @@ export function InvoiceDesk() {
       ) : null}
     </div>
   );
+}
+
+function isAccepted(file: File) {
+  return file.type.startsWith("image/") || isPdfFile(file);
 }
 
 function filledFields(invoice: ScannedInvoice) {
