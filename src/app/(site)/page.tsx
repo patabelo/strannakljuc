@@ -1,17 +1,18 @@
-import { SiteHeader } from "@/components/site/site-header";
-import { Hero } from "@/components/site/hero";
-import { Takeaways } from "@/components/site/takeaways";
-import { Services } from "@/components/site/services";
-import { Process } from "@/components/site/process";
-import { Portfolio } from "@/components/site/portfolio";
 import { About } from "@/components/site/about";
-import { Pricing } from "@/components/site/pricing";
-import { Collaboration } from "@/components/site/collaboration";
 import { Audience } from "@/components/site/audience";
-import { Faq } from "@/components/site/faq";
+import { Collaboration } from "@/components/site/collaboration";
 import { Contact } from "@/components/site/contact";
+import { Faq } from "@/components/site/faq";
 import { SiteFooter } from "@/components/site/footer";
+import { Hero } from "@/components/site/hero";
+import { HowIBuild } from "@/components/site/how-i-build";
 import { FaqJsonLd } from "@/components/site/json-ld";
+import { Portfolio } from "@/components/site/portfolio";
+import { Pricing } from "@/components/site/pricing";
+import { Process } from "@/components/site/process";
+import { Services } from "@/components/site/services";
+import { SiteHeader } from "@/components/site/site-header";
+import { Takeaways } from "@/components/site/takeaways";
 
 export default function Home() {
   return (
@@ -22,12 +23,13 @@ export default function Home() {
         <Hero />
         <Takeaways />
         <Services />
+        <Audience />
         <Process />
+        <HowIBuild embedded />
         <Portfolio />
-        <About />
         <Pricing />
         <Collaboration />
-        <Audience />
+        <About />
         <Faq />
         <Contact />
       </main>

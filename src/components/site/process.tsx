@@ -25,10 +25,10 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section id="kako-deluje" className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+    <section id="kako-delam" className="mx-auto max-w-6xl px-5 pt-20 pb-8 sm:px-8">
       <SectionHeading
-        index="03"
-        eyebrow="Postopek"
+        index="04"
+        eyebrow="Kako delam"
         title="Kako poteka izdelava?"
         description="Štirje koraki: pogovor, osnutek, izdelava in objava. Enostranska stran je objavljena v 5–7 delovnih dneh po potrditvi osnutka. Več podstrani traja 2–3 tedne."
       />

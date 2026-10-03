@@ -8,7 +8,7 @@ export function Portfolio() {
   return (
     <section id="referencie" className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
       <SectionHeading
-        index="04"
+        index="05"
         eyebrow="Primeri"
         title="Kako izgledajo zgledi strani?"
         description="Primeri so izmišljeni. Resničnih strank še ni, zato to niso referenčni projekti. Naredil sem jih sam, da se vidi slog, prilagoditev telefonu in razlika med obrtmi. Vaša stran je po meri vaše dejavnosti."

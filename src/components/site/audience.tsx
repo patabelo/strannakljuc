@@ -22,7 +22,7 @@ export function Audience() {
   return (
     <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
       <SectionHeading
-        index="07"
+        index="03"
         eyebrow="Za koga"
         title="Za koga je Stran na ključ?"
         description="Za samostojne podjetnike, zasebnike, d.o.o. in večja podjetja v Sloveniji. Manjšo obrtno stran in stran z več podstranmi vodim sam."

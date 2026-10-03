@@ -11,8 +11,7 @@ const SOCIAL_ICONS = {
 
 const LINKS = [
   { href: "/#storitve", label: "Storitve" },
-  { href: "/#kako-deluje", label: "Postopek" },
-  { href: "/kako-delam", label: "Kako delam" },
+  { href: "/#kako-delam", label: "Kako delam" },
   { href: "/#referencie", label: "Primeri" },
   { href: "/#cenik", label: "Cenik" },
   { href: "/#sodelovanje", label: "Sodelovanje" },

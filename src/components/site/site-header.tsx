@@ -14,7 +14,7 @@ import {
 
 const NAV_LINKS = [
   { href: "/#storitve", label: "Storitve" },
-  { href: "/kako-delam", label: "Kako delam" },
+  { href: "/#kako-delam", label: "Kako delam" },
   { href: "/#referencie", label: "Primeri" },
   { href: "/#cenik", label: "Cenik" },
   { href: "/#sodelovanje", label: "Sodelovanje" },

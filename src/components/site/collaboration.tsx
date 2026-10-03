@@ -51,7 +51,7 @@ export function Collaboration() {
   return (
     <section id="sodelovanje" className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
       <SectionHeading
-        index="06"
+        index="07"
         eyebrow="Sodelovanje"
         title="Koliko stane gostovanje po objavi?"
         description="Gostovanje stane 29 € na mesec ali 290 € na leto. V ceni so .si domena, https, varnostne kopije in do 2 manjša popravka na mesec. Izdelava strani je ločeno, enkratno naročilo. Sodelovanje ni pogoj."

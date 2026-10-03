@@ -104,7 +104,7 @@ export function Pricing() {
   return (
     <section id="cenik" className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
       <SectionHeading
-        index="05"
+        index="06"
         eyebrow="Cenik"
         title="Koliko stane spletna stran?"
         description={
