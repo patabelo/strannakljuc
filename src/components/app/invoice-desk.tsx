@@ -134,9 +134,9 @@ export function InvoiceDesk() {
         Fotografija računa, pripravljeni podatki.
       </h1>
       <p className="mt-4 max-w-2xl text-white/70">
-        Spustite sliko računa ali jo zajemite s kamero. Prebere se samo besedilo,
-        ki je na sliki: izdajatelj, znesek, DDV, IBAN, sklic, EOR in ZOI. Če
-        fotografija ni račun, se podatki ne izmislijo. Slika ostane v brskalniku.
+        Spustite sliko računa ali jo zajemite s kamero. Prikažejo se samo
+        podatki, ki so na dokumentu. Če fotografija ni račun, se podatki ne
+        izmislijo. Slika ostane v brskalniku.
       </p>
 
       <div
@@ -216,47 +216,34 @@ export function InvoiceDesk() {
         {invoices.length === 0 ? (
           <p className="mt-3 text-sm text-white/55">Še ni shranjenih računov.</p>
         ) : (
-          <div className="mt-4 overflow-x-auto border border-white/10">
-            <table className="w-full min-w-[56rem] text-left text-sm">
-              <thead className="bg-[#10151f] font-mono text-[0.68rem] tracking-[0.12em] text-white/50 uppercase">
-                <tr>
-                  <th className="px-3 py-3 font-medium">Izdajatelj</th>
-                  <th className="px-3 py-3 font-medium">Št. računa</th>
-                  <th className="px-3 py-3 font-medium">Datum računa</th>
-                  <th className="px-3 py-3 font-medium">Znesek</th>
-                  <th className="px-3 py-3 font-medium">IBAN</th>
-                  <th className="px-3 py-3 font-medium">Sklic</th>
-                  <th className="px-3 py-3 font-medium">
-                    <span className="sr-only">Odstrani</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {invoices.map((invoice) => (
-                  <tr key={invoice.id} className="border-t border-white/10">
-                    <td className="px-3 py-3">{invoice.izdajatelj}</td>
-                    <td className="px-3 py-3 whitespace-nowrap">{invoice.stevilkaRacuna}</td>
-                    <td className="px-3 py-3 whitespace-nowrap">{invoice.datumIzdaje}</td>
-                    <td className="px-3 py-3 whitespace-nowrap">{invoice.znesek}</td>
-                    <td className="px-3 py-3 whitespace-nowrap">{invoice.iban}</td>
-                    <td className="px-3 py-3 whitespace-nowrap">{invoice.sklic}</td>
-                    <td className="px-3 py-3 text-right">
-                      <button
-                        type="button"
-                        aria-label={`Odstrani račun ${invoice.izdajatelj}`}
-                        onClick={() =>
-                          commitInvoices(invoices.filter((item) => item.id !== invoice.id))
-                        }
-                        className="inline-flex p-1 text-white/50 hover:text-[#f6f1e8]"
-                      >
-                        <Trash2 className="size-4" />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <ul className="mt-4 grid gap-3">
+            {invoices.map((invoice) => (
+              <li key={invoice.id} className="border border-white/10 bg-[#10151f] p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <dl className="grid flex-1 gap-3 sm:grid-cols-2">
+                    {filledFields(invoice).map((field) => (
+                      <div key={field.key}>
+                        <dt className="font-mono text-[0.68rem] tracking-[0.12em] text-white/45 uppercase">
+                          {field.label}
+                        </dt>
+                        <dd className="mt-0.5 text-sm break-words">{invoice[field.key]}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <button
+                    type="button"
+                    aria-label={`Odstrani račun ${invoice.izdajatelj}`}
+                    onClick={() =>
+                      commitInvoices(invoices.filter((item) => item.id !== invoice.id))
+                    }
+                    className="inline-flex p-1 text-white/50 hover:text-[#f6f1e8]"
+                  >
+                    <Trash2 className="size-4" />
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
         )}
       </section>
 
@@ -293,10 +280,10 @@ export function InvoiceDesk() {
               </button>
             </div>
             <p className="mt-2 text-sm text-white/55">
-              Izpolnjena so samo polja, prebrana s slike. Prazna dopolnite sami, preden shranite.
+              Prikazana so samo polja, ki so na dokumentu.
             </p>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              {FIELDS.map((field) => (
+              {filledFields(draft).map((field) => (
                 <DraftField
                   key={field.key}
                   label={field.label}
@@ -331,6 +318,10 @@ export function InvoiceDesk() {
       ) : null}
     </div>
   );
+}
+
+function filledFields(invoice: ScannedInvoice) {
+  return FIELDS.filter((field) => invoice[field.key].trim() !== "");
 }
 
 function DraftField({
