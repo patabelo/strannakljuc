@@ -13,12 +13,12 @@ import {
 } from "@/components/ui/sheet";
 
 const NAV_LINKS = [
-  { href: "/storitve", label: "Storitve" },
+  { href: "/#storitve", label: "Storitve" },
   { href: "/kako-delam", label: "Kako delam" },
-  { href: "/primeri", label: "Primeri" },
-  { href: "/cenik", label: "Cenik" },
-  { href: "/sodelovanje", label: "Sodelovanje" },
-  { href: "/o-meni", label: "O meni" },
+  { href: "/#referencie", label: "Primeri" },
+  { href: "/#cenik", label: "Cenik" },
+  { href: "/#sodelovanje", label: "Sodelovanje" },
+  { href: "/#o-meni", label: "O meni" },
   { href: "/aplikacija", label: "Orodja" },
 ];
 
@@ -49,7 +49,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-5">
           <Link
-            href="/kontakt"
+            href="/#kontakt"
             className="hidden bg-foreground px-3.5 py-2 text-[0.82rem] text-background transition-colors hover:bg-primary sm:inline"
           >
             Naročite stran
@@ -80,7 +80,7 @@ export function SiteHeader() {
                   </Link>
                 ))}
                 <Link
-                  href="/kontakt"
+                  href="/#kontakt"
                   onClick={() => setOpen(false)}
                   className="mt-6 w-fit bg-foreground px-4 py-2.5 text-sm text-background"
                 >

@@ -106,7 +106,7 @@ export function Collaboration() {
         58 € glede na 12 mesecev po 29 €.
       </p>
       <Link
-        href="/kontakt"
+        href="/#kontakt"
         className="mt-8 inline-block bg-foreground px-5 py-3 text-sm text-background transition-colors hover:bg-primary"
       >
         Dogovorite sodelovanje

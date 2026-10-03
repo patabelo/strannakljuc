@@ -191,7 +191,7 @@ export default function HowIBuildPage() {
             lahko prebere.
           </p>
           <Link
-            href="/kontakt"
+            href="/#kontakt"
             className="mt-8 inline-block bg-foreground px-5 py-3 text-sm text-background"
           >
             Naročite posvet

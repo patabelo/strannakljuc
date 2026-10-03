@@ -27,48 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${SITE.url}/storitve`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE.url}/kako-deluje`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE.url}/cenik`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${SITE.url}/sodelovanje`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE.url}/o-meni`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE.url}/vprasanja`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE.url}/kontakt`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.8,
-    },
-    {
       url: `${SITE.url}/aplikacija`,
       lastModified,
       changeFrequency: "monthly",
