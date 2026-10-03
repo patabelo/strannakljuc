@@ -15,15 +15,19 @@ import { readInvoiceImage } from "@/lib/read-invoice";
 
 const FIELDS: { key: keyof ScannedInvoice; label: string }[] = [
   { key: "izdajatelj", label: "Izdajatelj" },
-  { key: "davcnaStevilka", label: "Davčna številka" },
-  { key: "idZaDdv", label: "ID za DDV" },
-  { key: "stevilkaRacuna", label: "Številka računa" },
+  { key: "naslov", label: "Naslov" },
+  { key: "telefon", label: "Telefon" },
+  { key: "email", label: "E-pošta" },
+  { key: "kupec", label: "Kupec" },
+  { key: "stevilkaRacuna", label: "Številka dokumenta" },
   { key: "datumIzdaje", label: "Datum izdaje" },
   { key: "osnova", label: "Osnova brez DDV" },
   { key: "ddv", label: "DDV" },
   { key: "znesek", label: "Znesek za plačilo" },
-  { key: "iban", label: "IBAN" },
+  { key: "iban", label: "IBAN / TRR" },
   { key: "sklic", label: "Sklic" },
+  { key: "davcnaStevilka", label: "Davčna številka" },
+  { key: "idZaDdv", label: "ID za DDV" },
   { key: "eor", label: "EOR" },
   { key: "zoi", label: "ZOI" },
 ];
@@ -109,24 +113,13 @@ export function InvoiceDesk() {
       setError("Izdajatelj in znesek sta obvezna.");
       return;
     }
-    const saved: SavedInvoice = {
+    const saved = {
       ...draft,
-      izdajatelj: draft.izdajatelj.trim(),
-      davcnaStevilka: draft.davcnaStevilka.trim(),
-      idZaDdv: draft.idZaDdv.trim(),
-      stevilkaRacuna: draft.stevilkaRacuna.trim(),
-      datumIzdaje: draft.datumIzdaje.trim(),
-      osnova: draft.osnova.trim(),
-      ddv: draft.ddv.trim(),
-      znesek: draft.znesek.trim(),
-      iban: draft.iban.trim(),
-      sklic: draft.sklic.trim(),
-      eor: draft.eor.trim(),
-      zoi: draft.zoi.trim(),
       id: crypto.randomUUID(),
       filename: draftName,
       savedAt: new Date().toISOString(),
-    };
+    } satisfies SavedInvoice;
+    for (const field of FIELDS) saved[field.key] = draft[field.key].trim();
     commitInvoices([saved, ...invoices]);
     setDraft(null);
     setError(null);

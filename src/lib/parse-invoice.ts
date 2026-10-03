@@ -3,11 +3,12 @@ import type { ScanResponse, ScannedInvoice } from "@/lib/invoices";
 const NOT_AN_INVOICE =
   "Na fotografiji ni računa. Posnemite celoten račun, da so vidni izdajatelj, znesek ali IBAN. Podatkov ne izmišljujemo.";
 
-const MONEY = String.raw`\d{1,3}(?:\.\d{3})*,\d{2}|\d+,\d{2}`;
+const MONEY = String.raw`\d{1,3}(?:\.\d{3})+,\d{2}|\d+,\d{2}|\d+\.\d{2}`;
 
 export function parseInvoiceText(raw: string): ScanResponse {
   const text = raw
     .replace(/\u00a0/g, " ")
+    .replace(/\(\s*(gmail|outlook|yahoo|hotmail|siol)\b/gi, "@$1")
     .replace(/\bSl(?=\d{8}\b)/g, "SI")
     .replace(/\bS1(?=\d{8}\b)/g, "SI");
   const flat = text.replace(/[ \t]+/g, " ");
@@ -25,15 +26,17 @@ export function parseInvoiceText(raw: string): ScanResponse {
   const sklic = findSklic(flat);
   const stevilkaRacuna = findInvoiceNumber(flat);
   const datumIzdaje = findDate(flat);
-  const osnova = moneyAfter(flat, /osnova(?:\s*za\s*ddv)?|brez\s*ddv|vrednost\s*brez/i);
-  const ddv = moneyAfter(flat, /(?:^|\n)\s*ddv|znesek\s*ddv|\bdavek\b/i);
+  const osnova =
+    moneyAfter(flat, /osnova(?:\s*za\s*ddv)?/i) ||
+    moneyAfter(flat, /vrednost\s*brez\s*ddv|brez\s*ddv/i);
+  const ddv = findVatAmount(flat);
   const labeledTotal = moneyAfter(
     flat,
     /za\s*pla[čc]ilo|skupaj|skupni\s*znesek|znesek\s*z\s*ddv|total/i,
   );
   const znesek = labeledTotal || lastMoney(flat);
   const izdajatelj = findIssuer(lines);
-  const hasInvoiceWord = /ra[čc]un|faktura|invoice|blagajn/i.test(flat);
+  const hasInvoiceWord = /ra[čc]un|faktura|invoice|blagajn|ponudba|predra[čc]un/i.test(flat);
 
   const strong = [iban, idZaDdv, davcnaStevilka, zoi, eor, sklic, stevilkaRacuna].filter(Boolean);
   const looksLikeInvoice = (hasInvoiceWord && (Boolean(znesek) || strong.length > 0)) || strong.length >= 2;
@@ -44,6 +47,10 @@ export function parseInvoiceText(raw: string): ScanResponse {
 
   const invoice: ScannedInvoice = {
     izdajatelj,
+    naslov: findAddress(lines),
+    telefon: findPhone(flat),
+    email: findEmail(flat),
+    kupec: findCustomer(lines, izdajatelj),
     davcnaStevilka,
     idZaDdv,
     stevilkaRacuna,
@@ -97,28 +104,79 @@ function findEor(flat: string) {
 }
 
 function findSklic(flat: string) {
-  const labeled = flat.match(/sklic(?:\s*na\s*[šs]tevilko)?[:\s]*((?:SI|RF)\s*\d{2}(?:[\s-]?\d){2,22})/i);
+  const labeled = flat.match(
+    /sklic(?:\s*na\s*[šs]tevilko)?\s*[:.]?\s*((?:SI|RF)?\s*\d{2}(?:[\s-]*\d{2,}){1,4})/i,
+  );
   if (!labeled) return "";
   return labeled[1].replace(/\s+/g, " ").trim().toUpperCase();
 }
 
 function findInvoiceNumber(flat: string) {
   const match = flat.match(
-    /ra[čc]un(?:\s*(?:[šs]t\.?|[šs]tevilka))?[:\s#]*([A-Za-z0-9][A-Za-z0-9./-]{1,30})/i,
+    /(?:ponudba|predra[čc]un|ra[čc]un)\s*(?:[šs]t\.?|[šs]tevilka)?\s*[:.]?\s*([A-Za-z0-9][A-Za-z0-9./-]{1,30})/i,
   );
   if (!match) return "";
   const value = match[1].replace(/[.,;:]$/, "");
-  if (/^(za|z|od|in|na)$/i.test(value)) return "";
+  if (!/\d/.test(value)) return "";
+  if (/^(poravnate|valute|za|od|in|na|do)$/i.test(value)) return "";
   return value;
 }
 
 function findDate(flat: string) {
-  const labeled = flat.match(
-    /datum(?:\s*izdaje)?[:\s]*(\d{1,2}\.\s*\d{1,2}\.\s*\d{4})/i,
-  );
-  if (labeled) return labeled[1].replace(/\s/g, "");
-  const any = flat.match(/(\d{1,2}\.\s*\d{1,2}\.\s*\d{4})/);
+  const issued = flat.match(/(?:datum\s*izdaje|\bdne)\s*[:.]?\s*(\d{1,2}\.\s*\d{1,2}\.\s*\d{4})/i);
+  if (issued) return issued[1].replace(/\s/g, "");
+  const withoutExpiry = flat.replace(/velja\s*do\s*[:.]?\s*\d{1,2}\.\s*\d{1,2}\.\s*\d{4}/gi, "");
+  const any = withoutExpiry.match(/(\d{1,2}\.\s*\d{1,2}\.\s*\d{4})/);
   return any ? any[1].replace(/\s/g, "") : "";
+}
+
+function findVatAmount(flat: string) {
+  const pattern =
+    /(?<![\p{L}])ddv\s+\d{1,2}(?:[,.]\d+)?\s*%?\s*:?\s*(\d{1,3}(?:\.\d{3})*,\d{2}|\d+,\d{2}|\d+\.\d{2})/giu;
+  let found = "";
+  for (const match of flat.matchAll(pattern)) {
+    const start = match.index ?? 0;
+    const before = flat.slice(Math.max(0, start - 16), start);
+    if (/za\s*$|brez\s*$|id\s*$/i.test(before)) continue;
+    found = normalizeMoney(match[1]);
+  }
+  return found;
+}
+
+function findPhone(flat: string) {
+  const match = flat.match(/(?:telefon|tel\.?|gsm)\s*[:.]?\s*(\+?\d[\d\s/+()-]{6,18}\d)/i);
+  return match ? match[1].replace(/\s+/g, "").trim() : "";
+}
+
+function findEmail(flat: string) {
+  const match = flat.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+  return match ? match[0].toLowerCase() : "";
+}
+
+function findAddress(lines: string[]) {
+  const line = lines.find(
+    (item) =>
+      /\d+[a-z]?\s*,\s*\d{4}\s+\p{L}/iu.test(item) &&
+      !/ponudba|ra[čc]un|iban|trr|sklic|ddv/i.test(item),
+  );
+  return line ? clip(line) : "";
+}
+
+function findCustomer(lines: string[], issuer: string) {
+  for (const line of lines) {
+    const head = line.split(/\s+(?=dokument|naro[čc]ilnica|na[čc]in\s+pla)/i)[0]?.trim() ?? "";
+    if (isPerson(head, issuer)) return clip(head);
+  }
+  return "";
+}
+
+function isPerson(line: string, issuer: string) {
+  const issuerKey = issuer.slice(0, 12).toLowerCase();
+  if (!line || (issuerKey && line.toLowerCase().includes(issuerKey))) return false;
+  if (/\d|@|telefon|e-?mail|ponudba|ra[čc]un|ddv|iban|trr|sklic|s\.?\s*p\.?/i.test(line)) return false;
+  const words = line.split(/\s+/).filter((word) => word.toLowerCase() !== "in");
+  if (words.filter((word) => word.replace(/[.]/g, "").length >= 4).length < 2) return false;
+  return /^[\p{Lu}][\p{L}'’.-]+(?:\s+(?:in\s+)?[\p{Lu}][\p{L}'’.-]+){1,8}$/u.test(line);
 }
 
 function moneyAfter(flat: string, label: RegExp) {
@@ -126,7 +184,12 @@ function moneyAfter(flat: string, label: RegExp) {
     `(?:${label.source})(?:[^\\d]{0,12}\\d{1,2}(?:[,.]\\d+)?\\s*(?:%|pct))?[^\\d]{0,16}(${MONEY})`,
     "i",
   ).exec(flat);
-  return match?.[1] ?? "";
+  return match ? normalizeMoney(match[1]) : "";
+}
+
+function normalizeMoney(value: string) {
+  if (/^\d+\.\d{2}$/.test(value)) return value.replace(".", ",");
+  return value;
 }
 
 function lastMoney(flat: string) {
@@ -143,9 +206,11 @@ function findIssuer(lines: string[]) {
   }
 
   const company = lines.find((line) =>
-    /\b(d\.?\s*o\.?\s*o\.?|s\.?\s*p\.?|d\.?\s*d\.?)\b/i.test(line),
+    /(?:d\.?\s*o\.?\s*o\.?|s\.?\s*p\.?|d\.?\s*d\.?)/i.test(line),
   );
-  return company ? clip(company) : "";
+  if (!company) return "";
+  const trimmed = company.match(/^(.+?(?:d\.?\s*o\.?\s*o\.?|s\.?\s*p\.?|d\.?\s*d\.?))/i);
+  return clip(trimmed?.[1] ?? company);
 }
 
 function clip(value: string) {

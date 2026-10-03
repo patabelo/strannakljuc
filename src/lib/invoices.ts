@@ -1,5 +1,9 @@
 export interface ScannedInvoice {
   izdajatelj: string;
+  naslov: string;
+  telefon: string;
+  email: string;
+  kupec: string;
   davcnaStevilka: string;
   idZaDdv: string;
   stevilkaRacuna: string;
@@ -15,6 +19,10 @@ export interface ScannedInvoice {
 
 export const EMPTY_INVOICE: ScannedInvoice = {
   izdajatelj: "",
+  naslov: "",
+  telefon: "",
+  email: "",
+  kupec: "",
   davcnaStevilka: "",
   idZaDdv: "",
   stevilkaRacuna: "",
@@ -102,6 +110,10 @@ function asSavedInvoice(value: unknown): SavedInvoice | null {
     savedAt: invoice.savedAt,
     izdajatelj: invoice.izdajatelj,
     znesek: invoice.znesek,
+    naslov: text(invoice.naslov),
+    telefon: text(invoice.telefon),
+    email: text(invoice.email),
+    kupec: text(invoice.kupec),
     davcnaStevilka: text(invoice.davcnaStevilka),
     idZaDdv: text(invoice.idZaDdv),
     stevilkaRacuna: text(invoice.stevilkaRacuna),
