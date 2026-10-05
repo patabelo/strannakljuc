@@ -101,7 +101,7 @@ export function SettingsDesk() {
       </h1>
       <p className="mt-4 max-w-2xl text-white/70">
         Vpišite svoje cene. Kalkulator ponudbe jih uporabi namesto slovenskega povprečja. Povpraševanja
-        prispejo na e-pošto, ki jo vpišete spodaj.
+        iz kalkulatorja prispejo na patrick@strannakljuc.si.
       </p>
 
       <form
@@ -125,13 +125,12 @@ export function SettingsDesk() {
             <span className="font-mono text-[0.68rem] tracking-[0.12em] text-white/50 uppercase">E-pošta za povpraševanja</span>
             <input
               type="email"
-              value={draft.notifyEmail}
-              onChange={(event) => setOverride({ ...draft, notifyEmail: event.target.value })}
-              placeholder="patrick@strannakljuc.si"
-              className="mt-1.5 w-full border border-white/15 bg-[#0c111b] px-3 py-2.5 text-sm outline-none focus:border-[#f2792c]"
+              value="patrick@strannakljuc.si"
+              readOnly
+              className="mt-1.5 w-full border border-white/15 bg-[#0c111b] px-3 py-2.5 text-sm text-white/80 outline-none"
             />
             <span className="mt-1.5 block text-xs text-white/40">
-              Povpraševanja iz kalkulatorja vedno prispejo na patrick@strannakljuc.si.
+              Fiksni naslov — Worker pošlje vsako povpraševanje sem.
             </span>
           </label>
           <label className="block">
