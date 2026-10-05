@@ -145,7 +145,7 @@ async function handleScan(request: Request): Promise<Response> {
   );
 }
 
-/** Draft lead inbox. In production this emails the same address as the contact form. */
+/** Calculator leads go to the site inbox; the customer's email is reply-to only. */
 async function handleLead(request: Request, env: Env): Promise<Response> {
   if (request.method !== "POST") {
     return json({ ok: false, error: "Dovoljena je samo metoda POST." }, 405);
