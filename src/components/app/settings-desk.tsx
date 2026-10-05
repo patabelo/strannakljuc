@@ -97,11 +97,11 @@ export function SettingsDesk() {
     <div>
       <p className="font-mono text-[0.72rem] tracking-[0.16em] text-[#f2792c] uppercase">Nastavitve</p>
       <h1 className="mt-3 max-w-xl font-display text-4xl tracking-[-0.03em] sm:text-5xl">
-        Vaš cenik in prejem povpraševanj.
+        Vaš cenik.
       </h1>
       <p className="mt-4 max-w-2xl text-white/70">
-        Vpišite svoje cene. Kalkulator ponudbe jih uporabi namesto slovenskega povprečja. Povpraševanja
-        iz kalkulatorja prispejo na patrick@strannakljuc.si.
+        Vpišite svoje cene. Kalkulator ponudbe jih uporabi namesto slovenskega povprečja. Stranka vpiše
+        svoj e-poštni naslov; povpraševanje pride na patrick@strannakljuc.si.
       </p>
 
       <form
@@ -113,25 +113,13 @@ export function SettingsDesk() {
         }}
       >
         <section className="grid gap-4 border border-white/10 bg-[#10151f] p-5 sm:grid-cols-2">
-          <label className="block sm:col-span-2">
+          <label className="block">
             <span className="font-mono text-[0.68rem] tracking-[0.12em] text-white/50 uppercase">Ime podjetja</span>
             <input
               value={draft.companyName}
               onChange={(event) => setOverride({ ...draft, companyName: event.target.value })}
               className="mt-1.5 w-full border border-white/15 bg-[#0c111b] px-3 py-2.5 text-sm outline-none focus:border-[#f2792c]"
             />
-          </label>
-          <label className="block">
-            <span className="font-mono text-[0.68rem] tracking-[0.12em] text-white/50 uppercase">E-pošta za povpraševanja</span>
-            <input
-              type="email"
-              value="patrick@strannakljuc.si"
-              readOnly
-              className="mt-1.5 w-full border border-white/15 bg-[#0c111b] px-3 py-2.5 text-sm text-white/80 outline-none"
-            />
-            <span className="mt-1.5 block text-xs text-white/40">
-              Fiksni naslov — Worker pošlje vsako povpraševanje sem.
-            </span>
           </label>
           <label className="block">
             <span className="font-mono text-[0.68rem] tracking-[0.12em] text-white/50 uppercase">Telefon</span>
