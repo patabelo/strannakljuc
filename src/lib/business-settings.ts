@@ -1,4 +1,5 @@
 import { DEFAULT_UNIT_PRICES, type UnitPrices } from "@/lib/quotes";
+import { SITE } from "@/lib/site";
 
 export interface BusinessSettings {
   companyName: string;
@@ -12,9 +13,9 @@ const STORAGE_KEY = "strannakljuc-nastavitve";
 const listeners = new Set<() => void>();
 
 export const DEFAULT_SETTINGS: BusinessSettings = {
-  companyName: "",
-  notifyEmail: "",
-  phone: "",
+  companyName: SITE.name,
+  notifyEmail: SITE.email,
+  phone: SITE.phoneDisplay,
   customized: false,
   prices: DEFAULT_UNIT_PRICES,
 };
@@ -48,9 +49,18 @@ function readStored(): BusinessSettings {
     if (!raw) return DEFAULT_SETTINGS;
     const parsed = JSON.parse(raw) as Partial<BusinessSettings>;
     return {
-      companyName: typeof parsed.companyName === "string" ? parsed.companyName : "",
-      notifyEmail: typeof parsed.notifyEmail === "string" ? parsed.notifyEmail : "",
-      phone: typeof parsed.phone === "string" ? parsed.phone : "",
+      companyName:
+        typeof parsed.companyName === "string" && parsed.companyName.trim()
+          ? parsed.companyName
+          : DEFAULT_SETTINGS.companyName,
+      notifyEmail:
+        typeof parsed.notifyEmail === "string" && parsed.notifyEmail.trim()
+          ? parsed.notifyEmail
+          : DEFAULT_SETTINGS.notifyEmail,
+      phone:
+        typeof parsed.phone === "string" && parsed.phone.trim()
+          ? parsed.phone
+          : DEFAULT_SETTINGS.phone,
       customized: parsed.customized === true,
       prices: sanitizePrices(parsed.prices),
     };

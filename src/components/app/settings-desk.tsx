@@ -127,8 +127,12 @@ export function SettingsDesk() {
               type="email"
               value={draft.notifyEmail}
               onChange={(event) => setOverride({ ...draft, notifyEmail: event.target.value })}
+              placeholder="patrick@strannakljuc.si"
               className="mt-1.5 w-full border border-white/15 bg-[#0c111b] px-3 py-2.5 text-sm outline-none focus:border-[#f2792c]"
             />
+            <span className="mt-1.5 block text-xs text-white/40">
+              Povpraševanja iz kalkulatorja vedno prispejo na patrick@strannakljuc.si.
+            </span>
           </label>
           <label className="block">
             <span className="font-mono text-[0.68rem] tracking-[0.12em] text-white/50 uppercase">Telefon</span>
