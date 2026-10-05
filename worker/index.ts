@@ -125,7 +125,6 @@ type LeadPayload = {
   priceLow?: unknown;
   priceHigh?: unknown;
   priceLabel?: unknown;
-  notifyEmail?: unknown;
   companyName?: unknown;
   consent?: unknown;
   company?: unknown;
@@ -171,7 +170,6 @@ async function handleLead(request: Request, env: Env): Promise<Response> {
   const tradeName = clean(payload.tradeLabel, 40);
   const summary = clean(payload.summary, 2500);
   const priceLabel = clean(payload.priceLabel, 160);
-  const notifyEmail = clean(payload.notifyEmail, 120);
   const companyName = clean(payload.companyName, 80);
   const priceLow = numberInRange(payload.priceLow);
   const priceHigh = numberInRange(payload.priceHigh);
@@ -198,7 +196,7 @@ async function handleLead(request: Request, env: Env): Promise<Response> {
   ]
     .filter(Boolean)
     .join("\n");
-  const recipient = isEmail(notifyEmail) ? notifyEmail : TO;
+  // Always deliver calculator leads to the site inbox — never trust client notifyEmail for routing.
   const html = text
     .split("\n")
     .map((line) => `<p>${escapeHtml(line)}</p>`)
@@ -207,13 +205,13 @@ async function handleLead(request: Request, env: Env): Promise<Response> {
   try {
     const message = {
       from: FROM,
+      to: TO,
       replyTo: { email, name: `${firstName} ${lastName}` },
       subject,
       text,
       html,
     };
-    await env.EMAIL.send({ ...message, to: recipient });
-    if (recipient !== TO) await env.EMAIL.send({ ...message, to: TO });
+    await env.EMAIL.send(message);
   } catch (error) {
     console.error("lead email failed", error instanceof Error ? error.message : error);
     return json(

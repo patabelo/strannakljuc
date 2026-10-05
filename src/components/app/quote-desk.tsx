@@ -25,6 +25,7 @@ import {
   type TradeId,
   type YesNo,
 } from "@/lib/quotes";
+import { SITE } from "@/lib/site";
 
 const TRADES: { id: TradeId; label: string; note: string }[] = [
   { id: "fasaderstvo", label: "Fasaderstvo", note: "Fasada z izolacijo" },
@@ -106,7 +107,7 @@ export function QuoteDesk() {
           priceLow: quote.low,
           priceHigh: quote.high,
           priceLabel: priceLine(quote),
-          notifyEmail: settings.notifyEmail,
+          notifyEmail: settings.notifyEmail || SITE.email,
           companyName: settings.companyName,
           consent: true,
           company: lead.company,
