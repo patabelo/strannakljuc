@@ -4,16 +4,16 @@ import { SITE } from "@/lib/site";
 
 export function About() {
   return (
-    <section id="o-meni" className="border-y border-white/10 bg-black/50 text-foreground backdrop-blur-md">
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+    <section id="o-meni" className="border-y border-white/10 text-foreground">
+      <div className="glass-panel mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
         <div>
-          <p className="font-mono text-[0.72rem] tracking-[0.16em] text-foreground/55 uppercase">
+          <p className="font-mono text-[0.72rem] tracking-[0.16em] text-foreground/60 uppercase">
             O meni
           </p>
           <p className="mt-6 font-display text-4xl leading-none tracking-[-0.04em] sm:text-5xl">
             {SITE.person.name}
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-foreground/65">
+          <p className="mt-4 text-sm leading-relaxed text-foreground/72">
             {SITE.person.legalName}
             <br />
             Ljutomer · naročila po vsej Sloveniji
@@ -24,7 +24,7 @@ export function About() {
           <h2 className="max-w-[18ch] font-display text-3xl leading-[1.05] tracking-[-0.03em] sm:text-[2.7rem]">
             Kdo sem?
           </h2>
-          <div className="mt-6 max-w-xl space-y-4 text-[1.02rem] leading-relaxed text-foreground/78">
+          <div className="mt-6 max-w-xl space-y-4 text-[1.02rem] leading-relaxed text-foreground/84">
             <p>
               Sem <strong className="font-semibold text-foreground">Patrick Belcl s.p.</strong> iz
               Ljutomera (Mota 51e, 9240). Spletne strani izdelujem pod imenom Stran

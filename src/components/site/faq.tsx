@@ -18,17 +18,17 @@ export function Faq() {
           title="Pogosta vprašanja o ceni, roku in orodjih"
         />
 
-        <Accordion className="mt-8 border-t border-foreground/15">
+        <Accordion className="glass-panel mt-8 px-4 sm:px-6">
           {FAQS.map((faq) => (
             <AccordionItem
               key={faq.question}
               value={faq.question}
-              className="border-b border-foreground/15"
+              className="border-b border-white/12 last:border-b-0"
             >
               <AccordionTrigger className="py-4 font-display text-lg font-medium tracking-[-0.02em] hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="pb-5 text-sm leading-relaxed text-muted-foreground">
+              <AccordionContent className="pb-5 text-sm leading-relaxed text-foreground/80">
                 <RichText text={faq.answer} />
               </AccordionContent>
             </AccordionItem>

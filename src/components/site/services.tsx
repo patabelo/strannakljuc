@@ -115,7 +115,7 @@ export function SectionHeading({
   description?: ReactNode;
 }) {
   return (
-    <div className="grid gap-6 border-t border-foreground/15 pt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-end">
+    <div className="glass-copy grid gap-6 px-5 py-6 sm:px-7 sm:py-7 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-end">
       <div>
         <p className="font-mono text-[0.72rem] tracking-[0.16em] text-primary uppercase">
           {index ? `${index} — ` : ""}
@@ -126,7 +126,7 @@ export function SectionHeading({
         </h2>
       </div>
       {description ? (
-        <p className="max-w-md text-[0.95rem] leading-relaxed text-muted-foreground lg:justify-self-end lg:pb-1">
+        <p className="max-w-md text-[0.95rem] leading-relaxed text-foreground/80 lg:justify-self-end lg:pb-1">
           {description}
         </p>
       ) : null}
