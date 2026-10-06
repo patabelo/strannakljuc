@@ -10,14 +10,14 @@ export function Hero() {
   return (
     <section className="mx-auto max-w-6xl px-5 pt-14 pb-6 sm:px-8 sm:pt-20">
       <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-        <div>
+        <div className="glass-copy px-5 py-6 sm:px-7 sm:py-8">
           <p className="font-mono text-[0.72rem] tracking-[0.18em] text-primary uppercase">
             01 — Izdelava
           </p>
           <h1 className="mt-5 max-w-[12ch] font-display text-[2.7rem] leading-[0.96] font-medium tracking-[-0.04em] sm:text-6xl lg:text-[4.15rem]">
             Spletne strani, ki spremenijo obiskovalce v stranke.
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/82">
             Sem <strong className="font-semibold text-foreground">Patrick Belcl s.p.</strong> iz
             Ljutomera. Spletno stran izdelam v{" "}
             <strong className="font-semibold text-foreground">5–7 dneh</strong>. Uvodna
@@ -35,12 +35,12 @@ export function Hero() {
             </Link>
             <Link
               href="/#referencie"
-              className="text-sm underline decoration-foreground/30 underline-offset-[5px] hover:decoration-foreground"
+              className="text-sm underline decoration-foreground/40 underline-offset-[5px] hover:decoration-foreground"
             >
               Primeri strani
             </Link>
           </div>
-          <p className="mt-6 max-w-xl text-sm text-muted-foreground">
+          <p className="mt-6 max-w-xl text-sm text-foreground/75">
             Na voljo sem za nove projekte v tem mesecu. Pišete in kličete mene,
             brez posrednika. Odgovorim običajno isti dan. Po objavi je
             gostovanje 29 € na mesec ali 290 € na leto.
@@ -50,14 +50,14 @@ export function Hero() {
         <PreviewFrame />
       </div>
 
-      <dl className="mt-16 grid border-y border-foreground/15 sm:grid-cols-3">
+      <dl className="glass-panel mt-16 grid sm:grid-cols-3">
         {FACTS.map((fact) => (
           <div
             key={fact.label}
-            className="border-b border-foreground/15 py-5 last:border-b-0 sm:border-b-0 sm:px-6 sm:first:pl-0 sm:not-first:border-l"
+            className="border-b border-white/10 px-5 py-5 last:border-b-0 sm:border-b-0 sm:px-6 sm:first:pl-6 sm:not-first:border-l"
           >
             <dt className="font-display text-[1.7rem] tracking-[-0.03em]">{fact.value}</dt>
-            <dd className="mt-1 max-w-[22ch] text-sm leading-snug text-muted-foreground">
+            <dd className="mt-1 max-w-[22ch] text-sm leading-snug text-foreground/75">
               {fact.label}
             </dd>
           </div>

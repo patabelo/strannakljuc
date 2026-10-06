@@ -10,16 +10,21 @@ const POINTS = [
 export function Takeaways() {
   return (
     <section aria-labelledby="poudarki" className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
-      <h2 id="poudarki" className="font-display text-2xl tracking-[-0.03em] sm:text-3xl">
-        Ključni poudarki
-      </h2>
-      <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-        {POINTS.map((point) => (
-          <li key={point} className="border-t border-foreground/15 pt-4 text-sm leading-relaxed text-muted-foreground">
-            <RichText text={point} />
-          </li>
-        ))}
-      </ul>
+      <div className="glass-panel px-5 py-6 sm:px-7 sm:py-8">
+        <h2 id="poudarki" className="font-display text-2xl tracking-[-0.03em] sm:text-3xl">
+          Ključni poudarki
+        </h2>
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+          {POINTS.map((point) => (
+            <li
+              key={point}
+              className="border-t border-white/12 pt-4 text-sm leading-relaxed text-foreground/80"
+            >
+              <RichText text={point} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

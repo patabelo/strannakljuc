@@ -33,14 +33,14 @@ export function Process() {
         description="Štirje koraki: pogovor, osnutek, izdelava in objava. Enostranska stran je objavljena v 5–7 delovnih dneh po potrditvi osnutka. Več podstrani traja 2–3 tedne."
       />
 
-      <ol className="mt-12 grid gap-px bg-foreground/15 sm:grid-cols-2 lg:grid-cols-4">
+      <ol className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {STEPS.map((step, index) => (
-          <li key={step.title} className="bg-black/40 p-6 backdrop-blur-sm">
+          <li key={step.title} className="glass-copy p-6">
             <span className="font-mono text-xs text-primary">
               {String(index + 1).padStart(2, "0")}
             </span>
             <h3 className="mt-6 font-display text-xl tracking-[-0.02em]">{step.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-3 text-sm leading-relaxed text-foreground/80">
               {step.description}
             </p>
           </li>
