@@ -138,7 +138,7 @@ export function ContactForm() {
           placeholder="janez@podjetje.si"
           className={fieldClass}
         />
-        <p className="text-xs text-white/45">Za odgovor. Sporočilo pride name na {SITE.email}.</p>
+        <p className="text-xs text-white/45">Za odgovor. Sporočilo pride name.</p>
       </div>
       <div className="flex flex-col gap-1">
         <label htmlFor="message" className="font-mono text-[0.68rem] tracking-[0.14em] uppercase">

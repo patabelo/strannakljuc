@@ -12,7 +12,8 @@ interface Env {
   };
 }
 
-const TO = "patrick@strannakljuc.si";
+// Verified Cloudflare destination (patrick@strannakljuc.si cannot receive verification mail yet).
+const TO = "patrick.belcl@gmail.com";
 const FROM = { email: "povprasevanje@strannakljuc.si", name: "Stran na ključ" };
 
 type Payload = {

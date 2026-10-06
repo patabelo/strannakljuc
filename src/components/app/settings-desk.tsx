@@ -101,7 +101,7 @@ export function SettingsDesk() {
       </h1>
       <p className="mt-4 max-w-2xl text-white/70">
         Vpišite svoje cene. Kalkulator ponudbe jih uporabi namesto slovenskega povprečja. Stranka vpiše
-        svoj e-poštni naslov; povpraševanje pride na patrick@strannakljuc.si.
+        svoj e-poštni naslov; povpraševanje pride vam na e-pošto.
       </p>
 
       <form
