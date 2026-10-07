@@ -1,0 +1,42 @@
+========================================
+ZAGON: samo AD2 (priporočeno)
+AD1 je pripravljen, če želite drugi oglas.
+AD3 — izključen.
+========================================
+
+
+========================================
+AD2 — HITROST / ZAUPANJE  (Feed 4:5)  ★ ZAGON
+Creative: creatives/meta-oglas-hitrost-4x5.jpg
+URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost
+========================================
+
+PRIMARY TEXT:
+Od potrjenega osnutka do objavljene strani v 5–7 delovnih dneh.
+
+Stran sestavim vnaprej — brez WordPressa, brez vtičnikov, ki bi stran upočasnili.
+Dobite jasno ponudbo, kontakt, ki dela na mobitelu, in stran, ki je pripravljena za Google.
+
+Za s.p., zasebnike in mala podjetja, ki potrebujejo rezultat — ne predstavitvenih sestankov.
+
+HEADLINE: Od zamisli do objave v 5–7 dneh
+DESCRIPTION: Enostranska stran · brez agencije
+CTA: Learn more
+Website URL: https://strannakljuc.si
+
+
+========================================
+AD1 — IZDELAVA  (Feed 1:1)  · opcijsko
+Creative: creatives/meta-oglas-cena-1x1.jpg
+URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena
+========================================
+
+PRIMARY TEXT:
+Izdelava spletnih strani.
+Od 290 €, 5–7 dni do objave.
+Patrick Belcl s.p.
+
+HEADLINE: Izdelava spletnih strani
+DESCRIPTION: Od 290 € · 5–7 dni do objave
+CTA: Learn more
+Website URL: https://strannakljuc.si
