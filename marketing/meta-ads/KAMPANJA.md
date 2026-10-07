@@ -26,11 +26,12 @@ Profesionalni studio paket za zagon oglaševanja na Facebooku in Instagramu.
 
 | Ad set | Namen | Optimizacija | Dnevni proračun (priporočilo) |
 | --- | --- | --- | --- |
-| `AS1 \| Advantage+ / Broad SLO` | Učenje, široka dostava | Landing page views → po 15+ konverzijah Leads | 12–18 € |
-| `AS2 \| Obrtniki & lokalne storitve` | Interesi + lookalike kasneje | Landing page views | 10–15 € |
-| `AS3 \| Remarketing 7–30 dni` | Obiskovalci strani | Landing page views / Leads | 5–8 € |
+| `AS1 \| Advantage+ / Broad SLO` | Učenje, široka dostava — **zaženi najprej** | Landing page views → po 15+ konverzijah Leads | 8–10 € |
+| `AS2 \| Obrtniki & lokalne storitve` | Interesi — vključite po 7–10 dneh, če AS1 dela | Landing page views | 4–5 € |
+| `AS3 \| Remarketing 7–30 dni` | Obiskovalci strani — šele ko je nekaj prometa | Landing page views / Leads | 2–3 € |
 
-**Skupaj za zagon:** ~25–40 €/dan · prvih 10–14 dni za učenje.
+**Skupaj za zagon:** **8–10 €/dan** (samo AS1 + 3 oglasi) · prvih 10–14 dni.  
+Kasneje, če želite razširiti: do ~15 €/dan z AS2/AS3.
 
 ### Adi (ustvarjalni testi)
 
@@ -145,9 +146,9 @@ Povpraševanje pride neposredno vam.
 ### URL-ji z UTM
 
 ```
-https://strannakljuc.si/#kontakt?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena
-https://strannakljuc.si/#kontakt?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost
-https://strannakljuc.si/#kontakt?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator
+https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena#kontakt
+https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost#kontakt
+https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator#kontakt
 ```
 
 ### Pixel / Events (nujno pred skaliranjem)

@@ -1,7 +1,7 @@
 ========================================
 AD1 — CENA 290 €  (Feed 1:1)
 Creative: creatives/meta-oglas-cena-1x1.jpg
-URL: https://strannakljuc.si/#kontakt?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena
+URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena#kontakt
 ========================================
 
 PRIMARY TEXT:
@@ -22,7 +22,7 @@ CTA: Learn more
 ========================================
 AD2 — HITROST  (Feed 4:5)
 Creative: creatives/meta-oglas-hitrost-4x5.jpg
-URL: https://strannakljuc.si/#kontakt?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost
+URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost#kontakt
 ========================================
 
 PRIMARY TEXT:
@@ -42,7 +42,7 @@ CTA: Learn more
 ========================================
 AD3 — KALKULATOR  (Stories / Reels 9:16)
 Creative: creatives/meta-oglas-kalkulator-9x16.jpg
-URL: https://strannakljuc.si/#kontakt?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator
+URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator#kontakt
 ALT URL: https://strannakljuc.si/aplikacija/kalkulatorji?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator
 ========================================
 
