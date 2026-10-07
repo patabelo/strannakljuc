@@ -81,43 +81,42 @@ V vsakem cold ad setu zaženite 3 oglase (1 vizual × 1 kot), nato po 5–7 dneh
 
 ---
 
-## 3. Besedila oglasov (pripravljeno za paste)
+## 3. Besedila oglasov (studijska različica — za paste)
 
-### AD1 — Cena (primary)
+### AD1 — Stran, ki dela
 
 **Primary text**
 
 ```
-Spletna stran, ki jo stranka razume v treh sekundah.
+Vaša spletna stran naj dela eno stvar: pripelje stranko do klica ali sporočila.
 
-Sem Patrick Belcl s.p. — Stran na ključ.
-Enostransko stran izdelam v 5–7 dneh.
+Pri Stran na ključ izdelam enostransko stran, ki je jasna na telefonu, v 5–7 dneh.
 Uvodna cena: od 290 €.
 
-Pišete mene. Brez agencije. Brez posrednika.
-Odgovorim običajno isti dan.
+Delam sam — Patrick Belcl s.p.
+Pišete mene. Odgovorim običajno isti dan.
+Brez agencijske verige. Brez nepotrebnega čakanja.
 ```
 
-**Headline:** Spletna stran od 290 €  
-**Description:** 5–7 dni do objave · po vsej Sloveniji  
-**CTA:** Learn more / Contact us → „Naročite posvet“ (če na voljo)
+**Headline:** Spletna stran, ki dela.  
+**Description:** Od 290 € · 5–7 dni · po Sloveniji  
+**CTA:** Learn more
 
-### AD2 — Hitrost
+### AD2 — 5–7 dni
 
 **Primary text**
 
 ```
-Od zamisli do objavljene strani v enem tednu.
+Od potrjenega osnutka do objavljene strani v 5–7 delovnih dneh.
 
-Ni WordPressa. Ni vtičnikov.
-Stran sestavim vnaprej (Next.js) in jo objavim na Cloudflare.
+Stran sestavim vnaprej — brez WordPressa, brez vtičnikov, ki bi stran upočasnili.
+Dobite jasno ponudbo, kontakt, ki dela na mobitelu, in stran, ki je pripravljena za Google.
 
-Primerno za s.p., zasebnike in mala podjetja,
-ki potrebujejo jasno ponudbo in kontakt, ki dela na telefonu.
+Za s.p., zasebnike in mala podjetja, ki potrebujejo rezultat — ne predstavitvenih sestankov.
 ```
 
 **Headline:** Od zamisli do objave v 5–7 dneh  
-**Description:** Patrick Belcl · Ljutomer · delo po Sloveniji  
+**Description:** Enostranska stran · brez agencije  
 **CTA:** Learn more
 
 ### AD3 — Kalkulator ponudbe
@@ -125,17 +124,18 @@ ki potrebujejo jasno ponudbo in kontakt, ki dela na telefonu.
 **Primary text**
 
 ```
-Stranka na vaši strani vnese mere in vidi okvirno ceno.
-Vi dobite ime, telefon in e-pošto.
+Naj stranka na vaši strani sama izračuna okvirno ceno.
 
-Kalkulator ponudbe za fasaderstvo, kovinarstvo, gipsarijo in strehe.
-Samo orodje: 250 € · z enostransko stranjo: 540 €.
+Kalkulator ponudbe za fasaderstvo, kovinarstvo, gipsarijo in strehe:
+vnese mere → vidi ceno → pusti kontakt.
+Vi dobite povpraševanje neposredno na e-pošto.
 
-Povpraševanje pride neposredno vam.
+Samo orodje: od 250 €.
+Z enostransko stranjo: 540 €.
 ```
 
-**Headline:** Kalkulator ponudbe na vaši strani  
-**Description:** Stranka vidi ceno · vi dobite kontakt  
+**Headline:** Naj stranka sama izračuna ponudbo  
+**Description:** Vidi ceno · vi dobite kontakt  
 **CTA:** Learn more  
 **Link (opcijsko):** https://strannakljuc.si/aplikacija/kalkulatorji
 
