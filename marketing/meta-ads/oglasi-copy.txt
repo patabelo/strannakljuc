@@ -1,0 +1,60 @@
+========================================
+AD1 — CENA 290 €  (Feed 1:1)
+Creative: creatives/meta-oglas-cena-1x1.jpg
+URL: https://strannakljuc.si/#kontakt?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena
+========================================
+
+PRIMARY TEXT:
+Spletna stran, ki jo stranka razume v treh sekundah.
+
+Sem Patrick Belcl s.p. — Stran na ključ.
+Enostransko stran izdelam v 5–7 dneh.
+Uvodna cena: od 290 €.
+
+Pišete mene. Brez agencije. Brez posrednika.
+Odgovorim običajno isti dan.
+
+HEADLINE: Spletna stran od 290 €
+DESCRIPTION: 5–7 dni do objave · po vsej Sloveniji
+CTA: Learn more
+
+
+========================================
+AD2 — HITROST  (Feed 4:5)
+Creative: creatives/meta-oglas-hitrost-4x5.jpg
+URL: https://strannakljuc.si/#kontakt?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost
+========================================
+
+PRIMARY TEXT:
+Od zamisli do objavljene strani v enem tednu.
+
+Ni WordPressa. Ni vtičnikov.
+Stran sestavim vnaprej (Next.js) in jo objavim na Cloudflare.
+
+Primerno za s.p., zasebnike in mala podjetja,
+ki potrebujejo jasno ponudbo in kontakt, ki dela na telefonu.
+
+HEADLINE: Od zamisli do objave v 5–7 dneh
+DESCRIPTION: Patrick Belcl · Ljutomer · delo po Sloveniji
+CTA: Learn more
+
+
+========================================
+AD3 — KALKULATOR  (Stories / Reels 9:16)
+Creative: creatives/meta-oglas-kalkulator-9x16.jpg
+URL: https://strannakljuc.si/#kontakt?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator
+ALT URL: https://strannakljuc.si/aplikacija/kalkulatorji?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator
+========================================
+
+PRIMARY TEXT:
+Stranka na vaši strani vnese mere in vidi okvirno ceno.
+Vi dobite ime, telefon in e-pošto.
+
+Kalkulator ponudbe za fasaderstvo, kovinarstvo, gipsarijo in strehe.
+Samo orodje: 250 € · z enostransko stranjo: 540 €.
+
+Povpraševanje pride neposredno vam.
+
+HEADLINE: Kalkulator ponudbe na vaši strani
+DESCRIPTION: Stranka vidi ceno · vi dobite kontakt
+CTA: Learn more
