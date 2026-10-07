@@ -1,60 +1,60 @@
 ========================================
-AD1 — CENA 290 €  (Feed 1:1)
+AD1 — PONUDBA / CENA  (Feed 1:1)
 Creative: creatives/meta-oglas-cena-1x1.jpg
 URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena#kontakt
 ========================================
 
 PRIMARY TEXT:
-Spletna stran, ki jo stranka razume v treh sekundah.
+Vaša spletna stran naj dela eno stvar: pripelje stranko do klica ali sporočila.
 
-Sem Patrick Belcl s.p. — Stran na ključ.
-Enostransko stran izdelam v 5–7 dneh.
+Pri Stran na ključ izdelam enostransko stran, ki je jasna na telefonu, v 5–7 dneh.
 Uvodna cena: od 290 €.
 
-Pišete mene. Brez agencije. Brez posrednika.
-Odgovorim običajno isti dan.
+Delam sam — Patrick Belcl s.p.
+Pišete mene. Odgovorim običajno isti dan.
+Brez agencijske verige. Brez nepotrebnega čakanja.
 
-HEADLINE: Spletna stran od 290 €
-DESCRIPTION: 5–7 dni do objave · po vsej Sloveniji
+HEADLINE: Spletna stran, ki dela.
+DESCRIPTION: Od 290 € · 5–7 dni · po Sloveniji
 CTA: Learn more
 
 
 ========================================
-AD2 — HITROST  (Feed 4:5)
+AD2 — HITROST / ZAUPANJE  (Feed 4:5)
 Creative: creatives/meta-oglas-hitrost-4x5.jpg
 URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost#kontakt
 ========================================
 
 PRIMARY TEXT:
-Od zamisli do objavljene strani v enem tednu.
+Od potrjenega osnutka do objavljene strani v 5–7 delovnih dneh.
 
-Ni WordPressa. Ni vtičnikov.
-Stran sestavim vnaprej (Next.js) in jo objavim na Cloudflare.
+Stran sestavim vnaprej — brez WordPressa, brez vtičnikov, ki bi stran upočasnili.
+Dobite jasno ponudbo, kontakt, ki dela na mobitelu, in stran, ki je pripravljena za Google.
 
-Primerno za s.p., zasebnike in mala podjetja,
-ki potrebujejo jasno ponudbo in kontakt, ki dela na telefonu.
+Za s.p., zasebnike in mala podjetja, ki potrebujejo rezultat — ne predstavitvenih sestankov.
 
 HEADLINE: Od zamisli do objave v 5–7 dneh
-DESCRIPTION: Patrick Belcl · Ljutomer · delo po Sloveniji
+DESCRIPTION: Enostranska stran · brez agencije
 CTA: Learn more
 
 
 ========================================
-AD3 — KALKULATOR  (Stories / Reels 9:16)
+AD3 — KALKULATOR / LEAD ORODJE  (Stories / Reels 9:16)
 Creative: creatives/meta-oglas-kalkulator-9x16.jpg
 URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator#kontakt
 ALT URL: https://strannakljuc.si/aplikacija/kalkulatorji?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator
 ========================================
 
 PRIMARY TEXT:
-Stranka na vaši strani vnese mere in vidi okvirno ceno.
-Vi dobite ime, telefon in e-pošto.
+Naj stranka na vaši strani sama izračuna okvirno ceno.
 
-Kalkulator ponudbe za fasaderstvo, kovinarstvo, gipsarijo in strehe.
-Samo orodje: 250 € · z enostransko stranjo: 540 €.
+Kalkulator ponudbe za fasaderstvo, kovinarstvo, gipsarijo in strehe:
+vnese mere → vidi ceno → pusti kontakt.
+Vi dobite povpraševanje neposredno na e-pošto.
 
-Povpraševanje pride neposredno vam.
+Samo orodje: od 250 €.
+Z enostransko stranjo: 540 €.
 
-HEADLINE: Kalkulator ponudbe na vaši strani
-DESCRIPTION: Stranka vidi ceno · vi dobite kontakt
+HEADLINE: Naj stranka sama izračuna ponudbo
+DESCRIPTION: Vidi ceno · vi dobite kontakt
 CTA: Learn more

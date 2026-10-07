@@ -39,9 +39,9 @@ V vsakem cold ad setu zaženite 3 oglase (1 vizual × 1 kot), nato po 5–7 dneh
 
 | Ad | Kot | Creative | Format |
 | --- | --- | --- | --- |
-| `AD1 \| Cena 290` | Ponudba / cena | `creatives/meta-oglas-cena-1x1.jpg` | Feed 1:1 |
-| `AD2 \| Hitrost 5–7 dni` | Rok / zaupanje | `creatives/meta-oglas-hitrost-4x5.jpg` | Feed 4:5 |
-| `AD3 \| Kalkulator` | Produkt / orodje | `creatives/meta-oglas-kalkulator-9x16.jpg` | Stories / Reels 9:16 |
+| `AD1 \| Stran, ki dela` | Ponudba / rezultat | `creatives/meta-oglas-cena-1x1.jpg` | Feed 1:1 |
+| `AD2 \| 5–7 dni` | Hitrost / zaupanje | `creatives/meta-oglas-hitrost-4x5.jpg` | Feed 4:5 |
+| `AD3 \| Kalkulator` | Lead orodje | `creatives/meta-oglas-kalkulator-9x16.jpg` | Stories / Reels 9:16 |
 
 ---
 
@@ -193,7 +193,7 @@ https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk
 - [ ] Naloženi creativi iz `creatives/`
 - [ ] 3 oglasi z besedili zgoraj
 - [ ] UTM na vseh URL-jih
-- [ ] Proračun 25–40 €/dan, 10–14 dni brez večjih posegov
+- [ ] Proračun 8–10 €/dan (samo AS1), 10–14 dni brez večjih posegov
 - [ ] Tedenski pregled: CTR, CPC, CPL, kakovost leadov
 
 ---
