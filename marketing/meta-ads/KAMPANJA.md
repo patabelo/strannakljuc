@@ -33,15 +33,14 @@ Profesionalni studio paket za zagon oglaševanja na Facebooku in Instagramu.
 **Skupaj za zagon:** **8–10 €/dan** (samo AS1 + 3 oglasi) · prvih 10–14 dni.  
 Kasneje, če želite razširiti: do ~15 €/dan z AS2/AS3.
 
-### Adi (ustvarjalni testi)
+### Adi
 
-V vsakem cold ad setu zaženite 3 oglase (1 vizual × 1 kot), nato po 5–7 dneh izklopite najslabša 2.
+**Zagon: samo AD2.** AD1 je pripravljen kot opcija. AD3 (kalkulator) je izključen.
 
-| Ad | Kot | Creative | Format |
-| --- | --- | --- | --- |
-| `AD1 \| Stran, ki dela` | Ponudba / rezultat | `creatives/meta-oglas-cena-1x1.jpg` | Feed 1:1 |
-| `AD2 \| 5–7 dni` | Hitrost / zaupanje | `creatives/meta-oglas-hitrost-4x5.jpg` | Feed 4:5 |
-| `AD3 \| Kalkulator` | Lead orodje | `creatives/meta-oglas-kalkulator-9x16.jpg` | Stories / Reels 9:16 |
+| Ad | Status | Creative | Format | Website URL |
+| --- | --- | --- | --- | --- |
+| `AD2 \| 5–7 dni` | **Zagon** | `creatives/meta-oglas-hitrost-4x5.jpg` | Feed 4:5 | https://strannakljuc.si |
+| `AD1 \| Izdelava` | Opcijsko | `creatives/meta-oglas-cena-1x1.jpg` | Feed 1:1 | https://strannakljuc.si |
 
 ---
 
@@ -64,7 +63,6 @@ V vsakem cold ad setu zaženite 3 oglase (1 vizual × 1 kot), nato po 5–7 dneh
   - Small business owners
   - Entrepreneurship
   - Web design / Website builders
-  - Construction / Home improvement (za kalkulator kot)
   - Online advertising (lastniki, ki že oglašujejo)
 - Exclusion: obiskovalci zadnjih 7 dni (da ne kanibalizira remarketinga)
 
@@ -81,28 +79,9 @@ V vsakem cold ad setu zaženite 3 oglase (1 vizual × 1 kot), nato po 5–7 dneh
 
 ---
 
-## 3. Besedila oglasov (studijska različica — za paste)
+## 3. Besedila oglasov (za paste)
 
-### AD1 — Stran, ki dela
-
-**Primary text**
-
-```
-Vaša spletna stran naj dela eno stvar: pripelje stranko do klica ali sporočila.
-
-Pri Stran na ključ izdelam enostransko stran, ki je jasna na telefonu, v 5–7 dneh.
-Uvodna cena: od 290 €.
-
-Delam sam — Patrick Belcl s.p.
-Pišete mene. Odgovorim običajno isti dan.
-Brez agencijske verige. Brez nepotrebnega čakanja.
-```
-
-**Headline:** Spletna stran, ki dela.  
-**Description:** Od 290 € · 5–7 dni · po Sloveniji  
-**CTA:** Learn more
-
-### AD2 — 5–7 dni
+### AD2 — 5–7 dni ★ zagon
 
 **Primary text**
 
@@ -117,27 +96,23 @@ Za s.p., zasebnike in mala podjetja, ki potrebujejo rezultat — ne predstavitve
 
 **Headline:** Od zamisli do objave v 5–7 dneh  
 **Description:** Enostranska stran · brez agencije  
-**CTA:** Learn more
+**CTA:** Learn more  
+**Website URL:** https://strannakljuc.si
 
-### AD3 — Kalkulator ponudbe
+### AD1 — Izdelava (opcijsko)
 
 **Primary text**
 
 ```
-Naj stranka na vaši strani sama izračuna okvirno ceno.
-
-Kalkulator ponudbe za fasaderstvo, kovinarstvo, gipsarijo in strehe:
-vnese mere → vidi ceno → pusti kontakt.
-Vi dobite povpraševanje neposredno na e-pošto.
-
-Samo orodje: od 250 €.
-Z enostransko stranjo: 540 €.
+Izdelava spletnih strani.
+Od 290 €, 5–7 dni do objave.
+Patrick Belcl s.p.
 ```
 
-**Headline:** Naj stranka sama izračuna ponudbo  
-**Description:** Vidi ceno · vi dobite kontakt  
+**Headline:** Izdelava spletnih strani  
+**Description:** Od 290 € · 5–7 dni do objave  
 **CTA:** Learn more  
-**Link (opcijsko):** https://strannakljuc.si/aplikacija/kalkulatorji
+**Website URL:** https://strannakljuc.si
 
 ---
 
@@ -146,9 +121,8 @@ Z enostransko stranjo: 540 €.
 ### URL-ji z UTM
 
 ```
-https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena#kontakt
-https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost#kontakt
-https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator#kontakt
+https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost
+https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena
 ```
 
 ### Pixel / Events (nujno pred skaliranjem)
@@ -190,9 +164,9 @@ https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk
 - [ ] Domains verified (strannakljuc.si) za iOS tracking
 - [ ] Pixel nameščen + Lead event testiran
 - [ ] Payment method aktiven
-- [ ] Naloženi creativi iz `creatives/`
-- [ ] 3 oglasi z besedili zgoraj
-- [ ] UTM na vseh URL-jih
+- [ ] Naložen creative AD2 iz `creatives/`
+- [ ] En oglas (AD2) z besedilom zgoraj · URL https://strannakljuc.si
+- [ ] UTM na URL-ju
 - [ ] Proračun 8–10 €/dan (samo AS1), 10–14 dni brez večjih posegov
 - [ ] Tedenski pregled: CTR, CPC, CPL, kakovost leadov
 
@@ -202,9 +176,8 @@ https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk
 
 | Datoteka | Namen |
 | --- | --- |
-| `creatives/meta-oglas-cena-1x1.jpg` | Feed / carousel square |
-| `creatives/meta-oglas-hitrost-4x5.jpg` | Feed portrait |
-| `creatives/meta-oglas-kalkulator-9x16.jpg` | Stories / Reels |
+| `creatives/meta-oglas-hitrost-4x5.jpg` | **AD2 zagon** — Feed 4:5 |
+| `creatives/meta-oglas-cena-1x1.jpg` | AD1 opcijsko — Feed 1:1 |
 | `oglasi-copy.txt` | Besedila za hitro kopiranje |
 | `utm-povezave.txt` | Pripravljene UTM povezave |
 
@@ -212,4 +185,4 @@ https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk
 
 ## 8. Naslednji korak (po zagonu)
 
-Ko pride prvih 10–15 povpraševanj: sporočite, kateri oglas je zmagal — pripravim drugo generacijo creativov (A/B) in lookalike setup.
+Ko pride prvih leadov: po potrebi dodamo AD1 ali novo generacijo creativov (A/B) in lookalike.

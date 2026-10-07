@@ -1,28 +1,14 @@
 ========================================
-AD1 — PONUDBA / CENA  (Feed 1:1)
-Creative: creatives/meta-oglas-cena-1x1.jpg
-URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena#kontakt
+ZAGON: samo AD2 (priporočeno)
+AD1 je pripravljen, če želite drugi oglas.
+AD3 — izključen.
 ========================================
-
-PRIMARY TEXT:
-Vaša spletna stran naj dela eno stvar: pripelje stranko do klica ali sporočila.
-
-Pri Stran na ključ izdelam enostransko stran, ki je jasna na telefonu, v 5–7 dneh.
-Uvodna cena: od 290 €.
-
-Delam sam — Patrick Belcl s.p.
-Pišete mene. Odgovorim običajno isti dan.
-Brez agencijske verige. Brez nepotrebnega čakanja.
-
-HEADLINE: Spletna stran, ki dela.
-DESCRIPTION: Od 290 € · 5–7 dni · po Sloveniji
-CTA: Learn more
 
 
 ========================================
-AD2 — HITROST / ZAUPANJE  (Feed 4:5)
+AD2 — HITROST / ZAUPANJE  (Feed 4:5)  ★ ZAGON
 Creative: creatives/meta-oglas-hitrost-4x5.jpg
-URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost#kontakt
+URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad2_hitrost
 ========================================
 
 PRIMARY TEXT:
@@ -36,25 +22,21 @@ Za s.p., zasebnike in mala podjetja, ki potrebujejo rezultat — ne predstavitve
 HEADLINE: Od zamisli do objave v 5–7 dneh
 DESCRIPTION: Enostranska stran · brez agencije
 CTA: Learn more
+Website URL: https://strannakljuc.si
 
 
 ========================================
-AD3 — KALKULATOR / LEAD ORODJE  (Stories / Reels 9:16)
-Creative: creatives/meta-oglas-kalkulator-9x16.jpg
-URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator#kontakt
-ALT URL: https://strannakljuc.si/aplikacija/kalkulatorji?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad3_kalkulator
+AD1 — IZDELAVA  (Feed 1:1)  · opcijsko
+Creative: creatives/meta-oglas-cena-1x1.jpg
+URL: https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk_leads_cold&utm_content=ad1_cena
 ========================================
 
 PRIMARY TEXT:
-Naj stranka na vaši strani sama izračuna okvirno ceno.
+Izdelava spletnih strani.
+Od 290 €, 5–7 dni do objave.
+Patrick Belcl s.p.
 
-Kalkulator ponudbe za fasaderstvo, kovinarstvo, gipsarijo in strehe:
-vnese mere → vidi ceno → pusti kontakt.
-Vi dobite povpraševanje neposredno na e-pošto.
-
-Samo orodje: od 250 €.
-Z enostransko stranjo: 540 €.
-
-HEADLINE: Naj stranka sama izračuna ponudbo
-DESCRIPTION: Vidi ceno · vi dobite kontakt
+HEADLINE: Izdelava spletnih strani
+DESCRIPTION: Od 290 € · 5–7 dni do objave
 CTA: Learn more
+Website URL: https://strannakljuc.si
