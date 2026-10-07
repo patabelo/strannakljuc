@@ -27,12 +27,11 @@ https://strannakljuc.si/?utm_source=meta&utm_medium=paid_social&utm_campaign=snk
 
 **Primary text**
 ```
-Od potrjenega osnutka do objavljene strani v 5–7 delovnih dneh.
+Izdelujem spletne strani za vse — za s.p., zasebnike, mala in večja podjetja.
 
+Od potrjenega osnutka do objavljene strani v 5–7 delovnih dneh.
 Stran sestavim vnaprej — brez WordPressa, brez vtičnikov, ki bi stran upočasnili.
 Dobite jasno ponudbo, kontakt, ki dela na mobitelu, in stran, ki je pripravljena za Google.
-
-Za s.p., zasebnike in mala podjetja, ki potrebujejo rezultat — ne predstavitvenih sestankov.
 ```
 
 **Headline:** Od zamisli do objave v 5–7 dneh  
