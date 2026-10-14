@@ -13,7 +13,7 @@ type Plan = {
 const PLANS: Plan[] = [
   {
     name: "Osnovni",
-    price: "290 €",
+    price: "240 €",
     originalPrice: "390 €",
     tagline: "Za samostojne podjetnike in mikro podjetja",
     features: [
@@ -60,8 +60,8 @@ const PLANS: Plan[] = [
 const TOOL_PLANS: Plan[] = [
   {
     name: "Stran in ponudba",
-    price: "540 €",
-    originalPrice: "740 €",
+    price: "490 €",
+    originalPrice: "690 €",
     tagline: "Enostranska stran in kalkulator ponudbe",
     features: [
       "Enostranska spletna stran (paket Osnovni)",
@@ -73,8 +73,8 @@ const TOOL_PLANS: Plan[] = [
   },
   {
     name: "Stran in oboje",
-    price: "780 €",
-    originalPrice: "1080 €",
+    price: "730 €",
+    originalPrice: "1030 €",
     tagline: "Enostranska stran, kalkulator in zajem računov",
     features: [
       "Enostranska spletna stran (paket Osnovni)",
@@ -87,8 +87,8 @@ const TOOL_PLANS: Plan[] = [
   },
   {
     name: "Stran in računi",
-    price: "640 €",
-    originalPrice: "840 €",
+    price: "590 €",
+    originalPrice: "790 €",
     tagline: "Enostranska stran in zajem računov",
     features: [
       "Enostranska spletna stran (paket Osnovni)",
@@ -109,9 +109,9 @@ export function Pricing() {
         title="Koliko stane spletna stran?"
         description={
           <>
-            Uvodna cena enostranske strani je <ValidPrice>290 €</ValidPrice>. Do 5 podstrani
+            Uvodna cena enostranske strani je <ValidPrice>240 €</ValidPrice>. Do 5 podstrani
             stane <ValidPrice>490 €</ValidPrice>, do 10 podstrani <ValidPrice>890 €</ValidPrice>.
-            Enostranska stran z obema orodjema stane <ValidPrice>780 €</ValidPrice>. Cene spodaj
+            Enostranska stran z obema orodjema stane <ValidPrice>730 €</ValidPrice>. Cene spodaj
             so uvodne, dokler zbiram prve objavljene strani.
           </>
         }
@@ -155,12 +155,12 @@ export function Pricing() {
 }
 
 const PRICE_ROWS: { name: string; scope: string; intro: string; regular?: string }[] = [
-  { name: "Osnovni", scope: "1 stran, do 5 razdelkov, obrazec, 5–7 dni", intro: "290 €", regular: "390 €" },
+  { name: "Osnovni", scope: "1 stran, do 5 razdelkov, obrazec, 5–7 dni", intro: "240 €", regular: "390 €" },
   { name: "Standard", scope: "Do 5 podstrani, 30 dni podpore", intro: "490 €", regular: "690 €" },
   { name: "Premium", scope: "Do 10 podstrani, SLO/EN, 90 dni podpore", intro: "890 €", regular: "1190 €" },
-  { name: "Stran in ponudba", scope: "Osnovni + kalkulator ponudbe", intro: "540 €", regular: "740 €" },
-  { name: "Stran in računi", scope: "Osnovni + zajem računov", intro: "640 €", regular: "840 €" },
-  { name: "Stran in oboje", scope: "Osnovni + kalkulator in zajem računov", intro: "780 €", regular: "1080 €" },
+  { name: "Stran in ponudba", scope: "Osnovni + kalkulator ponudbe", intro: "490 €", regular: "690 €" },
+  { name: "Stran in računi", scope: "Osnovni + zajem računov", intro: "590 €", regular: "790 €" },
+  { name: "Stran in oboje", scope: "Osnovni + kalkulator in zajem računov", intro: "730 €", regular: "1030 €" },
   { name: "Kalkulator ponudbe", scope: "Dodatek k že obstoječi strani", intro: "250 €" },
   { name: "Zajem računov", scope: "Dodatek k že obstoječi strani", intro: "350 €" },
   { name: "Obe orodji", scope: "Dodatek k že obstoječi strani", intro: "490 €" },

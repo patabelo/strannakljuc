@@ -104,12 +104,12 @@ Dobite jasno ponudbo, kontakt, ki dela na mobitelu, in stran, ki je pripravljena
 
 ```
 Izdelava spletnih strani.
-Od 290 €, 5–7 dni do objave.
+Od 240 €, 5–7 dni do objave.
 Patrick Belcl s.p.
 ```
 
 **Headline:** Izdelava spletnih strani  
-**Description:** Od 290 € · 5–7 dni do objave  
+**Description:** Od 240 € · 5–7 dni do objave  
 **CTA:** Learn more  
 **Website URL:** https://strannakljuc.si
 

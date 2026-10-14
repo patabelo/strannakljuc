@@ -21,7 +21,7 @@ export const SITE = {
     countryName: "Slovenija",
   },
   description:
-    "Sem Patrick Belcl. Iz Ljutomera izdelam spletno stran v 5–7 dneh. Uvodna cena od 290 €. Kalkulator ponudbe in zajem računov.",
+    "Sem Patrick Belcl. Iz Ljutomera izdelam spletno stran v 5–7 dneh. Uvodna cena od 240 €. Kalkulator ponudbe in zajem računov.",
   // Leave empty until the profile exists — dummy "#" links hurt trust and SEO.
   social: {
     instagram: "",
@@ -42,7 +42,7 @@ export const FAQS = [
   {
     question: "Koliko stane izdelava spletne strani?",
     answer:
-      "Uvodne cene imam, dokler zbiram prve objavljene strani. Sem **Patrick Belcl s.p.** iz Ljutomera (Stran na ključ). **Osnovni** paket, ena stran z do 5 razdelki, stane **290 €** (redna cena 390 €). **Standard**, do 5 podstrani, stane **490 €** (690 €). **Premium**, do 10 podstrani, stane **890 €** (1190 €). Enostranska stran s kalkulatorjem ponudbe stane **540 €**, s zajemom računov **640 €**, z obema orodjema **780 €**. K že obstoječi strani kalkulator ponudbe stane **250 €**, zajem računov **350 €**, oboje **490 €**. Pred začetkom pripravim pisno ponudbo.",
+      "Uvodne cene imam, dokler zbiram prve objavljene strani. Sem **Patrick Belcl s.p.** iz Ljutomera (Stran na ključ). **Osnovni** paket, ena stran z do 5 razdelki, stane **240 €** (redna cena 390 €). **Standard**, do 5 podstrani, stane **490 €** (690 €). **Premium**, do 10 podstrani, stane **890 €** (1190 €). Enostranska stran s kalkulatorjem ponudbe stane **490 €**, s zajemom računov **590 €**, z obema orodjema **730 €**. K že obstoječi strani kalkulator ponudbe stane **250 €**, zajem računov **350 €**, oboje **490 €**. Pred začetkom pripravim pisno ponudbo.",
   },
   {
     question: "Koliko časa traja izdelava spletne strani?",
@@ -57,12 +57,12 @@ export const FAQS = [
   {
     question: "Kaj je kalkulator ponudbe?",
     answer:
-      "**Kalkulator ponudbe** stoji na strani obrtnika. Stranka izbere **fasaderstvo, kovinarstvo, gipsarijo ali strehe**, vnese mere in vidi okvirno ceno po ceniku, ki ga vnese lastnik. Nato pusti ime, telefon in e-pošto. Povpraševanje pride na e-pošto podjetja. Dokler lastnik ne shrani svojih cen, kalkulator pokaže slovensko povprečje in to tudi napiše. Orodje k obstoječi strani stane **250 €**, skupaj z enostransko stranjo **540 €**.",
+      "**Kalkulator ponudbe** stoji na strani obrtnika. Stranka izbere **fasaderstvo, kovinarstvo, gipsarijo ali strehe**, vnese mere in vidi okvirno ceno po ceniku, ki ga vnese lastnik. Nato pusti ime, telefon in e-pošto. Povpraševanje pride na e-pošto podjetja. Dokler lastnik ne shrani svojih cen, kalkulator pokaže slovensko povprečje in to tudi napiše. Orodje k obstoječi strani stane **250 €**, skupaj z enostransko stranjo **490 €**.",
   },
   {
     question: "Kaj je zajem računov?",
     answer:
-      "**Zajem računov** prebere prejeti račun iz fotografije ali PDF (JPG, PNG, WEBP, HEIC ali PDF, do **20 MB**). Besedilo se prebere v brskalniku, datoteka ne gre na strežnik. Če so na dokumentu, izpiše izdajatelja, znesek, DDV, TRR in sklic. Praznih polj ne pokaže in manjkajočih podatkov ne doda. Lastnik znesek preveri in izvozi CSV za računovodjo. To ni oddaja na FURS. Orodje k obstoječi strani stane **350 €**, z enostransko stranjo **640 €**.",
+      "**Zajem računov** prebere prejeti račun iz fotografije ali PDF (JPG, PNG, WEBP, HEIC ali PDF, do **20 MB**). Besedilo se prebere v brskalniku, datoteka ne gre na strežnik. Če so na dokumentu, izpiše izdajatelja, znesek, DDV, TRR in sklic. Praznih polj ne pokaže in manjkajočih podatkov ne doda. Lastnik znesek preveri in izvozi CSV za računovodjo. To ni oddaja na FURS. Orodje k obstoječi strani stane **350 €**, z enostransko stranjo **590 €**.",
   },
   {
     question: "Ali je stran narejena v WordPressu?",
@@ -87,7 +87,7 @@ export const FAQS = [
   {
     question: "Kaj če potrebujem samo eno stran?",
     answer:
-      "Paket **Osnovni** je ena stran z do **5 vsebinskih razdelkov**, kontaktnim obrazcem in osnovno pripravo za Google. Uvodna cena je **290 €**, rok je **5–7 delovnih dni**.",
+      "Paket **Osnovni** je ena stran z do **5 vsebinskih razdelkov**, kontaktnim obrazcem in osnovno pripravo za Google. Uvodna cena je **240 €**, rok je **5–7 delovnih dni**.",
   },
   {
     question: "Ali je stran prilagojena za mobilne telefone?",
