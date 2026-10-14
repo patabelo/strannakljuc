@@ -105,7 +105,7 @@ export function JsonLd() {
               description:
                 "Ena osredotočena spletna stran (do 5 vsebinskih razdelkov), prilagojena mobilnim napravam, z osnovno optimizacijo za Google iskalnik in kontaktnim obrazcem.",
             },
-            price: "290",
+            price: "240",
             priceCurrency: "EUR",
           },
           {
@@ -138,7 +138,7 @@ export function JsonLd() {
               description:
                 "Enostranska spletna stran s kalkulatorjem ponudbe. Stranka vnese mere, vidi okvirno ceno po vašem ceniku in pusti kontakt.",
             },
-            price: "540",
+            price: "490",
             priceCurrency: "EUR",
           },
           {
@@ -149,7 +149,7 @@ export function JsonLd() {
               description:
                 "Enostranska spletna stran z zajemom računov iz fotografije ali PDF, s preverjanjem zneska in izvozom preglednice za računovodjo.",
             },
-            price: "640",
+            price: "590",
             priceCurrency: "EUR",
           },
           {
@@ -160,7 +160,7 @@ export function JsonLd() {
               description:
                 "Enostranska spletna stran s kalkulatorjem ponudbe in zajemom računov.",
             },
-            price: "780",
+            price: "730",
             priceCurrency: "EUR",
           },
           {

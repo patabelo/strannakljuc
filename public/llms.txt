@@ -1,6 +1,6 @@
 # Stran na ključ
 
-> Sem Patrick Belcl s.p. iz Ljutomera. Spletno stran izdelam v 5–7 dneh. Uvodna cena enostranske strani je 290 €. Strani ne delam v WordPressu: sestavim jo vnaprej z Next.js in jo objavim na Cloudflare.
+> Sem Patrick Belcl s.p. iz Ljutomera. Spletno stran izdelam v 5–7 dneh. Uvodna cena enostranske strani je 240 €. Strani ne delam v WordPressu: sestavim jo vnaprej z Next.js in jo objavim na Cloudflare.
 
 - Spletno mesto: https://strannakljuc.si
 - Cenik: https://strannakljuc.si/#cenik
@@ -15,7 +15,7 @@
 
 ## Ključni poudarki
 
-- Enostranska stran: 290 €, rok 5–7 delovnih dni po potrditvi osnutka.
+- Enostranska stran: 240 €, rok 5–7 delovnih dni po potrditvi osnutka.
 - Standard do 5 podstrani: 490 €. Premium do 10 podstrani: 890 €.
 - Kalkulator ponudbe zbere okvirno ceno in kontakt. Zajem računov prebere fotografijo ali PDF v znesek, DDV in TRR. To ni oddaja na FURS.
 - Gostovanje: 29 €/mesec ali 290 €/leto (prihranek 58 € glede na 12 × 29 €). Vključuje .si domeno, https, kopije in do 2 manjša popravka na mesec.
@@ -34,12 +34,12 @@ Uvodne cene veljajo, dokler zbiram prve objavljene strani. Kjer je navedena redn
 
 | Paket | Obseg | Uvodna cena | Redna cena |
 | --- | --- | --- | --- |
-| Osnovni | 1 stran, do 5 razdelkov, 5–7 dni | 290 € | 390 € |
+| Osnovni | 1 stran, do 5 razdelkov, 5–7 dni | 240 € | 390 € |
 | Standard | Do 5 podstrani, 30 dni podpore | 490 € | 690 € |
 | Premium | Do 10 podstrani, SLO/EN, 90 dni | 890 € | 1190 € |
-| Stran in ponudba | Osnovni + kalkulator ponudbe | 540 € | 740 € |
-| Stran in računi | Osnovni + zajem računov | 640 € | 840 € |
-| Stran in oboje | Osnovni + obe orodji | 780 € | 1080 € |
+| Stran in ponudba | Osnovni + kalkulator ponudbe | 490 € | 690 € |
+| Stran in računi | Osnovni + zajem računov | 590 € | 790 € |
+| Stran in oboje | Osnovni + obe orodji | 730 € | 1030 € |
 | Kalkulator ponudbe | Dodatek k obstoječi strani | 250 € | |
 | Zajem računov | Dodatek k obstoječi strani | 350 € | |
 | Obe orodji | Dodatek k obstoječi strani | 490 € | |

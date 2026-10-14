@@ -3,7 +3,7 @@ import Link from "next/link";
 const FACTS = [
   { value: "5–7 dni", label: "do objavljene strani" },
   { value: "Ljutomer", label: "delo po vsej Sloveniji" },
-  { value: "od 290 €", label: "uvodna cena za prve stranke" },
+  { value: "od 240 €", label: "uvodna cena za prve stranke" },
 ];
 
 export function Hero() {
@@ -22,7 +22,7 @@ export function Hero() {
             Ljutomera. Spletno stran izdelam v{" "}
             <strong className="font-semibold text-foreground">5–7 dneh</strong>. Uvodna
             cena enostranske strani je{" "}
-            <strong className="font-semibold text-foreground">290 €</strong>. Na stran
+            <strong className="font-semibold text-foreground">240 €</strong>. Na stran
             lahko dodam <strong className="font-semibold text-foreground">kalkulator ponudbe</strong> in{" "}
             <strong className="font-semibold text-foreground">zajem računov</strong>.
           </p>

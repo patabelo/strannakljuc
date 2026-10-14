@@ -12,7 +12,7 @@ const SERVICES: {
   {
     title: "Enostranske spletne strani",
     description:
-      "Ena stran z do **5 razdelki**: ponudba, območje in kontakt na istem zaslonu. To je paket **Osnovni**, uvodna cena **290 €**, rok **5–7 delovnih dni**.",
+      "Ena stran z do **5 razdelki**: ponudba, območje in kontakt na istem zaslonu. To je paket **Osnovni**, uvodna cena **240 €**, rok **5–7 delovnih dni**.",
   },
   {
     title: "Spletne strani za podjetja",
@@ -47,14 +47,14 @@ const SERVICES: {
   {
     title: "Kalkulator ponudbe",
     description:
-      "Stranka izbere fasaderstvo, kovinarstvo, gipsarijo ali strehe, vnese mere in vidi ceno po vašem ceniku. Ime in telefon ostaneta v obrazcu, povpraševanje pride na vaš e-naslov. Samo orodje stane **250 €**, z enostransko stranjo **540 €**.",
+      "Stranka izbere fasaderstvo, kovinarstvo, gipsarijo ali strehe, vnese mere in vidi ceno po vašem ceniku. Ime in telefon ostaneta v obrazcu, povpraševanje pride na vaš e-naslov. Samo orodje stane **250 €**, z enostransko stranjo **490 €**.",
     href: "/aplikacija/kalkulatorji",
     linkLabel: "Odpri kalkulator ponudbe",
   },
   {
     title: "Zajem računov",
     description:
-      "Fotografija ali PDF (do **20 MB**) se v brskalniku odpre v znesek, DDV, TRR in sklic, če so na dokumentu. Datoteka ne gre na strežnik. Podatke preverite in izvozite CSV za računovodjo. To ni oddaja na FURS. Samo orodje stane **350 €**, z enostransko stranjo **640 €**.",
+      "Fotografija ali PDF (do **20 MB**) se v brskalniku odpre v znesek, DDV, TRR in sklic, če so na dokumentu. Datoteka ne gre na strežnik. Podatke preverite in izvozite CSV za računovodjo. To ni oddaja na FURS. Samo orodje stane **350 €**, z enostransko stranjo **590 €**.",
     href: "/aplikacija/racuni",
     linkLabel: "Odpri zajem računov",
   },
@@ -67,7 +67,7 @@ export function Services() {
         index="02"
         eyebrow="Storitve"
         title="Katere strani in orodja izdelam?"
-        description="Osnovni paket je ena stran za 290 € v 5–7 dneh. Standard do 5 podstrani stane 490 €, Premium do 10 podstrani 890 €. Kalkulator ponudbe in zajem računov se dodata k novi ali že obstoječi strani."
+        description="Osnovni paket je ena stran za 240 € v 5–7 dneh. Standard do 5 podstrani stane 490 €, Premium do 10 podstrani 890 €. Kalkulator ponudbe in zajem računov se dodata k novi ali že obstoječi strani."
       />
 
       <ol className="mt-12 border-t border-foreground/15">
