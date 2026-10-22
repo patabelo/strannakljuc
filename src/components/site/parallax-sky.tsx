@@ -2,7 +2,10 @@
 
 import { useEffect, useRef } from "react";
 
-/** Fixed night-sky layer that drifts slower than page scroll. */
+/**
+ * Fixed night-sky layer that drifts upward slower than page scroll.
+ * Uses a real image so object-fit can keep the Milky Way sharp and centered.
+ */
 export function ParallaxSky() {
   const layerRef = useRef<HTMLDivElement>(null);
 
@@ -15,8 +18,8 @@ export function ParallaxSky() {
 
     function sizeLayer() {
       if (!layer) return;
-      // Extra height covers the maximum parallax travel on long pages.
-      const travel = Math.max(window.innerHeight * 0.45, 280);
+      // Extra height = parallax travel; enough to feel motion without over-cropping.
+      const travel = Math.max(window.innerHeight * 0.35, 220);
       layer.style.height = `${window.innerHeight + travel}px`;
       layer.dataset.travel = String(travel);
     }
@@ -32,9 +35,9 @@ export function ParallaxSky() {
         1,
         document.documentElement.scrollHeight - window.innerHeight,
       );
-      const progress = Math.min(1, window.scrollY / maxScroll);
-      const offset = progress * travel;
-      layer.style.transform = `translate3d(0, ${offset}px, 0)`;
+      const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+      // Negative Y: sky rises as the page scrolls down (classic parallax).
+      layer.style.transform = `translate3d(0, ${-progress * travel}px, 0)`;
     }
 
     function onScroll() {
@@ -63,7 +66,24 @@ export function ParallaxSky() {
 
   return (
     <div className="parallax-sky" aria-hidden>
-      <div ref={layerRef} className="parallax-sky__layer" />
+      <div ref={layerRef} className="parallax-sky__layer">
+        <picture>
+          <source
+            media="(min-width: 1100px)"
+            srcSet="/space-bg.webp"
+            type="image/webp"
+          />
+          <img
+            src="/space-bg-sm.webp"
+            alt=""
+            width={3840}
+            height={2160}
+            decoding="async"
+            fetchPriority="low"
+            draggable={false}
+          />
+        </picture>
+      </div>
       <div className="parallax-sky__veil" />
     </div>
   );
